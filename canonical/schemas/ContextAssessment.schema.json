@@ -1,0 +1,79 @@
+{
+  "$id": "https://keensight.local/v4.2/ContextAssessment.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "account_subject_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "company_claim_allowed": {
+      "const": false
+    },
+    "context_fact_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "context_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "context_subject_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "join_rule_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "link_fact_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "purpose": {
+      "const": "INTERNAL_RESEARCH"
+    },
+    "relationship_strength": {
+      "enum": [
+        "FOOTPRINT",
+        "PROVIDER_REPORT",
+        "MEMBERSHIP"
+      ]
+    },
+    "run_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "ELIGIBLE",
+        "ABSTAINED"
+      ]
+    },
+    "tenant_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "context_id",
+    "tenant_id",
+    "run_id",
+    "account_subject_id",
+    "context_subject_id",
+    "join_rule_id",
+    "link_fact_id",
+    "context_fact_ids",
+    "relationship_strength",
+    "purpose",
+    "company_claim_allowed",
+    "status"
+  ],
+  "title": "ContextAssessment",
+  "type": "object"
+}

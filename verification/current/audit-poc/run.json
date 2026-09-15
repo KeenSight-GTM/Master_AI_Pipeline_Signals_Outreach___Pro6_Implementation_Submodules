@@ -1,0 +1,28 @@
+{
+  "source_root": "/mnt/data/keensight-ai-pipeline",
+  "steps": [
+    {
+      "name": "poc-requirements",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests",
+        "--tb=short",
+        "--junitxml=/mnt/data/_assembly/audit-poc-current/audit.xml"
+      ],
+      "cwd": "/mnt/data/keensight-ai-pipeline/audits/poc",
+      "returncode": 1,
+      "expected_returncode": 0,
+      "passed": false,
+      "elapsed_seconds": 5.467,
+      "stdout_file": "01-poc-requirements.stdout.txt",
+      "stderr_file": "01-poc-requirements.stderr.txt"
+    }
+  ],
+  "all_expected_exit_codes": false,
+  "scope": "LOCAL_WORKSPACE_COMMANDS_NOT_PRODUCTION_E2E"
+}

@@ -1,0 +1,136 @@
+[
+  {
+    "id": "W1",
+    "kind": "uploaded_workbook",
+    "path": "Scrapling_Fingerprint_Command_Suite(2).xlsx",
+    "sha256": "285558c8e4b40007c956cd5557f88f053f978702e86c6facdc430f26e9e1d807",
+    "observed": "11 worksheets; 38 distinct command rows in 02_COMMAND_CATALOG; 17 extraction commands. Separate 99_MASTER_ALL catalog is referenced but not present in this workbook."
+  },
+  {
+    "id": "A1",
+    "kind": "uploaded_baseline",
+    "path": "keensight-architecture-v4.1.zip",
+    "sha256": "2aa572cbbf9d102578dc07731c5acb3ad3f4c8d4445d53110be54308d24a0cbb",
+    "observed": "75 schemas; 213 predicates; 89 metrics; 225 fixture records; original 588 tests rerun successfully. Known F change-record authorization gap remains unpatched."
+  },
+  {
+    "id": "S1",
+    "kind": "github_source",
+    "repo": "KeenSight-GTM/SEO-FingerPrint-Scanner-Basic",
+    "commit": "66358454c98addb8fe297cb5192a32e2bd98f732",
+    "path": "pyproject.toml",
+    "url": "https://github.com/KeenSight-GTM/SEO-FingerPrint-Scanner-Basic/blob/66358454c98addb8fe297cb5192a32e2bd98f732/pyproject.toml",
+    "observed": "Pins scrapling[fetchers]==0.4.15; Python >=3.11; scanner/catalog/rules CLI entrypoints."
+  },
+  {
+    "id": "S2",
+    "kind": "github_source",
+    "repo": "KeenSight-GTM/SEO-FingerPrint-Scanner-Basic",
+    "commit": "66358454c98addb8fe297cb5192a32e2bd98f732",
+    "path": "seo_scanner/data/fingerprints/manifest.json",
+    "url": "https://github.com/KeenSight-GTM/SEO-FingerPrint-Scanner-Basic/blob/66358454c98addb8fe297cb5192a32e2bd98f732/seo_scanner/data/fingerprints/manifest.json",
+    "observed": "Manifest reports 739 total and 511 runtime-eligible definitions; largely candidate statuses; five rule packs. Entire donor rule corpus was not executed in this review."
+  },
+  {
+    "id": "S3",
+    "kind": "github_source",
+    "repo": "KeenSight-GTM/SEO-FingerPrint-Scanner-Basic",
+    "commit": "66358454c98addb8fe297cb5192a32e2bd98f732",
+    "path": "seo_scanner/rules.py",
+    "url": "https://github.com/KeenSight-GTM/SEO-FingerPrint-Scanner-Basic/blob/66358454c98addb8fe297cb5192a32e2bd98f732/seo_scanner/rules.py",
+    "observed": "Inspected lines 1\u2013245: data-driven rules, candidate runtime statuses, RuleMatch, PageEvidence, bounded display samples."
+  },
+  {
+    "id": "S4",
+    "kind": "github_source",
+    "repo": "KeenSight-GTM/SEO-FingerPrint-Scanner-Basic",
+    "commit": "66358454c98addb8fe297cb5192a32e2bd98f732",
+    "path": "seo_scanner/runtime_fingerprints.py",
+    "url": "https://github.com/KeenSight-GTM/SEO-FingerPrint-Scanner-Basic/blob/66358454c98addb8fe297cb5192a32e2bd98f732/seo_scanner/runtime_fingerprints.py",
+    "observed": "Combines data-driven and legacy detectors; deduplication by category/key/value can discard separate rule supports."
+  },
+  {
+    "id": "S5",
+    "kind": "github_source",
+    "repo": "KeenSight-GTM/SEO-FingerPrint-Scanner-Basic",
+    "commit": "66358454c98addb8fe297cb5192a32e2bd98f732",
+    "path": "seo_scanner/research.py",
+    "url": "https://github.com/KeenSight-GTM/SEO-FingerPrint-Scanner-Basic/blob/66358454c98addb8fe297cb5192a32e2bd98f732/seo_scanner/research.py",
+    "observed": "Inspected lines 1\u2013245: candidate/review/promotion tables; 3/10/50 unique-domain scheduling thresholds; auto-promotion disabled by default."
+  },
+  {
+    "id": "S6",
+    "kind": "github_source",
+    "repo": "KeenSight-GTM/SEO-FingerPrint-Scanner-Basic",
+    "commit": "66358454c98addb8fe297cb5192a32e2bd98f732",
+    "path": "RULE_PROMOTION.md",
+    "url": "https://github.com/KeenSight-GTM/SEO-FingerPrint-Scanner-Basic/blob/66358454c98addb8fe297cb5192a32e2bd98f732/RULE_PROMOTION.md",
+    "observed": "Documents candidate export/review, production validation, explicit candidate promotion and install flow; this is distinct from ordinary runtime status inclusion."
+  },
+  {
+    "id": "S7",
+    "kind": "github_source",
+    "repo": "KeenSight-GTM/SEO-FingerPrint-Scanner-Basic",
+    "commit": "66358454c98addb8fe297cb5192a32e2bd98f732",
+    "path": "seo_scanner/extractors.py",
+    "url": "https://github.com/KeenSight-GTM/SEO-FingerPrint-Scanner-Basic/blob/66358454c98addb8fe297cb5192a32e2bd98f732/seo_scanner/extractors.py",
+    "observed": "Inspected lines 1\u2013220: structured selectors, raw evidence bounds, flattened JSON-LD types, footer text. Raw post-download slicing is not a transport-byte limit."
+  },
+  {
+    "id": "S8",
+    "kind": "github_source",
+    "repo": "KeenSight-GTM/SEO-FingerPrint-Scanner-Basic",
+    "commit": "66358454c98addb8fe297cb5192a32e2bd98f732",
+    "path": "seo_scanner/planner.py",
+    "url": "https://github.com/KeenSight-GTM/SEO-FingerPrint-Scanner-Basic/blob/66358454c98addb8fe297cb5192a32e2bd98f732/seo_scanner/planner.py",
+    "observed": "Homepage-first, post-homepage discovery files, same-site sampling and bounded sitemap planning; workbook path slots require adaptation."
+  },
+  {
+    "id": "S9",
+    "kind": "github_source",
+    "repo": "KeenSight-GTM/SEO-FingerPrint-Scanner-Basic",
+    "commit": "66358454c98addb8fe297cb5192a32e2bd98f732",
+    "path": "seo_scanner/rule_catalog.py",
+    "url": "https://github.com/KeenSight-GTM/SEO-FingerPrint-Scanner-Basic/blob/66358454c98addb8fe297cb5192a32e2bd98f732/seo_scanner/rule_catalog.py",
+    "observed": "Inspected lines 1\u2013210: stable event IDs, idempotent technical catalog and rule matching; current definitions are updated by ID."
+  },
+  {
+    "id": "M1",
+    "kind": "github_document",
+    "repo": "KeenSight-GTM/Master_Signals_App_KeenSight",
+    "commit": "c8103df9d14badcfc85e50c0a27daeee6cb3f973",
+    "path": "docs/PIPELINE_ORCHESTRATION.md",
+    "url": "https://github.com/KeenSight-GTM/Master_Signals_App_KeenSight/blob/c8103df9d14badcfc85e50c0a27daeee6cb3f973/docs/PIPELINE_ORCHESTRATION.md",
+    "observed": "Wider fingerprinting pages versus bounded semantic pages; context and opportunity/package boundaries; hardcoded 223-evaluation terminal requirement not appropriate for the new profile."
+  },
+  {
+    "id": "M2",
+    "kind": "github_source",
+    "repo": "KeenSight-GTM/Master_Signals_App_KeenSight",
+    "commit": "c8103df9d14badcfc85e50c0a27daeee6cb3f973",
+    "path": "src/ai_first_signal_engine/runtime/fingerprint_registry.py",
+    "url": "https://github.com/KeenSight-GTM/Master_Signals_App_KeenSight/blob/c8103df9d14badcfc85e50c0a27daeee6cb3f973/src/ai_first_signal_engine/runtime/fingerprint_registry.py",
+    "observed": "Inspected lines 1\u2013225: separate approved/known registry and weighted matcher schema. Use as an input adapter if needed, not a competing runtime registry."
+  },
+  {
+    "id": "M3",
+    "kind": "github_document",
+    "repo": "KeenSight-GTM/Master_Signals_App_KeenSight",
+    "commit": "c8103df9d14badcfc85e50c0a27daeee6cb3f973",
+    "path": "docs/LLM_ENFORCEMENT.md",
+    "url": "https://github.com/KeenSight-GTM/Master_Signals_App_KeenSight/blob/c8103df9d14badcfc85e50c0a27daeee6cb3f973/docs/LLM_ENFORCEMENT.md",
+    "observed": "Inspected lines 1\u2013135: policy-enforced client, provider registration, conservative atomic budget reservation and trace boundary. Raw plugin code is not sandboxed."
+  },
+  {
+    "id": "D1",
+    "kind": "official_documentation",
+    "url": "https://scrapling.readthedocs.io/en/latest/fetching/dynamic.html",
+    "observed": "DynamicFetcher and sessions; page_setup before navigation, page_action after; optional XHR capture. Characterize behavior on pinned version rather than assuming every latest-page feature."
+  },
+  {
+    "id": "D2",
+    "kind": "official_documentation",
+    "url": "https://scrapling.readthedocs.io/en/latest/fetching/stealthy.html",
+    "observed": "Separate browser fetcher family; implementation must apply its own source-policy and fallback decisions."
+  }
+]

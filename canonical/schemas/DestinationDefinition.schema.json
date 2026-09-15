@@ -1,0 +1,45 @@
+{
+  "$id": "https://keensight.local/v4.2/DestinationDefinition.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "automatic_sending": {
+      "const": false
+    },
+    "destination_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "fixture_only": {
+      "type": "boolean"
+    },
+    "kind": {
+      "enum": [
+        "LOCAL_PREVIEW",
+        "CONTACT_HANDOFF"
+      ]
+    },
+    "mapping_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "tenant_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "destination_id",
+    "tenant_id",
+    "mapping_version",
+    "kind",
+    "fixture_only",
+    "enabled",
+    "automatic_sending"
+  ],
+  "title": "DestinationDefinition",
+  "type": "object"
+}

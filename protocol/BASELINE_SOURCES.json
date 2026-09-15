@@ -1,0 +1,28 @@
+{
+  "collector_test_rerun": "155 passed, 1 skipped; missing scrapling.fetchers; source run only in this pass",
+  "reviewed_boundaries": [
+    "collector core.py",
+    "collector ARCHITECTURE_BOUNDARY.md",
+    "collector COMMAND_COVERAGE.md",
+    "v4.1 schemas and main specification"
+  ],
+  "runtime_changes": "None. Proposed wrappers/standardization remain to implement.",
+  "source_files": [
+    {
+      "path": "keensight-architecture-v4.1.zip",
+      "sha256": "2aa572cbbf9d102578dc07731c5acb3ad3f4c8d4445d53110be54308d24a0cbb"
+    },
+    {
+      "path": "keensight-scrapling-ingestion-0.1.0.zip",
+      "sha256": "f42c3ad6fd8e45e039fcf1bbfb8fcbd20c4f62bb1a6a719a0e96a35c0d3f6398"
+    },
+    {
+      "path": "KeenSight_Repositories_Modules_Submodules.md",
+      "sha256": "47b5d2c896d0ddeae9c40214abd6f5fa775f207137bcbeaff51aa8a27da3d104"
+    },
+    {
+      "path": "KeenSight_Fingerprint_Deduplication.md",
+      "sha256": "a4ead42d465e14b29c0ebdd909e0db22023b9fc65aa144ad6a251797cb328a0b"
+    }
+  ]
+}

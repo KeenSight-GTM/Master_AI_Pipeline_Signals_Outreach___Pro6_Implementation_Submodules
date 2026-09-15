@@ -1,0 +1,44 @@
+{
+  "$id": "https://keensight.local/v4.2/HypothesisValue.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "alternatives": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "conclusion": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "hypothesis_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "verification_question": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "hypothesis_id",
+    "conclusion",
+    "alternatives",
+    "limitations",
+    "verification_question"
+  ],
+  "title": "HypothesisValue",
+  "type": "object"
+}

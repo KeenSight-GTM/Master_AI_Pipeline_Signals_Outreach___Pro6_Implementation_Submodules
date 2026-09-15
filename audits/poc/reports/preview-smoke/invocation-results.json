@@ -1,0 +1,56 @@
+{
+  "baseline": "/mnt/data/poc_review/keensight-iteration-2-review/baseline",
+  "journeys": [
+    {
+      "id": "J07",
+      "status": "PASSED",
+      "scope": "OFFLINE_FIXTURE_OR_REFERENCE_ONLY"
+    }
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "label": "canonical-generate-check",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "generate.py",
+        "--check"
+      ],
+      "cwd": "/mnt/data/poc_review/keensight-iteration-2-review/baseline/canonical",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 1.684
+    },
+    {
+      "step": 2,
+      "label": "canonical-validate",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "validate.py"
+      ],
+      "cwd": "/mnt/data/poc_review/keensight-iteration-2-review/baseline/canonical",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 2.03
+    },
+    {
+      "step": 3,
+      "label": "reference-export",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "/mnt/data/poc_review/keensight-iteration-2-review/walkthroughs/reference_preview.py",
+        "--canonical",
+        "/mnt/data/poc_review/keensight-iteration-2-review/baseline/canonical",
+        "--output",
+        "/mnt/data/keensight-poc-readiness-review/reports/preview-smoke/reference"
+      ],
+      "cwd": "/mnt/data/poc_review/keensight-iteration-2-review",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 1.992
+    }
+  ],
+  "network_enabled": false,
+  "send_allowed": false,
+  "all_expected_exit_codes": true
+}

@@ -1,0 +1,485 @@
+[
+  {
+    "repo": ".github",
+    "module": "delivery-governance",
+    "submodules": [
+      "workflow templates",
+      "branch/review policy",
+      "dependency security",
+      "artifact attestations",
+      "cross-repository release tests"
+    ],
+    "first_phase": "P0",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "knowledge-contracts",
+    "module": "domain",
+    "submodules": [
+      "subjects and bindings",
+      "fact state/nature/cardinality",
+      "sources and source policy",
+      "evidence/scopes/coverage",
+      "runs/executions/review/use/export"
+    ],
+    "first_phase": "P0",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "knowledge-contracts",
+    "module": "capture-exchange",
+    "submodules": [
+      "command schemas",
+      "ScanPlan/ScanBundle",
+      "capture and surface evidence",
+      "FingerprintMatch emissions",
+      "version compatibility"
+    ],
+    "first_phase": "P0",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "knowledge-contracts",
+    "module": "validation",
+    "submodules": [
+      "schema/link/semantic admission",
+      "producer and input closure",
+      "claim conflict/current use",
+      "source permissions",
+      "change authorization"
+    ],
+    "first_phase": "P4",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "fingerprint-library",
+    "module": "catalogs",
+    "submodules": [
+      "vendor/product identities",
+      "source imports with row provenance",
+      "typed matchers",
+      "vertical guards",
+      "negative and priority policies"
+    ],
+    "first_phase": "P2",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "fingerprint-library",
+    "module": "assurance",
+    "submodules": [
+      "positive/negative/adversarial fixtures",
+      "shadow reports",
+      "calibration approvals",
+      "immutable manifests",
+      "revocation/rollback"
+    ],
+    "first_phase": "P3",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "scrapling-ingestion",
+    "module": "intake",
+    "submodules": [
+      "url_identity",
+      "redirect_binding",
+      "CSV/direct-URL input",
+      "run/request identity"
+    ],
+    "first_phase": "P1",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "scrapling-ingestion",
+    "module": "policy",
+    "submodules": [
+      "robots",
+      "origin/SSRF checks",
+      "request budgets",
+      "source-purpose rights",
+      "cookie/session isolation"
+    ],
+    "first_phase": "P1",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "scrapling-ingestion",
+    "module": "transport",
+    "submodules": [
+      "http",
+      "browser",
+      "response classification",
+      "retry/backoff",
+      "timeouts/cancellation"
+    ],
+    "first_phase": "P1",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "scrapling-ingestion",
+    "module": "capture",
+    "submodules": [
+      "original bytes",
+      "rendered DOM",
+      "headers_cookies",
+      "network hooks",
+      "resource-limit recording"
+    ],
+    "first_phase": "P1",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "scrapling-ingestion",
+    "module": "discovery",
+    "submodules": [
+      "template_planner",
+      "sitemaps",
+      "path_probes",
+      "deduplicated queue",
+      "scope-explicit external followups"
+    ],
+    "first_phase": "P2",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "scrapling-ingestion",
+    "module": "extraction",
+    "submodules": [
+      "raw_html",
+      "scripts",
+      "embeds",
+      "forms",
+      "links",
+      "images",
+      "metadata",
+      "structured_data",
+      "regions",
+      "attributes",
+      "noscript",
+      "prose",
+      "url_features"
+    ],
+    "first_phase": "P2",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "scrapling-ingestion",
+    "module": "matching",
+    "submodules": [
+      "literal",
+      "groups",
+      "regex",
+      "host",
+      "regions",
+      "images",
+      "compiled donor operator adapters"
+    ],
+    "first_phase": "P2",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "scrapling-ingestion",
+    "module": "rules",
+    "submodules": [
+      "import_compile",
+      "operator capability checks",
+      "immutable release loader",
+      "rule-to-predicate mapping"
+    ],
+    "first_phase": "P2",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "scrapling-ingestion",
+    "module": "aggregation",
+    "submodules": [
+      "host_index",
+      "per-surface provenance",
+      "same-page versus host correlation",
+      "display deduplication"
+    ],
+    "first_phase": "P2",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "scrapling-ingestion",
+    "module": "qualification",
+    "submodules": [
+      "vertical_guards",
+      "schema_support",
+      "scope/confound checks"
+    ],
+    "first_phase": "P2",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "scrapling-ingestion",
+    "module": "ranking",
+    "submodules": [
+      "negative_policy",
+      "priority",
+      "uncalibrated-score reporting"
+    ],
+    "first_phase": "P2",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "scrapling-ingestion",
+    "module": "research",
+    "submodules": [
+      "normalize",
+      "prevalence",
+      "candidates",
+      "bounded sampling",
+      "exchange"
+    ],
+    "first_phase": "P3",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "scrapling-ingestion",
+    "module": "replay",
+    "submodules": [
+      "capability coverage check",
+      "stored-byte parsing",
+      "new-rule replay",
+      "historical detection comparison",
+      "recapture requests"
+    ],
+    "first_phase": "P3",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "scrapling-ingestion",
+    "module": "bridge",
+    "submodules": [
+      "surface-to-fact candidates",
+      "provenance linking",
+      "mention/presence/provider distinction",
+      "canonical binding handoff"
+    ],
+    "first_phase": "P2",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "scrapling-ingestion",
+    "module": "storage",
+    "submodules": [
+      "blob backend",
+      "SQLite capture/research indexes",
+      "single writer",
+      "checkpoint/resume",
+      "bundle finalization"
+    ],
+    "first_phase": "P1",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "scrapling-ingestion",
+    "module": "output",
+    "submodules": [
+      "scan_bundle",
+      "HostResult/Hit projections",
+      "JSONL export",
+      "streaming progress"
+    ],
+    "first_phase": "P1",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "scrapling-ingestion",
+    "module": "telemetry",
+    "submodules": [
+      "command outcomes",
+      "crawl counters",
+      "heartbeat/watchdog",
+      "capture diagnostics",
+      "resource usage"
+    ],
+    "first_phase": "P1",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "signals-platform",
+    "module": "facts",
+    "submodules": [
+      "admission",
+      "repositories",
+      "identity",
+      "provenance",
+      "claims",
+      "query",
+      "changes",
+      "retention"
+    ],
+    "first_phase": "P4",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "signals-platform",
+    "module": "evaluation",
+    "submodules": [
+      "input_selection",
+      "version pinning",
+      "dependency_plan",
+      "per-target completion",
+      "conservative account rerun"
+    ],
+    "first_phase": "P6",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "signals-platform",
+    "module": "connectors",
+    "submodules": [
+      "jobs_ats",
+      "technographics",
+      "reviews",
+      "communities",
+      "traffic_seo",
+      "registries",
+      "publications",
+      "authorized_operations"
+    ],
+    "first_phase": "P5",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "signals-platform",
+    "module": "llm",
+    "submodules": [
+      "gateway",
+      "provider adapters",
+      "prompt/task registry",
+      "raw I/O retention",
+      "repair",
+      "budget admission",
+      "abstention"
+    ],
+    "first_phase": "P5",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "signals-platform",
+    "module": "research",
+    "submodules": [
+      "samples",
+      "classifications",
+      "priors",
+      "context",
+      "case-study corpus",
+      "lookalike matching when enabled"
+    ],
+    "first_phase": "P6",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "signals-platform",
+    "module": "reasoning",
+    "submodules": [
+      "input selectors",
+      "derivations",
+      "signals",
+      "adjudication",
+      "membership aggregates",
+      "cohorts",
+      "temporal comparisons"
+    ],
+    "first_phase": "P6",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "signals-platform",
+    "module": "commercial",
+    "submodules": [
+      "opportunity_selection",
+      "audience routing",
+      "templates",
+      "claims",
+      "scenario/scorecard policies",
+      "packages"
+    ],
+    "first_phase": "P7",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "signals-platform",
+    "module": "review",
+    "submodules": [
+      "authenticated principal",
+      "exact-revision decisions",
+      "evidence viewer",
+      "policy release"
+    ],
+    "first_phase": "P7",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "signals-platform",
+    "module": "exports",
+    "submodules": [
+      "local preview",
+      "mapping",
+      "destination approvals",
+      "current-use gates",
+      "receipts"
+    ],
+    "first_phase": "P7",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "signals-platform",
+    "module": "delivery",
+    "submodules": [
+      "recipient resolution",
+      "outbox",
+      "gates",
+      "providers",
+      "reconciliation",
+      "DNC/unsubscribe"
+    ],
+    "first_phase": "P8",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "signals-platform",
+    "module": "outcomes",
+    "submodules": [
+      "ingress",
+      "deduplication",
+      "attribution",
+      "maturity windows",
+      "measurement"
+    ],
+    "first_phase": "P8",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "signals-platform",
+    "module": "api_ui",
+    "submodules": [
+      "knowledge search",
+      "account analysis",
+      "scan status",
+      "candidate review",
+      "package review",
+      "audit queries"
+    ],
+    "first_phase": "P7",
+    "status": "PLANNED"
+  },
+  {
+    "repo": "signals-platform",
+    "module": "ops",
+    "submodules": [
+      "deployment",
+      "storage migrations",
+      "backup/restore",
+      "alerts",
+      "load/cost testing",
+      "access/retention enforcement"
+    ],
+    "first_phase": "P4",
+    "status": "PLANNED"
+  }
+]

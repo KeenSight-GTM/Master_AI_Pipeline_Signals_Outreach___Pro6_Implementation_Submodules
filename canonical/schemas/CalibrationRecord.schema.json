@@ -1,0 +1,61 @@
+{
+  "$id": "https://keensight.local/v4.2/CalibrationRecord.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "calibration_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "evaluation_dataset_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "false_positives": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "fixture_only": {
+      "type": "boolean"
+    },
+    "measured_precision": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "report_hash": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "review_ref": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "target_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "target_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "true_positives": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "calibration_id",
+    "target_id",
+    "target_version",
+    "evaluation_dataset_id",
+    "true_positives",
+    "false_positives",
+    "measured_precision",
+    "report_hash",
+    "fixture_only",
+    "review_ref"
+  ],
+  "title": "CalibrationRecord",
+  "type": "object"
+}

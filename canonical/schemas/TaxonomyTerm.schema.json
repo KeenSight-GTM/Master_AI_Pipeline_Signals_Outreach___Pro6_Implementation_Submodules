@@ -1,0 +1,43 @@
+{
+  "$id": "https://keensight.local/v4.2/TaxonomyTerm.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "label": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "parent_id": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "scheme_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "scheme_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "term_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "term_id",
+    "scheme_id",
+    "scheme_version",
+    "label",
+    "parent_id"
+  ],
+  "title": "TaxonomyTerm",
+  "type": "object"
+}

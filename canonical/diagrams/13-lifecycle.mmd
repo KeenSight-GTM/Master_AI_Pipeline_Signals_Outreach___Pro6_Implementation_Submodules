@@ -1,0 +1,20 @@
+stateDiagram-v2
+    [*] --> Intake
+    Intake --> Attempt: approved profile and purpose
+    Attempt --> DiagnosticUnknown: failure without captured bytes
+    Attempt --> CapturedArtifact: permitted capture or import
+    CapturedArtifact --> Candidate: extract
+    Candidate --> Quarantined: invalid, failed producer or ambiguous binding
+    Candidate --> AdmittedFact: all admission checks pass
+    AdmittedFact --> EligibleInput: pinned lineage and claim resolution pass
+    AdmittedFact --> HistoricalOnly: expired, retracted or rights revoked
+    EligibleInput --> Unresolved: missing prerequisites or conflict
+    EligibleInput --> ResolvedSignal: enabled condition holds
+    ResolvedSignal --> PreviewPackage: supported deterministic template
+    PreviewPackage --> ReviewedRevision: authorized exact-hash review
+    ReviewedRevision --> UseGate: fresh checks for exact purpose and destination
+    UseGate --> Blocked: restrictions, stale evidence or changed inputs
+    UseGate --> LocalExport: ALLOW and idempotent file write
+    LocalExport --> [*]: no sending
+    DiagnosticUnknown --> [*]: retained diagnostic
+    Quarantined --> Candidate: explicit corrected extraction

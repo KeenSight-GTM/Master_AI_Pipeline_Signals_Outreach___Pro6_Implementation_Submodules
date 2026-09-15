@@ -1,0 +1,42 @@
+[
+  {
+    "capture_count": 2,
+    "claim_key": "claim_a448f16c82b8fd991b81ce0d9af3e89e2107f726b1496abec2e982a19db67c44",
+    "confidence": null,
+    "confidence_policy": "NOT_COMBINED",
+    "eligible_match_ids": [
+      "match_29d5d38a5b7d91dbefefaca5b49dc24225289d5cf98a924fc0f1bbf9da095ab8",
+      "match_54d59aa6f7352a9a2c586de54bf5d14de16f364b7ffaa15a63a12590758f9e7b",
+      "match_6d2692f553307df8105ed7ddf12d0e7f01d21c4709377725b0619c3871412db1",
+      "match_7fba88f022e3e759e6bf5a5b8ff0176b26a3d91548d5422b0f7a3279050aeb64",
+      "match_bdc42a8e155afcc9487b485dc432829a7707cc37cea7f44dec653b76010bf37a"
+    ],
+    "evidence_count": 3,
+    "object_value": true,
+    "observation_ids": [
+      "observation_1b61942bb59a8122b1f09032199c8f065d377e9e1d7156b56e9c1959b8427b15",
+      "observation_557aba412cc53cf4994038672cc43c4de754ff8b03a0ba6ece4dc1a06e572270"
+    ],
+    "predicate": "vendor.present",
+    "rule_ids": [
+      "calendly-iframe",
+      "calendly-script-candidate",
+      "calendly-script-exact",
+      "calendly-script-suffix"
+    ],
+    "source_group_count": 1,
+    "status": "SUPPORTED",
+    "supporting_match_ids": [
+      "match_28cefa965b9f2aec60f65ea4d0a9baacfe5e9fea3bf5a1b3add0429f2cd1074a",
+      "match_29d5d38a5b7d91dbefefaca5b49dc24225289d5cf98a924fc0f1bbf9da095ab8",
+      "match_54d59aa6f7352a9a2c586de54bf5d14de16f364b7ffaa15a63a12590758f9e7b",
+      "match_6d2692f553307df8105ed7ddf12d0e7f01d21c4709377725b0619c3871412db1",
+      "match_7fba88f022e3e759e6bf5a5b8ff0176b26a3d91548d5422b0f7a3279050aeb64",
+      "match_8302786f3699b6a8b0370ed94b6646e84352c089fd1bab47f20aadd18dd2ec6d",
+      "match_bdc42a8e155afcc9487b485dc432829a7707cc37cea7f44dec653b76010bf37a"
+    ],
+    "target": {
+      "product_id": "product:calendly"
+    }
+  }
+]

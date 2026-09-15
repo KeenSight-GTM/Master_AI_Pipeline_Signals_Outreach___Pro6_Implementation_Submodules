@@ -1,0 +1,49 @@
+{
+  "$id": "https://keensight.local/v4.2/DiscussionRecordValue.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "community": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "language": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "post_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "published_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "role": {
+      "enum": [
+        "POST",
+        "COMMENT"
+      ]
+    },
+    "text": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "thread_key": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "post_key",
+    "community",
+    "thread_key",
+    "published_at",
+    "text",
+    "language",
+    "role"
+  ],
+  "title": "DiscussionRecordValue",
+  "type": "object"
+}

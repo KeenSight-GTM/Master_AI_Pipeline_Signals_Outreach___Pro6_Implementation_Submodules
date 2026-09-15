@@ -1,0 +1,24 @@
+digraph G {
+rankdir=LR;
+graph [fontname="DejaVu Sans",nodesep=0.35,ranksep=0.75,bgcolor="white"];
+node [shape=box,fontname="DejaVu Sans",fontsize=12,margin="0.14,0.09"];
+edge [fontname="DejaVu Sans",fontsize=10];
+"n" [label="NEW"];
+"v" [label="VALIDATING"];
+"r" [label="RUNNING"];
+"s" [label="STAGED"];
+"c" [label="COMMITTED"];
+"f" [label="FAILED"];
+"x" [label="CANCELLED"];
+"k" [label="SKIPPED"];
+"n" -> "v" [label="validate inputs / signature"];
+"v" -> "r" [label="allowed + dependencies"];
+"v" -> "k" [label="not enabled / not applicable"];
+"v" -> "f" [label="bad contract"];
+"r" -> "s" [label="draft outputs"];
+"s" -> "c" [label="validate + atomic publish"];
+"s" -> "f" [label="rollback"];
+"r" -> "f" [label="error / timeout"];
+"r" -> "x" [label="cancel before commit"];
+"c" -> "c" [label="idempotent same-request reuse"];
+}

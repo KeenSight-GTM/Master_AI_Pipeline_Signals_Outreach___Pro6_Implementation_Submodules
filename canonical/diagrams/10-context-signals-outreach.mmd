@@ -1,0 +1,163 @@
+classDiagram
+direction LR
+class ContextJoinRule {
+  +string join_rule_id
+  +string version
+  +string link_predicate
+  +string link_object_path
+  +string context_predicate
+  +List~enum~ target_kinds
+  +enum link_kind
+  +string purpose
+  +int maximum_hops
+  +bool company_claim_allowed
+}
+class ContextAssessment {
+  +string context_id
+  +string tenant_id
+  +string run_id
+  +string account_subject_id
+  +string context_subject_id
+  +string join_rule_id
+  +string link_fact_id
+  +List~string~ context_fact_ids
+  +enum relationship_strength
+  +string purpose
+  +bool company_claim_allowed
+  +enum status
+}
+class SignalDefinition {
+  +string signal_type_id
+  +string version
+  +List~Object~ required_facts
+  +string function_id
+  +bool context_allowed
+  +string description
+  +enum status
+}
+class SignalEvaluation {
+  +string signal_id
+  +string run_id
+  +string tenant_id
+  +string subject_id
+  +string signal_type_id
+  +List~string~ input_fact_ids
+  +List~string~ context_ids
+  +enum status
+  +Optional~enum~ reason
+  +string evaluated_at
+}
+class TemplateDefinition {
+  +string template_id
+  +string version
+  +enum authority
+  +enum mode
+  +string required_predicate
+  +List~enum~ allowed_natures
+  +enum renderer
+  +string question
+  +bool maturity_required
+  +Optional~enum~ offered_rung
+  +string review_ref
+}
+class GroundedClause {
+  +string clause_id
+  +List~string~ fact_ids
+  +string template_id
+  +string text
+  +List~enum~ evidence_roles
+}
+class OutreachPackage {
+  +string package_id
+  +int revision
+  +string run_id
+  +string tenant_id
+  +string subject_id
+  +string template_id
+  +List~GroundedClause~ clauses
+  +List~string~ signal_ids
+  +List~string~ context_ids
+  +Optional~string~ maturity_fact_id
+  +enum status
+  +string rendered_text
+  +Optional~string~ approved_at
+  +bool send_allowed
+  +Optional~string~ review_id
+}
+class ReviewDecision {
+  +string review_id
+  +string tenant_id
+  +string reviewer_id
+  +Object package
+  +enum action
+  +string reason
+  +string decided_at
+  +string policy_version
+}
+class UseRestriction {
+  +string restriction_id
+  +string tenant_id
+  +string subject_id
+  +Optional~string~ recipient_key
+  +enum kind
+  +string actor_id
+  +string effective_at
+  +Optional~string~ released_at
+  +Optional~string~ released_by
+  +string reason
+}
+class UseGateDecision {
+  +string gate_id
+  +string tenant_id
+  +Object package
+  +string review_id
+  +string actor_id
+  +enum purpose
+  +string destination_id
+  +Optional~string~ recipient_key
+  +string evaluated_at
+  +string valid_until
+  +string version_vector
+  +enum decision
+  +List~string~ reasons
+}
+class DestinationDefinition {
+  +string destination_id
+  +string tenant_id
+  +string mapping_version
+  +enum kind
+  +bool fixture_only
+  +bool enabled
+  +bool automatic_sending
+}
+class ExportReceipt {
+  +string export_id
+  +string tenant_id
+  +Object package
+  +string gate_id
+  +string destination_id
+  +string mapping_version
+  +string actor_id
+  +Optional~string~ recipient_key
+  +string payload_hash
+  +Optional~string~ payload_ref
+  +string idempotency_key
+  +string requested_at
+  +Optional~string~ completed_at
+  +enum status
+  +Optional~string~ external_reference
+  +bool automatic_sending
+}
+ContextAssessment "*" --> "1" ContextJoinRule : explicit_one_hop_join
+SignalEvaluation "1" --> "0..*" ContextAssessment : internal_context_only
+SignalEvaluation "*" --> "1" SignalDefinition : conforms_to
+OutreachPackage "1" --> "0..*" SignalEvaluation : eligible_results
+OutreachPackage "1" *-- "1..*" GroundedClause : contains
+OutreachPackage "*" --> "1" TemplateDefinition : reviewed_template
+GroundedClause "*" --> "1" TemplateDefinition : deterministic_rendering
+OutreachPackage "1" --> "0..*" ContextAssessment : not_copy_evidence
+ReviewDecision "*" --> "1" OutreachPackage : exact_revision_hash
+UseGateDecision "*" --> "1" ReviewDecision : current_use_not_just_review
+UseGateDecision "*" --> "0..*" UseRestriction : non_expiring_DNC_check
+ExportReceipt "*" --> "1" UseGateDecision : must_allow_at_dispatch
+ExportReceipt "*" --> "1" DestinationDefinition : versioned_mapping

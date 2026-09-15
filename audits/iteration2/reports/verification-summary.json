@@ -1,0 +1,57 @@
+{
+  "review": "KeenSight submodule audit iteration 2",
+  "date": "2026-09-15",
+  "baseline_archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+  "baseline_archive_sha256": "18b7e5f75c731e50eef693424be22b857dae2a1b5818b5485410a578de5bedd0",
+  "baseline_runtime_modified": false,
+  "remote_changes": false,
+  "live_provider_tests_executed": false,
+  "baseline_tests": {
+    "collector": {
+      "passed": 183,
+      "skipped": 1
+    },
+    "canonical": {
+      "passed": 609,
+      "skipped": 0
+    },
+    "protocol": {
+      "passed": 42,
+      "skipped": 0
+    }
+  },
+  "new_probes": {
+    "total": 23,
+    "safety_counterexamples": 16,
+    "temporal_policy_question": 1,
+    "passing_controls": 6,
+    "probe_errors": 0
+  },
+  "safety_expectations": {
+    "failed": 16,
+    "passed": 6,
+    "expected_exit_code": 1,
+    "xfail": 0
+  },
+  "walkthrough_smoke": {
+    "journeys": 8,
+    "subprocesses": 20,
+    "all_expected_exit_codes": true,
+    "network_enabled": false,
+    "send_allowed": false
+  },
+  "feature_map": {
+    "features": 36,
+    "journeys": 19,
+    "stages": 27,
+    "modules": 39,
+    "retained_command_bindings": 38
+  },
+  "limitations": [
+    "Actual Scrapling SDK test still skipped; browser disabled.",
+    "Collector-to-canonical bridge not implemented.",
+    "Canonical and protocol functions are local/reference, not authenticated services.",
+    "Proposed contacts/campaign/delivery/reply/CRM journeys have no runtime invocation.",
+    "No behavior fixes implemented in this audit; safety failures remain deliberately visible."
+  ]
+}

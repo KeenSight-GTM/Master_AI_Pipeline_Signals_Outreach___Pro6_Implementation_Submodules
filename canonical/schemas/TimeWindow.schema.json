@@ -1,0 +1,23 @@
+{
+  "$id": "https://keensight.local/v4.2/TimeWindow.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "end": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "start": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "start",
+    "end"
+  ],
+  "title": "TimeWindow",
+  "type": "object"
+}

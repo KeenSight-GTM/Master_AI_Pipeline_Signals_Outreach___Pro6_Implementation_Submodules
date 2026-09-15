@@ -1,0 +1,29 @@
+{
+  "packages": {
+    "collector": {
+      "tests": 184,
+      "passed": 183,
+      "skipped": 1,
+      "failures": 0,
+      "errors": 0
+    },
+    "canonical": {
+      "tests": 609,
+      "passed": 609,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0
+    },
+    "protocol": {
+      "tests": 42,
+      "passed": 42,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0
+    }
+  },
+  "total_passed": 834,
+  "total_skipped": 1,
+  "runtime_e2e_complete": false,
+  "sdk_verified": false
+}

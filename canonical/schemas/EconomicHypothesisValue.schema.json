@@ -1,0 +1,39 @@
+{
+  "$id": "https://keensight.local/v4.2/EconomicHypothesisValue.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "assumptions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "currency": {
+      "pattern": "^[A-Z]{3}$",
+      "type": "string"
+    },
+    "estimated_amount_minor": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "limitations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "currency",
+    "estimated_amount_minor",
+    "assumptions",
+    "limitations"
+  ],
+  "title": "EconomicHypothesisValue",
+  "type": "object"
+}

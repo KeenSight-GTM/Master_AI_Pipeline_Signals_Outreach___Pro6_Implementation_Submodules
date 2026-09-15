@@ -1,0 +1,210 @@
+{
+  "contract_classes": 75,
+  "proposed_interfaces": 22,
+  "diagrams": [
+    [
+      "01-broad-dataflow",
+      "Broad facts, verified handoffs and reviewed local export",
+      "flow",
+      []
+    ],
+    [
+      "02-research-context",
+      "Research context is not account-specific proof",
+      "flow",
+      []
+    ],
+    [
+      "03-batch-sequence",
+      "Batch evaluation sequence",
+      "sequence",
+      []
+    ],
+    [
+      "04-domain-identity",
+      "Domain identity, facts and corrections",
+      "class",
+      [
+        "Subject",
+        "Scope",
+        "SubjectBinding",
+        "PredicateDefinition",
+        "Fact",
+        "ClaimResolution",
+        "CandidateRecord",
+        "ChangeRecord",
+        "IntakeRequest",
+        "ActorGrant"
+      ]
+    ],
+    [
+      "05-evidence-access",
+      "Evidence acquisition, rights and coverage",
+      "class",
+      [
+        "SourceDefinition",
+        "DataAccessPolicy",
+        "ProviderBlueprint",
+        "Artifact",
+        "EvidenceLocator",
+        "EvidenceSet",
+        "CoverageRecord",
+        "AcquisitionAttempt"
+      ]
+    ],
+    [
+      "06-business-payloads",
+      "Typed payload examples: tooling, hiring and workflow",
+      "class",
+      [
+        "TechnologyValue",
+        "TechnologyReportValue",
+        "JobPostingValue",
+        "SalaryValue",
+        "AttributedStatementValue",
+        "SurfaceObservationValue",
+        "HypothesisValue",
+        "QuotedTextResult",
+        "PublishedRecordValue",
+        "CaseStudyOutcomeValue"
+      ]
+    ],
+    [
+      "07-research-measurements",
+      "Reviews, research samples and dimensional measurements",
+      "class",
+      [
+        "MetricDefinition",
+        "MeasurementValue",
+        "TaxonomyTerm",
+        "ResearchSample",
+        "ResearchPriorValue",
+        "ReviewRecordValue",
+        "DiscussionRecordValue",
+        "ThemeClassificationValue",
+        "ResearchSupportPolicy",
+        "SampleRecordDecision",
+        "LookalikeMatch",
+        "ScenarioEstimate"
+      ]
+    ],
+    [
+      "08-registry-phone-outcomes",
+      "Registry, authorized call and future outcome payloads",
+      "class",
+      [
+        "RegistryRecordValue",
+        "CallEventValue",
+        "EconomicHypothesisValue",
+        "Exposure",
+        "OutcomeEvent"
+      ]
+    ],
+    [
+      "09-evaluation-configuration",
+      "Batch execution, versioning and bounded model tasks",
+      "class",
+      [
+        "BatchRun",
+        "CapabilityProfile",
+        "FunctionDefinition",
+        "ExecutionRecord",
+        "ModelCall",
+        "RepairAttempt",
+        "FingerprintDefinition",
+        "CalibrationRecord",
+        "CoverageFamilyPlan",
+        "TargetResult"
+      ]
+    ],
+    [
+      "10-context-signals-outreach",
+      "Scoped research joins, signal evaluation and grounded previews",
+      "class",
+      [
+        "ContextJoinRule",
+        "ContextAssessment",
+        "SignalDefinition",
+        "SignalEvaluation",
+        "TemplateDefinition",
+        "GroundedClause",
+        "OutreachPackage",
+        "ReviewDecision",
+        "UseRestriction",
+        "UseGateDecision",
+        "DestinationDefinition",
+        "ExportReceipt"
+      ]
+    ],
+    [
+      "11-common-value-objects",
+      "Shared value objects and requirement records",
+      "class",
+      [
+        "TimeWindow",
+        "ExternalIdentifier",
+        "ConfidenceAssessment",
+        "ObjectReferenceRule",
+        "CoverageCheck",
+        "FactRequirement",
+        "PackageReference",
+        "IntakeTarget"
+      ]
+    ],
+    [
+      "12-proposed-code-interfaces",
+      "Proposed application interfaces, not deployed services",
+      "class",
+      [
+        "BatchRunner",
+        "RegistryLinker",
+        "SourceAdapter",
+        "AcquisitionService",
+        "RightsGate",
+        "ContentRepository",
+        "SubjectResolver",
+        "ExtractionService",
+        "BoundedModelGateway",
+        "FactAdmission",
+        "FactRepository",
+        "AccountInputSelector",
+        "DerivationRunner",
+        "ContextJoiner",
+        "SignalEngine",
+        "TemplateRenderer",
+        "PackageValidator",
+        "RetentionService",
+        "UnitOfWork",
+        "ReviewService",
+        "UseGate",
+        "LocalPreviewExporter"
+      ]
+    ],
+    [
+      "13-lifecycle",
+      "Evidence-to-reviewed-local-export lifecycle",
+      "state",
+      []
+    ],
+    [
+      "14-system-associations",
+      "Cross-partition domain relationships \u2014 selected fields only",
+      "class",
+      [
+        "Subject",
+        "PredicateDefinition",
+        "Fact",
+        "EvidenceSet",
+        "Artifact",
+        "ExecutionRecord",
+        "BatchRun",
+        "ContextAssessment",
+        "SignalEvaluation",
+        "OutreachPackage",
+        "GroundedClause",
+        "MetricDefinition"
+      ]
+    ]
+  ],
+  "renderer": "Graphviz SVG plus a local sequence SVG renderer; Mermaid sources are editable, not CLI-rendered."
+}

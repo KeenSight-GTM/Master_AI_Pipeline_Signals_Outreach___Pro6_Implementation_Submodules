@@ -1,0 +1,985 @@
+[
+  {
+    "id": "POC-01",
+    "classification": "BUG",
+    "result": {
+      "cases": [
+        {
+          "run_id": "run-0",
+          "error": null,
+          "calls": [
+            "https://shop.example.test/robots.txt",
+            "https://shop.example.test/",
+            "https://shop.example.test/sitemap.xml",
+            "https://shop.example.test/contact"
+          ],
+          "claim_count": 1,
+          "evaluated_urls": [
+            "https://shop.example.test/",
+            "https://shop.example.test/contact"
+          ],
+          "dispositions": [
+            {
+              "http_status": 404,
+              "status": "NOT_USABLE",
+              "url": "https://shop.example.test/sitemap.xml"
+            }
+          ],
+          "fetches": [
+            {
+              "command_id": "FETCH_ROBOTS",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STATIC",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_SITEMAP",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STATIC",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STEALTH",
+              "status": "NOT_APPLICABLE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_WELL_KNOWN",
+              "status": "NOT_APPLICABLE",
+              "limitations": []
+            }
+          ]
+        },
+        {
+          "run_id": "run-1",
+          "error": "Rule execution outcomes do not reproduce",
+          "calls": [
+            "https://shop.example.test/robots.txt",
+            "https://shop.example.test/",
+            "https://shop.example.test/sitemap.xml",
+            "https://shop.example.test/contact"
+          ],
+          "committed_observations": 0
+        },
+        {
+          "run_id": "run-2",
+          "error": null,
+          "calls": [
+            "https://shop.example.test/robots.txt",
+            "https://shop.example.test/",
+            "https://shop.example.test/sitemap.xml",
+            "https://shop.example.test/contact"
+          ],
+          "claim_count": 1,
+          "evaluated_urls": [
+            "https://shop.example.test/",
+            "https://shop.example.test/contact"
+          ],
+          "dispositions": [
+            {
+              "http_status": 404,
+              "status": "NOT_USABLE",
+              "url": "https://shop.example.test/sitemap.xml"
+            }
+          ],
+          "fetches": [
+            {
+              "command_id": "FETCH_ROBOTS",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STATIC",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_SITEMAP",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STATIC",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STEALTH",
+              "status": "NOT_APPLICABLE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_WELL_KNOWN",
+              "status": "NOT_APPLICABLE",
+              "limitations": []
+            }
+          ]
+        },
+        {
+          "run_id": "run-3",
+          "error": null,
+          "calls": [
+            "https://shop.example.test/robots.txt",
+            "https://shop.example.test/",
+            "https://shop.example.test/sitemap.xml",
+            "https://shop.example.test/contact"
+          ],
+          "claim_count": 1,
+          "evaluated_urls": [
+            "https://shop.example.test/",
+            "https://shop.example.test/contact"
+          ],
+          "dispositions": [
+            {
+              "http_status": 404,
+              "status": "NOT_USABLE",
+              "url": "https://shop.example.test/sitemap.xml"
+            }
+          ],
+          "fetches": [
+            {
+              "command_id": "FETCH_ROBOTS",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STATIC",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_SITEMAP",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STATIC",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STEALTH",
+              "status": "NOT_APPLICABLE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_WELL_KNOWN",
+              "status": "NOT_APPLICABLE",
+              "limitations": []
+            }
+          ]
+        },
+        {
+          "run_id": "run-4",
+          "error": "Rule execution outcomes do not reproduce",
+          "calls": [
+            "https://shop.example.test/robots.txt",
+            "https://shop.example.test/",
+            "https://shop.example.test/sitemap.xml",
+            "https://shop.example.test/contact"
+          ],
+          "committed_observations": 0
+        },
+        {
+          "run_id": "run-5",
+          "error": null,
+          "calls": [
+            "https://shop.example.test/robots.txt",
+            "https://shop.example.test/",
+            "https://shop.example.test/sitemap.xml",
+            "https://shop.example.test/contact"
+          ],
+          "claim_count": 1,
+          "evaluated_urls": [
+            "https://shop.example.test/",
+            "https://shop.example.test/contact"
+          ],
+          "dispositions": [
+            {
+              "http_status": 404,
+              "status": "NOT_USABLE",
+              "url": "https://shop.example.test/sitemap.xml"
+            }
+          ],
+          "fetches": [
+            {
+              "command_id": "FETCH_ROBOTS",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STATIC",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_SITEMAP",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STATIC",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STEALTH",
+              "status": "NOT_APPLICABLE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_WELL_KNOWN",
+              "status": "NOT_APPLICABLE",
+              "limitations": []
+            }
+          ]
+        },
+        {
+          "run_id": "run-6",
+          "error": null,
+          "calls": [
+            "https://shop.example.test/robots.txt",
+            "https://shop.example.test/",
+            "https://shop.example.test/sitemap.xml",
+            "https://shop.example.test/contact"
+          ],
+          "claim_count": 1,
+          "evaluated_urls": [
+            "https://shop.example.test/",
+            "https://shop.example.test/contact"
+          ],
+          "dispositions": [
+            {
+              "http_status": 404,
+              "status": "NOT_USABLE",
+              "url": "https://shop.example.test/sitemap.xml"
+            }
+          ],
+          "fetches": [
+            {
+              "command_id": "FETCH_ROBOTS",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STATIC",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_SITEMAP",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STATIC",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STEALTH",
+              "status": "NOT_APPLICABLE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_WELL_KNOWN",
+              "status": "NOT_APPLICABLE",
+              "limitations": []
+            }
+          ]
+        },
+        {
+          "run_id": "run-7",
+          "error": "Rule execution outcomes do not reproduce",
+          "calls": [
+            "https://shop.example.test/robots.txt",
+            "https://shop.example.test/",
+            "https://shop.example.test/sitemap.xml",
+            "https://shop.example.test/contact"
+          ],
+          "committed_observations": 0
+        },
+        {
+          "run_id": "run-8",
+          "error": null,
+          "calls": [
+            "https://shop.example.test/robots.txt",
+            "https://shop.example.test/",
+            "https://shop.example.test/sitemap.xml",
+            "https://shop.example.test/contact"
+          ],
+          "claim_count": 1,
+          "evaluated_urls": [
+            "https://shop.example.test/",
+            "https://shop.example.test/contact"
+          ],
+          "dispositions": [
+            {
+              "http_status": 404,
+              "status": "NOT_USABLE",
+              "url": "https://shop.example.test/sitemap.xml"
+            }
+          ],
+          "fetches": [
+            {
+              "command_id": "FETCH_ROBOTS",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STATIC",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_SITEMAP",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STATIC",
+              "status": "COMPLETE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_STEALTH",
+              "status": "NOT_APPLICABLE",
+              "limitations": []
+            },
+            {
+              "command_id": "FETCH_WELL_KNOWN",
+              "status": "NOT_APPLICABLE",
+              "limitations": []
+            }
+          ]
+        },
+        {
+          "run_id": "run-9",
+          "error": "Rule execution outcomes do not reproduce",
+          "calls": [
+            "https://shop.example.test/robots.txt",
+            "https://shop.example.test/",
+            "https://shop.example.test/sitemap.xml",
+            "https://shop.example.test/contact"
+          ],
+          "committed_observations": 0
+        }
+      ],
+      "failed_cases": 4
+    },
+    "probe_error": null
+  },
+  {
+    "id": "POC-02",
+    "classification": "CAPABILITY_GAP",
+    "result": {
+      "error": null,
+      "calls": [
+        "https://shop.example.test/robots.txt"
+      ],
+      "claim_count": 0,
+      "evaluated_urls": [],
+      "dispositions": [],
+      "fetches": [
+        {
+          "command_id": "FETCH_ROBOTS",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STATIC",
+          "status": "SKIPPED_POLICY",
+          "limitations": [
+            "ROBOTS_UNAVAILABLE_FAIL_CLOSED"
+          ]
+        },
+        {
+          "command_id": "FETCH_STEALTH",
+          "status": "NOT_APPLICABLE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_SITEMAP",
+          "status": "NOT_APPLICABLE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_WELL_KNOWN",
+          "status": "NOT_APPLICABLE",
+          "limitations": []
+        }
+      ]
+    },
+    "probe_error": null
+  },
+  {
+    "id": "POC-03",
+    "classification": "RECOVERY_GAP",
+    "result": {
+      "cooldown_active": false,
+      "calls_before": [
+        "https://shop.example.test/robots.txt",
+        "https://shop.example.test/"
+      ],
+      "calls_after": [
+        "https://shop.example.test/robots.txt",
+        "https://shop.example.test/"
+      ],
+      "new_attempts": 0,
+      "claim_count": 0,
+      "dispositions": [
+        {
+          "http_status": 429,
+          "status": "NOT_USABLE",
+          "url": "https://shop.example.test/"
+        },
+        {
+          "status": "SKIPPED_RATE_LIMIT",
+          "url": "https://shop.example.test/sitemap.xml"
+        }
+      ]
+    },
+    "probe_error": null
+  },
+  {
+    "id": "POC-04",
+    "classification": "CAPABILITY_GAP",
+    "result": {
+      "error": null,
+      "calls": [
+        "https://shop.example.test/robots.txt",
+        "https://shop.example.test/",
+        "https://shop.example.test/sitemap.xml.gz",
+        "https://shop.example.test/sitemap.xml"
+      ],
+      "claim_count": 0,
+      "evaluated_urls": [
+        "https://shop.example.test/"
+      ],
+      "dispositions": [
+        {
+          "http_status": 404,
+          "status": "NOT_USABLE",
+          "url": "https://shop.example.test/sitemap.xml"
+        }
+      ],
+      "fetches": [
+        {
+          "command_id": "FETCH_ROBOTS",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STATIC",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_SITEMAP",
+          "status": "PARTIAL",
+          "limitations": [
+            "Invalid or unsafe sitemap XML"
+          ]
+        },
+        {
+          "command_id": "FETCH_SITEMAP",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STEALTH",
+          "status": "NOT_APPLICABLE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_WELL_KNOWN",
+          "status": "NOT_APPLICABLE",
+          "limitations": []
+        }
+      ]
+    },
+    "probe_error": null
+  },
+  {
+    "id": "POC-05",
+    "classification": "PLANNING_GAP",
+    "result": {
+      "error": null,
+      "calls": [
+        "https://shop.example.test/robots.txt",
+        "https://shop.example.test/",
+        "https://shop.example.test/sitemap.xml",
+        "https://shop.example.test/blog/a",
+        "https://shop.example.test/blog/b",
+        "https://shop.example.test/privacy",
+        "https://shop.example.test/terms"
+      ],
+      "claim_count": 0,
+      "evaluated_urls": [
+        "https://shop.example.test/blog/a",
+        "https://shop.example.test/",
+        "https://shop.example.test/privacy",
+        "https://shop.example.test/terms",
+        "https://shop.example.test/blog/b"
+      ],
+      "dispositions": [
+        {
+          "status": "SKIPPED_PAGE_LIMIT",
+          "url": "https://shop.example.test/contact"
+        }
+      ],
+      "fetches": [
+        {
+          "command_id": "FETCH_ROBOTS",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STATIC",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_SITEMAP",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STATIC",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STATIC",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STATIC",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STATIC",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STEALTH",
+          "status": "NOT_APPLICABLE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_WELL_KNOWN",
+          "status": "NOT_APPLICABLE",
+          "limitations": []
+        }
+      ]
+    },
+    "probe_error": null
+  },
+  {
+    "id": "POC-06",
+    "classification": "READ_MODEL_INCONSISTENCY",
+    "result": {
+      "automatic_approvals": 0,
+      "query_exit": 0,
+      "bundle_states": [
+        "CANDIDATE"
+      ],
+      "query_states": [
+        "UNKNOWN"
+      ],
+      "candidate_support_retained": true,
+      "eligible_support_counts": [
+        0
+      ]
+    },
+    "probe_error": null
+  },
+  {
+    "id": "POC-07",
+    "classification": "RESEARCH_PROJECTION_STALE",
+    "result": {
+      "before": [
+        {
+          "feature_id": "feature_a91749c7870e8e8e5e3029ac98155ff5beaba048d259739320dfef5980e3e54c",
+          "value": "{\"kind\":\"script_url:host\",\"value\":\"assets.calendly.com\"}",
+          "observed_origin_count": 1,
+          "capture_count": 1
+        }
+      ],
+      "after": [
+        {
+          "feature_id": "feature_a91749c7870e8e8e5e3029ac98155ff5beaba048d259739320dfef5980e3e54c",
+          "value": "{\"kind\":\"script_url:host\",\"value\":\"assets.calendly.com\"}",
+          "observed_origin_count": 1,
+          "capture_count": 1
+        }
+      ],
+      "approved_claims": 1
+    },
+    "probe_error": null
+  },
+  {
+    "id": "POC-08",
+    "classification": "READ_MODEL_GAP",
+    "result": {
+      "exit": 0,
+      "rows": 2,
+      "keys": [
+        "capture_count",
+        "claim_key",
+        "confidence",
+        "confidence_policy",
+        "eligible_match_ids",
+        "evidence_count",
+        "object_value",
+        "observation_ids",
+        "predicate",
+        "rule_ids",
+        "source_group_count",
+        "status",
+        "supporting_match_ids",
+        "target"
+      ],
+      "distinct_claim_keys": 2,
+      "returned_subject_ids": [
+        null,
+        null
+      ],
+      "subjects_remain_in_storage": [
+        "account:A",
+        "account:B"
+      ]
+    },
+    "probe_error": null
+  },
+  {
+    "id": "POC-09",
+    "classification": "REFERENCE_COMPARATOR_BUG",
+    "result": {
+      "schema_valid": true,
+      "same_claim_identity": true,
+      "values": [
+        12000,
+        12000.0
+      ],
+      "resolution": {
+        "status": "CONFLICT",
+        "accepted_fact_ids": []
+      }
+    },
+    "probe_error": null
+  },
+  {
+    "id": "POLICY-01",
+    "classification": "EXISTING_SAFETY_POLICY",
+    "result": {
+      "error": null,
+      "calls": [
+        "https://shop.example.test/robots.txt",
+        "https://shop.example.test/",
+        "https://shop.example.test/sitemap.xml"
+      ],
+      "claim_count": 0,
+      "evaluated_urls": [],
+      "dispositions": [
+        {
+          "status": "REDIRECT_OUT_OF_SCOPE",
+          "url": "https://shop.example.test/"
+        },
+        {
+          "http_status": 404,
+          "status": "NOT_USABLE",
+          "url": "https://shop.example.test/sitemap.xml"
+        }
+      ],
+      "fetches": [
+        {
+          "command_id": "FETCH_ROBOTS",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STATIC",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_SITEMAP",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STEALTH",
+          "status": "NOT_APPLICABLE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_WELL_KNOWN",
+          "status": "NOT_APPLICABLE",
+          "limitations": []
+        }
+      ]
+    },
+    "probe_error": null
+  },
+  {
+    "id": "POLICY-02",
+    "classification": "EXISTING_ATTRIBUTION_POLICY",
+    "result": {
+      "error": null,
+      "calls": [
+        "https://shop.example.test/robots.txt",
+        "https://shop.example.test/",
+        "https://shop.example.test/sitemap.xml"
+      ],
+      "claim_count": 0,
+      "evaluated_urls": [
+        "https://shop.example.test/"
+      ],
+      "dispositions": [
+        {
+          "http_status": 404,
+          "status": "NOT_USABLE",
+          "url": "https://shop.example.test/sitemap.xml"
+        }
+      ],
+      "fetches": [
+        {
+          "command_id": "FETCH_ROBOTS",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STATIC",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_SITEMAP",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STEALTH",
+          "status": "NOT_APPLICABLE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_WELL_KNOWN",
+          "status": "NOT_APPLICABLE",
+          "limitations": []
+        }
+      ]
+    },
+    "probe_error": null
+  },
+  {
+    "id": "SCOPE-01",
+    "classification": "EXISTING_SINGLE_SNAPSHOT_SCOPE",
+    "result": {
+      "exits": [
+        0,
+        2
+      ],
+      "stderr": "ContractError: Run ID reuse with changed configuration or release; use a new run or replay\n"
+    },
+    "probe_error": null
+  },
+  {
+    "id": "CONTROL-01",
+    "classification": "PASSING_CONTROL",
+    "result": {
+      "error": null,
+      "calls": [
+        "https://shop.example.test/robots.txt",
+        "https://shop.example.test/",
+        "https://shop.example.test/welcome"
+      ],
+      "claim_count": 1,
+      "evaluated_urls": [
+        "https://shop.example.test/welcome"
+      ],
+      "dispositions": [
+        {
+          "status": "SKIPPED_BUDGET",
+          "url": "https://shop.example.test/sitemap.xml"
+        }
+      ],
+      "fetches": [
+        {
+          "command_id": "FETCH_ROBOTS",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STATIC",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STATIC",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_SITEMAP",
+          "status": "SKIPPED_BUDGET",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STEALTH",
+          "status": "NOT_APPLICABLE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_WELL_KNOWN",
+          "status": "NOT_APPLICABLE",
+          "limitations": []
+        }
+      ]
+    },
+    "probe_error": null
+  },
+  {
+    "id": "CONTROL-02",
+    "classification": "PASSING_CONTROL",
+    "result": {
+      "error": null,
+      "calls": [
+        "https://shop.example.test/robots.txt",
+        "https://shop.example.test/",
+        "https://shop.example.test/sitemap.xml",
+        "https://shop.example.test/contact",
+        "https://shop.example.test/blog/a",
+        "https://shop.example.test/blog/b",
+        "https://shop.example.test/privacy"
+      ],
+      "claim_count": 1,
+      "evaluated_urls": [
+        "https://shop.example.test/blog/a",
+        "https://shop.example.test/",
+        "https://shop.example.test/privacy",
+        "https://shop.example.test/blog/b",
+        "https://shop.example.test/contact"
+      ],
+      "dispositions": [
+        {
+          "status": "SKIPPED_PAGE_LIMIT",
+          "url": "https://shop.example.test/terms"
+        }
+      ],
+      "fetches": [
+        {
+          "command_id": "FETCH_ROBOTS",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STATIC",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_SITEMAP",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STATIC",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STATIC",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STATIC",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STATIC",
+          "status": "COMPLETE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_STEALTH",
+          "status": "NOT_APPLICABLE",
+          "limitations": []
+        },
+        {
+          "command_id": "FETCH_WELL_KNOWN",
+          "status": "NOT_APPLICABLE",
+          "limitations": []
+        }
+      ]
+    },
+    "probe_error": null
+  },
+  {
+    "id": "CONTROL-03",
+    "classification": "PASSING_CONTROL",
+    "result": {
+      "schema_valid": true,
+      "same_claim_identity": true,
+      "values": [
+        12000,
+        12000
+      ],
+      "resolution": {
+        "status": "KNOWN",
+        "accepted_fact_ids": [
+          "f.traffic",
+          "f.traffic-other-serialization"
+        ]
+      }
+    },
+    "probe_error": null
+  },
+  {
+    "id": "CONTROL-04",
+    "classification": "PASSING_CONTROL",
+    "result": {
+      "schema_valid": true,
+      "same_claim_identity": true,
+      "values": [
+        12000,
+        13000
+      ],
+      "resolution": {
+        "status": "CONFLICT",
+        "accepted_fact_ids": []
+      }
+    },
+    "probe_error": null
+  },
+  {
+    "id": "CONTROL-05",
+    "classification": "PASSING_CONTROL",
+    "result": {
+      "observations_before": 1,
+      "observations_after": 1,
+      "evidence_before": 1,
+      "evidence_after": 1,
+      "matches_before": 3,
+      "matches_after": 6,
+      "source_groups_after": 1,
+      "confidence": null,
+      "additional_network": 0
+    },
+    "probe_error": null
+  }
+]

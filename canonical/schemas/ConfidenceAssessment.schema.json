@@ -1,0 +1,37 @@
+{
+  "$id": "https://keensight.local/v4.2/ConfidenceAssessment.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "calibration_id": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "meaning": {
+      "enum": [
+        "UNCALIBRATED_MODEL_SCORE",
+        "CALIBRATED_PRECISION",
+        "DETERMINISTIC_MATCH"
+      ]
+    },
+    "value": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "value",
+    "meaning",
+    "calibration_id"
+  ],
+  "title": "ConfidenceAssessment",
+  "type": "object"
+}

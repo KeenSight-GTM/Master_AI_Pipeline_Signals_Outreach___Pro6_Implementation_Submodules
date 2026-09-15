@@ -1,0 +1,104 @@
+[
+  {
+    "audit_id": "C01",
+    "audit_title": "Capture metadata is not bound to the stored authoritative record",
+    "status": "REPAIRED_AT_LOCAL_STORE_BOUNDARY",
+    "change": "Capture metadata must exactly match its trusted immutable database row before the original blob is read. Headers, time, mode, source, subject, status, completeness and TTL are bound. CLI checks also re-extract exact surfaces and command records."
+  },
+  {
+    "audit_id": "C02",
+    "audit_title": "Successful claim output can contradict failed producer diagnostics",
+    "status": "REPAIRED_REFERENCE_VALIDATION",
+    "change": "Rule evaluation reports and producer outcomes are recomputed; failed extract/match commands cannot retain eligible positive surfaces or matches. Required extraction command coverage is checked for selected captures."
+  },
+  {
+    "audit_id": "C03",
+    "audit_title": "Failed evaluation can publish supported findings to SQLite",
+    "status": "REPAIRED_SCANNER_PUBLICATION",
+    "change": "Validate complete evaluation first, then commit findings, support, research features, replay selection and evaluation manifest in one SQLite transaction. Raw captures/diagnostics may remain after failure; eligible findings do not. Fault-injection verifies rollback."
+  },
+  {
+    "audit_id": "C04",
+    "audit_title": "Replay does not preserve live capture eligibility",
+    "status": "REPAIRED_WITH_FORMAT_CHANGE",
+    "change": "ScanBundle 1.1 and stored replay selection identify captures actually selected for technical evaluation. Replay no longer reclassifies HTTP-200 robots HTML or discards originally sniffed HTML just because Content-Type is absent."
+  },
+  {
+    "audit_id": "C05",
+    "audit_title": "Incomplete or absent extraction is reported as ordinary NO_MATCH",
+    "status": "REPAIRED_REFERENCE_MATCH_REPORTS",
+    "change": "Required missing/partial extraction surfaces produce PARTIAL, and no evaluated page produces NOT_EVALUATED; neither is a complete NO_MATCH. This release does not manufacture absence facts."
+  },
+  {
+    "audit_id": "C06",
+    "audit_title": "Resume forgets rate-limit state",
+    "status": "REPAIRED_LOCAL_RESUME",
+    "change": "Rate-limit cooldown is persisted and checked on reused as well as fresh attempts. Retry-After seconds/date is handled; fallback is conservative. No claim of a distributed rate-budget service."
+  },
+  {
+    "audit_id": "C07",
+    "audit_title": "Rule authorization digest excludes product-alias semantics",
+    "status": "REPAIRED_WITH_DIGEST_CHANGE",
+    "change": "Rule digest includes the resolved canonical product as well as the authored definition, so alias changes invalidate old semantic authorization."
+  },
+  {
+    "audit_id": "C08",
+    "audit_title": "HTTP character encoding is ignored by extraction",
+    "status": "REPAIRED_EXTRACTOR",
+    "change": "Deterministic BOM/HTTP charset/HTML declaration/UTF-8 fallback policy; decoding choice is retained. Explicit HTTP UTF-8 non-ASCII regression passes."
+  },
+  {
+    "audit_id": "C09",
+    "audit_title": "Inert script contexts are not consistently modeled",
+    "status": "REPAIRED_NARROW_CONTEXTS",
+    "change": "Collector retains script type and INERT_SCRIPT context; presence matching excludes inert script MIME types. Canonical narrow matcher also excludes template/noscript/footer/aside. These rules do not constitute full browser execution verification."
+  },
+  {
+    "audit_id": "C10",
+    "audit_title": "Malformed source inputs escape local quarantine/diagnostics",
+    "status": "REPAIRED_TESTED_INPUT_BOUNDARIES",
+    "change": "Malformed discovered sitemap URLs are locally diagnosed, and non-string/unhashable donor IDs are quarantined instead of crashing the batch. Not a universal malformed-input fuzzing proof."
+  },
+  {
+    "audit_id": "C11",
+    "audit_title": "Priority and diagnostic reports are not reproducibly validated",
+    "status": "REPAIRED_DETERMINISTIC_PROJECTIONS",
+    "change": "Priority/negative-selection outputs and rule/producer reports are recomputed. Other future provider or policy receipts still need their runtime authority boundary."
+  },
+  {
+    "audit_id": "A01",
+    "audit_title": "Model transcripts inflate corroboration counts",
+    "status": "REPAIRED_REFERENCE_CORROBORATION",
+    "change": "Full provenance remains available; substantive corroborating artifacts exclude model request/response/repair records and follow transforms back to original substantive origins."
+  },
+  {
+    "audit_id": "A02",
+    "audit_title": "A refreshed current-use gate ignores newly admitted conflicts",
+    "status": "REPAIRED_REFERENCE_CURRENT_USE",
+    "change": "Historical evaluation retains the frozen inputs. Current-use eligibility examines all currently recorded same-claim observations and ancestral claim groups, blocking newly introduced conflicts."
+  },
+  {
+    "audit_id": "A03",
+    "audit_title": "In-run model artifacts cannot satisfy the frozen-input contract",
+    "status": "REPAIRED_MODEL_ARTIFACT_CONTRACT",
+    "change": "External inputs and run-produced artifacts are separate manifests. Successful producer output declarations, time windows, uniqueness and consumer chronology are enforced for model request/response/repair artifacts."
+  },
+  {
+    "audit_id": "A04",
+    "audit_title": "ChangeRecord authorization remains open (previously deferred F)",
+    "status": "REPAIRED_REFERENCE_AUTHORIZATION_NOT_HOSTED_AUTH",
+    "change": "ChangeRecord requires actor, typed target and recorded time; tenant ownership, grant permission, replacement compatibility and timing are checked. Invalid records are rejected and do not mutate usability. Trusted ActorGrants are configuration in this reference package, not authenticated user sessions."
+  },
+  {
+    "audit_id": "A05",
+    "audit_title": "Canonical fingerprint facts are not re-derived from their actual evidence",
+    "status": "REPAIRED_NARROW_FINGERPRINT_ADMISSION",
+    "change": "Actual technology footprint matched host must be found by the registered narrow matcher in the fact\u2019s retained artifact. Fixture success alone no longer authenticates the matched value. Full donor/collector-to-canonical bridge remains unimplemented."
+  },
+  {
+    "audit_id": "P01",
+    "audit_title": "The proposed common protocol is structural, not an enforcing runtime interface",
+    "status": "PARTIAL_CHECKER_HARDENED_RUNNER_NOT_IMPLEMENTED",
+    "change": "A trusted signature allowlist and payload resolver enforce consumed-reference closure, operation/schema versions, minimum inputs, output shape, digests and deadlines for the delivered fixture operation. General execution middleware, all handlers, read instrumentation, effects and hosted authentication are not implemented."
+  }
+]

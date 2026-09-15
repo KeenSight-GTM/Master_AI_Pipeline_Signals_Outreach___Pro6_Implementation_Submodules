@@ -1,0 +1,59 @@
+classDiagram
+    class CollectorPageEvidence {
+        capture
+        surfaces
+        commands
+    }
+    class CollectorMatch {
+        match_id
+        rule_id
+        rule_digest
+        release_digest
+        authority
+        capture_id
+        surface_id
+        branch
+        predicate
+        product_id
+        object_value
+        evidence_key
+        rule_evidence_key
+        authored_confidence
+    }
+    class CollectorObservation {
+        observation_id
+        claim_key
+        tenant_id
+        subject_id
+        predicate
+        target
+        scope_id
+        nature
+        state
+        object_value
+        capture_id
+        source_id
+        source_group
+        observed_at
+        expires_at
+    }
+    class CollectorSupportLink {
+        observation_id
+        match_id
+    }
+    class CollectorClaimView {
+        claim_key
+        predicate
+        target
+        status
+        object_value
+        observation_ids
+        supporting_match_ids
+        eligible_match_ids
+        rule_ids
+        capture_count
+        source_group_count
+        evidence_count
+        confidence
+        confidence_policy
+    }

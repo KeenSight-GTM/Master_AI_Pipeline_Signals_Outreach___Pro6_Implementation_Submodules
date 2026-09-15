@@ -1,0 +1,77 @@
+{
+  "$id": "https://keensight.local/v4.2/OutcomeEvent.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "attribution_status": {
+      "enum": [
+        "MATCHED",
+        "QUARANTINED"
+      ]
+    },
+    "event_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "evidence_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "exposure_id": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "kind": {
+      "enum": [
+        "REPLY",
+        "MEETING",
+        "BOUNCE",
+        "UNSUBSCRIBE",
+        "DELIVERY_UPDATE"
+      ]
+    },
+    "occurred_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "provider": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "provider_event_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "received_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "tenant_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_id",
+    "tenant_id",
+    "provider",
+    "provider_event_id",
+    "exposure_id",
+    "occurred_at",
+    "received_at",
+    "kind",
+    "attribution_status",
+    "evidence_id"
+  ],
+  "title": "OutcomeEvent",
+  "type": "object"
+}

@@ -1,0 +1,65 @@
+{
+  "$id": "https://keensight.local/v4.2/ReviewRecordValue.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "edited": {
+      "type": "boolean"
+    },
+    "language": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "platform": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "published_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "rating": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "rating_scale_max": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "review_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "text": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "review_key",
+    "platform",
+    "published_at",
+    "rating",
+    "rating_scale_max",
+    "text",
+    "language",
+    "edited"
+  ],
+  "title": "ReviewRecordValue",
+  "type": "object"
+}

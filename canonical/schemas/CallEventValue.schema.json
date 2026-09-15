@@ -1,0 +1,63 @@
+{
+  "$id": "https://keensight.local/v4.2/CallEventValue.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "call_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "callback_of": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "direction": {
+      "enum": [
+        "INBOUND",
+        "OUTBOUND"
+      ]
+    },
+    "duration_seconds": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "started_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "ANSWERED",
+        "MISSED",
+        "ABANDONED",
+        "VOICEMAIL",
+        "UNKNOWN"
+      ]
+    }
+  },
+  "required": [
+    "call_key",
+    "started_at",
+    "direction",
+    "status",
+    "duration_seconds",
+    "callback_of"
+  ],
+  "title": "CallEventValue",
+  "type": "object"
+}

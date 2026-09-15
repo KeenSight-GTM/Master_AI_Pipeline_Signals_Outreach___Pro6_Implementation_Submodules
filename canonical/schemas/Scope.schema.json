@@ -1,0 +1,73 @@
+{
+  "$id": "https://keensight.local/v4.2/Scope.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "capture_mode": {
+      "enum": [
+        "RAW_HTML",
+        "RENDERED_DOM",
+        "NETWORK_TRACE",
+        "DNS",
+        "CERTIFICATE_LOG",
+        "API_BODY",
+        "DOCUMENT",
+        "HUMAN_RECORD",
+        "DERIVED"
+      ]
+    },
+    "kind": {
+      "enum": [
+        "ELEMENT",
+        "PAGE",
+        "WEBSITE",
+        "PROVIDER_QUERY",
+        "AUTHORIZED_SYSTEM",
+        "RESEARCH_SAMPLE",
+        "REGISTRY_RECORD",
+        "OPERATIONS"
+      ]
+    },
+    "population_description": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "resources": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "scope_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "stable_scope_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "subject_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "tenant_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "scope_id",
+    "tenant_id",
+    "subject_id",
+    "kind",
+    "resources",
+    "capture_mode",
+    "population_description",
+    "stable_scope_key"
+  ],
+  "title": "Scope",
+  "type": "object"
+}

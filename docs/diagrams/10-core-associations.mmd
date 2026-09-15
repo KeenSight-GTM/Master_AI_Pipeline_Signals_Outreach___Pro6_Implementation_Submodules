@@ -1,0 +1,20 @@
+classDiagram
+    CollectorCapture "1" --> "many" CollectorSurface : extracts
+    CollectorSurface "1" --> "many" CollectorMatch : supports
+    CollectorObservation "1" --> "many" CollectorSupportLink : retains
+    CollectorSupportLink --> CollectorMatch : references
+    CollectorObservation ..> Fact : admission adapter required
+    Fact --> Subject : attributed to
+    Fact --> EvidenceSet : supported by
+    EvidenceSet --> ExecutionRecord : derived producer
+    ExecutionRecord --> BatchRun : pinned under
+    ClaimResolution --> Fact : complete claim group
+    ResearchSample --> EvidenceSet : full sample lineage
+    ContextAssessment --> ResearchSample : contextual prior
+    SignalEvaluation --> ClaimResolution : resolved proof
+    SignalEvaluation --> ContextAssessment : internal context
+    OutreachPackage --> SignalEvaluation : eligible condition
+    OutreachPackage --> Fact : grounded clauses
+    ReviewDecision --> OutreachPackage : exact revision hash
+    UseGateDecision --> ReviewDecision : current permission
+    ExportReceipt --> UseGateDecision : authorized handoff

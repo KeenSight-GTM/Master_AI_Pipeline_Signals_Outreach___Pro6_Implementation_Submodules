@@ -1,0 +1,95 @@
+{
+  "$id": "https://keensight.local/v4.2/TemplateDefinition.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_natures": {
+      "items": {
+        "enum": [
+          "DIRECT_OBSERVATION",
+          "FIRST_PARTY_STATEMENT",
+          "THIRD_PARTY_REPORT",
+          "PROVIDER_ESTIMATE",
+          "REGISTRY_RECORD",
+          "INFERENCE",
+          "DERIVED_MEASUREMENT"
+        ]
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "authority": {
+      "enum": [
+        "CANDIDATE",
+        "ACTIVE",
+        "DEPRECATED"
+      ]
+    },
+    "maturity_required": {
+      "type": "boolean"
+    },
+    "mode": {
+      "enum": [
+        "OBSERVATION_QUESTION",
+        "MATURITY_OFFER"
+      ]
+    },
+    "offered_rung": {
+      "anyOf": [
+        {
+          "enum": [
+            "L1",
+            "L2",
+            "L3"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "question": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "renderer": {
+      "enum": [
+        "observed_product_v1",
+        "attributed_job_statement_v1",
+        "scoped_absence_v1"
+      ]
+    },
+    "required_predicate": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "review_ref": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "template_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "template_id",
+    "version",
+    "authority",
+    "mode",
+    "required_predicate",
+    "allowed_natures",
+    "renderer",
+    "question",
+    "maturity_required",
+    "offered_rung",
+    "review_ref"
+  ],
+  "title": "TemplateDefinition",
+  "type": "object"
+}

@@ -1,0 +1,95 @@
+{
+  "snapshot": "2026-09-15-local-assembly.1",
+  "artifact_type": "CONSOLIDATED_SOURCE_WORKSPACE",
+  "runtime_behavior_changes_in_this_assembly": false,
+  "collector_version": "0.2.0",
+  "canonical_reference_version": "4.2.0",
+  "implemented_local": [
+    "static acquisition orchestration with fixture transport",
+    "17 surface extractors",
+    "typed matching",
+    "capture observations/support links/claim views",
+    "SQLite and blob storage",
+    "local replay and donor subset import",
+    "independent collector commands"
+  ],
+  "reference_only": [
+    "canonical schema and semantic validators",
+    "restricted template renderer and local design-test export",
+    "shared protocol pair checker"
+  ],
+  "design_only": [
+    "39-module full product architecture",
+    "persistent canonical admission bridge",
+    "hosted authentication",
+    "broad live enrichment",
+    "contacts/campaigns/enrollment",
+    "sending/replies/CRM",
+    "general enforcing module runner"
+  ],
+  "known_limits": [
+    "Scrapling 0.4.15 SDK not installed in assembly environment",
+    "native browser disabled",
+    "known standard-use POC defects remain",
+    "iteration-2 safety requirements remain unsatisfied",
+    "historical docs do not override current status"
+  ],
+  "network_or_external_side_effects_in_smoke_journeys": false,
+  "source_of_runtime": "Byte-identical code from the latest supplied repair baseline; subsequent audit archives carried the same code.",
+  "github_push_in_this_assembly": false,
+  "verification_summary": {
+    "snapshot": "2026-09-15-local-assembly.1",
+    "scope": "SOURCE_ASSEMBLY_AND_LOCAL_FIXTURE_VERIFICATION",
+    "regression_suites": {
+      "collector": {
+        "tests": 184,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1
+      },
+      "canonical": {
+        "tests": 609,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "protocol": {
+        "tests": 42,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "workspace": {
+        "tests": 14,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "existing_component_passed": 834,
+    "workspace_passed": 14,
+    "known_issue_acceptance": {
+      "poc": {
+        "tests": 14,
+        "failures": 9,
+        "errors": 0,
+        "skipped": 0
+      },
+      "iteration2": {
+        "tests": 22,
+        "failures": 16,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "journeys": 8,
+    "journey_subprocesses": 20,
+    "component_sources_preserved": 311,
+    "generated_canonical_files_match": 116,
+    "live_sdk_verified": false,
+    "browser_enabled": false,
+    "github_push": false,
+    "runtime_behavior_patched_in_this_assembly": false,
+    "poc_ready": false
+  }
+}

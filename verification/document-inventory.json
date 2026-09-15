@@ -1,0 +1,9 @@
+{
+  "status": "PASS_DESIGN_INVENTORY_NOT_RUNTIME",
+  "modules": 39,
+  "collector_command_ids": 38,
+  "step_cards": 27,
+  "record_classes": 119,
+  "rendered_views": 31,
+  "service_groups": 8
+}

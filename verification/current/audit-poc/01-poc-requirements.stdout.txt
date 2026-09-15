@@ -1,0 +1,123 @@
+FFFFFFFFF.....                                                           [100%]
+=================================== FAILURES ===================================
+___________ test_poc01_multipage_scan_is_independent_of_run_identity ___________
+tests/test_poc_requirements.py:14: in test_poc01_multipage_scan_is_independent_of_run_identity
+    assert r['failed_cases']==0, [(x['run_id'],x['error']) for x in r['cases'] if x['error']]
+E   AssertionError: [('run-1', 'Rule execution outcomes do not reproduce'), ('run-4', 'Rule execution outcomes do not reproduce'), ('run-7', 'Rule execution outcomes do not reproduce'), ('run-9', 'Rule execution outcomes do not reproduce')]
+E   assert 4 == 0
+____________ test_poc02_follow_bounded_same_origin_robots_redirect _____________
+tests/test_poc_requirements.py:18: in test_poc02_follow_bounded_same_origin_robots_redirect
+    assert r['claim_count']==1, r
+E   AssertionError: {'calls': ['https://shop.example.test/robots.txt'], 'claim_count': 0, 'dispositions': [], 'error': None, ...}
+E   assert 0 == 1
+____________ test_poc03_expired_cooldown_is_not_reported_as_active _____________
+tests/test_poc_requirements.py:23: in test_poc03_expired_cooldown_is_not_reported_as_active
+    assert not any(x['status']=='SKIPPED_RATE_LIMIT' for x in r['dispositions']), r
+E   AssertionError: {'calls_after': ['https://shop.example.test/robots.txt', 'https://shop.example.test/'], 'calls_before': ['https://shop.example.test/robots.txt', 'https://shop.example.test/'], 'claim_count': 0, 'cooldown_active': False, ...}
+E   assert not True
+E    +  where True = any(<generator object test_poc03_expired_cooldown_is_not_reported_as_active.<locals>.<genexpr> at 0x7f1c23240ee0>)
+__________________ test_poc04_support_a_bounded_gzip_sitemap ___________________
+tests/test_poc_requirements.py:27: in test_poc04_support_a_bounded_gzip_sitemap
+    assert p.HOST+'/contact' in r['evaluated_urls'],r
+E   AssertionError: {'calls': ['https://shop.example.test/robots.txt', 'https://shop.example.test/', 'https://shop.example.test/sitemap.xm...s': [{'http_status': 404, 'status': 'NOT_USABLE', 'url': 'https://shop.example.test/sitemap.xml'}], 'error': None, ...}
+E   assert ('https://shop.example.test' + '/contact') in ['https://shop.example.test/']
+E    +  where 'https://shop.example.test' = p.HOST
+_________ test_poc05_rank_sitemap_pages_by_declared_business_priority __________
+tests/test_poc_requirements.py:31: in test_poc05_rank_sitemap_pages_by_declared_business_priority
+    assert p.HOST+'/contact' in r['evaluated_urls'],r
+E   AssertionError: {'calls': ['https://shop.example.test/robots.txt', 'https://shop.example.test/', 'https://shop.example.test/sitemap.xm... 0, 'dispositions': [{'status': 'SKIPPED_PAGE_LIMIT', 'url': 'https://shop.example.test/contact'}], 'error': None, ...}
+E   assert ('https://shop.example.test' + '/contact') in ['https://shop.example.test/blog/a', 'https://shop.example.test/', 'https://shop.example.test/privacy', 'https://shop.example.test/terms', 'https://shop.example.test/blog/b']
+E    +  where 'https://shop.example.test' = p.HOST
+_____ test_poc06_claim_query_distinguishes_current_candidate_from_unknown ______
+tests/test_poc_requirements.py:36: in test_poc06_claim_query_distinguishes_current_candidate_from_unknown
+    assert r['query_states']==r['bundle_states']==['CANDIDATE'],r
+E   AssertionError: {'automatic_approvals': 0, 'bundle_states': ['CANDIDATE'], 'candidate_support_retained': True, 'eligible_support_counts': [0], ...}
+E   assert ['UNKNOWN'] == ['CANDIDATE']
+E     
+E     At index 0 diff: 'UNKNOWN' != 'CANDIDATE'
+E     
+E     Full diff:
+E       [
+E     -     'CANDIDATE',
+E     +     'UNKNOWN',
+E       ]
+________ test_poc07_known_features_leave_the_unresolved_candidate_queue ________
+tests/test_poc_requirements.py:41: in test_poc07_known_features_leave_the_unresolved_candidate_queue
+    assert not r['after'] or all(x.get('status') in {'RESOLVED','HISTORICAL'} for x in r['after']),r
+E   AssertionError: {'after': [{'capture_count': 1, 'feature_id': 'feature_a91749c7870e8e8e5e3029ac98155ff5beaba048d259739320dfef5980e3e54...9320dfef5980e3e54c', 'observed_origin_count': 1, 'value': '{"kind":"script_url:host","value":"assets.calendly.com"}'}]}
+E   assert (not [{'capture_count': 1, 'feature_id': 'feature_a91749c7870e8e8e5e3029ac98155ff5beaba048d259739320dfef5980e3e54c', 'observed_origin_count': 1, 'value': '{"kind":"script_url:host","value":"assets.calendly.com"}'}] or False)
+E    +  where False = all(<generator object test_poc07_known_features_leave_the_unresolved_candidate_queue.<locals>.<genexpr> at 0x7f1c26d272a0>)
+____________ test_poc08_tenant_wide_claims_include_account_identity ____________
+tests/test_poc_requirements.py:45: in test_poc08_tenant_wide_claims_include_account_identity
+    assert set(r['returned_subject_ids'])=={'account:A','account:B'},r
+E   AssertionError: {'distinct_claim_keys': 2, 'exit': 0, 'keys': ['capture_count', 'claim_key', 'confidence', 'confidence_policy', 'eligible_match_ids', 'evidence_count', ...], 'returned_subject_ids': [None, None], ...}
+E   assert {None} == {'account:A', 'account:B'}
+E     
+E     Extra items in the left set:
+E     None
+E     Extra items in the right set:
+E     'account:A'
+E     'account:B'
+E     
+E     Full diff:
+E       {
+E     +     None,
+E     -     'account:A',
+E     -     'account:B',
+E       }
+____________ test_poc09_equal_numeric_measurements_do_not_conflict _____________
+tests/test_poc_requirements.py:50: in test_poc09_equal_numeric_measurements_do_not_conflict
+    assert r['resolution']['status']=='KNOWN',r
+E   AssertionError: {'resolution': {'accepted_fact_ids': [], 'status': 'CONFLICT'}, 'same_claim_identity': True, 'schema_valid': True, 'values': [12000, 12000.0]}
+E   assert 'CONFLICT' == 'KNOWN'
+E     
+E     - KNOWN
+E     + CONFLICT
+=========================== short test summary info ============================
+FAILED tests/test_poc_requirements.py::test_poc01_multipage_scan_is_independent_of_run_identity - AssertionError: [('run-1', 'Rule execution outcomes do not reproduce'), ('run-4', 'Rule execution outcomes do not reproduce'), ('run-7', 'Rule execution outcomes do not reproduce'), ('run-9', 'Rule execution outcomes do not reproduce')]
+assert 4 == 0
+FAILED tests/test_poc_requirements.py::test_poc02_follow_bounded_same_origin_robots_redirect - AssertionError: {'calls': ['https://shop.example.test/robots.txt'], 'claim_count': 0, 'dispositions': [], 'error': None, ...}
+assert 0 == 1
+FAILED tests/test_poc_requirements.py::test_poc03_expired_cooldown_is_not_reported_as_active - AssertionError: {'calls_after': ['https://shop.example.test/robots.txt', 'https://shop.example.test/'], 'calls_before': ['https://shop.example.test/robots.txt', 'https://shop.example.test/'], 'claim_count': 0, 'cooldown_active': False, ...}
+assert not True
+ +  where True = any(<generator object test_poc03_expired_cooldown_is_not_reported_as_active.<locals>.<genexpr> at 0x7f1c23240ee0>)
+FAILED tests/test_poc_requirements.py::test_poc04_support_a_bounded_gzip_sitemap - AssertionError: {'calls': ['https://shop.example.test/robots.txt', 'https://shop.example.test/', 'https://shop.example.test/sitemap.xm...s': [{'http_status': 404, 'status': 'NOT_USABLE', 'url': 'https://shop.example.test/sitemap.xml'}], 'error': None, ...}
+assert ('https://shop.example.test' + '/contact') in ['https://shop.example.test/']
+ +  where 'https://shop.example.test' = p.HOST
+FAILED tests/test_poc_requirements.py::test_poc05_rank_sitemap_pages_by_declared_business_priority - AssertionError: {'calls': ['https://shop.example.test/robots.txt', 'https://shop.example.test/', 'https://shop.example.test/sitemap.xm... 0, 'dispositions': [{'status': 'SKIPPED_PAGE_LIMIT', 'url': 'https://shop.example.test/contact'}], 'error': None, ...}
+assert ('https://shop.example.test' + '/contact') in ['https://shop.example.test/blog/a', 'https://shop.example.test/', 'https://shop.example.test/privacy', 'https://shop.example.test/terms', 'https://shop.example.test/blog/b']
+ +  where 'https://shop.example.test' = p.HOST
+FAILED tests/test_poc_requirements.py::test_poc06_claim_query_distinguishes_current_candidate_from_unknown - AssertionError: {'automatic_approvals': 0, 'bundle_states': ['CANDIDATE'], 'candidate_support_retained': True, 'eligible_support_counts': [0], ...}
+assert ['UNKNOWN'] == ['CANDIDATE']
+  
+  At index 0 diff: 'UNKNOWN' != 'CANDIDATE'
+  
+  Full diff:
+    [
+  -     'CANDIDATE',
+  +     'UNKNOWN',
+    ]
+FAILED tests/test_poc_requirements.py::test_poc07_known_features_leave_the_unresolved_candidate_queue - AssertionError: {'after': [{'capture_count': 1, 'feature_id': 'feature_a91749c7870e8e8e5e3029ac98155ff5beaba048d259739320dfef5980e3e54...9320dfef5980e3e54c', 'observed_origin_count': 1, 'value': '{"kind":"script_url:host","value":"assets.calendly.com"}'}]}
+assert (not [{'capture_count': 1, 'feature_id': 'feature_a91749c7870e8e8e5e3029ac98155ff5beaba048d259739320dfef5980e3e54c', 'observed_origin_count': 1, 'value': '{"kind":"script_url:host","value":"assets.calendly.com"}'}] or False)
+ +  where False = all(<generator object test_poc07_known_features_leave_the_unresolved_candidate_queue.<locals>.<genexpr> at 0x7f1c26d272a0>)
+FAILED tests/test_poc_requirements.py::test_poc08_tenant_wide_claims_include_account_identity - AssertionError: {'distinct_claim_keys': 2, 'exit': 0, 'keys': ['capture_count', 'claim_key', 'confidence', 'confidence_policy', 'eligible_match_ids', 'evidence_count', ...], 'returned_subject_ids': [None, None], ...}
+assert {None} == {'account:A', 'account:B'}
+  
+  Extra items in the left set:
+  None
+  Extra items in the right set:
+  'account:A'
+  'account:B'
+  
+  Full diff:
+    {
+  +     None,
+  -     'account:A',
+  -     'account:B',
+    }
+FAILED tests/test_poc_requirements.py::test_poc09_equal_numeric_measurements_do_not_conflict - AssertionError: {'resolution': {'accepted_fact_ids': [], 'status': 'CONFLICT'}, 'same_claim_identity': True, 'schema_valid': True, 'values': [12000, 12000.0]}
+assert 'CONFLICT' == 'KNOWN'
+  
+  - KNOWN
+  + CONFLICT
+9 failed, 5 passed in 1.73s

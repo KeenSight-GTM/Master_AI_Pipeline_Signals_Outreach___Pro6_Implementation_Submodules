@@ -1,0 +1,21 @@
+flowchart LR
+    a["Account direct observations"]
+    p["Product / industry reports"]
+    ad["Canonical fact admission"]
+    pr["Sample + numerator + denominator"]
+    cl["Complete account claim group"]
+    co["Research prior<br/>subject stays product / industry"]
+    join["Declared context join"]
+    si["Signal / opportunity evaluation"]
+    copy["Eligible factual clauses"]
+    a -->|"evidence + bindings"| ad
+    p -->|"attributed reports"| ad
+    ad -->|"account facts"| cl
+    ad -->|"research records"| pr
+    pr -->|"sample-bound measurement"| co
+    co -->|"prior"| join
+    cl -->|"explicit membership/product link"| join
+    join -->|"internal context only"| si
+    cl -->|"account condition inputs"| si
+    cl -->|"outward proof"| copy
+    si -->|"approved question/template selection"| copy

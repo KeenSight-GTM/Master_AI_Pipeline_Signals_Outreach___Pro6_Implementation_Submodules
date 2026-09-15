@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant r as Reasoning
+    participant k as Knowledge
+    participant m as Renderer
+    participant h as Reviewer
+    participant g as Use gate
+    participant e as Exporter
+    r->>k: 1. Consume frozen claim/input snapshot
+    r->>m: 2. Eligible conditions + template
+    m->>k: 3. Check account proof and ancestry
+    m->>h: 4. Exact content revision/hash + evidence
+    h->>g: 5. Authorized review for exact revision
+    g->>k: 6. Query complete CURRENT claims/rights/restrictions
+    k->>g: 7. Conflict or current eligible inputs
+    g->>e: 8. ALLOW exact destination/payload or BLOCK
+    e->>e: 9. Prepare durable idempotent intent
+    e->>g: 10. Recheck before external effect
+    e->>e: 11. Write receipt / retain uncertainty

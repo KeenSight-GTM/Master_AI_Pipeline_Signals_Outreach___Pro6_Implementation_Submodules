@@ -1,0 +1,22 @@
+{
+  "kind": "REFERENCE_FIXTURE_WALKTHROUGH",
+  "canonical_validation": {
+    "status": "PASS",
+    "schemas": 75,
+    "predicates": 213,
+    "metrics": 89,
+    "records": 225,
+    "counts": {
+      "schema_instances": 1121,
+      "semantic_facts": 28
+    }
+  },
+  "export_path": "/mnt/data/keensight-poc-readiness-review/reports/preview-smoke/reference/exports/84798f235e7912363d068b894d10a33b4c10640a8ffb6280b6773847befc1196.json",
+  "payload_hash": "sha256:ee2e7e8febb62f188efd979d2caeacd5882f47b944d82fffb725345fbdd8c464",
+  "second_call_reused": true,
+  "send_allowed": false,
+  "network_attempts": 0,
+  "as_of": "2026-09-14T20:00:10Z",
+  "fixture_actor_not_authentication": true,
+  "collector_to_canonical_bridge_exercised": false
+}

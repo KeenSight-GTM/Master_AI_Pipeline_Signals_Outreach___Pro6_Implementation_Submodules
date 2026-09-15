@@ -1,0 +1,62 @@
+{
+  "$id": "https://keensight.local/v4.2/RegistryRecordValue.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "effective_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "pattern": "Z$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "filed_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "pattern": "Z$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "issuer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "jurisdiction": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "namespace": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "record_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "record_status": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "namespace",
+    "record_id",
+    "issuer",
+    "jurisdiction",
+    "effective_at",
+    "filed_at",
+    "record_status"
+  ],
+  "title": "RegistryRecordValue",
+  "type": "object"
+}

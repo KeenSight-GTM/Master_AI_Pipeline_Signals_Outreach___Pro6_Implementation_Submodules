@@ -1,0 +1,25 @@
+[
+  {
+    "authority": "ACTIVE",
+    "calibration_ref": null,
+    "capture_mode": "RAW_HTML",
+    "emits": "technology.footprint",
+    "fingerprint_id": "fp.calendly.script",
+    "fixture_only": true,
+    "implementation_status": "REFERENCE_IMPLEMENTED",
+    "match_value": "calendly.com",
+    "negative_fixtures": [
+      "fixtures/fingerprint-lookalike.html",
+      "fixtures/fingerprint-comment.html",
+      "fixtures/fingerprint-blog.html",
+      "fixtures/fingerprint-footer.html"
+    ],
+    "operator": "SCRIPT_HOST",
+    "positive_fixtures": [
+      "fixtures/fingerprint-positive.html",
+      "fixtures/fingerprint-protocol-relative.html"
+    ],
+    "product_subject_id": "product.calendly",
+    "version": "1.0.0"
+  }
+]

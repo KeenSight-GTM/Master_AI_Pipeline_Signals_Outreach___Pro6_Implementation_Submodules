@@ -1,0 +1,50 @@
+{
+  "$id": "https://keensight.local/v4.2/CoverageFamilyPlan.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "contract_status": {
+      "const": "SCHEMA_DEFINED"
+    },
+    "live_adapter_status": {
+      "const": "NOT_IMPLEMENTED"
+    },
+    "metric_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "predicate_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "section": {
+      "maximum": 11,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "title": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "section",
+    "title",
+    "predicate_ids",
+    "metric_ids",
+    "contract_status",
+    "live_adapter_status"
+  ],
+  "title": "CoverageFamilyPlan",
+  "type": "object"
+}

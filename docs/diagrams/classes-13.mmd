@@ -1,0 +1,64 @@
+classDiagram
+    class TimeWindow {
+        end
+        start
+    }
+    class UseGateDecision {
+        actor_id
+        decision
+        destination_id
+        evaluated_at
+        gate_id
+        package
+        purpose
+        reasons
+        recipient_key
+        review_id
+        tenant_id
+        valid_until
+        version_vector
+    }
+    class UseRestriction {
+        actor_id
+        effective_at
+        kind
+        reason
+        recipient_key
+        released_at
+        released_by
+        restriction_id
+        subject_id
+        tenant_id
+    }
+    class ProgramDefinition {
+        program_id
+        tenant_id
+        revision
+        objectives
+        audience_ref
+        offer_refs
+        capability_profile_ref
+        acquisition_limits
+        outreach_policy_ref
+        owner
+        approval_state
+    }
+    class AudienceDefinition {
+        audience_id
+        revision
+        account_filters
+        permitted_geographies
+        excluded_segments
+        membership_as_of_policy
+        selection_reason_codes
+    }
+    class OfferDefinition {
+        offer_id
+        revision
+        service_line
+        supported_problem_classes
+        prerequisites
+        allowed_template_refs
+        persona_rules
+        restrictions
+    }

@@ -1,0 +1,151 @@
+classDiagram
+direction LR
+class MetricDefinition {
+  +string metric_id
+  +string description
+  +string unit
+  +Object value_schema
+  +Object dimensions_schema
+  +bool requires_denominator
+  +enum aggregation
+  +List~enum~ allowed_natures
+  +List~enum~ subject_kinds
+  +List~int~ section_ids
+}
+class MeasurementValue {
+  +string metric_id
+  +number value
+  +string unit
+  +Object dimensions
+  +string method_version
+  +string reporting_timezone
+  +Optional~int~ numerator
+  +Optional~int~ denominator
+  +Optional~int~ sample_size
+  +Optional~Object~ uncertainty
+}
+class TaxonomyTerm {
+  +string term_id
+  +string scheme_id
+  +string scheme_version
+  +string label
+  +Optional~string~ parent_id
+}
+class ResearchSample {
+  +string sample_id
+  +string tenant_id
+  +string subject_id
+  +string scope_id
+  +Object window
+  +string sampling_frame
+  +enum selection_method
+  +List~string~ retrieved_artifact_ids
+  +List~string~ eligible_artifact_ids
+  +List~string~ excluded_artifact_ids
+  +string dedupe_policy_version
+  +Optional~int~ population_size
+  +bool complete_population
+  +List~string~ limitations
+  +List~string~ policy_ids
+  +string support_policy_id
+  +string theme_id
+  +List~SampleRecordDecision~ record_decisions
+  +string created_at
+}
+class ResearchPriorValue {
+  +string sample_id
+  +string theme_id
+  +List~string~ supporting_fact_ids
+  +List~string~ contradicting_fact_ids
+  +int support_count
+  +int eligible_count
+  +number sample_share
+  +bool population_claim
+  +string support_policy_id
+  +int classified_eligible_count
+  +int unclassified_count
+  +string denominator_definition
+}
+class ReviewRecordValue {
+  +string review_key
+  +string platform
+  +string published_at
+  +Optional~number~ rating
+  +Optional~number~ rating_scale_max
+  +string text
+  +string language
+  +bool edited
+}
+class DiscussionRecordValue {
+  +string post_key
+  +string community
+  +string thread_key
+  +string published_at
+  +string text
+  +string language
+  +enum role
+}
+class ThemeClassificationValue {
+  +string theme_id
+  +string record_key
+  +enum sentiment
+  +enum stance
+  +List~string~ support_locator_ids
+}
+class ResearchSupportPolicy {
+  +string support_policy_id
+  +string version
+  +enum meaning
+  +List~string~ allowed_stances
+  +List~string~ allowed_sentiments
+  +string counting_unit
+  +string denominator_rule
+  +string unclassified_policy
+}
+class SampleRecordDecision {
+  +string artifact_id
+  +enum status
+  +List~string~ classification_fact_ids
+  +Optional~string~ reason
+}
+class LookalikeMatch {
+  +string match_id
+  +string run_id
+  +string tenant_id
+  +string target_subject_id
+  +string comparison_subject_id
+  +List~string~ input_fact_ids
+  +string corpus_release
+  +string representation_version
+  +string index_version
+  +number similarity_score
+  +List~string~ missing_features
+  +List~string~ differences
+  +bool outcome_transfer_allowed
+  +string use
+  +string implementation_status
+}
+class ScenarioEstimate {
+  +string scenario_id
+  +string tenant_id
+  +string subject_id
+  +List~string~ observed_input_fact_ids
+  +List~Object~ assumptions
+  +string formula_version
+  +string currency
+  +int lower_minor
+  +int upper_minor
+  +string time_period
+  +List~string~ limitations
+  +bool verified_loss
+  +string implementation_status
+}
+MeasurementValue "*" --> "1" MetricDefinition : unit_dimensions_and_bounds
+ResearchPriorValue "*" --> "1" ResearchSample : denominator_and_selection
+ThemeClassificationValue "*" --> "1" TaxonomyTerm : classified_theme
+ResearchPriorValue "*" --> "1" TaxonomyTerm : summarized_theme
+ReviewRecordValue "1" ..> "0..*" ThemeClassificationValue : input_to_classifier
+DiscussionRecordValue "1" ..> "0..*" ThemeClassificationValue : input_to_classifier
+ResearchPriorValue "1" o-- "1..*" ThemeClassificationValue : support_fact_references
+ResearchSample "1" *-- "1..*" SampleRecordDecision : complete_denominator
+ResearchSample "*" --> "1" ResearchSupportPolicy : counting_rule

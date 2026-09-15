@@ -1,0 +1,17 @@
+digraph G {
+rankdir=LR;
+graph [fontname="DejaVu Sans",nodesep=0.35,ranksep=0.75,bgcolor="white"];
+node [shape=box,fontname="DejaVu Sans",fontsize=12,margin="0.14,0.09"];
+edge [fontname="DejaVu Sans",fontsize=10];
+"scanner" [label="Scanner\nscan(url, config) -> ScanBundle\nevaluate(pages, id, as_of) -> ScanBundle\nreplay(tenant, run, id, as_of) -> ScanBundle"];
+"store" [label="Store\nbody(capture) -> bytes\npublish_evaluation(...) -> None\nstored_claims(tenant, as_of) -> list[ClaimView]\nreplay_eligible(capture) -> bool"];
+"rules" [label="RulePack\ncompile(data) -> RulePack\nload(path) -> RulePack"];
+"transport" [label="Transport [Protocol]\nget(url) -> FetchResult"];
+"http" [label="ScraplingTransport\nget(url) -> FetchResult\nactual SDK test still unverified"];
+"fixture" [label="FixtureTransport\nget(url) -> FetchResult\nexplicitly synthetic"];
+"scanner" -> "store" [label="trusted capture reads + atomic publish"];
+"scanner" -> "rules" [label="pinned release"];
+"scanner" -> "transport" [label="injected adapter"];
+"http" -> "transport" [label="implements"];
+"fixture" -> "transport" [label="implements"];
+}

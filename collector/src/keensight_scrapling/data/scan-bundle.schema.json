@@ -1,0 +1,644 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KeenSight collector ScanBundle v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.1"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "evaluation_id": {
+      "type": "string"
+    },
+    "as_of": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "release_digest": {
+      "type": "string"
+    },
+    "rule_pack": {
+      "type": "object"
+    },
+    "fixture_only": {
+      "type": "boolean"
+    },
+    "send_allowed": {
+      "const": false
+    },
+    "captures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "capture_id": {
+            "type": "string"
+          },
+          "tenant_id": {
+            "type": "string"
+          },
+          "subject_id": {
+            "type": "string"
+          },
+          "run_id": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "mode": {
+            "enum": [
+              "RAW_HTML",
+              "RENDERED_DOM"
+            ]
+          },
+          "status_code": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "body_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "body_path": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "complete": {
+            "type": "boolean"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source_ttl_seconds": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "capture_id",
+          "tenant_id",
+          "subject_id",
+          "run_id",
+          "url",
+          "observed_at",
+          "mode",
+          "status_code",
+          "body_sha256",
+          "body_path",
+          "headers",
+          "complete",
+          "source_id",
+          "limitations",
+          "source_ttl_seconds"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "surfaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "surface_id": {
+            "type": "string"
+          },
+          "capture_id": {
+            "type": "string"
+          },
+          "command_id": {
+            "enum": [
+              "CATALOG_LOAD",
+              "NORM_URL",
+              "FETCH_STATIC",
+              "FETCH_STEALTH",
+              "FETCH_SITEMAP",
+              "FETCH_ROBOTS",
+              "FETCH_WELL_KNOWN",
+              "DISCOVER_TEMPLATES",
+              "DISCOVER_CANONICAL",
+              "EXTRACT_RAW_HTML",
+              "EXTRACT_SCRIPT_SRC",
+              "EXTRACT_SCRIPT_INLINE",
+              "EXTRACT_IFRAME_SRC",
+              "EXTRACT_FORM_ACTION",
+              "EXTRACT_ANCHORS",
+              "EXTRACT_IMAGES",
+              "EXTRACT_LINKS_META",
+              "EXTRACT_JSONLD",
+              "EXTRACT_MICRODATA",
+              "EXTRACT_FOOTER",
+              "EXTRACT_HEADER_NAV",
+              "EXTRACT_DATA_ATTRS",
+              "EXTRACT_NOSCRIPT",
+              "EXTRACT_VISIBLE_TEXT",
+              "EXTRACT_URL_FEATURES",
+              "EXTRACT_HEADERS",
+              "MATCH_SUBSTRING",
+              "MATCH_OR_GROUP",
+              "MATCH_REGEX",
+              "MATCH_HOST_SUFFIX",
+              "MATCH_FOOTER_LITERAL",
+              "MATCH_IMG_ALT",
+              "GATE_AND",
+              "GATE_SCHEMA",
+              "GATE_NEGATIVE",
+              "ROLLUP_HOST",
+              "SCORE_HOST",
+              "EMIT"
+            ]
+          },
+          "kind": {
+            "type": "string"
+          },
+          "locator": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "context": {
+            "enum": [
+              "PAGE",
+              "FOOTER",
+              "HEADER_NAV",
+              "NOSCRIPT",
+              "INERT_TEMPLATE",
+              "INERT_SCRIPT"
+            ]
+          },
+          "attributes": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "surface_id",
+          "capture_id",
+          "command_id",
+          "kind",
+          "locator",
+          "value",
+          "context",
+          "attributes"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "matches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "match_id": {
+            "type": "string"
+          },
+          "rule_id": {
+            "type": "string"
+          },
+          "rule_digest": {
+            "type": "string"
+          },
+          "release_digest": {
+            "type": "string"
+          },
+          "authority": {
+            "enum": [
+              "APPROVED",
+              "CANDIDATE"
+            ]
+          },
+          "capture_id": {
+            "type": "string"
+          },
+          "surface_id": {
+            "type": "string"
+          },
+          "branch": {
+            "type": "string"
+          },
+          "predicate": {
+            "enum": [
+              "vendor.present",
+              "vendor.mentioned"
+            ]
+          },
+          "product_id": {
+            "type": "string"
+          },
+          "object_value": {
+            "type": "boolean"
+          },
+          "evidence_key": {
+            "type": "string"
+          },
+          "rule_evidence_key": {
+            "type": "string"
+          },
+          "authored_confidence": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "required": [
+          "match_id",
+          "rule_id",
+          "rule_digest",
+          "release_digest",
+          "authority",
+          "capture_id",
+          "surface_id",
+          "branch",
+          "predicate",
+          "product_id",
+          "object_value",
+          "evidence_key",
+          "rule_evidence_key",
+          "authored_confidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "observation_id": {
+            "type": "string"
+          },
+          "claim_key": {
+            "type": "string"
+          },
+          "tenant_id": {
+            "type": "string"
+          },
+          "subject_id": {
+            "type": "string"
+          },
+          "predicate": {
+            "enum": [
+              "vendor.present",
+              "vendor.mentioned"
+            ]
+          },
+          "target": {
+            "type": "object",
+            "properties": {
+              "product_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "product_id"
+            ],
+            "additionalProperties": false
+          },
+          "scope_id": {
+            "type": "string"
+          },
+          "nature": {
+            "enum": [
+              "DIRECT_OBSERVATION"
+            ]
+          },
+          "state": {
+            "enum": [
+              "OBSERVED"
+            ]
+          },
+          "object_value": {
+            "type": "boolean"
+          },
+          "capture_id": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "source_group": {
+            "type": "string"
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "observation_id",
+          "claim_key",
+          "tenant_id",
+          "subject_id",
+          "predicate",
+          "target",
+          "scope_id",
+          "nature",
+          "state",
+          "object_value",
+          "capture_id",
+          "source_id",
+          "source_group",
+          "observed_at",
+          "expires_at"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "support_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "observation_id": {
+            "type": "string"
+          },
+          "match_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "observation_id",
+          "match_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "claim_key": {
+            "type": "string"
+          },
+          "predicate": {
+            "type": "string"
+          },
+          "target": {
+            "type": "object",
+            "properties": {
+              "product_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "product_id"
+            ],
+            "additionalProperties": false
+          },
+          "status": {
+            "enum": [
+              "SUPPORTED",
+              "CANDIDATE",
+              "UNKNOWN",
+              "CONFLICT"
+            ]
+          },
+          "object_value": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "observation_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "supporting_match_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "eligible_match_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rule_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "capture_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "source_group_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "evidence_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "confidence": {
+            "type": "null"
+          },
+          "confidence_policy": {
+            "enum": [
+              "NOT_COMBINED"
+            ]
+          }
+        },
+        "required": [
+          "claim_key",
+          "predicate",
+          "target",
+          "status",
+          "object_value",
+          "observation_ids",
+          "supporting_match_ids",
+          "eligible_match_ids",
+          "rule_ids",
+          "capture_count",
+          "source_group_count",
+          "evidence_count",
+          "confidence",
+          "confidence_policy"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "rule_evaluations": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "commands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "command_id": {
+            "enum": [
+              "CATALOG_LOAD",
+              "NORM_URL",
+              "FETCH_STATIC",
+              "FETCH_STEALTH",
+              "FETCH_SITEMAP",
+              "FETCH_ROBOTS",
+              "FETCH_WELL_KNOWN",
+              "DISCOVER_TEMPLATES",
+              "DISCOVER_CANONICAL",
+              "EXTRACT_RAW_HTML",
+              "EXTRACT_SCRIPT_SRC",
+              "EXTRACT_SCRIPT_INLINE",
+              "EXTRACT_IFRAME_SRC",
+              "EXTRACT_FORM_ACTION",
+              "EXTRACT_ANCHORS",
+              "EXTRACT_IMAGES",
+              "EXTRACT_LINKS_META",
+              "EXTRACT_JSONLD",
+              "EXTRACT_MICRODATA",
+              "EXTRACT_FOOTER",
+              "EXTRACT_HEADER_NAV",
+              "EXTRACT_DATA_ATTRS",
+              "EXTRACT_NOSCRIPT",
+              "EXTRACT_VISIBLE_TEXT",
+              "EXTRACT_URL_FEATURES",
+              "EXTRACT_HEADERS",
+              "MATCH_SUBSTRING",
+              "MATCH_OR_GROUP",
+              "MATCH_REGEX",
+              "MATCH_HOST_SUFFIX",
+              "MATCH_FOOTER_LITERAL",
+              "MATCH_IMG_ALT",
+              "GATE_AND",
+              "GATE_SCHEMA",
+              "GATE_NEGATIVE",
+              "ROLLUP_HOST",
+              "SCORE_HOST",
+              "EMIT"
+            ]
+          },
+          "status": {
+            "type": "string"
+          },
+          "input_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "output_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "details": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "command_id",
+          "status",
+          "input_ids",
+          "output_ids",
+          "limitations",
+          "details"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "resource_dispositions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "priority_score": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "handoff": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": [
+            "COLLECTOR_OBSERVATIONS"
+          ]
+        },
+        "requires_fact_service_admission": {
+          "const": true
+        },
+        "absence_facts_emitted": {
+          "const": false
+        }
+      },
+      "required": [
+        "type",
+        "requires_fact_service_admission",
+        "absence_facts_emitted"
+      ],
+      "additionalProperties": false
+    },
+    "evaluated_capture_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "evaluation_id",
+    "as_of",
+    "release_digest",
+    "rule_pack",
+    "fixture_only",
+    "send_allowed",
+    "captures",
+    "surfaces",
+    "matches",
+    "observations",
+    "support_links",
+    "claims",
+    "rule_evaluations",
+    "commands",
+    "resource_dispositions",
+    "priority_score",
+    "handoff",
+    "evaluated_capture_ids"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,111 @@
+{
+  "$id": "https://keensight.local/v4.2/FingerprintDefinition.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "enum": [
+        "CANDIDATE",
+        "ACTIVE",
+        "DEPRECATED"
+      ]
+    },
+    "calibration_ref": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "capture_mode": {
+      "enum": [
+        "RAW_HTML",
+        "RENDERED_DOM",
+        "NETWORK_TRACE",
+        "DNS",
+        "CERTIFICATE_LOG",
+        "API_BODY"
+      ]
+    },
+    "emits": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "fingerprint_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "fixture_only": {
+      "type": "boolean"
+    },
+    "implementation_status": {
+      "enum": [
+        "REFERENCE_IMPLEMENTED",
+        "DESIGN_ONLY"
+      ]
+    },
+    "match_value": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "negative_fixtures": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "operator": {
+      "enum": [
+        "SCRIPT_HOST",
+        "IFRAME_HOST",
+        "FORM_HOST",
+        "COOKIE_NAME",
+        "HEADER_VALUE",
+        "DNS_TARGET",
+        "JSON_VALUE",
+        "ATTRIBUTE_VALUE"
+      ]
+    },
+    "positive_fixtures": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "product_subject_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "fingerprint_id",
+    "version",
+    "authority",
+    "fixture_only",
+    "product_subject_id",
+    "emits",
+    "capture_mode",
+    "operator",
+    "match_value",
+    "positive_fixtures",
+    "negative_fixtures",
+    "calibration_ref",
+    "implementation_status"
+  ],
+  "title": "FingerprintDefinition",
+  "type": "object"
+}

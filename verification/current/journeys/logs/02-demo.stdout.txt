@@ -1,0 +1,8 @@
+{
+  "bundle": "/mnt/data/_assembly/journeys-current/journeys/demo-store/scan-bundle.json",
+  "matches": 7,
+  "observations": 2,
+  "claims": 1,
+  "actual_network_requests": 0,
+  "fixture_only": true
+}

@@ -1,0 +1,26 @@
+digraph G {
+rankdir=LR;
+graph [fontname="DejaVu Sans",nodesep=0.35,ranksep=0.75,bgcolor="white"];
+node [shape=box,fontname="DejaVu Sans",fontsize=12,margin="0.14,0.09"];
+edge [fontname="DejaVu Sans",fontsize=10];
+"a" [label="Account direct observations"];
+"p" [label="Product / industry reports"];
+"ad" [label="Canonical fact admission"];
+"pr" [label="Sample + numerator + denominator"];
+"cl" [label="Complete account claim group"];
+"co" [label="Research prior\nsubject stays product / industry"];
+"join" [label="Declared context join"];
+"si" [label="Signal / opportunity evaluation"];
+"copy" [label="Eligible factual clauses"];
+"a" -> "ad" [label="evidence + bindings"];
+"p" -> "ad" [label="attributed reports"];
+"ad" -> "cl" [label="account facts"];
+"ad" -> "pr" [label="research records"];
+"pr" -> "co" [label="sample-bound measurement"];
+"co" -> "join" [label="prior"];
+"cl" -> "join" [label="explicit membership/product link"];
+"join" -> "si" [label="internal context only"];
+"cl" -> "si" [label="account condition inputs"];
+"cl" -> "copy" [label="outward proof"];
+"si" -> "copy" [label="approved question/template selection"];
+}

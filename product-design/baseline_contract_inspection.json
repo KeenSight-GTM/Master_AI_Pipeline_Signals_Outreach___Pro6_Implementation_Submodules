@@ -1,0 +1,435 @@
+{
+  "UseGateDecision": {
+    "required": [
+      "gate_id",
+      "tenant_id",
+      "package",
+      "review_id",
+      "actor_id",
+      "purpose",
+      "destination_id",
+      "recipient_key",
+      "evaluated_at",
+      "valid_until",
+      "version_vector",
+      "decision",
+      "reasons"
+    ],
+    "properties": {
+      "actor_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "decision": {
+        "enum": [
+          "ALLOW",
+          "BLOCK"
+        ]
+      },
+      "destination_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "evaluated_at": {
+        "format": "date-time",
+        "pattern": "Z$",
+        "type": "string"
+      },
+      "gate_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "package": {
+        "additionalProperties": false,
+        "properties": {
+          "content_hash": {
+            "pattern": "^sha256:[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "package_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+            "type": "string"
+          },
+          "revision": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "package_id",
+          "revision",
+          "content_hash"
+        ],
+        "type": "object"
+      },
+      "purpose": {
+        "enum": [
+          "PREVIEW_EXPORT",
+          "CONTACT_EXPORT"
+        ]
+      },
+      "reasons": {
+        "items": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "minItems": 0,
+        "type": "array",
+        "uniqueItems": true
+      },
+      "recipient_key": {
+        "anyOf": [
+          {
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "review_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "tenant_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "valid_until": {
+        "format": "date-time",
+        "pattern": "Z$",
+        "type": "string"
+      },
+      "version_vector": {
+        "pattern": "^sha256:[a-f0-9]{64}$",
+        "type": "string"
+      }
+    }
+  },
+  "ReviewDecision": {
+    "required": [
+      "review_id",
+      "tenant_id",
+      "reviewer_id",
+      "package",
+      "action",
+      "reason",
+      "decided_at",
+      "policy_version"
+    ],
+    "properties": {
+      "action": {
+        "enum": [
+          "APPROVE",
+          "REJECT",
+          "REQUEST_CHANGE"
+        ]
+      },
+      "decided_at": {
+        "format": "date-time",
+        "pattern": "Z$",
+        "type": "string"
+      },
+      "package": {
+        "additionalProperties": false,
+        "properties": {
+          "content_hash": {
+            "pattern": "^sha256:[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "package_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+            "type": "string"
+          },
+          "revision": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "package_id",
+          "revision",
+          "content_hash"
+        ],
+        "type": "object"
+      },
+      "policy_version": {
+        "pattern": "^\\d+\\.\\d+\\.\\d+$",
+        "type": "string"
+      },
+      "reason": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "review_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "reviewer_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "tenant_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      }
+    }
+  },
+  "Exposure": {
+    "required": [
+      "exposure_id",
+      "tenant_id",
+      "package_id",
+      "business_send_key",
+      "provider_message_id",
+      "recipient_key",
+      "accepted_at",
+      "status"
+    ],
+    "properties": {
+      "accepted_at": {
+        "anyOf": [
+          {
+            "format": "date-time",
+            "pattern": "Z$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "business_send_key": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "exposure_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "package_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "provider_message_id": {
+        "anyOf": [
+          {
+            "minLength": 1,
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "recipient_key": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "status": {
+        "enum": [
+          "PROVIDER_ACCEPTED",
+          "UNKNOWN_DELIVERY",
+          "FAILED",
+          "BOUNCED"
+        ]
+      },
+      "tenant_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      }
+    }
+  },
+  "OutcomeEvent": {
+    "required": [
+      "event_id",
+      "tenant_id",
+      "provider",
+      "provider_event_id",
+      "exposure_id",
+      "occurred_at",
+      "received_at",
+      "kind",
+      "attribution_status",
+      "evidence_id"
+    ],
+    "properties": {
+      "attribution_status": {
+        "enum": [
+          "MATCHED",
+          "QUARANTINED"
+        ]
+      },
+      "event_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "evidence_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "exposure_id": {
+        "anyOf": [
+          {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "kind": {
+        "enum": [
+          "REPLY",
+          "MEETING",
+          "BOUNCE",
+          "UNSUBSCRIBE",
+          "DELIVERY_UPDATE"
+        ]
+      },
+      "occurred_at": {
+        "format": "date-time",
+        "pattern": "Z$",
+        "type": "string"
+      },
+      "provider": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "provider_event_id": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "received_at": {
+        "format": "date-time",
+        "pattern": "Z$",
+        "type": "string"
+      },
+      "tenant_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      }
+    }
+  },
+  "OutreachPackage": {
+    "required": [
+      "package_id",
+      "revision",
+      "run_id",
+      "tenant_id",
+      "subject_id",
+      "template_id",
+      "clauses",
+      "signal_ids",
+      "context_ids",
+      "maturity_fact_id",
+      "status",
+      "rendered_text",
+      "approved_at",
+      "send_allowed",
+      "review_id"
+    ],
+    "properties": {
+      "approved_at": {
+        "anyOf": [
+          {
+            "format": "date-time",
+            "pattern": "Z$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "clauses": {
+        "items": {
+          "$ref": "https://keensight.local/v4/GroundedClause.schema.json"
+        },
+        "minItems": 1,
+        "type": "array"
+      },
+      "context_ids": {
+        "items": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        },
+        "minItems": 0,
+        "type": "array",
+        "uniqueItems": true
+      },
+      "maturity_fact_id": {
+        "anyOf": [
+          {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "package_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "rendered_text": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "review_id": {
+        "anyOf": [
+          {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "revision": {
+        "minimum": 1,
+        "type": "integer"
+      },
+      "run_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "send_allowed": {
+        "const": false
+      },
+      "signal_ids": {
+        "items": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        },
+        "minItems": 0,
+        "type": "array",
+        "uniqueItems": true
+      },
+      "status": {
+        "enum": [
+          "DRAFT",
+          "DESIGN_TEST_APPROVED",
+          "APPROVED",
+          "WITHHELD"
+        ]
+      },
+      "subject_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "template_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "tenant_id": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      }
+    }
+  }
+}

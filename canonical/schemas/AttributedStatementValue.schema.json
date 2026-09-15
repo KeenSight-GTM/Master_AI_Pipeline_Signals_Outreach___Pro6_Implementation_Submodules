@@ -1,0 +1,36 @@
+{
+  "$id": "https://keensight.local/v4.2/AttributedStatementValue.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "modality": {
+      "enum": [
+        "CURRENT_STATE",
+        "REQUIREMENT",
+        "ASPIRATION",
+        "NEGATED",
+        "UNCERTAIN"
+      ]
+    },
+    "statement_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "text": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "topic_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "statement_id",
+    "text",
+    "topic_id",
+    "modality"
+  ],
+  "title": "AttributedStatementValue",
+  "type": "object"
+}

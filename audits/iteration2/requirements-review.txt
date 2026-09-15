@@ -1,0 +1,2 @@
+# For regenerating the offline HTML only; baseline tests have their own dependencies.
+markdown-it-py>=3,<5

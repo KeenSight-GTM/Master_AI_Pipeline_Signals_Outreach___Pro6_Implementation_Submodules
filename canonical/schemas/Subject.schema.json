@@ -1,0 +1,67 @@
+{
+  "$id": "https://keensight.local/v4.2/Subject.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "display_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "external_ids": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "namespace": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+            "type": "string"
+          },
+          "value": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "namespace",
+          "value"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "kind": {
+      "enum": [
+        "ORG",
+        "LOCATION",
+        "PERSON",
+        "BRAND",
+        "WEBSITE",
+        "SOFTWARE_PRODUCT",
+        "INDUSTRY",
+        "JOB_POSTING",
+        "APPLICATION",
+        "LISTING",
+        "COHORT",
+        "ANGLE"
+      ]
+    },
+    "subject_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "tenant_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "subject_id",
+    "tenant_id",
+    "kind",
+    "display_name",
+    "external_ids"
+  ],
+  "title": "Subject",
+  "type": "object"
+}

@@ -1,0 +1,166 @@
+[
+  {
+    "authority": "ACTIVE",
+    "cross_subject_rule": "SAME_SUBJECT",
+    "detector_contract": null,
+    "entrypoint": "keensight_contracts.completion:extract_job_quote",
+    "fixture_only": true,
+    "function_id": "extract.job_quote_v1",
+    "implementation_status": "REFERENCE_IMPLEMENTED",
+    "input_predicates": [],
+    "output_predicates": [
+      "job.workflow_statement"
+    ],
+    "parameter_schema": {
+      "additionalProperties": false,
+      "properties": {},
+      "required": [],
+      "type": "object"
+    },
+    "processor": "LLM",
+    "version": "1.0.0"
+  },
+  {
+    "authority": "ACTIVE",
+    "cross_subject_rule": "SAME_RESEARCH_TARGET",
+    "detector_contract": null,
+    "entrypoint": "keensight_contracts.completion:classify_theme",
+    "fixture_only": true,
+    "function_id": "fixture.theme_v1",
+    "implementation_status": "REFERENCE_IMPLEMENTED",
+    "input_predicates": [
+      "review.record",
+      "discussion.record"
+    ],
+    "output_predicates": [
+      "review.theme_classification",
+      "discussion.theme_classification"
+    ],
+    "parameter_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "theme_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "theme_id"
+      ],
+      "type": "object"
+    },
+    "processor": "DERIVATION",
+    "version": "1.0.0"
+  },
+  {
+    "authority": "ACTIVE",
+    "cross_subject_rule": "SAME_RESEARCH_TARGET",
+    "detector_contract": null,
+    "entrypoint": "keensight_contracts.engine:theme_summary",
+    "fixture_only": true,
+    "function_id": "sample.theme_summary_v1",
+    "implementation_status": "REFERENCE_IMPLEMENTED",
+    "input_predicates": [
+      "review.theme_classification",
+      "discussion.theme_classification"
+    ],
+    "output_predicates": [
+      "product.pain_prior",
+      "industry.pain_prior",
+      "review.theme_summary"
+    ],
+    "parameter_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "sample_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        },
+        "theme_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sample_id",
+        "theme_id"
+      ],
+      "type": "object"
+    },
+    "processor": "DERIVATION",
+    "version": "1.0.0"
+  },
+  {
+    "authority": "ACTIVE",
+    "cross_subject_rule": "SAME_SUBJECT",
+    "detector_contract": null,
+    "entrypoint": "keensight_contracts.engine:evaluate_requirements",
+    "fixture_only": true,
+    "function_id": "signal.required_facts_v1",
+    "implementation_status": "REFERENCE_IMPLEMENTED",
+    "input_predicates": [
+      "technology.footprint",
+      "job.workflow_statement",
+      "form.surface"
+    ],
+    "output_predicates": [],
+    "parameter_schema": {
+      "additionalProperties": false,
+      "properties": {},
+      "required": [],
+      "type": "object"
+    },
+    "processor": "DETERMINISTIC",
+    "version": "1.0.0"
+  },
+  {
+    "authority": "ACTIVE",
+    "cross_subject_rule": "SAME_SUBJECT",
+    "detector_contract": {
+      "capture_modes": [
+        "RAW_HTML"
+      ],
+      "operator": "HTML_FORM_ELEMENT",
+      "predicate_ids": [
+        "form.surface"
+      ]
+    },
+    "entrypoint": "keensight_contracts.completion:form_detector",
+    "fixture_only": true,
+    "function_id": "detect.raw_form_v1",
+    "implementation_status": "REFERENCE_IMPLEMENTED",
+    "input_predicates": [],
+    "output_predicates": [
+      "form.surface"
+    ],
+    "parameter_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "scope_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        },
+        "target": {
+          "additionalProperties": false,
+          "properties": {
+            "form_key": {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "form_key"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "scope_id",
+        "target"
+      ],
+      "type": "object"
+    },
+    "processor": "DETERMINISTIC",
+    "version": "1.0.0"
+  }
+]

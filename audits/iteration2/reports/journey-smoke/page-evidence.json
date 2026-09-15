@@ -1,0 +1,713 @@
+{
+  "capture": {
+    "body_path": "blobs/tenant_e4ec08bbc0b73c79ef568f57e9d1026483099a298455b34a7ef0b0971e322a7a/d7/d7dfe7decb437ca705e915c53b9f18edb772fa6d6e9868f1f9f5d0c32fde4013",
+    "body_sha256": "d7dfe7decb437ca705e915c53b9f18edb772fa6d6e9868f1f9f5d0c32fde4013",
+    "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+    "complete": true,
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "demo"
+    },
+    "limitations": [],
+    "mode": "RAW_HTML",
+    "observed_at": "2026-09-14T12:00:00Z",
+    "run_id": "demo-capture-1",
+    "source_id": "source:synthetic-fixture",
+    "source_ttl_seconds": 2592000,
+    "status_code": 200,
+    "subject_id": "account:demo",
+    "tenant_id": "demo",
+    "url": "https://demo.example.test/"
+  },
+  "commands": [
+    {
+      "command_id": "EXTRACT_RAW_HTML",
+      "details": {
+        "original_body_sha256": "d7dfe7decb437ca705e915c53b9f18edb772fa6d6e9868f1f9f5d0c32fde4013",
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_78b391274a13aadc8ca024214ab1ba873250beeec29abd1fdd5771ca76a0ce90"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_SCRIPT_SRC",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_e159b8da9d55a0f5a3fc39f299ada29bcdf2118698af5a0e31eca069f0876ad1"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_SCRIPT_INLINE",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_b711cde29e0c515367961e3e49b32ccc801113106791ca84a3bb60064c3633b8"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_IFRAME_SRC",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_d9fe85b05f9e83be6da1f77ca9221a96094e05d7d087b4a1a854da43bef5658e"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_FORM_ACTION",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_31ab1aba953dbb4cc2262e33f31f608a963a9aace552dcb648daab09feb40d7f"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_ANCHORS",
+      "details": {
+        "surface_count": 4
+      },
+      "input_ids": [
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_4e3c2a1622d8f7e8159f77232ccb3c6ce8e55dd3c2f4eb92ab090d25e0cfd072",
+        "surface_e84697c28447ba0ba96f8bcae7393d4bac5b01211f95659a0b8b6bb1deed5bfa",
+        "surface_5dea7740416201ece9c52a851c5285b9fba5b2facc48c871dbfbcab4d0f1e735",
+        "surface_0d673078982ae81e9b252a54e6f8de545cbd4d9ef3a0fb53038982a2ec9a4a0d"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_IMAGES",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_434656e78a938c6abbdbe4e0edcd2762c072c98d29ba5a1ec562755a91a66d17"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_LINKS_META",
+      "details": {
+        "surface_count": 3
+      },
+      "input_ids": [
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_f75f34b579053392b396f7f0de560dc0568bff4035d70e69bb56f8492a337e63",
+        "surface_d6b4b7b0858c78c900e5428b5fb285a4f33df780a7ecf723decd709596def38d",
+        "surface_a7cb23a6eeec5d1a57975b1fa9347159371cac131076b1a8bbf78a11cb6f4cc7"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_JSONLD",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_4d02d9484607d966669711ddc5a750a51582da8094238fc7f8c57b14e9a0574e"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_MICRODATA",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_e5902e6bddee23225478c1ce82426cc15548bc9521839423fd1f4a684fabd49f"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_FOOTER",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_7dc103b7e8c494ae56fac1ff039962939fb050e00466f0ebea03ddbbdf7ea995"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_HEADER_NAV",
+      "details": {
+        "surface_count": 2
+      },
+      "input_ids": [
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_07e6db9cbc1a075014dd8fc5c414eba7b7083e2456b2a5823c190b5e471ada05",
+        "surface_a10fe1952a537808de111dfda5a76dd4d13fd3befbfe16c9284a8cabe3be9602"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_DATA_ATTRS",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_11956cce8dc4b9b8b686291e898f4072b21b00d6ac687820754316a32da4b4fa"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_NOSCRIPT",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_54330d3622cab06e256f49bb2fee7dd001e9923d8d8b6747ed9927a335fa0e16"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_VISIBLE_TEXT",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+      ],
+      "limitations": [
+        "CSS_VISIBILITY_NOT_EVALUATED"
+      ],
+      "output_ids": [
+        "surface_bdfe770ae4f159820c0607452b082425a986cf788e3c48aeaaab816cf59ff446"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_URL_FEATURES",
+      "details": {
+        "surface_count": 10
+      },
+      "input_ids": [
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_43971eb1b68a1888a7f38583477d0f1f4ad9dd21b7b9a7182837fc95149acc6f",
+        "surface_c3c5f0d1e1ec8a964c56478ae0adaf7db98cb887a8e82abd336f2f8b0efaaf9c",
+        "surface_2e844a8906eee237a4abe065d79469767ed54fbbb0c802eb399c31315bf51e45",
+        "surface_d6393f88a5f317fbc7a585ce660f65631df312ff8d1262077d01041540e3435e",
+        "surface_65045e6bd91296cee3d0e238bc2984635adadf1959fea0614f49385b64c57ea9",
+        "surface_837d6596a1491fd7ca9b1c24b4da88150eb7279ed5de4e47a5eeacdf135b40c9",
+        "surface_27a7fbc001bc92458ead32d580f6f9deb60f6b283c5e74fd3e468ceba6754bf7",
+        "surface_1d942c241411e79d3625dc6a62360ec529bc04d03b2ea21176a35235e766a1e3",
+        "surface_93886ab14908e162ccb75c8e571b03f4180720395e5ee8d1d7f4218a24d8fe30",
+        "surface_91775c7d94feb2ba836759ec7d8defee5da22d45ebe598f6201f516ab4eb11fc"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_HEADERS",
+      "details": {
+        "surface_count": 2
+      },
+      "input_ids": [
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_c298dd86ec8bca6582a9cacd12d6e51323c09cbd025ee95fc511639463996ae5",
+        "surface_2693af8b51d5dec22a312adafce43a11cfc42f283cc18496fef1c24ac92d349f"
+      ],
+      "status": "COMPLETE"
+    }
+  ],
+  "surfaces": [
+    {
+      "attributes": {
+        "encoding": "utf-8",
+        "encoding_source": "http"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_RAW_HTML",
+      "context": "PAGE",
+      "kind": "raw_html",
+      "locator": "retained-body:decoded",
+      "surface_id": "surface_78b391274a13aadc8ca024214ab1ba873250beeec29abd1fdd5771ca76a0ce90",
+      "value": "<!doctype html><html><head><title>Acme Example Practice</title>\n<meta name=\"generator\" content=\"AcmeCMS\"><link rel=\"canonical\" href=\"https://demo.example.test/\">\n<link rel=\"stylesheet\" href=\"/style.css\"><script src=\"https://assets.calendly.com/widget.js\"></script>\n<script>window.exampleAnalytics = true;</script>\n<script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"LocalBusiness\",\"@id\":\"https://demo.example.test/#organization\",\"name\":\"Acme\"}</script>\n</head><body><header><nav><a href=\"/contact\">Contact</a></nav></header>\n<main itemscope itemtype=\"https://schema.org/LocalBusiness\" data-office = \"main\"><h1>Appointments with Acme</h1>\n<p>We provide scheduled consultations for our customers.</p>\n<iframe src=\"//calendly.com/acme-demo\"></iframe>\n<form action=\"/request\" method=\"post\"><input name=\"message\"></form>\n<img src=\"/badge.png\" alt=\"Example Member Badge\"><a href=\"https://calendly.com/help\">Scheduling guide</a>\n<noscript><a href=\"/fallback\">Fallback</a></noscript></main>\n<footer>Website by Example Agency. <a href=\"https://agency.example/book\">Book our agency</a></footer>\n</body></html>"
+    },
+    {
+      "attributes": {
+        "name": "generator"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_LINKS_META",
+      "context": "PAGE",
+      "kind": "meta",
+      "locator": "/html/head/meta",
+      "surface_id": "surface_f75f34b579053392b396f7f0de560dc0568bff4035d70e69bb56f8492a337e63",
+      "value": "AcmeCMS"
+    },
+    {
+      "attributes": {
+        "rel": "canonical"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_LINKS_META",
+      "context": "PAGE",
+      "kind": "link_url",
+      "locator": "/html/head/link[1]",
+      "surface_id": "surface_d6b4b7b0858c78c900e5428b5fb285a4f33df780a7ecf723decd709596def38d",
+      "value": "https://demo.example.test/"
+    },
+    {
+      "attributes": {
+        "rel": "stylesheet"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_LINKS_META",
+      "context": "PAGE",
+      "kind": "link_url",
+      "locator": "/html/head/link[2]",
+      "surface_id": "surface_a7cb23a6eeec5d1a57975b1fa9347159371cac131076b1a8bbf78a11cb6f4cc7",
+      "value": "https://demo.example.test/style.css"
+    },
+    {
+      "attributes": {
+        "type": ""
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_SCRIPT_SRC",
+      "context": "PAGE",
+      "kind": "script_url",
+      "locator": "/html/head/script[1]/@src",
+      "surface_id": "surface_e159b8da9d55a0f5a3fc39f299ada29bcdf2118698af5a0e31eca069f0876ad1",
+      "value": "https://assets.calendly.com/widget.js"
+    },
+    {
+      "attributes": {
+        "type": ""
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_SCRIPT_INLINE",
+      "context": "PAGE",
+      "kind": "inline_script",
+      "locator": "/html/head/script[2]",
+      "surface_id": "surface_b711cde29e0c515367961e3e49b32ccc801113106791ca84a3bb60064c3633b8",
+      "value": "window.exampleAnalytics = true;"
+    },
+    {
+      "attributes": {
+        "parse_error": null,
+        "parsed": {
+          "@context": "https://schema.org",
+          "@id": "https://demo.example.test/#organization",
+          "@type": "LocalBusiness",
+          "name": "Acme"
+        },
+        "types": [
+          "LocalBusiness"
+        ]
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_JSONLD",
+      "context": "INERT_SCRIPT",
+      "kind": "jsonld",
+      "locator": "/html/head/script[3]",
+      "surface_id": "surface_4d02d9484607d966669711ddc5a750a51582da8094238fc7f8c57b14e9a0574e",
+      "value": "{\"@context\":\"https://schema.org\",\"@type\":\"LocalBusiness\",\"@id\":\"https://demo.example.test/#organization\",\"name\":\"Acme\"}"
+    },
+    {
+      "attributes": {},
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_HEADER_NAV",
+      "context": "HEADER_NAV",
+      "kind": "header_nav",
+      "locator": "/html/body/header",
+      "surface_id": "surface_07e6db9cbc1a075014dd8fc5c414eba7b7083e2456b2a5823c190b5e471ada05",
+      "value": "Contact"
+    },
+    {
+      "attributes": {},
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_HEADER_NAV",
+      "context": "HEADER_NAV",
+      "kind": "header_nav",
+      "locator": "/html/body/header/nav",
+      "surface_id": "surface_a10fe1952a537808de111dfda5a76dd4d13fd3befbfe16c9284a8cabe3be9602",
+      "value": "Contact"
+    },
+    {
+      "attributes": {
+        "text": "Contact"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_ANCHORS",
+      "context": "HEADER_NAV",
+      "kind": "anchor_url",
+      "locator": "/html/body/header/nav/a/@href",
+      "surface_id": "surface_4e3c2a1622d8f7e8159f77232ccb3c6ce8e55dd3c2f4eb92ab090d25e0cfd072",
+      "value": "https://demo.example.test/contact"
+    },
+    {
+      "attributes": {
+        "itemscope": "",
+        "itemtype": "https://schema.org/LocalBusiness"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_MICRODATA",
+      "context": "PAGE",
+      "kind": "microdata",
+      "locator": "/html/body/main",
+      "surface_id": "surface_e5902e6bddee23225478c1ce82426cc15548bc9521839423fd1f4a684fabd49f",
+      "value": "https://schema.org/LocalBusiness"
+    },
+    {
+      "attributes": {
+        "name": "data-office"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_DATA_ATTRS",
+      "context": "PAGE",
+      "kind": "attribute",
+      "locator": "/html/body/main/@data-office",
+      "surface_id": "surface_11956cce8dc4b9b8b686291e898f4072b21b00d6ac687820754316a32da4b4fa",
+      "value": "main"
+    },
+    {
+      "attributes": {
+        "tag": "iframe"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_IFRAME_SRC",
+      "context": "PAGE",
+      "kind": "iframe_url",
+      "locator": "/html/body/main/iframe/@src",
+      "surface_id": "surface_d9fe85b05f9e83be6da1f77ca9221a96094e05d7d087b4a1a854da43bef5658e",
+      "value": "https://calendly.com/acme-demo"
+    },
+    {
+      "attributes": {
+        "method": "POST"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_FORM_ACTION",
+      "context": "PAGE",
+      "kind": "form_url",
+      "locator": "/html/body/main/form/@action",
+      "surface_id": "surface_31ab1aba953dbb4cc2262e33f31f608a963a9aace552dcb648daab09feb40d7f",
+      "value": "https://demo.example.test/request"
+    },
+    {
+      "attributes": {
+        "alt": "Example Member Badge",
+        "title": ""
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_IMAGES",
+      "context": "PAGE",
+      "kind": "image",
+      "locator": "/html/body/main/img",
+      "surface_id": "surface_434656e78a938c6abbdbe4e0edcd2762c072c98d29ba5a1ec562755a91a66d17",
+      "value": "https://demo.example.test/badge.png"
+    },
+    {
+      "attributes": {
+        "text": "Scheduling guide"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_ANCHORS",
+      "context": "PAGE",
+      "kind": "anchor_url",
+      "locator": "/html/body/main/a/@href",
+      "surface_id": "surface_e84697c28447ba0ba96f8bcae7393d4bac5b01211f95659a0b8b6bb1deed5bfa",
+      "value": "https://calendly.com/help"
+    },
+    {
+      "attributes": {},
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_NOSCRIPT",
+      "context": "NOSCRIPT",
+      "kind": "noscript",
+      "locator": "/html/body/main/noscript",
+      "surface_id": "surface_54330d3622cab06e256f49bb2fee7dd001e9923d8d8b6747ed9927a335fa0e16",
+      "value": "<noscript><a href=\"/fallback\">Fallback</a></noscript>"
+    },
+    {
+      "attributes": {
+        "text": "Fallback"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_ANCHORS",
+      "context": "NOSCRIPT",
+      "kind": "anchor_url",
+      "locator": "/html/body/main/noscript/a/@href",
+      "surface_id": "surface_5dea7740416201ece9c52a851c5285b9fba5b2facc48c871dbfbcab4d0f1e735",
+      "value": "https://demo.example.test/fallback"
+    },
+    {
+      "attributes": {},
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_FOOTER",
+      "context": "FOOTER",
+      "kind": "footer",
+      "locator": "/html/body/footer",
+      "surface_id": "surface_7dc103b7e8c494ae56fac1ff039962939fb050e00466f0ebea03ddbbdf7ea995",
+      "value": "Website by Example Agency. Book our agency"
+    },
+    {
+      "attributes": {
+        "text": "Book our agency"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_ANCHORS",
+      "context": "FOOTER",
+      "kind": "anchor_url",
+      "locator": "/html/body/footer/a/@href",
+      "surface_id": "surface_0d673078982ae81e9b252a54e6f8de545cbd4d9ef3a0fb53038982a2ec9a4a0d",
+      "value": "https://agency.example/book"
+    },
+    {
+      "attributes": {
+        "visibility": "STATIC_PROSE_NOT_COMPUTED_VISIBILITY"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_VISIBLE_TEXT",
+      "context": "PAGE",
+      "kind": "prose",
+      "locator": "document:non-script-text",
+      "surface_id": "surface_bdfe770ae4f159820c0607452b082425a986cf788e3c48aeaaab816cf59ff446",
+      "value": "Acme Example Practice Contact Appointments with Acme We provide scheduled consultations for our customers. Scheduling guide Website by Example Agency. Book our agency"
+    },
+    {
+      "attributes": {
+        "host": "demo.example.test",
+        "path": "/",
+        "query_keys": [],
+        "source_surface_id": "surface_d6b4b7b0858c78c900e5428b5fb285a4f33df780a7ecf723decd709596def38d"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "PAGE",
+      "kind": "url_features",
+      "locator": "/html/head/link[1]",
+      "surface_id": "surface_43971eb1b68a1888a7f38583477d0f1f4ad9dd21b7b9a7182837fc95149acc6f",
+      "value": "https://demo.example.test/"
+    },
+    {
+      "attributes": {
+        "host": "demo.example.test",
+        "path": "/style.css",
+        "query_keys": [],
+        "source_surface_id": "surface_a7cb23a6eeec5d1a57975b1fa9347159371cac131076b1a8bbf78a11cb6f4cc7"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "PAGE",
+      "kind": "url_features",
+      "locator": "/html/head/link[2]",
+      "surface_id": "surface_c3c5f0d1e1ec8a964c56478ae0adaf7db98cb887a8e82abd336f2f8b0efaaf9c",
+      "value": "https://demo.example.test/style.css"
+    },
+    {
+      "attributes": {
+        "host": "assets.calendly.com",
+        "path": "/widget.js",
+        "query_keys": [],
+        "source_surface_id": "surface_e159b8da9d55a0f5a3fc39f299ada29bcdf2118698af5a0e31eca069f0876ad1"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "PAGE",
+      "kind": "url_features",
+      "locator": "/html/head/script[1]/@src",
+      "surface_id": "surface_2e844a8906eee237a4abe065d79469767ed54fbbb0c802eb399c31315bf51e45",
+      "value": "https://assets.calendly.com/widget.js"
+    },
+    {
+      "attributes": {
+        "host": "demo.example.test",
+        "path": "/contact",
+        "query_keys": [],
+        "source_surface_id": "surface_4e3c2a1622d8f7e8159f77232ccb3c6ce8e55dd3c2f4eb92ab090d25e0cfd072"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "HEADER_NAV",
+      "kind": "url_features",
+      "locator": "/html/body/header/nav/a/@href",
+      "surface_id": "surface_d6393f88a5f317fbc7a585ce660f65631df312ff8d1262077d01041540e3435e",
+      "value": "https://demo.example.test/contact"
+    },
+    {
+      "attributes": {
+        "host": "calendly.com",
+        "path": "/acme-demo",
+        "query_keys": [],
+        "source_surface_id": "surface_d9fe85b05f9e83be6da1f77ca9221a96094e05d7d087b4a1a854da43bef5658e"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "PAGE",
+      "kind": "url_features",
+      "locator": "/html/body/main/iframe/@src",
+      "surface_id": "surface_65045e6bd91296cee3d0e238bc2984635adadf1959fea0614f49385b64c57ea9",
+      "value": "https://calendly.com/acme-demo"
+    },
+    {
+      "attributes": {
+        "host": "demo.example.test",
+        "path": "/request",
+        "query_keys": [],
+        "source_surface_id": "surface_31ab1aba953dbb4cc2262e33f31f608a963a9aace552dcb648daab09feb40d7f"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "PAGE",
+      "kind": "url_features",
+      "locator": "/html/body/main/form/@action",
+      "surface_id": "surface_837d6596a1491fd7ca9b1c24b4da88150eb7279ed5de4e47a5eeacdf135b40c9",
+      "value": "https://demo.example.test/request"
+    },
+    {
+      "attributes": {
+        "host": "demo.example.test",
+        "path": "/badge.png",
+        "query_keys": [],
+        "source_surface_id": "surface_434656e78a938c6abbdbe4e0edcd2762c072c98d29ba5a1ec562755a91a66d17"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "PAGE",
+      "kind": "url_features",
+      "locator": "/html/body/main/img",
+      "surface_id": "surface_27a7fbc001bc92458ead32d580f6f9deb60f6b283c5e74fd3e468ceba6754bf7",
+      "value": "https://demo.example.test/badge.png"
+    },
+    {
+      "attributes": {
+        "host": "calendly.com",
+        "path": "/help",
+        "query_keys": [],
+        "source_surface_id": "surface_e84697c28447ba0ba96f8bcae7393d4bac5b01211f95659a0b8b6bb1deed5bfa"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "PAGE",
+      "kind": "url_features",
+      "locator": "/html/body/main/a/@href",
+      "surface_id": "surface_1d942c241411e79d3625dc6a62360ec529bc04d03b2ea21176a35235e766a1e3",
+      "value": "https://calendly.com/help"
+    },
+    {
+      "attributes": {
+        "host": "demo.example.test",
+        "path": "/fallback",
+        "query_keys": [],
+        "source_surface_id": "surface_5dea7740416201ece9c52a851c5285b9fba5b2facc48c871dbfbcab4d0f1e735"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "NOSCRIPT",
+      "kind": "url_features",
+      "locator": "/html/body/main/noscript/a/@href",
+      "surface_id": "surface_93886ab14908e162ccb75c8e571b03f4180720395e5ee8d1d7f4218a24d8fe30",
+      "value": "https://demo.example.test/fallback"
+    },
+    {
+      "attributes": {
+        "host": "agency.example",
+        "path": "/book",
+        "query_keys": [],
+        "source_surface_id": "surface_0d673078982ae81e9b252a54e6f8de545cbd4d9ef3a0fb53038982a2ec9a4a0d"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "FOOTER",
+      "kind": "url_features",
+      "locator": "/html/body/footer/a/@href",
+      "surface_id": "surface_91775c7d94feb2ba836759ec7d8defee5da22d45ebe598f6201f516ab4eb11fc",
+      "value": "https://agency.example/book"
+    },
+    {
+      "attributes": {
+        "name": "content-type"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_HEADERS",
+      "context": "PAGE",
+      "kind": "header",
+      "locator": "response/header/content-type",
+      "surface_id": "surface_c298dd86ec8bca6582a9cacd12d6e51323c09cbd025ee95fc511639463996ae5",
+      "value": "text/html; charset=utf-8"
+    },
+    {
+      "attributes": {
+        "name": "server"
+      },
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "command_id": "EXTRACT_HEADERS",
+      "context": "PAGE",
+      "kind": "header",
+      "locator": "response/header/server",
+      "surface_id": "surface_2693af8b51d5dec22a312adafce43a11cfc42f283cc18496fef1c24ac92d349f",
+      "value": "demo"
+    }
+  ]
+}

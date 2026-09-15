@@ -1,0 +1,123 @@
+{
+  "$id": "https://keensight.local/v4.2/DataAccessPolicy.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "allow_personal_data": {
+      "type": "boolean"
+    },
+    "allow_sensitive_data": {
+      "type": "boolean"
+    },
+    "approval_ref": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "attribution_text": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "deletion_cascades": {
+      "type": "boolean"
+    },
+    "fixture_only": {
+      "type": "boolean"
+    },
+    "max_derived_retention_seconds": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "max_raw_retention_seconds": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "policy_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "purposes": {
+      "items": {
+        "enum": [
+          "CAPTURE",
+          "RETAIN",
+          "DERIVE",
+          "LLM_PROCESS",
+          "INTERNAL_RESEARCH",
+          "OUTREACH",
+          "EXPORT"
+        ]
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "review_status": {
+      "enum": [
+        "UNREVIEWED",
+        "APPROVED",
+        "REVOKED"
+      ]
+    },
+    "reviewed_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "tenant_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "terms_ref": {
+      "format": "uri",
+      "type": "string"
+    },
+    "valid_until": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "tenant_ids",
+    "version",
+    "review_status",
+    "fixture_only",
+    "approval_ref",
+    "terms_ref",
+    "reviewed_at",
+    "valid_until",
+    "purposes",
+    "max_raw_retention_seconds",
+    "max_derived_retention_seconds",
+    "attribution_text",
+    "allow_personal_data",
+    "allow_sensitive_data",
+    "deletion_cascades"
+  ],
+  "title": "DataAccessPolicy",
+  "type": "object"
+}

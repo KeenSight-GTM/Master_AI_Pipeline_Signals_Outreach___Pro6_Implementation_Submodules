@@ -1,0 +1,234 @@
+{
+  "command_count": 38,
+  "commands": [
+    {
+      "command_id": "CATALOG_LOAD",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "CTL-01"
+    },
+    {
+      "command_id": "NORM_URL",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-02"
+    },
+    {
+      "command_id": "FETCH_STATIC",
+      "current_status": "SDK_UNVERIFIED",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-03"
+    },
+    {
+      "command_id": "FETCH_STEALTH",
+      "current_status": "DISABLED_BROWSER_EXTENSION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-03"
+    },
+    {
+      "command_id": "FETCH_SITEMAP",
+      "current_status": "SDK_UNVERIFIED",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-03"
+    },
+    {
+      "command_id": "FETCH_ROBOTS",
+      "current_status": "SDK_UNVERIFIED",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-03"
+    },
+    {
+      "command_id": "FETCH_WELL_KNOWN",
+      "current_status": "SDK_UNVERIFIED",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-03"
+    },
+    {
+      "command_id": "DISCOVER_TEMPLATES",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-02"
+    },
+    {
+      "command_id": "DISCOVER_CANONICAL",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-02"
+    },
+    {
+      "command_id": "EXTRACT_RAW_HTML",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-04"
+    },
+    {
+      "command_id": "EXTRACT_SCRIPT_SRC",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-04"
+    },
+    {
+      "command_id": "EXTRACT_SCRIPT_INLINE",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-04"
+    },
+    {
+      "command_id": "EXTRACT_IFRAME_SRC",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-04"
+    },
+    {
+      "command_id": "EXTRACT_FORM_ACTION",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-04"
+    },
+    {
+      "command_id": "EXTRACT_ANCHORS",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-04"
+    },
+    {
+      "command_id": "EXTRACT_IMAGES",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-04"
+    },
+    {
+      "command_id": "EXTRACT_LINKS_META",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-04"
+    },
+    {
+      "command_id": "EXTRACT_JSONLD",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-04"
+    },
+    {
+      "command_id": "EXTRACT_MICRODATA",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-04"
+    },
+    {
+      "command_id": "EXTRACT_FOOTER",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-04"
+    },
+    {
+      "command_id": "EXTRACT_HEADER_NAV",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-04"
+    },
+    {
+      "command_id": "EXTRACT_DATA_ATTRS",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-04"
+    },
+    {
+      "command_id": "EXTRACT_NOSCRIPT",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-04"
+    },
+    {
+      "command_id": "EXTRACT_VISIBLE_TEXT",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-04"
+    },
+    {
+      "command_id": "EXTRACT_URL_FEATURES",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-04"
+    },
+    {
+      "command_id": "EXTRACT_HEADERS",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "ING-04"
+    },
+    {
+      "command_id": "MATCH_SUBSTRING",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "FP-01"
+    },
+    {
+      "command_id": "MATCH_OR_GROUP",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "FP-01"
+    },
+    {
+      "command_id": "MATCH_REGEX",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "FP-01"
+    },
+    {
+      "command_id": "MATCH_HOST_SUFFIX",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "FP-01"
+    },
+    {
+      "command_id": "MATCH_FOOTER_LITERAL",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "FP-01"
+    },
+    {
+      "command_id": "MATCH_IMG_ALT",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "FP-01"
+    },
+    {
+      "command_id": "GATE_AND",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "FP-02"
+    },
+    {
+      "command_id": "GATE_SCHEMA",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "FP-02"
+    },
+    {
+      "command_id": "GATE_NEGATIVE",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "FP-02"
+    },
+    {
+      "command_id": "ROLLUP_HOST",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "FP-02"
+    },
+    {
+      "command_id": "SCORE_HOST",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "FP-02"
+    },
+    {
+      "command_id": "EMIT",
+      "current_status": "LOCAL_REFERENCE_IMPLEMENTATION",
+      "instrumentation": "one invocation result per actual command execution; per-target NOT_APPLICABLE entries are explicit SKIPPED outcomes, not evidence of implementation",
+      "module_id": "FP-02"
+    }
+  ],
+  "version": "1.0.0-draft.1"
+}

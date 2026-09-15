@@ -1,0 +1,151 @@
+{
+  "$id": "https://keensight.local/v4.2/Artifact.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "byte_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "captured_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "classification": {
+      "enum": [
+        "PUBLIC_BUSINESS",
+        "PERSONAL",
+        "CONFIDENTIAL",
+        "SENSITIVE"
+      ]
+    },
+    "content_hash": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "content_ref": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "independence_group": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "media_type": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "origin_namespace": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "origin_record_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "origin_revision": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "parent_artifact_id": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "published_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "pattern": "Z$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "resource_uri": {
+      "format": "uri",
+      "type": "string"
+    },
+    "retained_until": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "retention_state": {
+      "enum": [
+        "RETAINED",
+        "DELETED",
+        "EXPIRED",
+        "REFERENCE_ONLY"
+      ]
+    },
+    "scope_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "source_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "OK",
+        "ERROR",
+        "TIMEOUT",
+        "POLICY_DENIED"
+      ]
+    },
+    "tenant_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "truncated": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "tenant_id",
+    "source_id",
+    "scope_id",
+    "resource_uri",
+    "media_type",
+    "content_ref",
+    "content_hash",
+    "byte_count",
+    "captured_at",
+    "published_at",
+    "status",
+    "truncated",
+    "retained_until",
+    "retention_state",
+    "classification",
+    "origin_namespace",
+    "origin_record_id",
+    "origin_revision",
+    "independence_group",
+    "parent_artifact_id"
+  ],
+  "title": "Artifact",
+  "type": "object"
+}

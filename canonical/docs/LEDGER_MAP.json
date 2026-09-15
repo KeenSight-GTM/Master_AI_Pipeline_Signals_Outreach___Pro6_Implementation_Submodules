@@ -1,0 +1,812 @@
+[
+  {
+    "id": 1,
+    "source_category": "Data Source",
+    "idea": "LinkedIn Jobs Data",
+    "classification": "SOURCE → FACTS",
+    "e2e_location": "Acquisition → hiring extraction",
+    "predicate_ids": [
+      "job.posting",
+      "job.status",
+      "job.salary",
+      "job.workflow_statement"
+    ],
+    "contract_boundary": "Store namespaced postings and attributed text. Existing-access and low-cost labels are ledger metadata, not verified permissions.",
+    "ledger_status_unverified": "Already Have",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 2,
+    "source_category": "Data Source",
+    "idea": "Website AI Fingerprinting",
+    "classification": "SOURCE → FACTS",
+    "e2e_location": "Capture → deterministic detection",
+    "predicate_ids": [
+      "technology.footprint",
+      "technology.provider_report"
+    ],
+    "contract_boundary": "Store scoped public footprints with product identity and matcher evidence. Do not infer private deployment or organization-wide AI adoption.",
+    "ledger_status_unverified": "Already Have",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 3,
+    "source_category": "Data Source",
+    "idea": "G2 Reviews",
+    "classification": "SOURCE → CONTEXT FACTS",
+    "e2e_location": "Review ingestion → product research",
+    "predicate_ids": [
+      "review.record",
+      "review.statement",
+      "product.pain_prior"
+    ],
+    "contract_boundary": "The software product is the review target. The target company’s use of that product does not make its users’ complaints the company’s pain.",
+    "ledger_status_unverified": "Already Have (Expensive)",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 4,
+    "source_category": "Data Source",
+    "idea": "ATS Boards Direct (Greenhouse, Lever, Ashby, SmartRecruiters)",
+    "classification": "SOURCE → FACTS",
+    "e2e_location": "Acquisition → ATS normalization",
+    "predicate_ids": [
+      "careers.ats",
+      "job.posting",
+      "job.status",
+      "hiring.change_event"
+    ],
+    "contract_boundary": "Preserve provider/posting identity and pagination/history. Earlier or less rate-limited availability must be measured, not presumed.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 5,
+    "source_category": "Data Source",
+    "idea": "Cheaper Review-Site Alternatives (TrustRadius, PeerSpot, SoftwareAdvice, GetApp, Capterra)",
+    "classification": "SOURCE → CONTEXT FACTS",
+    "e2e_location": "Approved review ingestion → research",
+    "predicate_ids": [
+      "review.record",
+      "review.statement",
+      "product.pain_prior"
+    ],
+    "contract_boundary": "Same product-review contracts as G2; access, price and licensing are source-specific. “Cheaper” is not imported as a factual assertion.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 6,
+    "source_category": "Data Source",
+    "idea": "Reddit (r/sysadmin, r/consulting, vertical subs)",
+    "classification": "SOURCE → CONTEXT FACTS",
+    "e2e_location": "Community ingestion → samples/priors",
+    "predicate_ids": [
+      "discussion.record",
+      "discussion.statement",
+      "industry.pain_prior",
+      "product.pain_prior"
+    ],
+    "contract_boundary": "Use approved product/industry research. Keep the sample and support policy. Do not assume free commercial use or reidentify forum users.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 7,
+    "source_category": "Data Source",
+    "idea": "Product Hunt Comments",
+    "classification": "SOURCE → CONTEXT FACTS",
+    "e2e_location": "Product-launch discussion ingestion",
+    "predicate_ids": [
+      "discussion.record",
+      "discussion.statement",
+      "product.pain_prior"
+    ],
+    "contract_boundary": "Comments concern the launched product. Praise, questions and experienced negative reports have different classifications; comments do not prove an account condition.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 8,
+    "source_category": "Data Source",
+    "idea": "App Store Reviews (1-3 star)",
+    "classification": "SOURCE → ATTRIBUTED FACTS",
+    "e2e_location": "App review ingestion → application/owner binding",
+    "predicate_ids": [
+      "app.listing",
+      "review.record",
+      "review.statement",
+      "review.theme_summary"
+    ],
+    "contract_boundary": "Tie reviews to the exact application and verified ownership relation. A selected 1–3-star sample is biased and not an overall complaint prevalence estimate.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 9,
+    "source_category": "Data Source",
+    "idea": "G2 \"Alternatives\" Pages",
+    "classification": "SOURCE → ATTRIBUTED FACTS",
+    "e2e_location": "Permitted page capture → excerpt provenance",
+    "predicate_ids": [
+      "review.record",
+      "review.statement"
+    ],
+    "contract_boundary": "Retain permitted excerpts and original-review identity; deduplicate reposts. Reject the “backdoor” interpretation: no paywall/access/terms bypass is implemented.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 10,
+    "source_category": "Data Source",
+    "idea": "SMB-Native Vendor Case Studies (ServiceTitan, Toast, Housecall Pro, Podium, Birdeye, Jobber)",
+    "classification": "SOURCE → REPORTED FACTS",
+    "e2e_location": "Case-study ingestion → comparison corpus",
+    "predicate_ids": [
+      "case_study.report",
+      "case_study.outcome_report"
+    ],
+    "contract_boundary": "Store the actual comparison organization, publisher, reported outcome, project period and size evidence. Do not turn vendor marketing into independently verified results.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 11,
+    "source_category": "Data Source",
+    "idea": "Big-Firm / Enterprise Vendor Case Studies (Salesforce, Microsoft, etc.)",
+    "classification": "SOURCE → REPORTED FACTS",
+    "e2e_location": "Case-study ingestion → comparison corpus",
+    "predicate_ids": [
+      "case_study.report",
+      "case_study.outcome_report"
+    ],
+    "contract_boundary": "Preserve enterprise context and differences from the SMB target. A recognizable brand is not proof of applicability, endorsement or our delivery history.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 12,
+    "source_category": "Data Source",
+    "idea": "PR Wires (PRNewswire, BusinessWire, GlobeNewswire)",
+    "classification": "SOURCE → STATEMENT/EVENT FACTS",
+    "e2e_location": "Publication ingestion → event extraction",
+    "predicate_ids": [
+      "publication.record",
+      "publication.statement",
+      "organization.event_report"
+    ],
+    "contract_boundary": "Separate announcement date from event date. Announced pilots and partnerships are attributed claims, not proof of completion or value.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 13,
+    "source_category": "Data Source",
+    "idea": "GitHub Org Activity",
+    "classification": "SOURCE → OBSERVATIONS",
+    "e2e_location": "Public repository capture → version diff",
+    "predicate_ids": [
+      "repository.activity_observed"
+    ],
+    "contract_boundary": "Bind repository ownership, commit, branch and path. An SDK dependency or public repository does not prove production use, budget or a corporate mandate.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 14,
+    "source_category": "Data Source",
+    "idea": "Webinar / Event Registration & Attendee Lists",
+    "classification": "PERMISSIONED SOURCE → FACTS",
+    "e2e_location": "Authorized intake → restricted event records",
+    "predicate_ids": [
+      "event.authorized_attendance"
+    ],
+    "contract_boundary": "Separate REGISTERED, ATTENDED and INTERESTED; require permitted source/use and authorized scope. Individual interest is not company purchase intent.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 15,
+    "source_category": "Data Source",
+    "idea": "Import/Export & Procurement Data (ImportGenius, GovTribe/GovWin)",
+    "classification": "SOURCE → RECORD FACTS",
+    "e2e_location": "Trade/procurement ingestion → record normalization",
+    "predicate_ids": [
+      "trade.shipment_record",
+      "procurement.record"
+    ],
+    "contract_boundary": "Preserve shipment identity and procurement stage. A notice is not an award; neither automatically establishes current investment intent.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 16,
+    "source_category": "Data Source",
+    "idea": "Court Records / Legal Filings",
+    "classification": "SOURCE → RESTRICTED RECORD FACTS",
+    "e2e_location": "Public legal-record ingestion → internal research",
+    "predicate_ids": [
+      "legal.filing_record"
+    ],
+    "contract_boundary": "Preserve procedural status and exact allegation/decision. Reject “AI went badly” or wrongdoing as an inferred fact; this family is internal-only for copy.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 17,
+    "source_category": "Data Source",
+    "idea": "LinkedIn Posts (non-job)",
+    "classification": "SOURCE → ATTRIBUTED STATEMENTS",
+    "e2e_location": "Permitted social/publication ingestion",
+    "predicate_ids": [
+      "publication.record",
+      "publication.statement"
+    ],
+    "contract_boundary": "Keep speaker, affiliation evidence and publication time. An employee statement is not automatically an authorized company announcement or deployed capability.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 18,
+    "source_category": "Data Source",
+    "idea": "Award / Ranking Lists (Inc 5000, Deloitte Fast 500, Fast Company Most Innovative)",
+    "classification": "SOURCE → RECORD FACTS",
+    "e2e_location": "List ingestion → identity match → segmentation",
+    "predicate_ids": [
+      "award.listing"
+    ],
+    "contract_boundary": "Store list, edition, issuer and rank. Fast growth and “tech-behind” require separate measurements and cannot be inherited from list membership.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 19,
+    "source_category": "Data Source",
+    "idea": "Conference Speaker / Sponsor Lists",
+    "classification": "SOURCE → REPORTED FACTS",
+    "e2e_location": "Event-list ingestion → company attribution",
+    "predicate_ids": [
+      "event.public_participation"
+    ],
+    "contract_boundary": "SPEAKER, SPONSOR and EXHIBITOR remain different roles. Budget, curiosity and buying intent are not observed by a listing alone.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 20,
+    "source_category": "Data Source",
+    "idea": "Patent Filings (ML/AI)",
+    "classification": "SOURCE → RECORD FACTS",
+    "e2e_location": "Patent ingestion → applicant/entity binding",
+    "predicate_ids": [
+      "patent.application_record"
+    ],
+    "contract_boundary": "Distinguish application, publication, grant and other statuses. A filing does not establish deployed technology or available spending.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 21,
+    "source_category": "Data Source",
+    "idea": "Podcast / YouTube / Earnings-Call Transcripts",
+    "classification": "SOURCE → ATTRIBUTED QUOTES",
+    "e2e_location": "Transcript ingestion → locator/speaker extraction",
+    "predicate_ids": [
+      "publication.record",
+      "publication.statement"
+    ],
+    "contract_boundary": "Keep exact wording, speaker, timecode and surrounding context. Quote permissions and source attribution are needed before a new quote renderer is enabled.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 22,
+    "source_category": "Data Source",
+    "idea": "Glassdoor / Comparably Reviews",
+    "classification": "SOURCE → ATTRIBUTED REPORTS",
+    "e2e_location": "Employer-review ingestion → internal research",
+    "predicate_ids": [
+      "review.record",
+      "review.statement",
+      "review.theme_classification"
+    ],
+    "contract_boundary": "Treat employee complaints as reports with employer/date/sample attribution. No deanonymization or unsupported assertion about actual company operations.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 23,
+    "source_category": "Data Source",
+    "idea": "Historical Tech-Stack Diffs (monthly fingerprint snapshots)",
+    "classification": "DERIVED FACT + TRIGGER",
+    "e2e_location": "Comparable snapshots → versioned change function",
+    "predicate_ids": [
+      "technology.footprint",
+      "technology.change"
+    ],
+    "contract_boundary": "Keep old/new references and comparable coverage, detector release and scope. Non-detection after a partial scan is not confirmed removal.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 24,
+    "source_category": "Data Source",
+    "idea": "Google Business Profile Reviews",
+    "classification": "SOURCE → LOCAL REPORTS",
+    "e2e_location": "Local review ingestion → location binding",
+    "predicate_ids": [
+      "review.record",
+      "review.statement",
+      "review.theme_summary"
+    ],
+    "contract_boundary": "Preserve location identity and sample denominator. “Free and scrapable” is unverified and not an access policy; complaints are not measured missed-call counts.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 25,
+    "source_category": "Data Source",
+    "idea": "State Business Registries / Secretary of State Filings",
+    "classification": "SOURCE → REGISTRY FACTS",
+    "e2e_location": "Registry ingestion → corporate-event history",
+    "predicate_ids": [
+      "registry.registration",
+      "registry.filing",
+      "registry.affiliation"
+    ],
+    "contract_boundary": "Represent formation or officer/agent-change records accurately. A registered-agent change does not by itself prove expansion or restructuring.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 26,
+    "source_category": "Data Source",
+    "idea": "UCC Filings",
+    "classification": "SOURCE → REGISTRY FACTS",
+    "e2e_location": "Financing-statement ingestion",
+    "predicate_ids": [
+      "registry.financing_filing"
+    ],
+    "contract_boundary": "Record issuer, jurisdiction, filing type and date. A UCC filing is not proof of fresh cash, equipment purchase, financial distress or buying intent.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 27,
+    "source_category": "Data Source",
+    "idea": "Industry / Trade Licensing Boards",
+    "classification": "SOURCE → REGISTRY FACTS",
+    "e2e_location": "Licensing ingestion → professional/entity binding",
+    "predicate_ids": [
+      "registry.license",
+      "registry.specialty",
+      "registry.filing"
+    ],
+    "contract_boundary": "Issuer, jurisdiction and effective status are required. Complaint allegations are distinct from disciplinary findings; NPI registration is not a license.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 28,
+    "source_category": "Data Source",
+    "idea": "Franchise Disclosure Documents (FDDs)",
+    "classification": "SOURCE → REPORTED/DISCLOSURE FACTS",
+    "e2e_location": "FDD ingestion → system/edition binding",
+    "predicate_ids": [
+      "franchise.disclosure_record"
+    ],
+    "contract_boundary": "Keep system, edition and cited item. Unit counts or system revenue ranges do not become a particular franchisee’s revenue or growth plan.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 29,
+    "source_category": "Data Source",
+    "idea": "Local Business Journal “People/Company on the Move”",
+    "classification": "SOURCE → REPORTED EVENT FACTS",
+    "e2e_location": "Local-news ingestion → event extraction",
+    "predicate_ids": [
+      "publication.record",
+      "organization.event_report"
+    ],
+    "contract_boundary": "Use attributed hire, expansion or opening reports and both dates. Identity resolution precedes any congratulatory trigger.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 30,
+    "source_category": "Data Source",
+    "idea": "Chamber of Commerce / BBB Member Directories",
+    "classification": "SOURCE → DIRECTORY REPORTS",
+    "e2e_location": "Directory ingestion → identity/firmographics",
+    "predicate_ids": [
+      "business.profile_attribute",
+      "registry.affiliation",
+      "review.record"
+    ],
+    "contract_boundary": "Membership/profile data can support a baseline, not an automatic hot trigger. Do not conflate membership, accreditation and licensure.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 31,
+    "source_category": "Data Source",
+    "idea": "PPP / SBA Loan Data",
+    "classification": "SOURCE → HISTORICAL RECORD FACTS",
+    "e2e_location": "Public loan-data ingestion",
+    "predicate_ids": [
+      "registry.loan_record"
+    ],
+    "contract_boundary": "Keep program, amount, status and historical date. Reject using the record alone as current size, budget or willingness-to-buy evidence.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 32,
+    "source_category": "Data Source",
+    "idea": "Indeed / ZipRecruiter / Craigslist Job Postings",
+    "classification": "SOURCE → HIRING FACTS",
+    "e2e_location": "Permitted job-board acquisition → normalization",
+    "predicate_ids": [
+      "job.posting",
+      "job.status",
+      "job.salary",
+      "job.workflow_statement"
+    ],
+    "contract_boundary": "Reuse the job schema and deduplicate syndicated postings. No assumption of source access or current commercial pricing is made.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 33,
+    "source_category": "Compound Signal",
+    "idea": "Stalled AI Hire",
+    "classification": "COMPOUND HYPOTHESIS; NOT OBSERVED PAIN",
+    "e2e_location": "Temporal derivation → internal signal candidate",
+    "predicate_ids": [
+      "job.posting",
+      "job.status",
+      "change.page.delta",
+      "workflow.hypothesis"
+    ],
+    "contract_boundary": "Retain evidenced open-role duration and scoped visible-change observations. Reject “stalled/under-resourced” as fact; a closed posting does not establish a hire.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 34,
+    "source_category": "Compound Signal",
+    "idea": "Say-Do Gap",
+    "classification": "COMPOUND HYPOTHESIS; REJECT ACCUSATION",
+    "e2e_location": "Statement + scoped detection comparison",
+    "predicate_ids": [
+      "publication.statement",
+      "company.self_claim",
+      "technology.footprint",
+      "automation_opportunity.hypothesis"
+    ],
+    "contract_boundary": "Rename to unverified public implementation. No visible vendor does not disprove AI claims: private, custom and server-side systems may be outside the observed scope.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 35,
+    "source_category": "Compound Signal",
+    "idea": "AI Tool Sprawl",
+    "classification": "DERIVED PUBLIC-STACK INDICATOR",
+    "e2e_location": "Product taxonomy + deduplicated footprints → signal candidate",
+    "predicate_ids": [
+      "technology.footprint",
+      "product.capability",
+      "technology.cooccurrence",
+      "tag.stack_complexity"
+    ],
+    "contract_boundary": "A declared >=4 rule can flag potential public capability overlap. It does not prove active licenses, redundant cost, operational sprawl or need to consolidate.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 36,
+    "source_category": "Compound Signal",
+    "idea": "Competitive Lag",
+    "classification": "PEER COMPARISON; DESIGN-ONLY",
+    "e2e_location": "Eligible matched cohort → descriptive comparison",
+    "predicate_ids": [
+      "technology.footprint",
+      "cohort.baseline",
+      "cohort.percentile"
+    ],
+    "contract_boundary": "Require comparable scope, time and eligible peers; label public-surface differences. Defer until cohort runtime exists; do not assert private competitive inferiority.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 37,
+    "source_category": "Compound Signal",
+    "idea": "Job-Posting Language Drift",
+    "classification": "DERIVED HIRING-TEXT TREND",
+    "e2e_location": "Comparable posting windows → language-share change",
+    "predicate_ids": [
+      "job.skill_requirement",
+      "job.department",
+      "job.workflow_statement",
+      "hiring.measurement"
+    ],
+    "contract_boundary": "Measure role/department proportions with a denominator and history. A top-down mandate or larger deal size is an unverified hypothesis.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 38,
+    "source_category": "Compound Signal",
+    "idea": "Pulled Job Posting, No Site Change",
+    "classification": "DERIVED EVENT + INTERNAL HYPOTHESIS",
+    "e2e_location": "Posting lifecycle + comparable surface history",
+    "predicate_ids": [
+      "job.status",
+      "hiring.change_event",
+      "change.page.delta",
+      "workflow.hypothesis"
+    ],
+    "contract_boundary": "Record removed/closed status and observed changes. Reject “failed hire” or “scrapped project” without attributable verification.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 39,
+    "source_category": "Compound Signal",
+    "idea": "SMB Absence Signal",
+    "classification": "COMPOUND QUESTION CANDIDATE",
+    "e2e_location": "Scoped absence + attributed local reviews → opportunity selection",
+    "predicate_ids": [
+      "booking.present",
+      "chat.widget.present",
+      "review.statement",
+      "automation_opportunity.hypothesis"
+    ],
+    "contract_boundary": "Require successful modality-specific detection and review provenance. Ask about response/intake processes; do not assert no private automation or proven pain.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 40,
+    "source_category": "Compound Signal",
+    "idea": "Missed-Call Cost Signal",
+    "classification": "COMPOUND INVESTIGATION CANDIDATE",
+    "e2e_location": "Review themes + public stack checks → internal prioritization",
+    "predicate_ids": [
+      "review.theme_summary",
+      "crm.present",
+      "booking.present",
+      "phone.economics_hypothesis"
+    ],
+    "contract_boundary": "Complaints can motivate investigation, not quantitative missed-call loss. Financial calculations need authorized measurements or explicit assumptions.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 41,
+    "source_category": "Lookalike Engine",
+    "idea": "Automated Case-Study Extraction Pipeline",
+    "classification": "PROCESSOR; OUTPUTS CAN BE FACTS",
+    "e2e_location": "Case-study extraction and admission",
+    "predicate_ids": [
+      "case_study.report",
+      "case_study.outcome_report"
+    ],
+    "contract_boundary": "The pipeline is software, not a fact. It emits attributed records with canonical subjects, units, windows, missing information and original evidence.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 42,
+    "source_category": "Lookalike Engine",
+    "idea": "Company Embedding + Nearest-Neighbor Matching",
+    "classification": "RANKING ALGORITHM; NOT BUSINESS FACT",
+    "e2e_location": "Comparison corpus → versioned embedding/index → shortlist",
+    "predicate_ids": [
+      "firmo.employee_band",
+      "account.industry_membership",
+      "technology.footprint",
+      "case_study.report"
+    ],
+    "contract_boundary": "Store a LookalikeMatch execution artifact with corpus/model/index/input versions, differences and missingness. Similarity is not outcome transfer. Matcher remains design-only.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": "LookalikeMatch (DESIGN_ONLY)"
+  },
+  {
+    "id": 43,
+    "source_category": "Lookalike Engine",
+    "idea": "Auto-Generated Lookalike Pitch",
+    "classification": "DRAFTING/REVIEW PROCESS; NOT FACT",
+    "e2e_location": "Matched case study → attributed draft → review/use gate",
+    "predicate_ids": [
+      "case_study.outcome_report"
+    ],
+    "contract_boundary": "Only exact supported comparator claims may appear, with publisher attribution. Never invent a number, imply we delivered the work, or predict equal results. New renderer is not enabled.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 44,
+    "source_category": "Lookalike Engine",
+    "idea": "Big-Firm Case Studies as Credibility Layer",
+    "classification": "SELECTION/PRESENTATION POLICY; NOT FACT",
+    "e2e_location": "Comparison selection → reviewed template",
+    "predicate_ids": [
+      "case_study.report",
+      "case_study.outcome_report"
+    ],
+    "contract_boundary": "Enterprise case may be contextual reference; label scale/workflow differences. Reject implied endorsement or “it worked there, so it will here.”",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 45,
+    "source_category": "Lookalike Engine",
+    "idea": "Case-Study Credibility Filter",
+    "classification": "QUALITY FILTER; NOT SOURCE TRUTH",
+    "e2e_location": "Case-study admission/selection quality gate",
+    "predicate_ids": [
+      "case_study.report",
+      "case_study.outcome_report"
+    ],
+    "contract_boundary": "Evaluate baseline, denominator, method, period, source independence, attribution and limitations. Numerical specificity alone is not credibility or causality.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 46,
+    "source_category": "Outreach Angle",
+    "idea": "AI Maturity Scorecard Icebreaker",
+    "classification": "DERIVED REPORT; NOT PRIVATE MATURITY",
+    "e2e_location": "Public evidence + coverage quality → scorecard artifact",
+    "predicate_ids": [
+      "technology.footprint",
+      "tag.ai_surface_readiness",
+      "acquisition.coverage"
+    ],
+    "contract_boundary": "Call it a public-observability/readiness assessment, show methodology and unknowns. Do not grade actual internal AI maturity from a website alone.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 47,
+    "source_category": "Outreach Angle",
+    "idea": "Hire-vs-Buy Cost Comparison",
+    "classification": "ASSUMPTION-BASED SCENARIO; NOT FACT",
+    "e2e_location": "Salary evidence + declared service assumptions → scenario",
+    "predicate_ids": [
+      "job.posting",
+      "job.salary"
+    ],
+    "contract_boundary": "Use a ScenarioEstimate with currency, period, assumptions and ranges. Salary is not total employer cost; our fee/time-to-value is not a verified substitute for that job.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": "ScenarioEstimate (DESIGN_ONLY)"
+  },
+  {
+    "id": 48,
+    "source_category": "Outreach Angle",
+    "idea": "Moment-Based Congrats Outreach",
+    "classification": "OUTREACH TIMING/POLICY; NOT FACT",
+    "e2e_location": "Eligible event → opportunity → review → current-use gate",
+    "predicate_ids": [
+      "organization.event_report"
+    ],
+    "contract_boundary": "Use verified identity and an attributable recent event. Publication time and occurrence time remain separate. A fast trigger never bypasses review or restrictions.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 49,
+    "source_category": "Outreach Angle",
+    "idea": "Quote-Back Personalization",
+    "classification": "ATTRIBUTED TEMPLATE STRATEGY; NOT FACT",
+    "e2e_location": "Quote locators → reviewed clause → package validation",
+    "predicate_ids": [
+      "publication.statement",
+      "job.workflow_statement",
+      "review.statement"
+    ],
+    "contract_boundary": "Exact quote, correct speaker, context and permission. The claimed performance uplift in the ledger is unverified; no arbitrary quote renderer is enabled.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 50,
+    "source_category": "Outreach Angle",
+    "idea": "Local Competitor Framing",
+    "classification": "CROSS-ORGANIZATION COMPARISON STRATEGY",
+    "e2e_location": "Verified competitor relation + public comparator facts → explicit comparison",
+    "predicate_ids": [
+      "competitor.presence",
+      "technology.footprint"
+    ],
+    "contract_boundary": "Keep comparator and target facts separate. Public footprints do not establish adoption dates; “down the street” needs geography. New cross-organization renderer remains disabled.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  },
+  {
+    "id": 51,
+    "source_category": "Outreach Angle",
+    "idea": "Missed-Call / Missed-Lead Cost Math",
+    "classification": "ECONOMIC SCENARIO; REJECT “PROVABLE LOSS”",
+    "e2e_location": "Authorized call metrics or assumptions → scenario calculation",
+    "predicate_ids": [
+      "phone.call_event",
+      "phone.measurement",
+      "phone.economics_hypothesis"
+    ],
+    "contract_boundary": "Review complaints cannot yield call volume, missed-call rate, conversion, revenue or recoverability. Only label an explicit hypothetical range unless those inputs are properly measured.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": "ScenarioEstimate (DESIGN_ONLY)"
+  },
+  {
+    "id": 52,
+    "source_category": "Outreach Angle",
+    "idea": "Playbook-Specific Pitch (Fingerprint → Automation)",
+    "classification": "PLAYBOOK/OPPORTUNITY MAPPING; NOT FACT",
+    "e2e_location": "Eligible facts + explicit requirements → reviewed playbook/template",
+    "predicate_ids": [
+      "technology.footprint",
+      "product.capability",
+      "integration.public_marker",
+      "integration.connection.verified"
+    ],
+    "contract_boundary": "The mapping is configuration; its inputs are facts. Require compatibility and declared verification. The referenced Automation Playbooks tab was not supplied, so its catalog is not invented.",
+    "ledger_status_unverified": "New Idea",
+    "live_provider_integration_added": false,
+    "supporting_artifact": null
+  }
+]

@@ -1,0 +1,82 @@
+{
+  "$id": "https://keensight.local/v4.2/SubjectBinding.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "binding_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "decided_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "evidence_locator_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "method": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "role": {
+      "enum": [
+        "FIRST_PARTY",
+        "REVIEW_TARGET",
+        "REGISTRY_SUBJECT",
+        "RESEARCH_TARGET",
+        "AGENCY",
+        "MENTION_ONLY",
+        "UNRESOLVED"
+      ]
+    },
+    "scope_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "ACCEPTED",
+        "REJECTED",
+        "UNRESOLVED"
+      ]
+    },
+    "subject_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "tenant_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "binding_id",
+    "tenant_id",
+    "subject_id",
+    "scope_id",
+    "artifact_ids",
+    "role",
+    "status",
+    "method",
+    "decided_at",
+    "evidence_locator_ids"
+  ],
+  "title": "SubjectBinding",
+  "type": "object"
+}

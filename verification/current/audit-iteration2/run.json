@@ -1,0 +1,28 @@
+{
+  "source_root": "/mnt/data/keensight-ai-pipeline",
+  "steps": [
+    {
+      "name": "iteration2-requirements",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests",
+        "--tb=short",
+        "--junitxml=/mnt/data/_assembly/audit-iteration2-current/audit.xml"
+      ],
+      "cwd": "/mnt/data/keensight-ai-pipeline/audits/iteration2",
+      "returncode": 1,
+      "expected_returncode": 0,
+      "passed": false,
+      "elapsed_seconds": 10.444,
+      "stdout_file": "01-iteration2-requirements.stdout.txt",
+      "stderr_file": "01-iteration2-requirements.stderr.txt"
+    }
+  ],
+  "all_expected_exit_codes": false,
+  "scope": "LOCAL_WORKSPACE_COMMANDS_NOT_PRODUCTION_E2E"
+}

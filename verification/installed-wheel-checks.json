@@ -1,0 +1,134 @@
+{
+  "status": "PASS_INSTALLED_WHEEL_OFFLINE_PROCESSES",
+  "wheel_sha256": "11b033cfd5d549c51c754026da5e58202c92f47d6079f913e607a5bc1c27f96f",
+  "steps": [
+    {
+      "argv": [
+        "python",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "--target",
+        "/tmp/ks-installed-wheel-2nfmbew_/site",
+        "/mnt/data/implementation_review/release/dist/keensight_scrapling_ingestion-0.2.0-py3-none-any.whl"
+      ],
+      "exit": 0,
+      "stdout": "Processing /mnt/data/implementation_review/release/dist/keensight_scrapling_ingestion-0.2.0-py3-none-any.whl\nInstalling collected packages: keensight-scrapling-ingestion\nSuccessfully installed keensight-scrapling-ingestion-0.2.0\n",
+      "stderr": "WARNING: The directory '/home/oai/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.\n"
+    },
+    {
+      "argv": [
+        "python",
+        "-c",
+        "import keensight_scrapling; print(keensight_scrapling.__file__)"
+      ],
+      "exit": 0,
+      "stdout": "/tmp/ks-installed-wheel-2nfmbew_/site/keensight_scrapling/__init__.py\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "keensight_scrapling.cli",
+        "demo",
+        "--output",
+        "/tmp/ks-installed-wheel-2nfmbew_/demo"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"bundle\": \"/tmp/ks-installed-wheel-2nfmbew_/demo/scan-bundle.json\",\n  \"matches\": 7,\n  \"observations\": 2,\n  \"claims\": 1,\n  \"actual_network_requests\": 0,\n  \"fixture_only\": true\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "keensight_scrapling.standalone",
+        "extract",
+        "--tenant",
+        "demo",
+        "--capture-id",
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+        "--store",
+        "/tmp/ks-installed-wheel-2nfmbew_/demo",
+        "--output",
+        "/tmp/ks-installed-wheel-2nfmbew_/page.json"
+      ],
+      "exit": 0,
+      "stdout": "{\"network_attempts\":0,\"operation\":\"extract\",\"output\":\"/tmp/ks-installed-wheel-2nfmbew_/page.json\",\"status\":\"SUCCEEDED\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "keensight_scrapling.standalone",
+        "match",
+        "--page",
+        "/tmp/ks-installed-wheel-2nfmbew_/page.json",
+        "--rules",
+        "/mnt/data/implementation_review/release/collector/examples/demo-rules.json",
+        "--store",
+        "/tmp/ks-installed-wheel-2nfmbew_/demo",
+        "--output",
+        "/tmp/ks-installed-wheel-2nfmbew_/matches.json"
+      ],
+      "exit": 0,
+      "stdout": "{\"network_attempts\":0,\"operation\":\"match\",\"output\":\"/tmp/ks-installed-wheel-2nfmbew_/matches.json\",\"status\":\"SUCCEEDED\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "keensight_scrapling.standalone",
+        "check",
+        "--bundle",
+        "/tmp/ks-installed-wheel-2nfmbew_/demo/scan-bundle.json",
+        "--store",
+        "/tmp/ks-installed-wheel-2nfmbew_/demo",
+        "--output",
+        "/tmp/ks-installed-wheel-2nfmbew_/check.json"
+      ],
+      "exit": 0,
+      "stdout": "{\"network_attempts\":0,\"operation\":\"check\",\"output\":\"/tmp/ks-installed-wheel-2nfmbew_/check.json\",\"status\":\"SUCCEEDED\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "keensight_scrapling.standalone",
+        "resolve",
+        "--bundle",
+        "/tmp/ks-installed-wheel-2nfmbew_/demo/scan-bundle.json",
+        "--as-of",
+        "2026-09-14T12:00:00Z",
+        "--store",
+        "/tmp/ks-installed-wheel-2nfmbew_/demo",
+        "--output",
+        "/tmp/ks-installed-wheel-2nfmbew_/claims.json"
+      ],
+      "exit": 0,
+      "stdout": "{\"network_attempts\":0,\"operation\":\"resolve\",\"output\":\"/tmp/ks-installed-wheel-2nfmbew_/claims.json\",\"status\":\"SUCCEEDED\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "keensight_scrapling.cli",
+        "check",
+        "/tmp/ks-installed-wheel-2nfmbew_/demo/scan-bundle.json",
+        "--store",
+        "/tmp/ks-installed-wheel-2nfmbew_/demo"
+      ],
+      "exit": 0,
+      "stdout": "{\n  \"valid\": true,\n  \"original_bytes_checked\": true\n}\n",
+      "stderr": ""
+    }
+  ],
+  "network_capture_requests": 0,
+  "live_sdk_verified": false
+}

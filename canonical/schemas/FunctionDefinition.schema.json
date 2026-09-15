@@ -1,0 +1,135 @@
+{
+  "$id": "https://keensight.local/v4.2/FunctionDefinition.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "enum": [
+        "CANDIDATE",
+        "ACTIVE",
+        "DEPRECATED"
+      ]
+    },
+    "cross_subject_rule": {
+      "enum": [
+        "SAME_SUBJECT",
+        "SAME_RESEARCH_TARGET",
+        "EXPLICIT_RELATION",
+        "CONTEXT_ONLY"
+      ]
+    },
+    "detector_contract": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capture_modes": {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "operator": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "predicate_ids": {
+              "items": {
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "capture_modes",
+            "predicate_ids",
+            "operator"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "entrypoint": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "fixture_only": {
+      "type": "boolean"
+    },
+    "function_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "implementation_status": {
+      "enum": [
+        "REFERENCE_IMPLEMENTED",
+        "DESIGN_ONLY"
+      ]
+    },
+    "input_predicates": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "output_predicates": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "parameter_schema": {
+      "type": "object"
+    },
+    "processor": {
+      "enum": [
+        "DETERMINISTIC",
+        "LLM",
+        "HUMAN_REVIEW",
+        "DERIVATION"
+      ]
+    },
+    "version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "function_id",
+    "version",
+    "processor",
+    "authority",
+    "fixture_only",
+    "input_predicates",
+    "output_predicates",
+    "parameter_schema",
+    "cross_subject_rule",
+    "implementation_status",
+    "entrypoint",
+    "detector_contract"
+  ],
+  "title": "FunctionDefinition",
+  "type": "object"
+}

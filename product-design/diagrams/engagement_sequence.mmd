@@ -1,0 +1,32 @@
+sequenceDiagram
+    participant CP as Campaign policy
+    participant EN as Enrollment owner
+    participant UG as Current-use gate
+    participant DS as Dispatcher
+    participant PR as Provider
+    participant IN as Verified event ingress
+    participant GV as Governance restrictions
+    participant CV as Conversation handler
+    participant CR as CRM adapter
+    CP->>EN: Approved route and exactly one schedule owner
+    EN->>UG: Due step, assessed recipient, reviewed message
+    UG-->>EN: ALLOW or BLOCK with current state versions
+    EN->>DS: Stable delivery intent and eligible gate
+    DS->>DS: Recheck local state and preserve prepared intent
+    DS->>PR: Dispatch exact authorized message
+    alt acceptance confirmed
+        PR-->>DS: Provider message identity
+    else response ambiguous
+        PR-->>DS: Timeout or ambiguous result
+        DS->>PR: Reconcile existing effect, not blind resend
+    end
+    PR-->>IN: Reply or opt-out event
+    IN->>IN: Verify source and deduplicate
+    IN->>CV: Routed event, before optional classification
+    CV->>GV: Restriction request when opt-out is established
+    CV->>EN: Pause or stop future steps
+    CV->>CV: Optional classification and human follow-up task
+    CV->>CR: Evidence-linked sales handoff
+    alt CRM unavailable
+        CR->>CR: Retry sync intent only
+    end

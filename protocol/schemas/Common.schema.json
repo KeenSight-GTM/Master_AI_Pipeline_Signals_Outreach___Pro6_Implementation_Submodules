@@ -1,0 +1,306 @@
+{
+  "$id": "urn:keensight:module-protocol:1.0.0-draft.1:Common",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Context": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "enum": [
+                  "EVALUATE",
+                  "REPLAY",
+                  "CURRENT_USE",
+                  "DELIVER"
+                ]
+              }
+            },
+            "required": [
+              "mode"
+            ]
+          },
+          "then": {
+            "properties": {
+              "as_of": {
+                "format": "date-time",
+                "pattern": "Z$",
+                "type": "string"
+              },
+              "knowledge_cutoff": {
+                "format": "date-time",
+                "pattern": "Z$",
+                "type": "string"
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "as_of": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "pattern": "Z$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "knowledge_cutoff": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "pattern": "Z$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "mode": {
+          "enum": [
+            "CAPTURE",
+            "EVALUATE",
+            "REPLAY",
+            "CURRENT_USE",
+            "DELIVER",
+            "ADMIN"
+          ]
+        },
+        "purpose": {
+          "enum": [
+            "KNOWLEDGE",
+            "INTERNAL_RESEARCH",
+            "PREVIEW_EXPORT",
+            "CONTACT_EXPORT",
+            "SEND",
+            "OPERATIONS"
+          ]
+        },
+        "run_id": {
+          "maxLength": 240,
+          "minLength": 1,
+          "type": "string"
+        },
+        "security_context_id": {
+          "maxLength": 240,
+          "minLength": 1,
+          "type": "string"
+        },
+        "subject_ref": {
+          "anyOf": [
+            {
+              "$ref": "urn:keensight:module-protocol:1.0.0-draft.1:Common#/definitions/RecordRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "target_key": {
+          "maxLength": 240,
+          "minLength": 1,
+          "type": "string"
+        },
+        "tenant_id": {
+          "maxLength": 240,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "tenant_id",
+        "run_id",
+        "target_key",
+        "subject_ref",
+        "security_context_id",
+        "mode",
+        "purpose",
+        "as_of",
+        "knowledge_cutoff"
+      ],
+      "type": "object"
+    },
+    "RecordRef": {
+      "additionalProperties": false,
+      "properties": {
+        "content_digest": {
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "record_id": {
+          "maxLength": 240,
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema_id": {
+          "maxLength": 240,
+          "minLength": 1,
+          "type": "string"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "tenant_id": {
+          "maxLength": 240,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_id",
+        "tenant_id",
+        "schema_id",
+        "schema_version",
+        "content_digest"
+      ],
+      "type": "object"
+    },
+    "ResourceUsage": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "else": {
+            "properties": {
+              "cost_amount": {
+                "type": "null"
+              }
+            }
+          },
+          "if": {
+            "properties": {
+              "cost_status": {
+                "enum": [
+                  "KNOWN",
+                  "ESTIMATED"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "cost_amount": {
+                "pattern": "^[0-9]+(\\.[0-9]+)?$",
+                "type": "string"
+              },
+              "currency": {
+                "pattern": "^[A-Z]{3}$",
+                "type": "string"
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "bytes_read": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "cost_amount": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9]+(\\.[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cost_status": {
+          "enum": [
+            "NOT_APPLICABLE",
+            "KNOWN",
+            "ESTIMATED",
+            "UNKNOWN"
+          ]
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Z]{3}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "duration_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "network_attempts": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "tokens_in": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "tokens_out": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "duration_ms",
+        "network_attempts",
+        "bytes_read",
+        "tokens_in",
+        "tokens_out",
+        "cost_status",
+        "cost_amount",
+        "currency"
+      ],
+      "type": "object"
+    },
+    "Trace": {
+      "additionalProperties": false,
+      "properties": {
+        "linked_execution_ids": {
+          "items": {
+            "maxLength": 240,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "parent_span_id": {
+          "anyOf": [
+            {
+              "pattern": "^(?!0{16}$)[a-f0-9]{16}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "span_id": {
+          "pattern": "^(?!0{16}$)[a-f0-9]{16}$",
+          "type": "string"
+        },
+        "trace_id": {
+          "pattern": "^(?!0{32}$)[a-f0-9]{32}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "trace_id",
+        "span_id",
+        "parent_span_id",
+        "linked_execution_ids"
+      ],
+      "type": "object"
+    }
+  }
+}

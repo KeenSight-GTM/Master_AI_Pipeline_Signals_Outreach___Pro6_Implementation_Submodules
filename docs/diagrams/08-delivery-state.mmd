@@ -1,0 +1,19 @@
+flowchart LR
+    p["PREPARED"]
+    g["GATED"]
+    s["DISPATCHING"]
+    a["ACCEPTED"]
+    u["UNKNOWN_ACCEPTANCE"]
+    r["RECONCILING"]
+    f["DEFINITIVE_FAILURE"]
+    h["HELD / CANCELLED"]
+    p -->|"current checks"| g
+    g -->|"restriction / expiry"| h
+    g -->|"permitted"| s
+    s -->|"receipt"| a
+    s -->|"timeout after possible acceptance"| u
+    u -->|"provider lookup"| r
+    r -->|"original accepted"| a
+    r -->|"definitively rejected"| f
+    r -->|"cannot resolve; operator hold"| h
+    f -->|"new attempt only under same effect policy"| p

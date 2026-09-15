@@ -1,0 +1,68 @@
+classDiagram
+    class QuotedTextResult {
+        text
+    }
+    class RegistryRecordValue {
+        effective_at
+        filed_at
+        issuer
+        jurisdiction
+        namespace
+        record_id
+        record_status
+    }
+    class RepairAttempt {
+        attempt_id
+        call_id
+        input_response_artifact_id
+        method
+        ordinal
+        output_response_artifact_id
+        status
+        validation_errors
+    }
+    class ResearchPriorValue {
+        classified_eligible_count
+        contradicting_fact_ids
+        denominator_definition
+        eligible_count
+        population_claim
+        sample_id
+        sample_share
+        support_count
+        support_policy_id
+        supporting_fact_ids
+        theme_id
+        unclassified_count
+    }
+    class ResearchSample {
+        complete_population
+        created_at
+        dedupe_policy_version
+        eligible_artifact_ids
+        excluded_artifact_ids
+        limitations
+        policy_ids
+        population_size
+        record_decisions
+        retrieved_artifact_ids
+        sample_id
+        sampling_frame
+        scope_id
+        selection_method
+        subject_id
+        support_policy_id
+        tenant_id
+        theme_id
+        window
+    }
+    class ResearchSupportPolicy {
+        allowed_sentiments
+        allowed_stances
+        counting_unit
+        denominator_rule
+        meaning
+        support_policy_id
+        unclassified_policy
+        version
+    }

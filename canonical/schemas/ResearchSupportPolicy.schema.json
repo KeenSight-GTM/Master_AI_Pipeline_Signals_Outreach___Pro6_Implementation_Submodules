@@ -1,0 +1,60 @@
+{
+  "$id": "https://keensight.local/v4.2/ResearchSupportPolicy.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_sentiments": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "allowed_stances": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "counting_unit": {
+      "const": "DISTINCT_ORIGIN"
+    },
+    "denominator_rule": {
+      "const": "ELIGIBLE_RETRIEVED_RECORDS"
+    },
+    "meaning": {
+      "enum": [
+        "REPORTED_NEGATIVE_EXPERIENCE",
+        "WORKFLOW_MENTION"
+      ]
+    },
+    "support_policy_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "unclassified_policy": {
+      "const": "RETAIN_AS_UNMEASURED_NOT_NEGATIVE"
+    },
+    "version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "support_policy_id",
+    "version",
+    "meaning",
+    "allowed_stances",
+    "allowed_sentiments",
+    "counting_unit",
+    "denominator_rule",
+    "unclassified_policy"
+  ],
+  "title": "ResearchSupportPolicy",
+  "type": "object"
+}

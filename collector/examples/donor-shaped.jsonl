@@ -1,0 +1,2 @@
+{"id": "same-tool-script", "signal": {"category": "technology", "key": "technology", "value": "calendly", "confidence": 0.99, "metadata": {"detector_status": "active_candidate", "match": {"scope": ["scripts"], "operator": "host_equals", "patterns": ["assets.calendly.com"], "min_matches": 1}}}}
+{"id": "unsupported-composite", "signal": {"value": "calendly", "metadata": {"detector_status": "composite_candidate", "match": {"scope": ["scripts"], "operator": "composite_any_2", "patterns": ["calendly", "booking"], "min_matches": 2}}}}

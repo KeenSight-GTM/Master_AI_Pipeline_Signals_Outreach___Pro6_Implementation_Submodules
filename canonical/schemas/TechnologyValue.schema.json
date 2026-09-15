@@ -1,0 +1,59 @@
+{
+  "$id": "https://keensight.local/v4.2/TechnologyValue.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "deployment_claim": {
+      "const": "PUBLIC_FOOTPRINT_ONLY"
+    },
+    "fingerprint_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "matched_value": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "product_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "surface": {
+      "enum": [
+        "SCRIPT",
+        "IFRAME",
+        "FORM",
+        "NETWORK",
+        "COOKIE",
+        "HEADER",
+        "CSP",
+        "DNS",
+        "CERTIFICATE",
+        "SUBDOMAIN",
+        "JSON_LD",
+        "ATTRIBUTE"
+      ]
+    },
+    "version": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "product_id",
+    "version",
+    "surface",
+    "matched_value",
+    "fingerprint_id",
+    "deployment_claim"
+  ],
+  "title": "TechnologyValue",
+  "type": "object"
+}

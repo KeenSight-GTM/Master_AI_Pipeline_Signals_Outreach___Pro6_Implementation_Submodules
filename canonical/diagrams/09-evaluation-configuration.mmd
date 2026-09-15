@@ -1,0 +1,148 @@
+classDiagram
+direction LR
+class BatchRun {
+  +string run_id
+  +string tenant_id
+  +enum mode
+  +string as_of
+  +string created_at
+  +string code_release
+  +string registry_release
+  +string profile_id
+  +List~string~ input_artifact_ids
+  +List~string~ input_fact_ids
+  +List~string~ binding_ids
+  +enum status
+  +string approval_policy_version
+  +string knowledge_cutoff
+  +string sealed_at
+  +List~string~ sample_ids
+  +List~string~ resolution_ids
+  +List~TargetResult~ target_results
+  +List~string~ produced_fact_ids
+  +List~string~ imported_execution_ids
+  +string intake_id
+}
+class CapabilityProfile {
+  +string profile_id
+  +string version
+  +bool production_enabled
+  +List~string~ capture_source_ids
+  +List~string~ fact_predicate_ids
+  +List~string~ execute_function_ids
+  +List~string~ signal_ids
+  +List~string~ template_ids
+  +bool research_context_enabled
+  +bool delivery_enabled
+  +enum product_boundary
+  +bool export_enabled
+}
+class FunctionDefinition {
+  +string function_id
+  +string version
+  +enum processor
+  +enum authority
+  +bool fixture_only
+  +List~string~ input_predicates
+  +List~string~ output_predicates
+  +Object parameter_schema
+  +enum cross_subject_rule
+  +enum implementation_status
+  +Optional~string~ entrypoint
+  +Optional~Object~ detector_contract
+}
+class ExecutionRecord {
+  +string execution_id
+  +string tenant_id
+  +string run_id
+  +string function_id
+  +string function_version
+  +string subject_id
+  +List~string~ input_fact_ids
+  +List~string~ input_artifact_ids
+  +List~string~ output_fact_ids
+  +string input_set_hash
+  +Object parameters
+  +string started_at
+  +string finished_at
+  +enum status
+  +Optional~string~ model_call_id
+  +List~string~ input_sample_ids
+  +string sample_set_hash
+  +Optional~string~ terminal_reason
+}
+class ModelCall {
+  +string call_id
+  +string tenant_id
+  +string task_version
+  +string provider
+  +string model
+  +string prompt_hash
+  +string output_schema_id
+  +List~string~ input_artifact_ids
+  +string request_artifact_id
+  +Optional~string~ response_artifact_id
+  +List~string~ policy_ids
+  +int max_repair_attempts
+  +enum status
+  +Optional~string~ terminal_reason
+}
+class RepairAttempt {
+  +string attempt_id
+  +string call_id
+  +int ordinal
+  +string input_response_artifact_id
+  +string output_response_artifact_id
+  +enum method
+  +enum status
+  +List~string~ validation_errors
+}
+class FingerprintDefinition {
+  +string fingerprint_id
+  +string version
+  +enum authority
+  +bool fixture_only
+  +string product_subject_id
+  +string emits
+  +enum capture_mode
+  +enum operator
+  +string match_value
+  +List~string~ positive_fixtures
+  +List~string~ negative_fixtures
+  +Optional~string~ calibration_ref
+  +enum implementation_status
+}
+class CalibrationRecord {
+  +string calibration_id
+  +string target_id
+  +string target_version
+  +string evaluation_dataset_id
+  +int true_positives
+  +int false_positives
+  +number measured_precision
+  +string report_hash
+  +bool fixture_only
+  +string review_ref
+}
+class CoverageFamilyPlan {
+  +int section
+  +string title
+  +List~string~ predicate_ids
+  +List~string~ metric_ids
+  +string contract_status
+  +string live_adapter_status
+}
+class TargetResult {
+  +string subject_id
+  +enum status
+  +string completed_at
+  +Optional~string~ reason
+}
+BatchRun "*" --> "1" CapabilityProfile : pins
+ExecutionRecord "*" --> "1" BatchRun : belongs_to
+ExecutionRecord "*" --> "1" FunctionDefinition : versioned_function
+ExecutionRecord "1" --> "0..1" ModelCall : bounded_model_step
+ModelCall "1" o-- "0..2" RepairAttempt : bounded_repair_history
+FingerprintDefinition "1" --> "0..1" CalibrationRecord : does_not_self_calibrate
+CapabilityProfile "1" --> "0..*" FunctionDefinition : enabled_dependency_closure
+CoverageFamilyPlan "*" ..> "*" CapabilityProfile : breadth_is_not_activation

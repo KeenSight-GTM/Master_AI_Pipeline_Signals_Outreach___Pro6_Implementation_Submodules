@@ -1,0 +1,47 @@
+[
+  {
+    "allowed_natures": [
+      "DIRECT_OBSERVATION"
+    ],
+    "authority": "ACTIVE",
+    "maturity_required": false,
+    "mode": "OBSERVATION_QUESTION",
+    "offered_rung": null,
+    "question": "How are booked appointments passed into your CRM today?",
+    "renderer": "observed_product_v1",
+    "required_predicate": "technology.footprint",
+    "review_ref": "fixture.review.product",
+    "template_id": "template.observed_product",
+    "version": "1.0.0"
+  },
+  {
+    "allowed_natures": [
+      "FIRST_PARTY_STATEMENT"
+    ],
+    "authority": "ACTIVE",
+    "maturity_required": false,
+    "mode": "OBSERVATION_QUESTION",
+    "offered_rung": null,
+    "question": "How does your team handle that handoff today?",
+    "renderer": "attributed_job_statement_v1",
+    "required_predicate": "job.workflow_statement",
+    "review_ref": "fixture.review.job",
+    "template_id": "template.job_question",
+    "version": "1.0.0"
+  },
+  {
+    "allowed_natures": [
+      "DIRECT_OBSERVATION"
+    ],
+    "authority": "ACTIVE",
+    "maturity_required": false,
+    "mode": "OBSERVATION_QUESTION",
+    "offered_rung": null,
+    "question": "How do new inquiries reach your team?",
+    "renderer": "scoped_absence_v1",
+    "required_predicate": "form.surface",
+    "review_ref": "fixture.review.absence",
+    "template_id": "template.scoped_absence",
+    "version": "1.0.0"
+  }
+]

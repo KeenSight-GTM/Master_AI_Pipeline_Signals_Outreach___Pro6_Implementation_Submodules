@@ -1,0 +1,94 @@
+running bdist_wheel
+running build
+running build_py
+creating build/lib/keensight_scrapling
+copying src/keensight_scrapling/importer.py -> build/lib/keensight_scrapling
+copying src/keensight_scrapling/pipeline.py -> build/lib/keensight_scrapling
+copying src/keensight_scrapling/validation.py -> build/lib/keensight_scrapling
+copying src/keensight_scrapling/claims.py -> build/lib/keensight_scrapling
+copying src/keensight_scrapling/transport.py -> build/lib/keensight_scrapling
+copying src/keensight_scrapling/core.py -> build/lib/keensight_scrapling
+copying src/keensight_scrapling/__init__.py -> build/lib/keensight_scrapling
+copying src/keensight_scrapling/discovery.py -> build/lib/keensight_scrapling
+copying src/keensight_scrapling/cli.py -> build/lib/keensight_scrapling
+copying src/keensight_scrapling/rules.py -> build/lib/keensight_scrapling
+copying src/keensight_scrapling/storage.py -> build/lib/keensight_scrapling
+copying src/keensight_scrapling/commands.py -> build/lib/keensight_scrapling
+copying src/keensight_scrapling/__main__.py -> build/lib/keensight_scrapling
+copying src/keensight_scrapling/urls.py -> build/lib/keensight_scrapling
+copying src/keensight_scrapling/extraction.py -> build/lib/keensight_scrapling
+running egg_info
+creating src/keensight_scrapling_ingestion.egg-info
+writing src/keensight_scrapling_ingestion.egg-info/PKG-INFO
+writing dependency_links to src/keensight_scrapling_ingestion.egg-info/dependency_links.txt
+writing entry points to src/keensight_scrapling_ingestion.egg-info/entry_points.txt
+writing requirements to src/keensight_scrapling_ingestion.egg-info/requires.txt
+writing top-level names to src/keensight_scrapling_ingestion.egg-info/top_level.txt
+writing manifest file 'src/keensight_scrapling_ingestion.egg-info/SOURCES.txt'
+reading manifest file 'src/keensight_scrapling_ingestion.egg-info/SOURCES.txt'
+writing manifest file 'src/keensight_scrapling_ingestion.egg-info/SOURCES.txt'
+creating build/lib/keensight_scrapling/data
+copying src/keensight_scrapling/data/demo-rules.json -> build/lib/keensight_scrapling/data
+copying src/keensight_scrapling/data/demo-site.json -> build/lib/keensight_scrapling/data
+copying src/keensight_scrapling/data/commands.json -> build/lib/keensight_scrapling/data
+copying src/keensight_scrapling/data/scan-bundle.schema.json -> build/lib/keensight_scrapling/data
+copying src/keensight_scrapling/data/commands.json -> build/lib/keensight_scrapling/data
+copying src/keensight_scrapling/data/demo-rules.json -> build/lib/keensight_scrapling/data
+copying src/keensight_scrapling/data/demo-site.json -> build/lib/keensight_scrapling/data
+copying src/keensight_scrapling/data/scan-bundle.schema.json -> build/lib/keensight_scrapling/data
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/keensight_scrapling
+copying build/lib/keensight_scrapling/importer.py -> build/bdist.linux-x86_64/wheel/./keensight_scrapling
+copying build/lib/keensight_scrapling/pipeline.py -> build/bdist.linux-x86_64/wheel/./keensight_scrapling
+copying build/lib/keensight_scrapling/validation.py -> build/bdist.linux-x86_64/wheel/./keensight_scrapling
+copying build/lib/keensight_scrapling/claims.py -> build/bdist.linux-x86_64/wheel/./keensight_scrapling
+copying build/lib/keensight_scrapling/transport.py -> build/bdist.linux-x86_64/wheel/./keensight_scrapling
+copying build/lib/keensight_scrapling/core.py -> build/bdist.linux-x86_64/wheel/./keensight_scrapling
+creating build/bdist.linux-x86_64/wheel/keensight_scrapling/data
+copying build/lib/keensight_scrapling/data/demo-rules.json -> build/bdist.linux-x86_64/wheel/./keensight_scrapling/data
+copying build/lib/keensight_scrapling/data/demo-site.json -> build/bdist.linux-x86_64/wheel/./keensight_scrapling/data
+copying build/lib/keensight_scrapling/data/commands.json -> build/bdist.linux-x86_64/wheel/./keensight_scrapling/data
+copying build/lib/keensight_scrapling/data/scan-bundle.schema.json -> build/bdist.linux-x86_64/wheel/./keensight_scrapling/data
+copying build/lib/keensight_scrapling/__init__.py -> build/bdist.linux-x86_64/wheel/./keensight_scrapling
+copying build/lib/keensight_scrapling/discovery.py -> build/bdist.linux-x86_64/wheel/./keensight_scrapling
+copying build/lib/keensight_scrapling/cli.py -> build/bdist.linux-x86_64/wheel/./keensight_scrapling
+copying build/lib/keensight_scrapling/rules.py -> build/bdist.linux-x86_64/wheel/./keensight_scrapling
+copying build/lib/keensight_scrapling/storage.py -> build/bdist.linux-x86_64/wheel/./keensight_scrapling
+copying build/lib/keensight_scrapling/commands.py -> build/bdist.linux-x86_64/wheel/./keensight_scrapling
+copying build/lib/keensight_scrapling/__main__.py -> build/bdist.linux-x86_64/wheel/./keensight_scrapling
+copying build/lib/keensight_scrapling/urls.py -> build/bdist.linux-x86_64/wheel/./keensight_scrapling
+copying build/lib/keensight_scrapling/extraction.py -> build/bdist.linux-x86_64/wheel/./keensight_scrapling
+running install_egg_info
+Copying src/keensight_scrapling_ingestion.egg-info to build/bdist.linux-x86_64/wheel/./keensight_scrapling_ingestion-0.1.0-py3.13.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/keensight_scrapling_ingestion-0.1.0.dist-info/WHEEL
+creating '/mnt/data/keensight-scrapling-ingestion/dist/.tmp-f7dcfp6r/keensight_scrapling_ingestion-0.1.0-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'keensight_scrapling/__init__.py'
+adding 'keensight_scrapling/__main__.py'
+adding 'keensight_scrapling/claims.py'
+adding 'keensight_scrapling/cli.py'
+adding 'keensight_scrapling/commands.py'
+adding 'keensight_scrapling/core.py'
+adding 'keensight_scrapling/discovery.py'
+adding 'keensight_scrapling/extraction.py'
+adding 'keensight_scrapling/importer.py'
+adding 'keensight_scrapling/pipeline.py'
+adding 'keensight_scrapling/rules.py'
+adding 'keensight_scrapling/storage.py'
+adding 'keensight_scrapling/transport.py'
+adding 'keensight_scrapling/urls.py'
+adding 'keensight_scrapling/validation.py'
+adding 'keensight_scrapling/data/commands.json'
+adding 'keensight_scrapling/data/demo-rules.json'
+adding 'keensight_scrapling/data/demo-site.json'
+adding 'keensight_scrapling/data/scan-bundle.schema.json'
+adding 'keensight_scrapling_ingestion-0.1.0.dist-info/METADATA'
+adding 'keensight_scrapling_ingestion-0.1.0.dist-info/WHEEL'
+adding 'keensight_scrapling_ingestion-0.1.0.dist-info/entry_points.txt'
+adding 'keensight_scrapling_ingestion-0.1.0.dist-info/top_level.txt'
+adding 'keensight_scrapling_ingestion-0.1.0.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+keensight_scrapling_ingestion-0.1.0-py3-none-any.whl

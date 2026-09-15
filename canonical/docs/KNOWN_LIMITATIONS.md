@@ -1,0 +1,10 @@
+# Deliberately unclosed items
+
+1. **F / audit E07: legacy ChangeRecord authorization is not fixed.** Same-tenant target ownership, typed replacement compatibility, actor authorization and privileged global changes remain a blocker. The new review/restriction actor guards do not retroactively repair ChangeRecord. The original audit probe is retained for verification.
+2. No live capture adapters, provider rights verification, authenticated server, database transactions, concurrent budget enforcement, remote handoff or sender is delivered. Production and automatic sending are disabled. Local fixture export is not remote exactly-once delivery.
+3. New ledger facts are typed contracts, not proof that their 16 collectors or extractors work. Eight compound ideas and lookalike/scenario/scorecard/playbook features are mapped, not all executed. 2,500 SaaS signatures are not included.
+4. LookalikeMatch and ScenarioEstimate are DESIGN_ONLY schemas without an enabled consumer. New cross-organization case-study/competitor and quote-back renderers are not enabled. The Automation Playbooks tab was not supplied.
+5. Raw-HTML form detection is the implemented coverage demonstration. Provider-specific pagination and rendered/browser/private-system checks still require real implementations and fixtures.
+6. Existing predicate support for arbitrary organization/member aggregation, JSON Pointer edge-case conformance, empirical calibration, operational endpoints and full state migration/replay was not part of these selected fixes. Retaining original v3/v4 documents does not establish completion of those items.
+7. Bundle.validate verifies a coherent design-test snapshot. A production history store must preserve historical reviews and immutable inputs separately from current eligibility. The reference gate can represent a BLOCK after later revocation, but this is not a complete historical-policy reconstruction engine.
+8. No finite test suite proves absence of all bugs. Tests exercise supplied synthetic and adversarial cases, not source accuracy, field efficacy, a live conversion model or licensed dataset coverage.

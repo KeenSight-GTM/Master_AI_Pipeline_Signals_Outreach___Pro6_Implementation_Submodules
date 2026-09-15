@@ -1,0 +1,68 @@
+{
+  "$id": "https://keensight.local/v4.2/ContextJoinRule.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "company_claim_allowed": {
+      "const": false
+    },
+    "context_predicate": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "join_rule_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "link_kind": {
+      "enum": [
+        "FOOTPRINT",
+        "PROVIDER_REPORT",
+        "MEMBERSHIP"
+      ]
+    },
+    "link_object_path": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "link_predicate": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "maximum_hops": {
+      "const": 1
+    },
+    "purpose": {
+      "const": "INTERNAL_RESEARCH"
+    },
+    "target_kinds": {
+      "items": {
+        "enum": [
+          "SOFTWARE_PRODUCT",
+          "INDUSTRY"
+        ]
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "join_rule_id",
+    "version",
+    "link_predicate",
+    "link_object_path",
+    "context_predicate",
+    "target_kinds",
+    "link_kind",
+    "purpose",
+    "maximum_hops",
+    "company_claim_allowed"
+  ],
+  "title": "ContextJoinRule",
+  "type": "object"
+}

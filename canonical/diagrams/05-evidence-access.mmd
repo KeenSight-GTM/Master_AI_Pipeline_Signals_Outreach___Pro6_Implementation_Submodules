@@ -1,0 +1,141 @@
+classDiagram
+direction LR
+class SourceDefinition {
+  +string source_id
+  +string version
+  +string provider
+  +enum acquisition_method
+  +enum authority
+  +bool fixture_only
+  +string policy_id
+  +List~string~ emits
+  +List~enum~ allowed_natures
+  +int freshness_seconds
+  +enum adapter_status
+  +string upstream_namespace
+}
+class DataAccessPolicy {
+  +string policy_id
+  +List~string~ tenant_ids
+  +string version
+  +enum review_status
+  +bool fixture_only
+  +Optional~string~ approval_ref
+  +string terms_ref
+  +string reviewed_at
+  +string valid_until
+  +List~enum~ purposes
+  +int max_raw_retention_seconds
+  +int max_derived_retention_seconds
+  +Optional~string~ attribution_text
+  +bool allow_personal_data
+  +bool allow_sensitive_data
+  +bool deletion_cascades
+}
+class ProviderBlueprint {
+  +string blueprint_id
+  +string provider
+  +List~int~ section_ids
+  +List~string~ families
+  +List~enum~ methods
+  +string terms_url
+  +bool approval_required
+  +bool adapter_implemented
+  +string notes
+}
+class Artifact {
+  +string artifact_id
+  +string tenant_id
+  +string source_id
+  +string scope_id
+  +string resource_uri
+  +string media_type
+  +Optional~string~ content_ref
+  +string content_hash
+  +int byte_count
+  +string captured_at
+  +Optional~string~ published_at
+  +enum status
+  +bool truncated
+  +string retained_until
+  +enum retention_state
+  +enum classification
+  +string origin_namespace
+  +string origin_record_id
+  +string origin_revision
+  +string independence_group
+  +Optional~string~ parent_artifact_id
+}
+class EvidenceLocator {
+  +string locator_id
+  +string artifact_id
+  +enum kind
+  +Optional~int~ start
+  +Optional~int~ end
+  +Optional~string~ pointer
+  +Optional~string~ quote
+}
+class EvidenceSet {
+  +string evidence_id
+  +string tenant_id
+  +List~string~ locator_ids
+  +List~string~ input_fact_ids
+  +Optional~string~ execution_id
+  +Optional~string~ coverage_id
+  +enum directness
+  +Optional~string~ attempt_id
+  +List~string~ sample_ids
+}
+class CoverageRecord {
+  +string coverage_id
+  +string tenant_id
+  +string scope_id
+  +string source_id
+  +List~string~ predicate_ids
+  +Object target
+  +List~string~ planned_resources
+  +List~Object~ checked
+  +enum status
+  +string checked_at
+  +string detector_release
+  +string scope_limitations
+  +List~string~ attempt_ids
+  +string detector_execution_id
+}
+class AcquisitionAttempt {
+  +string attempt_id
+  +string tenant_id
+  +string intake_id
+  +string source_id
+  +string source_version
+  +string adapter_version
+  +Object target
+  +Optional~string~ scope_id
+  +string request_hash
+  +string operation_key
+  +string started_at
+  +string finished_at
+  +enum status
+  +List~string~ artifact_ids
+  +Optional~enum~ terminal_reason
+  +enum pagination
+  +bool truncated
+  +int max_requests
+  +int requests_made
+  +int timeout_seconds
+  +int body_limit_bytes
+  +enum cost_status
+  +Optional~int~ cost_minor
+  +Optional~string~ currency
+  +enum execution_mode
+}
+SourceDefinition "*" --> "1" DataAccessPolicy : governed_by
+ProviderBlueprint "1" ..> "0..*" SourceDefinition : requires_implementation_and_approval
+Artifact "*" --> "1" SourceDefinition : obtained_from
+EvidenceLocator "*" --> "1" Artifact : locates
+EvidenceSet "1" o-- "0..*" EvidenceLocator : cites
+EvidenceSet "*" --> "0..1" CoverageRecord : absence_proof
+CoverageRecord "1" --> "1..*" Artifact : completed_capture_refs
+Artifact "*" --> "0..1" Artifact : transformed_from
+AcquisitionAttempt "1" --> "0..*" Artifact : can_have_no_bytes
+CoverageRecord "1" --> "1..*" AcquisitionAttempt : completed_acquisition

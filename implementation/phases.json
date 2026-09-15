@@ -1,0 +1,369 @@
+[
+  {
+    "id": "P0",
+    "name": "Freeze the baseline and define the scanner boundary",
+    "depends_on": [],
+    "repos": [
+      ".github",
+      "knowledge-contracts",
+      "fingerprint-library",
+      "scrapling-ingestion",
+      "signals-platform"
+    ],
+    "deliverable": "A reproducible development organization/workspace and the minimal capture/exchange contracts. This is setup, not an application-platform build.",
+    "modules": [
+      "repository bootstrap",
+      "dependency lock",
+      "38-command registry",
+      "capture exchange contracts",
+      "fixture harness"
+    ],
+    "work": [
+      "Preserve both donor branches by commit, keep history/license provenance, and run their own tests in their locked environments before reuse.",
+      "Import the v4.1 contract baseline; retain its broad 213-predicate catalog and all current regression tests.",
+      "Record every workbook sheet and command ID. Add capability/command execution and scan bundle specifications without changing source terminology.",
+      "Pin Python, Scrapling 0.4.15 initially, browser binaries, schema/rule/profile versions; characterize the exact response/session API before coding against examples.",
+      "Set read-only/single-tenant local development defaults, no live spending or sending, approved fixture origins, secrets and CI boundaries.",
+      "Make the absent 99_MASTER_ALL footprint library and actual deployment/provider permissions explicit input dependencies, not invented data."
+    ],
+    "acceptance": [
+      "Clean setup runs baseline 588 tests (current rerun passed); donor tests are separately required, not claimed run here.",
+      "All 38 command IDs have a handler owner, phase and acceptance case in a checked registry.",
+      "No arbitrary registry-supplied Python import or command execution is allowed.",
+      "The app can proceed with reviewed donor/starter rules without claiming the missing 25-vertical master library is loaded."
+    ]
+  },
+  {
+    "id": "P1",
+    "name": "Ship the first live Scrapling evidence collector",
+    "depends_on": [
+      "P0"
+    ],
+    "repos": [
+      "scrapling-ingestion",
+      "knowledge-contracts"
+    ],
+    "deliverable": "Direct URL/host input \u2192 safe static capture \u2192 retained artifact/attempt \u2192 resumable versioned scan bundle, with no LLM or outreach.",
+    "modules": [
+      "intake.url_identity",
+      "policy.robots",
+      "transport.http",
+      "capture.headers_cookies",
+      "extraction.raw_html",
+      "storage",
+      "output.scan_bundle",
+      "telemetry"
+    ],
+    "work": [
+      "Implement normalization, per-origin policy, public-address/redirect guards and request reservations before fetch.",
+      "Use Scrapling HTTP sessions; persist response bytes, encoding, response metadata, redirect chain, request identity and truncation.",
+      "Record timeouts, denied/no-byte attempts, rate-limit events and budget skips explicitly. Never manufacture empty HTML or a business absence.",
+      "Use a single writer, bounded queues and active-domain window, cancellation, resumable target state and atomic bundle completion.",
+      "Run extractor output against the actual bytes retained; incomplete/oversized captures remain limited evidence."
+    ],
+    "acceptance": [
+      "A permitted test site produces a complete replayable capture with all source/evidence references.",
+      "Robots/policy denial, malformed URL, DNS failure, redirect to private address, 429 and oversized content have tested terminal states.",
+      "Kill/restart does not duplicate a completed capture or lose failed-target diagnostics.",
+      "Normal crawl has no model calls, no external form submissions and no outbound message operations."
+    ]
+  },
+  {
+    "id": "P2",
+    "name": "Complete all 38 commands and the browser capture path",
+    "depends_on": [
+      "P1"
+    ],
+    "repos": [
+      "scrapling-ingestion",
+      "fingerprint-library",
+      "knowledge-contracts"
+    ],
+    "deliverable": "The complete workbook command suite, all extraction surfaces, host qualification/scoring and an evidence-preserving fact-candidate adapter.",
+    "modules": [
+      "commands",
+      "discovery",
+      "transport.browser",
+      "extraction",
+      "matching",
+      "aggregation",
+      "qualification",
+      "ranking",
+      "bridge"
+    ],
+    "work": [
+      "Implement all 17 extraction commands and the two discovery commands, preserving per-node and per-page provenance.",
+      "Compile typed catalog matchers and guards; run host accumulation before host matching/gating, then finalize output.",
+      "Add separately bounded browser rendering under the original FETCH_STEALTH ID; retain actual engine, trigger, static/rendered artifacts and capture limitations.",
+      "Capture network metadata through an explicitly version-tested browser hook when required; leave DNS/TLS and other extras as separately registered capabilities beyond the original 38.",
+      "Emit the workbook's HostResult and Hit projections plus the richer ScanBundle/attempts/evidence needed by v4.1.",
+      "Support no-send detection/scanning profiles and offline replay from day one; no source status or catalog score can grant production authority."
+    ],
+    "acceptance": [
+      "38/38 command handlers have positive/negative/error or not-applicable fixtures and evidence outputs; each run records every applicable command's disposition.",
+      "All template-path slots and selector surfaces from the workbook are mapped; skipped probes are not represented as missing software.",
+      "Boundary tests include hostname lookalikes, comments, quoted attributes, noscript, multiple JSON-LD subjects, deep seeds and same-host multi-page guards.",
+      "Budget counters include failures/redirects/retries and separately bound browser subrequests.",
+      "Recorded HTTP and browser captures replay to equivalent substantive detections without another live request."
+    ]
+  },
+  {
+    "id": "P3",
+    "name": "Integrate dynamic fingerprint discovery, review and release",
+    "depends_on": [
+      "P2"
+    ],
+    "repos": [
+      "scrapling-ingestion",
+      "fingerprint-library",
+      "knowledge-contracts"
+    ],
+    "deliverable": "The scanner learns recurring unknown surfaces through a review-gated rule release loop, not runtime self-promotion.",
+    "modules": [
+      "donor rule import",
+      "research.normalize",
+      "research.prevalence",
+      "research.candidates",
+      "research.exchange",
+      "rules.validation",
+      "rules.release",
+      "replay"
+    ],
+    "work": [
+      "Inventory/import all donor rule definitions with original IDs, hashes, statuses and a disposition report; account for all 739 manifest-listed rows.",
+      "Adapt RuleLibrary/FingerprintRuleEngine behavior, catalog normalization, candidate export/review and pack validation rather than treating old PageSignal values as new facts.",
+      "Preserve one observation for each distinct capture/support; deduplicate display rows without dropping rule IDs/evidence.",
+      "Queue repeated unknown normalized features using configurable unique-site thresholds; namespace private/tenant evidence and do not pool it without approval.",
+      "Use manual review initially; optional bounded LLM proposals may produce candidates only.",
+      "Validate fixture and mutation cases, shadow-compare, approve, release immutable rule packs, pin them per run and provide rollback/revocation.",
+      "Replay eligible stored captures with a new detection execution; request recapture for missing modalities and do not refresh observation time/TTL."
+    ],
+    "acceptance": [
+      "Manifest inventory = imported + quarantined + non-executable records, with no silent omission.",
+      "One repeated unknown is exported, reviewed, installed, matched and replayed without recollecting compatible content.",
+      "Unsupported/candidate/research-only definitions never drive production signals or templates.",
+      "A running scan does not hot-load a new release; removal/demotion affects subsequent current-use checks.",
+      "Upstream thresholds 3/10/50 are scheduling defaults only, not proof of accuracy or statistical independence."
+    ]
+  },
+  {
+    "id": "P4",
+    "name": "Build the persistent knowledge application and close authorization",
+    "depends_on": [
+      "P3"
+    ],
+    "repos": [
+      "signals-platform",
+      "knowledge-contracts",
+      "scrapling-ingestion"
+    ],
+    "deliverable": "Scan bundles become queryable broad facts with complete producer/identity/coverage/claim-resolution checks.",
+    "modules": [
+      "facts.admission",
+      "facts.repositories",
+      "facts.identity",
+      "facts.provenance",
+      "facts.claims",
+      "facts.query",
+      "security",
+      "retention"
+    ],
+    "work": [
+      "Implement v4.1 repositories and transactional admission; initially one logical database and local content backend, not a graph database.",
+      "Consume scanner evidence/candidates through one adapter; preserve direct observation, mention, inference, provider report and contextual roles.",
+      "Implement successful-producer, input-closure, conflict, coverage, no-byte and profile gates at runtime rather than only in fixture validation.",
+      "Complete the deliberately unclosed F ChangeRecord tenant/actor/typed-replacement checks before hosted mutation or multi-tenant production.",
+      "Enforce authenticated tenant context, source use policy, revocation, retention, current view versus historical evaluation and exact input snapshots.",
+      "Provide knowledge-only batch reports and evidence/claim search without requiring a commercial signal."
+    ],
+    "acceptance": [
+      "Capture \u2192 fact admission \u2192 query works with retained real/controlled fixtures and exact locators.",
+      "A stale, cross-account, candidate, conflicted, failed-producer or revoked input cannot support eligible outward use.",
+      "ChangeRecord authorization/replacement tests pass and the previous F blocker is explicitly closed before production.",
+      "Reimports are idempotent; incompatible payload reuse fails; corrections preserve history.",
+      "No output depends on the legacy rule catalog as a second authoritative fact store."
+    ]
+  },
+  {
+    "id": "P5",
+    "name": "Expand acquisition across all fact suites",
+    "depends_on": [
+      "P4"
+    ],
+    "repos": [
+      "scrapling-ingestion",
+      "signals-platform",
+      "knowledge-contracts"
+    ],
+    "deliverable": "Approved collectors and tested mappings for all 11 domain families, plus the 52-ledger source extensions, activated in source-specific batches.",
+    "modules": [
+      "connectors.jobs_ats",
+      "connectors.technographics",
+      "connectors.reviews",
+      "connectors.communities",
+      "connectors.traffic_seo",
+      "connectors.registries",
+      "connectors.publications",
+      "connectors.authorized_operations",
+      "llm.gateway"
+    ],
+    "work": [
+      "P5a: ATS/careers/posting history and vertical product/portal evidence; distinguish public description from verified operation.",
+      "P5b: permitted local/product/app reviews and discussions, exact statements, sample dispositions and independent origin IDs.",
+      "P5c: traffic estimates, search/ads/backlinks/mentions/apps/shopping with provider, method, dimensions, periods and units.",
+      "P5d: provider/professional/corporate registries, licenses, filings, permits and authorized phone/operational records.",
+      "P5e: website/job workflow extraction, publications/transcripts/events/case studies and remaining ledger families through approved capture adapters.",
+      "Use one bounded LLM gateway with raw I/O before parse, structured output, mandatory bounded repair, cost reservations and abstention.",
+      "Preserve every source's capture/extract/use status. Unavailable permissions block that connector explicitly; fixture coverage is not live access."
+    ],
+    "acceptance": [
+      "An 11-area source matrix reports actual live/fixture/disabled/blocked status and exact emitted predicates.",
+      "Each enabled source demonstrates evidence \u2192 typed facts, boundaries, pagination/timeouts and source-specific retention.",
+      "Cross-provider periods/units and current versus historical records cannot be conflated.",
+      "The 52 ledger entries remain tracked as source, fact, derivation, algorithm or template\u2014not all reclassified as facts."
+    ]
+  },
+  {
+    "id": "P6",
+    "name": "Implement deterministic reasoning and combination-C research context",
+    "depends_on": [
+      "P4"
+    ],
+    "repos": [
+      "signals-platform",
+      "knowledge-contracts"
+    ],
+    "deliverable": "Selected complete signals and research priors from resolved claims and exact input/sample snapshots. This phase can progress alongside P5.",
+    "modules": [
+      "evaluation.input_selection",
+      "evaluation.dependency_plan",
+      "reasoning.derivations",
+      "reasoning.signals",
+      "reasoning.adjudication",
+      "research.samples",
+      "research.priors",
+      "research.context",
+      "reasoning.cohorts"
+    ],
+    "work": [
+      "Port useful selectors, calculators and stage functions from Master Signals without importing its mandatory 223-evaluation terminal condition.",
+      "Implement versioned functions, typed value comparisons, UNKNOWN/error handling, temporal changes, confounds and independent support.",
+      "Bind sample support, full denominators/exclusions and every source permission to research prior eligibility.",
+      "Permit explicit product/industry links as internal context only; prevent company-pain claims from contextual priors.",
+      "Implement declared membership aggregates before provider/location rollups; keep cross-subject contamination guards.",
+      "Keep all 23 derivation designs and 18 prior signal identifiers, enabling only implemented dependency closures; implement peer/cohort algorithms before enabling their signals.",
+      "Treat compound ledger 33\u201340 as hypotheses/calculations requiring exact windows and evidence, not proxy-derived certainties."
+    ],
+    "acceptance": [
+      "A condition with sufficient false evidence is NO_MATCH; missing evidence is UNKNOWN; operational restrictions remain separate.",
+      "Contradictions, abstained contexts or deleted denominator evidence cannot support an eligible decision.",
+      "Fixed-batch dependency order rejects same-run self/multi-node cycles; no dynamic scheduler is required.",
+      "Real stored-input integration tests complement numerical fixtures.",
+      "At least one product/industry research prior joins to account context without acquiring company-claim permission."
+    ]
+  },
+  {
+    "id": "P7",
+    "name": "Deliver auditable intelligence and reviewed no-send outreach",
+    "depends_on": [
+      "P6"
+    ],
+    "repos": [
+      "signals-platform",
+      "knowledge-contracts"
+    ],
+    "deliverable": "Searchable account intelligence, supported previews, exact-revision review and a current-use-gated handoff.",
+    "modules": [
+      "commercial.opportunity_selection",
+      "commercial.templates",
+      "commercial.claims",
+      "commercial.packages",
+      "review",
+      "exports",
+      "api_ui"
+    ],
+    "work": [
+      "Map supported conditions to service line, audience and reviewed template; retain a valid no-opportunity outcome.",
+      "Enable observation-led questions without universal maturity gating; keep maturity/scenario/lookalike offers behind their specific proofs and implemented renderers.",
+      "Revalidate whole sentences, input ancestry and exact quotes; do not promote draft LLM prose.",
+      "Persist actual authenticated ReviewDecision, UseGateDecision and ExportReceipt records with revision/payload/destination identity.",
+      "Provide analyst views for captures, claims, candidate rules, contexts, rejections and approvals.",
+      "Reuse Master context/page selection and package mechanics only behind the new contract tests and no duplicate crawl path."
+    ],
+    "acceptance": [
+      "Permitted live/retained evidence \u2192 supported preview \u2192 authenticated review \u2192 current-gated local export is demonstrated.",
+      "Corrected identity, DNC, evidence expiry/deletion or source revocation blocks stale reviewed packages.",
+      "Failed targets cannot publish approved partial output; one account failure does not erase independently completed accounts.",
+      "No sender is reachable from this profile."
+    ]
+  },
+  {
+    "id": "P8",
+    "name": "Add explicit CRM/export and delivery integrations",
+    "depends_on": [
+      "P7"
+    ],
+    "repos": [
+      "signals-platform",
+      "knowledge-contracts"
+    ],
+    "deliverable": "Destination-specific remote handoffs and, only when enabled, controlled sending with durable identity/reconciliation.",
+    "modules": [
+      "exports.mapping",
+      "crm.adapter",
+      "delivery.outbox",
+      "delivery.gates",
+      "delivery.providers",
+      "delivery.reconciliation",
+      "outcomes.ingress"
+    ],
+    "work": [
+      "Resolve recipients and account/contact mappings without fabricating them; restrict private/internal context in exported payloads.",
+      "Separate preview/export, draft creation, append-to-existing and activation/send permissions where the destination supports them.",
+      "Implement transactional outbox, provider idempotency/correlation, lease/claim semantics as needed and immediate pre-send restrictions.",
+      "Represent uncertain acceptance explicitly and reconcile before retrying; CRM-sync failures never cause another send.",
+      "Record provider events, unsubscribe/DNC decisions and exposure identity as soon as delivery is introduced."
+    ],
+    "acceptance": [
+      "No-send profiles cannot dispatch; approval of a preview is not authorization for a campaign activation.",
+      "Duplicate jobs and webhooks do not duplicate exposure/outcome identities.",
+      "Timeout-after-acceptance and restart scenarios reconcile without blind resend.",
+      "Every external action has an exact payload, gate, receipt and permission scope."
+    ]
+  },
+  {
+    "id": "P9",
+    "name": "Close outcome measurement and harden scale/operations",
+    "depends_on": [
+      "P8"
+    ],
+    "repos": [
+      "signals-platform",
+      "scrapling-ingestion",
+      ".github"
+    ],
+    "deliverable": "Mature descriptive performance metrics, operating dashboards, recovery and measured growth in throughput.",
+    "modules": [
+      "outcomes.attribution",
+      "outcomes.measurement",
+      "quality.calibration",
+      "ops.observability",
+      "ops.recovery",
+      "ops.capacity"
+    ],
+    "work": [
+      "Compute outcome metrics with mature response windows, explicit exposure units, pending/bounce/uncertainty handling and contamination rules.",
+      "Keep performance descriptive; ranking experiments cannot upgrade source authority or establish causal effectiveness automatically.",
+      "Measure scanner recall/precision by rule family/vertical/modality and monitor capture failures, drift, budget use and unsupported-surface rates.",
+      "Run restore, retention/deletion, revocation, authentication and tenant-boundary tests; these controls begin earlier and are stress-tested here.",
+      "Scale from bounded local batches to measured concurrency; introduce PostgreSQL/multiple workers only with concurrency tests and demonstrated need.",
+      "Add shared atomic budgets before concurrent paid operations, not after. Incremental scheduling remains optional and must match full recomputation."
+    ],
+    "acceptance": [
+      "Operational and commercial denominators are independently audited.",
+      "Backups restore tested knowledge and receipts; revoked/deleted data cannot reappear through stale projections.",
+      "Load targets and cost ceilings are chosen from measured pilot results rather than workbook estimates.",
+      "Feature release can be rolled back; approved fingerprint packs and application versions are independently pinned."
+    ]
+  }
+]

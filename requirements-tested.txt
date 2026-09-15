@@ -1,0 +1,6 @@
+# Direct versions present during local verification. Not a transitive lock.
+pytest==9.0.2
+jsonschema==4.26.0
+lxml==6.1.1
+regex==2026.5.9
+defusedxml==0.7.1

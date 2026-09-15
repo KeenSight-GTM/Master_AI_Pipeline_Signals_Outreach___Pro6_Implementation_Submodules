@@ -1,0 +1,24 @@
+digraph G {
+rankdir=TB;
+graph [fontname="DejaVu Sans",nodesep=0.35,ranksep=0.75,bgcolor="white"];
+node [shape=box,fontname="DejaVu Sans",fontsize=12,margin="0.14,0.09"];
+edge [fontname="DejaVu Sans",fontsize=10];
+"r" [label="Bounded request + attempt"];
+"c" [label="Trusted Capture metadata\n+ original blob"];
+"x" [label="17 extractor results\ncomplete / partial / failed"];
+"m" [label="All rule matches\nsemantic rule digest"];
+"o" [label="Observation + support\none captured claim/value"];
+"v" [label="Validate full bundle\nrederive surfaces / reports / score"];
+"t" [label="One SQLite transaction\nevaluation + findings + selection"];
+"f" [label="Failure diagnostics\nno supported publication"];
+"re" [label="Replay selected original captures"];
+"r" -> "c" [label="bytes or no-byte failure"];
+"c" -> "x" [label="verified read"];
+"x" -> "m" [label="required capabilities"];
+"m" -> "o" [label="preserve every support"];
+"o" -> "v" [label="draft outputs"];
+"v" -> "t" [label="success"];
+"v" -> "f" [label="reject"];
+"t" -> "re" [label="recorded selection"];
+"re" -> "x" [label="new execution; original observation time"];
+}

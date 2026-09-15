@@ -1,0 +1,184 @@
+[
+  {
+    "label": "scheduling",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.scheduling"
+  },
+  {
+    "label": "missed calls",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.missed_calls"
+  },
+  {
+    "label": "billing",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.billing"
+  },
+  {
+    "label": "paperwork",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.paperwork"
+  },
+  {
+    "label": "follow up",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.follow_up"
+  },
+  {
+    "label": "reporting",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.reporting"
+  },
+  {
+    "label": "integration",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.integration"
+  },
+  {
+    "label": "support",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.support"
+  },
+  {
+    "label": "missing features",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.missing_features"
+  },
+  {
+    "label": "data reentry",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.data_reentry"
+  },
+  {
+    "label": "spreadsheets",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.spreadsheets"
+  },
+  {
+    "label": "manual handoff",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.manual_handoff"
+  },
+  {
+    "label": "switching",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.switching"
+  },
+  {
+    "label": "automation question",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.automation_question"
+  },
+  {
+    "label": "document search",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.document_search"
+  },
+  {
+    "label": "approval delay",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.approval_delay"
+  },
+  {
+    "label": "intake",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.intake"
+  },
+  {
+    "label": "crm",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.crm"
+  },
+  {
+    "label": "salary",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.salary"
+  },
+  {
+    "label": "sales",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.sales"
+  },
+  {
+    "label": "compliance",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.compliance"
+  },
+  {
+    "label": "inventory",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.inventory"
+  },
+  {
+    "label": "dispatch",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.dispatch"
+  },
+  {
+    "label": "quoting",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.quoting"
+  },
+  {
+    "label": "case management",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.case_management"
+  },
+  {
+    "label": "knowledge complexity",
+    "parent_id": null,
+    "scheme_id": "keensight.workflow",
+    "scheme_version": "1.0.0",
+    "term_id": "theme.knowledge_complexity"
+  }
+]

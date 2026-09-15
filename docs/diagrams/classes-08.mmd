@@ -1,0 +1,76 @@
+classDiagram
+    class OutcomeEvent {
+        attribution_status
+        event_id
+        evidence_id
+        exposure_id
+        kind
+        occurred_at
+        provider
+        provider_event_id
+        received_at
+        tenant_id
+    }
+    class OutreachPackage {
+        approved_at
+        clauses
+        context_ids
+        maturity_fact_id
+        package_id
+        rendered_text
+        review_id
+        revision
+        run_id
+        send_allowed
+        signal_ids
+        status
+        subject_id
+        template_id
+        tenant_id
+    }
+    class PackageReference {
+        content_hash
+        package_id
+        revision
+    }
+    class PredicateDefinition {
+        absence_allowed
+        allowed_natures
+        allowed_processors
+        copy_policy
+        description
+        example_target
+        example_value
+        family
+        origin
+        predicate_id
+        reference_rules
+        section_ids
+        subject_kinds
+        target_schema
+        temporal_mode
+        value_class
+        value_schema
+        version
+    }
+    class ProviderBlueprint {
+        adapter_implemented
+        approval_required
+        blueprint_id
+        families
+        methods
+        notes
+        provider
+        section_ids
+        terms_url
+    }
+    class PublishedRecordValue {
+        namespace
+        published_at
+        publisher
+        record_id
+        record_type
+        text
+        title
+        url
+    }

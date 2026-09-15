@@ -1,0 +1,34 @@
+sequenceDiagram
+    participant B as BatchRunner
+    participant A as Acquisition
+    participant F as FactAdmission
+    participant DB as FactRepository
+    participant S as Reasoning
+    participant R as ReviewService
+    participant G as CurrentUseGate
+    participant X as PreviewExporter
+    B->>A: Validated intake, enabled profile, bounded attempt
+    alt No bytes captured
+        A-->>B: Failed attempt plus diagnostic UNKNOWN; no NOT_FOUND
+    else Capture or approved replay import
+        A->>F: Artifacts, extraction results and executed detector coverage
+        F->>DB: Admit only successful, attributable, lineage-closed facts
+    end
+    B->>DB: Pin inputs, sample records, bindings and target completion
+    DB-->>B: Exact input set and resolved claim views
+    B->>S: Evaluate enabled functions, usable context and signals
+    alt Conflicting, failed or insufficient evidence
+        S-->>B: Abstained or unresolved target; no approved positive output
+    else Eligible supported result
+        S->>DB: Publish completed preview with exact dependencies
+        R->>DB: Record authorized review of package revision and hash
+        G->>DB: Recheck current evidence, policies and restrictions
+        alt Gate permits exact destination and purpose
+            G->>X: ALLOW with current state hash and expiry
+            X->>DB: Record local preview receipt with payload hash
+        else Current use blocked
+            G->>DB: Record BLOCK; historical review remains
+        end
+    end
+    Note over G,X: A repeated local export key reuses identical bytes; changed payload fails
+    Note over B,X: No remote export, automatic sending or production authentication is implemented

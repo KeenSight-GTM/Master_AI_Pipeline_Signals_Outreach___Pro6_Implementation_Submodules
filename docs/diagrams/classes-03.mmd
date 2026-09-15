@@ -1,0 +1,61 @@
+classDiagram
+    class ConfidenceAssessment {
+        calibration_id
+        meaning
+        value
+    }
+    class ContextAssessment {
+        account_subject_id
+        company_claim_allowed
+        context_fact_ids
+        context_id
+        context_subject_id
+        join_rule_id
+        link_fact_id
+        purpose
+        relationship_strength
+        run_id
+        status
+        tenant_id
+    }
+    class ContextJoinRule {
+        company_claim_allowed
+        context_predicate
+        join_rule_id
+        link_kind
+        link_object_path
+        link_predicate
+        maximum_hops
+        purpose
+        target_kinds
+        version
+    }
+    class CoverageCheck {
+        artifact_id
+        resource
+        result
+    }
+    class CoverageFamilyPlan {
+        contract_status
+        live_adapter_status
+        metric_ids
+        predicate_ids
+        section
+        title
+    }
+    class CoverageRecord {
+        attempt_ids
+        checked
+        checked_at
+        coverage_id
+        detector_execution_id
+        detector_release
+        planned_resources
+        predicate_ids
+        scope_id
+        scope_limitations
+        source_id
+        status
+        target
+        tenant_id
+    }

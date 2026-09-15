@@ -1,0 +1,41 @@
+{
+  "source_basis": "User-supplied local materials, inspected in this continuation. No external research or fresh provider access verification.",
+  "files": [
+    {
+      "name": "KeenSight_Module_Design_and_Contracts.md",
+      "sha256": "69fed9b5ff2d72d37204668da783e9fc99e9f3a02e144ecc6144bc06e9b14fe5"
+    },
+    {
+      "name": "KeenSight_Module_Input_Output_Matrix.md",
+      "sha256": "0f7b200423cdd56019b7ef444c32c8d111351318186e6b688d25ae1365508af2"
+    },
+    {
+      "name": "KeenSight_Module_Contract_Design.zip",
+      "sha256": "0ea62a01aad049c1553a78379da263f664eeeed026fc57f05eaa9a1922f2b54c"
+    },
+    {
+      "name": "KeenSight_Architecture_v4_1.md",
+      "sha256": "c05ae25d95ec50a8416b0d734f8285ab055b88a05d76878260b5db04f6092a9b"
+    },
+    {
+      "name": "keensight-architecture-v4.1.zip",
+      "sha256": "2aa572cbbf9d102578dc07731c5acb3ad3f4c8d4445d53110be54308d24a0cbb"
+    },
+    {
+      "name": "KeenSight_Scrapling_README.md",
+      "sha256": "5cb1b5fdace13e6ce6ed34d47e18c34c6eb30790b5f5203675587f4a14404b0e"
+    },
+    {
+      "name": "KeenSight_Fingerprint_Deduplication.md",
+      "sha256": "a4ead42d465e14b29c0ebdd909e0db22023b9fc65aa144ad6a251797cb328a0b"
+    },
+    {
+      "name": "KeenSight_End_to_End_Implementation_Plan.md",
+      "sha256": "bcb1e5bbb59bb1754642c0cde72c2dac6061244cf6aeb71a9dec11a950c2be68"
+    },
+    {
+      "name": "KeenSight_v4_1_Ledger_Integration.md",
+      "sha256": "0f2f8e16ed28b176a49f65079a1a5e4c63b2107c50f92809d55310ed8dd5bb3f"
+    }
+  ]
+}

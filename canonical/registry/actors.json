@@ -1,0 +1,19 @@
+[
+  {
+    "active": true,
+    "actor_id": "actor.fixture",
+    "fixture_only": true,
+    "permissions": [
+      "INTAKE",
+      "REVIEW_PACKAGE",
+      "USE_GATE",
+      "EXPORT",
+      "RESTRICT",
+      "CHANGE_FACT",
+      "CHANGE_BINDING",
+      "CHANGE_ARTIFACT",
+      "CHANGE_REGISTRY"
+    ],
+    "tenant_id": "tenant.demo"
+  }
+]

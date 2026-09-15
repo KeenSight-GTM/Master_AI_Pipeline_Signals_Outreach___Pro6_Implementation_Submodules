@@ -1,0 +1,70 @@
+classDiagram
+    class SendGateDecision {
+        gate_id
+        intent_ref
+        message_ref
+        review_ref
+        campaign_approval_ref
+        readiness_ref
+        recipient_ref
+        current_restriction_vector
+        current_contact_vector
+        evaluated_at
+        valid_until
+        decision
+        reasons
+    }
+    class SenderCapabilitySnapshot {
+        snapshot_id
+        tenant_id
+        sender_account_ref
+        provider
+        channel
+        verified_capabilities
+        live_state
+        checked_at
+        configuration_digest
+    }
+    class DeliveryAttempt {
+        attempt_id
+        intent_ref
+        gate_ref
+        request_digest
+        started_at
+        finished_at
+        transport_status
+        acceptance_status
+        external_message_ref
+        error_ref
+    }
+    class Conversation {
+        conversation_id
+        tenant_id
+        account_ref
+        contact_refs
+        provider_account_ref
+        external_thread_ref
+        event_refs
+        enrollment_links
+        current_owner
+        state
+    }
+    class ReplyAssessment {
+        assessment_id
+        inbound_event_ref
+        classification_kind
+        literal_support_refs
+        producer_execution_ref
+        confidence_metadata
+        human_review_state
+        recommended_action
+    }
+    class EnrollmentControl {
+        control_id
+        target_enrollment_refs
+        cause_event_ref
+        desired_transition
+        scope
+        created_at
+        expected_state_refs
+    }

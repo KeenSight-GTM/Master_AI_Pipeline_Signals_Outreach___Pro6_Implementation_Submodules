@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant c as Enrollment
+    participant g as Send gate
+    participant s as Dispatcher
+    participant p as Provider
+    participant i as Reply ingress
+    participant crm as CRM sync
+    c->>g: 1. Due step + stable business-effect identity
+    g->>s: 2. Current permit or HOLD
+    s->>p: 3. Exact reviewed message
+    p->>s: 4. Ambiguous timeout
+    s->>s: 5. Record UNKNOWN; do not blind resend
+    s->>p: 6. Reconcile by provider/operation identity
+    p->>s: 7. Original acceptance located
+    p->>i: 8. Signed/correlated inbound event
+    i->>c: 9. Commit immediate contact/enrollment STOP
+    i->>crm: 10. Human follow-up / sales handoff
+    crm->>crm: 11. Retry CRM write only; never resend

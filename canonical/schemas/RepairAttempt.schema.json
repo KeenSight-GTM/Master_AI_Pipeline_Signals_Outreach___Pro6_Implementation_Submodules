@@ -1,0 +1,60 @@
+{
+  "$id": "https://keensight.local/v4.2/RepairAttempt.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "attempt_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "call_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "input_response_artifact_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "method": {
+      "enum": [
+        "DETERMINISTIC_JSON_REPAIR",
+        "BOUNDED_MODEL_REPAIR"
+      ]
+    },
+    "ordinal": {
+      "maximum": 2,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "output_response_artifact_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "VALID",
+        "INVALID"
+      ]
+    },
+    "validation_errors": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    }
+  },
+  "required": [
+    "attempt_id",
+    "call_id",
+    "ordinal",
+    "input_response_artifact_id",
+    "output_response_artifact_id",
+    "method",
+    "status",
+    "validation_errors"
+  ],
+  "title": "RepairAttempt",
+  "type": "object"
+}

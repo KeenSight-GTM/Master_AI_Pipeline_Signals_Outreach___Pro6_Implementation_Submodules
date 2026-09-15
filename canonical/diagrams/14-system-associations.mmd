@@ -1,0 +1,110 @@
+classDiagram
+direction LR
+class Subject {
+  +string subject_id
+  +string tenant_id
+}
+class PredicateDefinition {
+  +string predicate_id
+}
+class Fact {
+  +string fact_id
+  +string tenant_id
+  +string subject_id
+  +string predicate_id
+  +Object target
+  +string scope_id
+  +enum state
+  +enum nature
+  +string source_id
+  +Optional~string~ binding_id
+  +string evidence_id
+  +Optional~string~ execution_id
+  +string run_id
+  +Optional~Object~ window
+  +Optional~string~ supersedes_fact_id
+}
+class EvidenceSet {
+  +string evidence_id
+  +string tenant_id
+  +Optional~string~ execution_id
+  +Optional~string~ coverage_id
+  +Optional~string~ attempt_id
+}
+class Artifact {
+  +string artifact_id
+  +string tenant_id
+  +string source_id
+  +string scope_id
+  +enum status
+  +string origin_record_id
+  +Optional~string~ parent_artifact_id
+}
+class ExecutionRecord {
+  +string execution_id
+  +string tenant_id
+  +string run_id
+  +string function_id
+  +string subject_id
+  +enum status
+  +Optional~string~ model_call_id
+}
+class BatchRun {
+  +string run_id
+  +string tenant_id
+  +string as_of
+  +string profile_id
+  +enum status
+  +string intake_id
+}
+class ContextAssessment {
+  +string context_id
+  +string tenant_id
+  +string run_id
+  +string account_subject_id
+  +string context_subject_id
+  +string join_rule_id
+  +string link_fact_id
+  +bool company_claim_allowed
+  +enum status
+}
+class SignalEvaluation {
+  +string signal_id
+  +string run_id
+  +string tenant_id
+  +string subject_id
+  +string signal_type_id
+  +enum status
+}
+class OutreachPackage {
+  +string package_id
+  +string run_id
+  +string tenant_id
+  +string subject_id
+  +string template_id
+  +Optional~string~ maturity_fact_id
+  +enum status
+  +Optional~string~ review_id
+}
+class GroundedClause {
+  +string clause_id
+  +string template_id
+}
+class MetricDefinition {
+  +string metric_id
+}
+Fact "*" --> "1" Subject : about
+Fact "*" --> "1" PredicateDefinition : typed_by
+Fact "*" --> "1" EvidenceSet : supported_by
+EvidenceSet "*" --> "0..*" Artifact : through_locators
+EvidenceSet "*" --> "0..*" Fact : derived_input_refs
+Fact "*" --> "0..1" ExecutionRecord : produced_by
+ExecutionRecord "*" --> "1" BatchRun : pinned_run
+ExecutionRecord "*" --> "*" Fact : reads_and_produces
+Fact "*" --> "0..1" MetricDefinition : measurement_contract
+ContextAssessment "*" --> "2..*" Fact : account_link_and_context_fact
+SignalEvaluation "*" --> "0..*" Fact : eligible_inputs
+SignalEvaluation "*" --> "0..*" ContextAssessment : internal_context
+OutreachPackage "*" --> "0..*" SignalEvaluation : based_on
+OutreachPackage "1" *-- "1..*" GroundedClause : contains
+GroundedClause "*" --> "1..*" Fact : own_account_claim_support

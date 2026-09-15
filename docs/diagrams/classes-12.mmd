@@ -1,0 +1,48 @@
+classDiagram
+    class TargetResult {
+        completed_at
+        reason
+        status
+        subject_id
+    }
+    class TaxonomyTerm {
+        label
+        parent_id
+        scheme_id
+        scheme_version
+        term_id
+    }
+    class TechnologyReportValue {
+        product_id
+        provider
+        provider_detected_at
+        reported_version
+    }
+    class TechnologyValue {
+        deployment_claim
+        fingerprint_id
+        matched_value
+        product_id
+        surface
+        version
+    }
+    class TemplateDefinition {
+        allowed_natures
+        authority
+        maturity_required
+        mode
+        offered_rung
+        question
+        renderer
+        required_predicate
+        review_ref
+        template_id
+        version
+    }
+    class ThemeClassificationValue {
+        record_key
+        sentiment
+        stance
+        support_locator_ids
+        theme_id
+    }

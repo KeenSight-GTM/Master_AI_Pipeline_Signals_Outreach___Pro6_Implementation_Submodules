@@ -1,0 +1,25 @@
+{
+  "type": "implementation_plan_not_runtime_release",
+  "files": {
+    "DATAFLOWS_AND_UML.md": "d15436e61d3ffc597a3ff9c6c740a21c1842aa4e46440260bef7ac3f3c65155d",
+    "DYNAMIC_FINGERPRINT_INTEGRATION.md": "ea4024c8d78ee60664baaec0a122dc7dbb906576b7a9da41f2125a8c02361269",
+    "IMPLEMENTATION_PHASES.md": "bcb1e5bbb59bb1754642c0cde72c2dac6061244cf6aeb71a9dec11a950c2be68",
+    "README.md": "c84722773bf71af7e2fa9e94f9572c61fdf78dbfe1333723cef2c565fd97a84b",
+    "REPOSITORIES_AND_MODULES.md": "47b5d2c896d0ddeae9c40214abd6f5fa775f207137bcbeaff51aa8a27da3d104",
+    "SCRAPLING_38_COMMANDS.md": "1c8bffdf5fe0697dd9341c31f59c8c1a41080b57a8b8f941ee36c41edacf132b",
+    "SOURCES_AND_VERIFICATION.md": "ef122c7a20b58b55fceaa7f00036e888bb4b6916e4adc4a08f97b9ebe6d6b660",
+    "WORKBOOK_DECISIONS_AND_CONTRACTS.md": "c266e3da71c8f70432b26bc6df0e731e016b2d11f0750a3ee0db5026209428ce",
+    "WORKBOOK_SOURCE.md": "6336d428cf78778546fefcb466b9a459bacb2fc92e4d9b2a9e6bb42448e249be",
+    "baseline-check.txt": "fe35e147a3f93e8eea26b229dcb8b4f67756da341d35ec7d3c5f9b4d8111a73c",
+    "command_plan.json": "f496ce854ee3fd8f0495f138caf49f9e0bed3ce15a06c3583730b1af725c87f3",
+    "command_traceability.csv": "042f3ea2f50cc6f31274026d847e008ffa248f812845b4e50d67ff6a71f99c6d",
+    "modules.json": "a7970ad6911f0d7a8b2895c2a0c49959acd806b712e7632dac960d8270c5eaca",
+    "phases.json": "bdfcb7a1319c6d288b9f73e7bc1a07a12f078f160480d787622640227ac844a6",
+    "plan_validation.json": "95c59bbc5ce87271f5cd86030356a3d079761cfbb9302837d3fcf9a203461d35",
+    "reference_52_ledger_map.json": "2d9279ce5f2446244f8aa7a65ede9ff5825dc713f84ee33471da397d05b890e2",
+    "sources.json": "95cf59bc7cfae9d9102bd5e3cb32cdfad815d135abae00905d0f3dfd5241475e",
+    "validate_plan.py": "0a6e263701dd2ac6522b7556530fc5617e5e37cf3b352247b434c3c995b257e6",
+    "work_items.json": "9993b2e4652d3a0d2faaa87ca40d4cd9ed250289ece1cb85277754cf1fe4fa1c",
+    "workbook_extracted.json": "d702cd0947bd847b7412b829a2c730a8d4ca02fda0f73a65068c148bf1ebae4d"
+  }
+}

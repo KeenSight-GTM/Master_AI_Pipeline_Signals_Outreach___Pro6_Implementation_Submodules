@@ -1,0 +1,30 @@
+[
+  {
+    "company_claim_allowed": false,
+    "context_predicate": "product.pain_prior",
+    "join_rule_id": "join.product_footprint",
+    "link_kind": "FOOTPRINT",
+    "link_object_path": "/product_id",
+    "link_predicate": "technology.footprint",
+    "maximum_hops": 1,
+    "purpose": "INTERNAL_RESEARCH",
+    "target_kinds": [
+      "SOFTWARE_PRODUCT"
+    ],
+    "version": "1.0.0"
+  },
+  {
+    "company_claim_allowed": false,
+    "context_predicate": "industry.pain_prior",
+    "join_rule_id": "join.industry_membership",
+    "link_kind": "MEMBERSHIP",
+    "link_object_path": "/industry_id",
+    "link_predicate": "account.industry_membership",
+    "maximum_hops": 1,
+    "purpose": "INTERNAL_RESEARCH",
+    "target_kinds": [
+      "INDUSTRY"
+    ],
+    "version": "1.0.0"
+  }
+]

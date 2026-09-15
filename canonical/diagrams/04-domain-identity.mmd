@@ -1,0 +1,138 @@
+classDiagram
+direction LR
+class Subject {
+  +string subject_id
+  +string tenant_id
+  +enum kind
+  +string display_name
+  +List~Object~ external_ids
+}
+class Scope {
+  +string scope_id
+  +string tenant_id
+  +string subject_id
+  +enum kind
+  +List~string~ resources
+  +enum capture_mode
+  +string population_description
+  +string stable_scope_key
+}
+class SubjectBinding {
+  +string binding_id
+  +string tenant_id
+  +string subject_id
+  +string scope_id
+  +List~string~ artifact_ids
+  +enum role
+  +enum status
+  +string method
+  +string decided_at
+  +List~string~ evidence_locator_ids
+}
+class PredicateDefinition {
+  +string predicate_id
+  +string version
+  +string family
+  +string description
+  +List~enum~ subject_kinds
+  +Object target_schema
+  +Object value_schema
+  +List~enum~ allowed_natures
+  +List~enum~ allowed_processors
+  +bool absence_allowed
+  +enum temporal_mode
+  +enum copy_policy
+  +List~Object~ reference_rules
+  +List~int~ section_ids
+  +string value_class
+  +enum origin
+  +Object example_target
+  +PredicateValue example_value
+}
+class Fact {
+  +string schema_version
+  +string fact_id
+  +string tenant_id
+  +string subject_id
+  +string predicate_id
+  +Object target
+  +string scope_id
+  +enum state
+  +PredicateValue object
+  +enum nature
+  +string source_id
+  +Optional~string~ binding_id
+  +string evidence_id
+  +Optional~string~ execution_id
+  +string run_id
+  +string observed_at
+  +string recorded_at
+  +Optional~string~ effective_at
+  +Optional~Object~ window
+  +Optional~enum~ reason
+  +string expires_at
+  +Optional~Object~ confidence
+  +Optional~string~ supersedes_fact_id
+}
+class ClaimResolution {
+  +string resolution_id
+  +string tenant_id
+  +string subject_id
+  +string predicate_id
+  +string scope_id
+  +Object target
+  +List~string~ observation_ids
+  +List~string~ accepted_fact_ids
+  +enum status
+  +string policy_version
+  +string as_of
+  +string run_id
+  +string resolved_at
+}
+class CandidateRecord {
+  +string candidate_id
+  +string tenant_id
+  +Optional~string~ artifact_id
+  +string proposed_predicate_id
+  +PredicateValue proposed_value
+  +enum reason
+  +bool production_eligible
+  +Optional~string~ attempt_id
+}
+class ChangeRecord {
+  +string change_id
+  +string tenant_id
+  +enum kind
+  +string target_id
+  +string effective_at
+  +string reason
+  +Optional~string~ replacement_id
+}
+class IntakeRequest {
+  +string intake_id
+  +string tenant_id
+  +string requester_id
+  +string profile_id
+  +enum purpose
+  +List~Object~ targets
+  +string received_at
+  +string request_hash
+  +string idempotency_key
+}
+class ActorGrant {
+  +string actor_id
+  +string tenant_id
+  +List~enum~ permissions
+  +bool fixture_only
+  +bool active
+}
+Scope "*" --> "1" Subject : describes
+SubjectBinding "*" --> "1" Subject : attributes
+SubjectBinding "*" --> "1" Scope : binds
+Fact "*" --> "1" Subject : concerns
+Fact "*" --> "1" PredicateDefinition : conforms_to
+Fact "*" --> "1" Scope : scoped_by
+Fact "*" --> "0..1" SubjectBinding : raw_attribution
+ClaimResolution "1" o-- "1..*" Fact : projects
+ChangeRecord "*" ..> "0..1" Fact : can_retract
+CandidateRecord "*" ..> "0..1" Fact : admit_only_after_validation

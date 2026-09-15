@@ -1,0 +1,1872 @@
+{
+  "description": "Imported component files must match the supplied latest repair baseline byte for byte. Audit tests and workspace tooling are separate.",
+  "file_count": 311,
+  "files": [
+    {
+      "path": "canonical/CHANGELOG.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/CHANGELOG.md",
+      "sha256": "324680658ab8901055e67ca993e42fe3e88521a658b7027daca6f5c4b9b0150c"
+    },
+    {
+      "path": "canonical/KeenSight_v4_1_Diagrams.html",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/KeenSight_v4_1_Diagrams.html",
+      "sha256": "1344f375004e0b032eac6ba9b7b74bca7372f1b031ba5c257688951a257e23d1"
+    },
+    {
+      "path": "canonical/README.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/README.md",
+      "sha256": "a9ccb94f41de40dd821e3e4a7ce30590dfe1b16be754b2e0033edd1bc950b762"
+    },
+    {
+      "path": "canonical/SYSTEM.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/SYSTEM.md",
+      "sha256": "c05ae25d95ec50a8416b0d734f8285ab055b88a05d76878260b5db04f6092a9b"
+    },
+    {
+      "path": "canonical/VALIDATION.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/VALIDATION.md",
+      "sha256": "f7dec92336d81ce616ff7ca38aa3ab81561f44f8ce42d190e2d5ef04542e0880"
+    },
+    {
+      "path": "canonical/build_diagrams.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/build_diagrams.py",
+      "sha256": "77e6388c954147da04168c43b1108b1100741b302ff356fb3a04cb204f825b56"
+    },
+    {
+      "path": "canonical/diagrams/01-broad-dataflow.dot",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/01-broad-dataflow.dot",
+      "sha256": "79d08eda6eae51695709f31baff27b0134daa784886cb9316d40799f4003039b"
+    },
+    {
+      "path": "canonical/diagrams/01-broad-dataflow.mmd",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/01-broad-dataflow.mmd",
+      "sha256": "1a6d65e0d1ed91e8f5ad0e025feac1c91e4a57d2d4a82a340755236b727ca269"
+    },
+    {
+      "path": "canonical/diagrams/01-broad-dataflow.svg",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/01-broad-dataflow.svg",
+      "sha256": "afd240a9b854be286b01d1adb5a938d3668c1ff0b2cebb4fcee3745c249a96dd"
+    },
+    {
+      "path": "canonical/diagrams/02-research-context.dot",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/02-research-context.dot",
+      "sha256": "6e6e0f32951370cff17afc38e385ac8e7728d12d591fccc4bbb86483c95cead1"
+    },
+    {
+      "path": "canonical/diagrams/02-research-context.mmd",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/02-research-context.mmd",
+      "sha256": "49dbbac4acb3eb9fa492aed29e87328c49a23ca99e1fba6b373df8de82dcc50b"
+    },
+    {
+      "path": "canonical/diagrams/02-research-context.svg",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/02-research-context.svg",
+      "sha256": "03a86957629ce9f3de8c802b9a0639aab0e263e9522e70600d922ca3a8fcf15c"
+    },
+    {
+      "path": "canonical/diagrams/03-batch-sequence.mmd",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/03-batch-sequence.mmd",
+      "sha256": "5705fa4da2358ac4ccf1f2832e906e8c2289edb213393aa2b38abbac3f492b4c"
+    },
+    {
+      "path": "canonical/diagrams/03-batch-sequence.svg",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/03-batch-sequence.svg",
+      "sha256": "e69324e49d0398e2b313d89a5946e136999ffda2e62f667768872b165924d38e"
+    },
+    {
+      "path": "canonical/diagrams/04-domain-identity.dot",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/04-domain-identity.dot",
+      "sha256": "8ffb32a6247ebdc806c2df57c5e6766437391d055fdef1839aa5ada7e29af092"
+    },
+    {
+      "path": "canonical/diagrams/04-domain-identity.mmd",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/04-domain-identity.mmd",
+      "sha256": "7bffe13415e692449a2f815b6323167841ed4c481d4c1d29dc3cc17f41010b8f"
+    },
+    {
+      "path": "canonical/diagrams/04-domain-identity.svg",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/04-domain-identity.svg",
+      "sha256": "614653725d1384641d6637abaae03ddb9f25634c365538771901e844c5c3c983"
+    },
+    {
+      "path": "canonical/diagrams/05-evidence-access.dot",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/05-evidence-access.dot",
+      "sha256": "8d6c52913161dc1610696b6f12d4c31cc9cffb5afff3836f3345aff4edc45831"
+    },
+    {
+      "path": "canonical/diagrams/05-evidence-access.mmd",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/05-evidence-access.mmd",
+      "sha256": "fb1d4cc1293ba473aa994132e4a5aec6b5c761ed29fdcf4464539e91a4d72035"
+    },
+    {
+      "path": "canonical/diagrams/05-evidence-access.svg",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/05-evidence-access.svg",
+      "sha256": "56179277141e34b99b114170d9ffcf9d972317648e5e9ff5a42e4203beeb30e4"
+    },
+    {
+      "path": "canonical/diagrams/06-business-payloads.dot",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/06-business-payloads.dot",
+      "sha256": "4d67f82d3b27700b314eba81b9bba96d1abd887cfa7d6d06d7ecfb644b45c936"
+    },
+    {
+      "path": "canonical/diagrams/06-business-payloads.mmd",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/06-business-payloads.mmd",
+      "sha256": "96237b6b1c288015a88838df704c72c8bd3339e46b7e5d0614fc75575c479cd0"
+    },
+    {
+      "path": "canonical/diagrams/06-business-payloads.svg",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/06-business-payloads.svg",
+      "sha256": "3d521d4a43f3d08bcbccd160dd56f3cdfd5b4e38a8d31feac8af754713c94b16"
+    },
+    {
+      "path": "canonical/diagrams/07-research-measurements.dot",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/07-research-measurements.dot",
+      "sha256": "cab3e7609c49e2c46792abd6ba9dd07c252d980a47cfc7bf7ad14444e4920e6a"
+    },
+    {
+      "path": "canonical/diagrams/07-research-measurements.mmd",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/07-research-measurements.mmd",
+      "sha256": "7095952c8c1fff0c1cdfd125aefc97ecd64d0de29539cbdcd65296623b4aca0e"
+    },
+    {
+      "path": "canonical/diagrams/07-research-measurements.svg",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/07-research-measurements.svg",
+      "sha256": "4c4691b122542ed20aee722f4e5b5a86b2d8f4d67f07d33b0d1d7b1261cb966a"
+    },
+    {
+      "path": "canonical/diagrams/08-registry-phone-outcomes.dot",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/08-registry-phone-outcomes.dot",
+      "sha256": "2ada150af909d4f882adf29ab851a60335f0e95a14976781cf27a6e1e8b1fb01"
+    },
+    {
+      "path": "canonical/diagrams/08-registry-phone-outcomes.mmd",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/08-registry-phone-outcomes.mmd",
+      "sha256": "2149bb87de30c5fd1521afc7e73a92cddecf25c3945166330cb8f59df7751ffb"
+    },
+    {
+      "path": "canonical/diagrams/08-registry-phone-outcomes.svg",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/08-registry-phone-outcomes.svg",
+      "sha256": "82f353840c74e7974564f3257e38abd74585489dbe5e534ae4f655fadb37ab7c"
+    },
+    {
+      "path": "canonical/diagrams/09-evaluation-configuration.dot",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/09-evaluation-configuration.dot",
+      "sha256": "47ae5f0a46b8403ca28ce723301c88d8d04e2e194b4d2d41ef87ad17146ea57f"
+    },
+    {
+      "path": "canonical/diagrams/09-evaluation-configuration.mmd",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/09-evaluation-configuration.mmd",
+      "sha256": "d311b5a236ad3de7e09ecced4ced7bbeb82d024cabc91cabfc5f85d4c0ebc40a"
+    },
+    {
+      "path": "canonical/diagrams/09-evaluation-configuration.svg",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/09-evaluation-configuration.svg",
+      "sha256": "4812df74a9906344d07ad19d2493b3e75edc845991fe27246f5c720ef8661848"
+    },
+    {
+      "path": "canonical/diagrams/10-context-signals-outreach.dot",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/10-context-signals-outreach.dot",
+      "sha256": "f5dc65f315e32e8e3e54c3c97c5d8508ec7bff3a49055d41a8c763927eb84aa8"
+    },
+    {
+      "path": "canonical/diagrams/10-context-signals-outreach.mmd",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/10-context-signals-outreach.mmd",
+      "sha256": "51156024b0ff7d2c6922d5c1d674a4a9a59201e1b2ab92498cba857952108aa6"
+    },
+    {
+      "path": "canonical/diagrams/10-context-signals-outreach.svg",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/10-context-signals-outreach.svg",
+      "sha256": "b9cf94b10fa60fb4300807a8c2d2fc4dbbbdb216cb62e6be7d1d4a44a13f2712"
+    },
+    {
+      "path": "canonical/diagrams/11-common-value-objects.dot",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/11-common-value-objects.dot",
+      "sha256": "403d409df17f15a9b54d27b1c9a252ff0b11e62185af1f74dbb19cb0af79d123"
+    },
+    {
+      "path": "canonical/diagrams/11-common-value-objects.mmd",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/11-common-value-objects.mmd",
+      "sha256": "4a6aaf00f3ea453f04d98e7e1442bd4e39d2794bfdacc88ac18c7ae818baf999"
+    },
+    {
+      "path": "canonical/diagrams/11-common-value-objects.svg",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/11-common-value-objects.svg",
+      "sha256": "f6319c6478142453d5dc6fc8ed91dcf11caef8e479e5bd9cb432d7e6a9859db8"
+    },
+    {
+      "path": "canonical/diagrams/12-proposed-code-interfaces.dot",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/12-proposed-code-interfaces.dot",
+      "sha256": "e9e05a5d79d575f34985bbe15d70e300e61c51e72d71248ce758c21d17a70f9e"
+    },
+    {
+      "path": "canonical/diagrams/12-proposed-code-interfaces.mmd",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/12-proposed-code-interfaces.mmd",
+      "sha256": "afb98f5cf6797e1469bea06e2878b4c8fb940187b678ef28897c69c616e23d2e"
+    },
+    {
+      "path": "canonical/diagrams/12-proposed-code-interfaces.svg",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/12-proposed-code-interfaces.svg",
+      "sha256": "eb961bb8b8c3c503060f47b53ba6469711e59bf0560b9121743dff7b6a414702"
+    },
+    {
+      "path": "canonical/diagrams/13-lifecycle.dot",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/13-lifecycle.dot",
+      "sha256": "6213f4acdeecaddaa6dea77a13f42c4fd7c18cc3c04caf95337012d9e3a6c744"
+    },
+    {
+      "path": "canonical/diagrams/13-lifecycle.mmd",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/13-lifecycle.mmd",
+      "sha256": "c49933c8346fcbce63312f61894799245d97c03065d7fa0df29c13ebd034aaf8"
+    },
+    {
+      "path": "canonical/diagrams/13-lifecycle.svg",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/13-lifecycle.svg",
+      "sha256": "170f7335be97bb365f187f1129f0f94e28488a346808bf544eaab474296da411"
+    },
+    {
+      "path": "canonical/diagrams/14-system-associations.dot",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/14-system-associations.dot",
+      "sha256": "3015e3d8a132d97bc25a717ae94afd8503daf4e6011e9b8d22392b76dd58290d"
+    },
+    {
+      "path": "canonical/diagrams/14-system-associations.mmd",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/14-system-associations.mmd",
+      "sha256": "92446d3b923e9073054f902e3c8aa32b70e9305770200028acd9c3a18437d1ba"
+    },
+    {
+      "path": "canonical/diagrams/14-system-associations.svg",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/14-system-associations.svg",
+      "sha256": "06501fcf289c7cb98355d3791dc5dc4149d1a2522f3d179d805e7b8d6465c600"
+    },
+    {
+      "path": "canonical/diagrams/index.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/diagrams/index.json",
+      "sha256": "cb7c3860899cfc583a24201ae9f634bd0aa0debfa2148cd4d7f78d8389f097e7"
+    },
+    {
+      "path": "canonical/docs/CATALOG.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/docs/CATALOG.md",
+      "sha256": "60be878a5cabe70a916fd129c4a08123aa176347874f4607793daeb8273c5c60"
+    },
+    {
+      "path": "canonical/docs/CLASS_REFERENCE.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/docs/CLASS_REFERENCE.md",
+      "sha256": "dbfdd003de6725597c757da304b19a67318670c20c7f052d60d146be07355c66"
+    },
+    {
+      "path": "canonical/docs/COMPLETION_REPORT.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/docs/COMPLETION_REPORT.md",
+      "sha256": "06055d07af26404e3fed8a169428690d4c38aead4ccc74122d10d17255adc9a5"
+    },
+    {
+      "path": "canonical/docs/CONTRACTS.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/docs/CONTRACTS.md",
+      "sha256": "e655e294ecbab279868baa9e2d462922b824b8eeed800804e73425942390026d"
+    },
+    {
+      "path": "canonical/docs/COVERAGE.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/docs/COVERAGE.md",
+      "sha256": "8169571aab2d7e0f8cd2803287a674a82fa5153f02ed11221fa4bf60cad33815"
+    },
+    {
+      "path": "canonical/docs/DIAGRAMS.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/docs/DIAGRAMS.md",
+      "sha256": "2ae916b658048e0e4741a7feb358c0799a73f89cb4b642e5306538baa64525df"
+    },
+    {
+      "path": "canonical/docs/IMPLEMENTATION_SCOPE.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/docs/IMPLEMENTATION_SCOPE.md",
+      "sha256": "265669e65553c03ba05b7eea6f78f41f8d8bc70f9f6e119cea7bb23acb1d4cb6"
+    },
+    {
+      "path": "canonical/docs/KNOWN_LIMITATIONS.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/docs/KNOWN_LIMITATIONS.md",
+      "sha256": "5af843928ecbac244f5d48bb65fb9eeed2b0ba2a146ad97ed8d32478f320983a"
+    },
+    {
+      "path": "canonical/docs/LEDGER_INTEGRATION.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/docs/LEDGER_INTEGRATION.md",
+      "sha256": "0f2f8e16ed28b176a49f65079a1a5e4c63b2107c50f92809d55310ed8dd5bb3f"
+    },
+    {
+      "path": "canonical/docs/LEDGER_MAP.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/docs/LEDGER_MAP.json",
+      "sha256": "2d9279ce5f2446244f8aa7a65ede9ff5825dc713f84ee33471da397d05b890e2"
+    },
+    {
+      "path": "canonical/docs/METRICS.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/docs/METRICS.md",
+      "sha256": "77abba5d21fa0fefc8218bbead6c0f852d29481cdb886060864cc54ea11a59f4"
+    },
+    {
+      "path": "canonical/docs/PERSISTENCE_BATCH.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/docs/PERSISTENCE_BATCH.md",
+      "sha256": "1449d82d39d4096b41c5150864fdf54c81453f341bdf19621009bbc69f7b25ec"
+    },
+    {
+      "path": "canonical/docs/RESEARCH_CONTEXT.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/docs/RESEARCH_CONTEXT.md",
+      "sha256": "6859471fd7849c7d51ac953792d663a41b98822ffb2602dc7bf42dc9e3fffd76"
+    },
+    {
+      "path": "canonical/docs/SOURCE_GOVERNANCE.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/docs/SOURCE_GOVERNANCE.md",
+      "sha256": "792c6b7f84a19b1d83cdc6d81c464b61eec7671c2a9518389d801dd9bb19e826"
+    },
+    {
+      "path": "canonical/examples/bundle.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/examples/bundle.json",
+      "sha256": "fb8fd44db232407bc6dba4eb1eb41f51480155e11ed67b2c5cf179a65540a519"
+    },
+    {
+      "path": "canonical/fixtures/art.data.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/art.data.json",
+      "sha256": "5762fb94c9e388481aaf43e73957ade64c4ac4f395858607476e7711620b9998"
+    },
+    {
+      "path": "canonical/fixtures/art.forum1.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/art.forum1.json",
+      "sha256": "e252197a5e91b0f42b63f536b1e187bf229fb954e2acbefc9820771081913b08"
+    },
+    {
+      "path": "canonical/fixtures/art.forum2.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/art.forum2.json",
+      "sha256": "18d2e48e3f8bdd5ad552e82f4813efc5250b0cbe9dcadf2b29ce3610cebc6d6a"
+    },
+    {
+      "path": "canonical/fixtures/art.home.html",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/art.home.html",
+      "sha256": "3a2b75628725ff8723293e04b8b6cbb6e2f4d779840b0c2ed30c88ad7e43cbee"
+    },
+    {
+      "path": "canonical/fixtures/art.job.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/art.job.json",
+      "sha256": "ac78b36459f4f6b126ae7bdb8bf05ff4ce27286e5353d4f710706ab23dda1ad4"
+    },
+    {
+      "path": "canonical/fixtures/art.local1.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/art.local1.json",
+      "sha256": "a2144de6b7f358084d7f800fc5f5a730b782aea78c4922d08a99aa0ee7f611d1"
+    },
+    {
+      "path": "canonical/fixtures/art.local2.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/art.local2.json",
+      "sha256": "d0464e71173f5f494dc39deb51d158e5f417286fd68048766a087474ee702b21"
+    },
+    {
+      "path": "canonical/fixtures/art.private.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/art.private.json",
+      "sha256": "17f3951c6ea61bc95529eab5769415d7ea2f4f8838dfd6db87aecc2fefda9b53"
+    },
+    {
+      "path": "canonical/fixtures/art.product1.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/art.product1.json",
+      "sha256": "a32f6a3c69218fdef5fe87954648a8453b6aea4bc0380dd87faa20f2a4dc9ddc"
+    },
+    {
+      "path": "canonical/fixtures/art.product2.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/art.product2.json",
+      "sha256": "c4e9a655e7c9a521e3916041547f58bcf755cd9f80610e6dd36d99325fd93ae4"
+    },
+    {
+      "path": "canonical/fixtures/art.product3.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/art.product3.json",
+      "sha256": "0c4a1e850a0f9c3f019960c414bb8d11ca498d6957754565a6655c8cfb095df1"
+    },
+    {
+      "path": "canonical/fixtures/art.product_docs.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/art.product_docs.json",
+      "sha256": "e4175b0e6681904128aef3949f211c53202a33fe55652af20a31041a955ef4db"
+    },
+    {
+      "path": "canonical/fixtures/art.registry.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/art.registry.json",
+      "sha256": "d03ded0d0c6f9f43b0b39467a162998d41dc40a2b47b60d19cf9085a05782d37"
+    },
+    {
+      "path": "canonical/fixtures/art.request.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/art.request.json",
+      "sha256": "0a98db425d33f1eee6fa26e5a456281d544ca6cf07162b093d5e8a9a398480fd"
+    },
+    {
+      "path": "canonical/fixtures/art.response.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/art.response.json",
+      "sha256": "d44c866b9353e7dac49ef82b3cb2333ae2e97cbf2ab738ea2a36d4cee915645c"
+    },
+    {
+      "path": "canonical/fixtures/art.traffic.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/art.traffic.json",
+      "sha256": "a31135991ba17dc0212713b1d9e4c44d7539451ffff8098efe7250839def6279"
+    },
+    {
+      "path": "canonical/fixtures/export-preview.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/export-preview.json",
+      "sha256": "ee2e7e8febb62f188efd979d2caeacd5882f47b944d82fffb725345fbdd8c464"
+    },
+    {
+      "path": "canonical/fixtures/fingerprint-blog.html",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/fingerprint-blog.html",
+      "sha256": "0984006e203b9fd24ea95e245cf5c9275fd351bbb8117b2fdcb8d2f74a542e60"
+    },
+    {
+      "path": "canonical/fixtures/fingerprint-comment.html",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/fingerprint-comment.html",
+      "sha256": "bd387f8a59fadca013e92547e81fc0804960734bf397d31c787fb754d05071ef"
+    },
+    {
+      "path": "canonical/fixtures/fingerprint-footer.html",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/fingerprint-footer.html",
+      "sha256": "d179450c3aca3ed6008a4a6c7d7d35549fc44fa378d7d3411ff40d5990ec35f1"
+    },
+    {
+      "path": "canonical/fixtures/fingerprint-lookalike.html",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/fingerprint-lookalike.html",
+      "sha256": "2c685bc7cc7b6aa2c47b5eff1bbfcf44023bc15e1ea344c9ce2fb5afbb2755d9"
+    },
+    {
+      "path": "canonical/fixtures/fingerprint-positive.html",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/fingerprint-positive.html",
+      "sha256": "831032e4aa2dbfb27b14f935a2af8a34dd107893bd0fce22c62a16f4a88b8810"
+    },
+    {
+      "path": "canonical/fixtures/fingerprint-protocol-relative.html",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/fixtures/fingerprint-protocol-relative.html",
+      "sha256": "e8d63cbf76decea7c7cd633866759684f9c87dafd226ccb72e4e2ed90679caf3"
+    },
+    {
+      "path": "canonical/generate.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/generate.py",
+      "sha256": "0643a618de23c9f561d8da647ac897ae522cc2ab94eceafa7c1864d779542c46"
+    },
+    {
+      "path": "canonical/keensight_contracts/__init__.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/keensight_contracts/__init__.py",
+      "sha256": "d09ff70cf5b415fb631b30f0b6deedb276c255f1c04fcf6c3b7d3bf26c1abe82"
+    },
+    {
+      "path": "canonical/keensight_contracts/bootstrap.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/keensight_contracts/bootstrap.py",
+      "sha256": "f0e9571130464ea850503d7fbb8d0623622f4a8e5a4ca4777d1066fbdeb789eb"
+    },
+    {
+      "path": "canonical/keensight_contracts/bootstrap_completion.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/keensight_contracts/bootstrap_completion.py",
+      "sha256": "c7033412981f3c2bc3ebb81f8f8d68127f2506eed569e6b93e4027b7183bd3de"
+    },
+    {
+      "path": "canonical/keensight_contracts/catalog.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/keensight_contracts/catalog.py",
+      "sha256": "72729d7284454d04f332ddcb47c3f99d87f966868ebe6d750cc4a142899a061c"
+    },
+    {
+      "path": "canonical/keensight_contracts/completion.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/keensight_contracts/completion.py",
+      "sha256": "9ec3ed736beb29bdfc111b0d721c49325ca99f35d47dca9787697158d52d89eb"
+    },
+    {
+      "path": "canonical/keensight_contracts/engine.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/keensight_contracts/engine.py",
+      "sha256": "961348d78234df4952125dc7806a41e43cc6e5d8080fc50c126aa44cfd1f0d0c"
+    },
+    {
+      "path": "canonical/keensight_contracts/handoff.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/keensight_contracts/handoff.py",
+      "sha256": "edb7b040d90bf5b53d53716761478fc5f1653f5a535745c4e465332f21f5ec95"
+    },
+    {
+      "path": "canonical/keensight_contracts/ledger_catalog.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/keensight_contracts/ledger_catalog.py",
+      "sha256": "2eb24b3e83c54a542e699d14bf337d97c9f8d152bc870e954a97b2b088d53c8c"
+    },
+    {
+      "path": "canonical/keensight_contracts/shapes.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/keensight_contracts/shapes.py",
+      "sha256": "6fa04459937f0162bdc334d60aad7cdf4e553102168a44e20bbfe6ec7ca99881"
+    },
+    {
+      "path": "canonical/keensight_contracts/validation.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/keensight_contracts/validation.py",
+      "sha256": "0fd8312118f96b02bdf1ec45c989b9ba8c77a18fd095d999376e5d4d7dfc9b14"
+    },
+    {
+      "path": "canonical/pytest.ini",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/pytest.ini",
+      "sha256": "b160d82f7811555051f8966d8e02750a985227c1d022208c784e606946f2eada"
+    },
+    {
+      "path": "canonical/reference/Lead_Gen_Ideas_Ledger.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/reference/Lead_Gen_Ideas_Ledger.md",
+      "sha256": "448bdba101e99e1d537b1ccd8b72fc685842f17fde169ef1dc6a1c4a0348a54b"
+    },
+    {
+      "path": "canonical/reference/probe_v4_original.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/reference/probe_v4_original.py",
+      "sha256": "03c8579ae1a4f2be81a2d028afbb6dfb877d78bd2fe2ae9711d5a282a47bc37b"
+    },
+    {
+      "path": "canonical/reference/v3-contract-bundle.zip",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/reference/v3-contract-bundle.zip",
+      "sha256": "b21087e3d8aff97caec455d1165eb4d569bb5ace71ffd3b4ffb056715874af4c"
+    },
+    {
+      "path": "canonical/reference/v3-predicates.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/reference/v3-predicates.json",
+      "sha256": "13221a227426e7336e7e1fe51e107290e6d65db11301278acdcc9079df1522bd"
+    },
+    {
+      "path": "canonical/reference/v3-signal-types.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/reference/v3-signal-types.json",
+      "sha256": "a2c1737fe5a8b088716313f6749a3ce3431424402d16d5d94df00ee3c42da0fe"
+    },
+    {
+      "path": "canonical/reference/v4-baseline.zip",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/reference/v4-baseline.zip",
+      "sha256": "05afdbca993d3512862ad4d0d837ec2c34eacf488a5febb9540202a9335cdc45"
+    },
+    {
+      "path": "canonical/registry/actors.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/registry/actors.json",
+      "sha256": "f40bc2c53c140a8d9081b90ce3da3f88f9d69c274e6182deda2a1c574ced2f43"
+    },
+    {
+      "path": "canonical/registry/context-rules.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/registry/context-rules.json",
+      "sha256": "e775a8a60d9bd119148600bb5944bffcdb95282974fbed52d5d3d0162afa3040"
+    },
+    {
+      "path": "canonical/registry/coverage.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/registry/coverage.json",
+      "sha256": "2e0db07b29c13f8f2c923da7c5d46dbc64383943c31b2580b871361cbf954b5f"
+    },
+    {
+      "path": "canonical/registry/destinations.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/registry/destinations.json",
+      "sha256": "a341b2515050aa3b5c0030906652874dec64670827dc1e573efb9754fa634e0b"
+    },
+    {
+      "path": "canonical/registry/fingerprints.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/registry/fingerprints.json",
+      "sha256": "b1c58da0f31b7095cb43ed210736d9dc96b61ccf347824f6d24ccf7ce888442a"
+    },
+    {
+      "path": "canonical/registry/functions.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/registry/functions.json",
+      "sha256": "dff4103564cb32784eb765e3ccfdf8103561ee91d063e7f267a22af5ac387931"
+    },
+    {
+      "path": "canonical/registry/metrics.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/registry/metrics.json",
+      "sha256": "5d7b293bc7d18201673ec80c9526bf0c31401794fe1accf34c9ee6a7c16b3ea2"
+    },
+    {
+      "path": "canonical/registry/policies.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/registry/policies.json",
+      "sha256": "fcdc6757562bad349195587d1b364855a6b92fc95382a792b6468258b30e9b89"
+    },
+    {
+      "path": "canonical/registry/predicates.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/registry/predicates.json",
+      "sha256": "1f6402497edbe84d2e17f9e04825dadf9e952692dfaa363048547f9c1c5f64a6"
+    },
+    {
+      "path": "canonical/registry/profiles.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/registry/profiles.json",
+      "sha256": "000fa02818256c5039ce189a33d399118d1840c20fdafcb4432d8dcdb70b5809"
+    },
+    {
+      "path": "canonical/registry/providers.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/registry/providers.json",
+      "sha256": "ef49a6f2ef60bc88e596cfa2fbd3c7d16957737973d0495cffc060ea56839897"
+    },
+    {
+      "path": "canonical/registry/signals.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/registry/signals.json",
+      "sha256": "0088ab1e54da616320e758421100fc5e56b049145dea89278c248e35ea4ae8bc"
+    },
+    {
+      "path": "canonical/registry/sources.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/registry/sources.json",
+      "sha256": "9d4192e59e016cb825c6fb027279bb73d894c36b79a11d9121fad612a6eea0f2"
+    },
+    {
+      "path": "canonical/registry/support-policies.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/registry/support-policies.json",
+      "sha256": "8faef401eb7f40d00df7641fba848a34cbfa53ad2dcdfe9fbe8ef0cc184536ef"
+    },
+    {
+      "path": "canonical/registry/taxonomy.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/registry/taxonomy.json",
+      "sha256": "f8aee192bf6862d42b3f7f3daf6989c6d0941b04eb9b14d461f1547276e9fb05"
+    },
+    {
+      "path": "canonical/registry/templates.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/registry/templates.json",
+      "sha256": "509a1a59bfda4723edaf2d2e1cef4c6b16a6bce5033a0117304ac4d7427403bd"
+    },
+    {
+      "path": "canonical/release.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/release.json",
+      "sha256": "6012c8029f3a903e94ec84480b1172fe4418844089720a2fd8138fdc2a43274f"
+    },
+    {
+      "path": "canonical/reports/deferred_F_probe.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/reports/deferred_F_probe.py",
+      "sha256": "14d1ebc50a3ca72475aefb81c9f03ae7bfe42010780c32a6441605480d9a6cd5"
+    },
+    {
+      "path": "canonical/reports/pytest.exit",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/reports/pytest.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "canonical/reports/pytest.log",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/reports/pytest.log",
+      "sha256": "74a39807aa094836445deef847d2f94ead6721e03f045635713ff021bad916e1"
+    },
+    {
+      "path": "canonical/reports/pytest.txt",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/reports/pytest.txt",
+      "sha256": "1fd8fb69cb2f18cfbfab9e6134defbeb54bea7b4e3971e833029db9ff0aa39ad"
+    },
+    {
+      "path": "canonical/reports/pytest.xml",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/reports/pytest.xml",
+      "sha256": "6313ad298abb5041b1024ea94b11cbf498051e707a35b6f5c2bd70a499457105"
+    },
+    {
+      "path": "canonical/reports/release-verification.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/reports/release-verification.json",
+      "sha256": "5969ae6aa808b6c111360f2fd09994051165aea5dc82f182c2ad899429300969"
+    },
+    {
+      "path": "canonical/reports/reproducibility.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/reports/reproducibility.json",
+      "sha256": "02bedfb4f13565819daefa654b0a936963425c5544c1116d73acc0bfc3aa180f"
+    },
+    {
+      "path": "canonical/reports/test-index.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/reports/test-index.json",
+      "sha256": "7feddcf331af98e91a6135bb1d9029c1b11c8dddef6018b9edb5f5d9588b6742"
+    },
+    {
+      "path": "canonical/reports/v4-baseline-tests.txt",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/reports/v4-baseline-tests.txt",
+      "sha256": "0ddb4909761810580147873fbfaf8aa4ab9f18be7f0bea7581edd33f0335c6c4"
+    },
+    {
+      "path": "canonical/reports/validation.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/reports/validation.json",
+      "sha256": "23c54ffdbfbb4383db08663f797505fd34353f0cb6036b11aeb1cdd0bc5435b8"
+    },
+    {
+      "path": "canonical/requirements.txt",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/requirements.txt",
+      "sha256": "a22e5679f5753262722ebeb5cf58e7a95eaa5d0871ddc1f0af9ef9aa41f38d03"
+    },
+    {
+      "path": "canonical/schemas/AcquisitionAttempt.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/AcquisitionAttempt.schema.json",
+      "sha256": "b867f4c2098fe7d961c147452f4488cd4ec03645fb96d4f19d6ba9d1a41e084a"
+    },
+    {
+      "path": "canonical/schemas/ActorGrant.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ActorGrant.schema.json",
+      "sha256": "b173bcf28ccce2e3c412693831615b64931180fbd254a063c9baa3d987d2fb39"
+    },
+    {
+      "path": "canonical/schemas/Artifact.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/Artifact.schema.json",
+      "sha256": "e2948af0431f8fa699b19014b852d5037d62cb4cb2fcd0527271bb1d9a6e885a"
+    },
+    {
+      "path": "canonical/schemas/AttributedStatementValue.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/AttributedStatementValue.schema.json",
+      "sha256": "f86b8a2dc1d6dd8a9c016083d4edcb9657c090afd4c4683bba0f01d6cd543941"
+    },
+    {
+      "path": "canonical/schemas/BatchRun.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/BatchRun.schema.json",
+      "sha256": "b57ac5fed1c87684081dae6bbed335d65ed3fba5eb33a5c21f9d1729c3db27c6"
+    },
+    {
+      "path": "canonical/schemas/CalibrationRecord.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/CalibrationRecord.schema.json",
+      "sha256": "c91cb79a697b3c633d86d27ae1eb6f9c13377b45ecbd5973622a6ce91a39f43c"
+    },
+    {
+      "path": "canonical/schemas/CallEventValue.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/CallEventValue.schema.json",
+      "sha256": "13d70fd69a29ae1e1683b48f8b5d55c9dd7b5849f7d055a5332bfef6c06eeb87"
+    },
+    {
+      "path": "canonical/schemas/CandidateRecord.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/CandidateRecord.schema.json",
+      "sha256": "59685da02dc0e21a9f72eda053b982a85b8ce6253b784ff53d9a0318a7dab483"
+    },
+    {
+      "path": "canonical/schemas/CapabilityProfile.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/CapabilityProfile.schema.json",
+      "sha256": "6a590935a4fcb30af19f8e441e7d145984f657447eed4a691716bd5ebe49fc89"
+    },
+    {
+      "path": "canonical/schemas/CaseStudyOutcomeValue.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/CaseStudyOutcomeValue.schema.json",
+      "sha256": "3fcd7739162dfa9df349fe16d9a1eb3efcdfbedbbcb14e005e0826ad1f09905f"
+    },
+    {
+      "path": "canonical/schemas/ChangeRecord.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ChangeRecord.schema.json",
+      "sha256": "7ba45a380e4c583610a046f3e58ccb2983826ccaac1d33dce0ac06f50b2fe310"
+    },
+    {
+      "path": "canonical/schemas/ClaimResolution.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ClaimResolution.schema.json",
+      "sha256": "43f1d5a59d1436e7999eba31740fe1056d17adfd437f90435fa7e52e9a52e215"
+    },
+    {
+      "path": "canonical/schemas/ConfidenceAssessment.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ConfidenceAssessment.schema.json",
+      "sha256": "e8bb063ffeaa81821d3f14480af3ec6ec139d0dad59134b27198105259145fb6"
+    },
+    {
+      "path": "canonical/schemas/ContextAssessment.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ContextAssessment.schema.json",
+      "sha256": "6def62dd1dae5e0fa108a70a8439400f46efd58ffc11f9623a1c139fd657aafb"
+    },
+    {
+      "path": "canonical/schemas/ContextJoinRule.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ContextJoinRule.schema.json",
+      "sha256": "2f857e2b0e2b3a59c2112ca3c748d818440e0cf16ec6a4d9a12301fcb6161b8e"
+    },
+    {
+      "path": "canonical/schemas/CoverageCheck.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/CoverageCheck.schema.json",
+      "sha256": "9594e8f7fcec32be3f1a38265a2ce83d7666212df61b8399d22f3d6e87d711b0"
+    },
+    {
+      "path": "canonical/schemas/CoverageFamilyPlan.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/CoverageFamilyPlan.schema.json",
+      "sha256": "72ce5dfe3b378d1c77a03798622c4f88258e40aa38353882bfe0c3bc0718ae13"
+    },
+    {
+      "path": "canonical/schemas/CoverageRecord.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/CoverageRecord.schema.json",
+      "sha256": "00d531cacb200ac0615c471946e18ae41c3ab6225056dcd83ec4f33a3f83125b"
+    },
+    {
+      "path": "canonical/schemas/DataAccessPolicy.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/DataAccessPolicy.schema.json",
+      "sha256": "c5f2ca2403654b7fca05994577fdb2b3ccbd4fe7f16898cee082c9b8a70bc0ea"
+    },
+    {
+      "path": "canonical/schemas/DestinationDefinition.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/DestinationDefinition.schema.json",
+      "sha256": "42b4dc3b5e524161614a1d4c8ae8ad71d830898e09433aa274783b2266ca1516"
+    },
+    {
+      "path": "canonical/schemas/DiscussionRecordValue.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/DiscussionRecordValue.schema.json",
+      "sha256": "f979d9841bfa449702fefeef2d81347b4a29afd2285972c9a9453011750d9601"
+    },
+    {
+      "path": "canonical/schemas/EconomicHypothesisValue.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/EconomicHypothesisValue.schema.json",
+      "sha256": "655b83eb295dcdc7d9baf33f17c8ebcefac14bd98b31f887eed3670cce93ca27"
+    },
+    {
+      "path": "canonical/schemas/EvidenceLocator.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/EvidenceLocator.schema.json",
+      "sha256": "10610ebc2ad2526d9c148fac8f2129207aea2778068e865dac1cce7b99de7b30"
+    },
+    {
+      "path": "canonical/schemas/EvidenceSet.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/EvidenceSet.schema.json",
+      "sha256": "bece0b36a61ef649ff5a4957c13c164866a0e249cefb20c059aefdf45db38d9e"
+    },
+    {
+      "path": "canonical/schemas/ExecutionRecord.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ExecutionRecord.schema.json",
+      "sha256": "cf89d17d7cf8512326e7fa1f78b0866c0322ce51614afa1a62a9eeacad83b0d1"
+    },
+    {
+      "path": "canonical/schemas/ExportReceipt.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ExportReceipt.schema.json",
+      "sha256": "a304d02cdadcdfcd0648269f4707c7da4e5a6aee26d029ed8304f09251d33d6b"
+    },
+    {
+      "path": "canonical/schemas/Exposure.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/Exposure.schema.json",
+      "sha256": "ddbad498468f517fdc9556eb91648f97aa1978a69585cdd0e8404b485615010e"
+    },
+    {
+      "path": "canonical/schemas/ExternalIdentifier.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ExternalIdentifier.schema.json",
+      "sha256": "65aeee5d7479382b1763445833c4affb608b29de149cbcb5e06473439b0af422"
+    },
+    {
+      "path": "canonical/schemas/Fact.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/Fact.schema.json",
+      "sha256": "042bcbd5eb92f745a04c8c1948d2335a3ad8e646abacc28792dfc187b41e7dcf"
+    },
+    {
+      "path": "canonical/schemas/FactRequirement.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/FactRequirement.schema.json",
+      "sha256": "2a5a7b5287253720733be31b37d7c1e1deacc62af0cc2f3f2d74ec924f83971a"
+    },
+    {
+      "path": "canonical/schemas/FingerprintDefinition.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/FingerprintDefinition.schema.json",
+      "sha256": "2ed3ddc416eae46b0f5417445e0ef8396ff2a68584ebd6fb030898cea68b83d3"
+    },
+    {
+      "path": "canonical/schemas/FunctionDefinition.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/FunctionDefinition.schema.json",
+      "sha256": "94f603bbaae6dfdb1d24a7b4af47e6401933cbccca11358f287df0769a65d76f"
+    },
+    {
+      "path": "canonical/schemas/GroundedClause.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/GroundedClause.schema.json",
+      "sha256": "6b98ea5c04c46e4e97f0b5bd9989925e8a4556b09f84cc9cb53a45afb2dfdad8"
+    },
+    {
+      "path": "canonical/schemas/HypothesisValue.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/HypothesisValue.schema.json",
+      "sha256": "5d847f1502dd9f8ebab8db8daf0f50f1bea6de815c6cb71639a23aec55cd8b42"
+    },
+    {
+      "path": "canonical/schemas/IntakeRequest.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/IntakeRequest.schema.json",
+      "sha256": "b5780061f3346b56707eeab097b8ad56af0c02ff004eb9011799570a815e52b4"
+    },
+    {
+      "path": "canonical/schemas/IntakeTarget.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/IntakeTarget.schema.json",
+      "sha256": "bd26ddded99074c7d8888cc247e397bd8dcca607a3c41431550e3e80c0b532dd"
+    },
+    {
+      "path": "canonical/schemas/JobPostingValue.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/JobPostingValue.schema.json",
+      "sha256": "aab15d8b56d3726305d00b9a039b0d76c534fcd0613e2e9e72f26332f0938eac"
+    },
+    {
+      "path": "canonical/schemas/LookalikeMatch.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/LookalikeMatch.schema.json",
+      "sha256": "f16e414329f821ade6a83f0d20cbd7448cfe644bc0a83cced0c068600d5888f3"
+    },
+    {
+      "path": "canonical/schemas/MeasurementValue.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/MeasurementValue.schema.json",
+      "sha256": "64b3c01e032f2d677acccf48a7afa46625a636bd44a7c4cbea0a4711ee4a60c0"
+    },
+    {
+      "path": "canonical/schemas/MetricDefinition.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/MetricDefinition.schema.json",
+      "sha256": "43238c4412b148a2618e827f263ed70a3a972ab46d5b8bbd06c313b602fb34c0"
+    },
+    {
+      "path": "canonical/schemas/ModelCall.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ModelCall.schema.json",
+      "sha256": "89198c4e2fb6fe81f6198495e7ecbff7c6a171cab7bb2605c37dd9ab299f96f1"
+    },
+    {
+      "path": "canonical/schemas/ObjectReferenceRule.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ObjectReferenceRule.schema.json",
+      "sha256": "3b82666749b761ed6909baec4501bc74f146575d9754cb4054da457db41f9fae"
+    },
+    {
+      "path": "canonical/schemas/OutcomeEvent.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/OutcomeEvent.schema.json",
+      "sha256": "1fea493ddf9a6538cee08d0203c95cbf3f77fcfd63ec8ae01d7c7067e8bcf78b"
+    },
+    {
+      "path": "canonical/schemas/OutreachPackage.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/OutreachPackage.schema.json",
+      "sha256": "64f98d36c26296e6602bb72f013b37dd425ac762d90f353bcab3ca4b80ce85c4"
+    },
+    {
+      "path": "canonical/schemas/PackageReference.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/PackageReference.schema.json",
+      "sha256": "2f68213e87ad9228ae1c2b9151aacb20fd6b9a666da11a331d043de53b8137fb"
+    },
+    {
+      "path": "canonical/schemas/PredicateDefinition.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/PredicateDefinition.schema.json",
+      "sha256": "e2ee5fe4b79c62968e14fcd450736caca7b3b65ea3ad014be7dc5b49b57b451b"
+    },
+    {
+      "path": "canonical/schemas/ProviderBlueprint.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ProviderBlueprint.schema.json",
+      "sha256": "052115da7fb8fa6b410bd48e986f78e62672301c1b4308e993c12a183580995d"
+    },
+    {
+      "path": "canonical/schemas/PublishedRecordValue.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/PublishedRecordValue.schema.json",
+      "sha256": "c89f57f3e40d974a9db0bb0dd18a2d1b8d7d3c983ddc5a9e371e1f31db8dd9c2"
+    },
+    {
+      "path": "canonical/schemas/QuotedTextResult.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/QuotedTextResult.schema.json",
+      "sha256": "264ecb3138f5a6cad37f8fdd0b2a120e507bae5c1d635f22ede4354ebd74377c"
+    },
+    {
+      "path": "canonical/schemas/RegistryRecordValue.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/RegistryRecordValue.schema.json",
+      "sha256": "9ec602a07cb775601dc8b5c0828ca148085e024ba60e366042e105ce229f07a2"
+    },
+    {
+      "path": "canonical/schemas/RepairAttempt.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/RepairAttempt.schema.json",
+      "sha256": "3d4c66520ed821c0d08ce9114b18105c68b1aba83800c1a6817170dfdf716335"
+    },
+    {
+      "path": "canonical/schemas/ResearchPriorValue.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ResearchPriorValue.schema.json",
+      "sha256": "35603355e532c1a55899d05665f87c3f526a55d91368335513f42f097439d97e"
+    },
+    {
+      "path": "canonical/schemas/ResearchSample.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ResearchSample.schema.json",
+      "sha256": "24ebde515b4f9144bbd3ee7a1853fb63f97c6c45fd758848002d23d9193814ca"
+    },
+    {
+      "path": "canonical/schemas/ResearchSupportPolicy.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ResearchSupportPolicy.schema.json",
+      "sha256": "727e9cb7378331f0d023dda56c708f2012a797350349c8a0f0340a729e28e085"
+    },
+    {
+      "path": "canonical/schemas/ReviewDecision.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ReviewDecision.schema.json",
+      "sha256": "dc5bfc75f6ca9830d8aa4bddad3eccb737c5996a0f45cba798712d598160a9ad"
+    },
+    {
+      "path": "canonical/schemas/ReviewRecordValue.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ReviewRecordValue.schema.json",
+      "sha256": "3d9e3cdd8ea8b0c15e85b46c3db9bee491b4a1b4b04fd88878f0e9f2954521eb"
+    },
+    {
+      "path": "canonical/schemas/SalaryValue.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/SalaryValue.schema.json",
+      "sha256": "ff0e244aa59a9f23213fc102ccb587c0c92db6c40e3c7deb1f857e5b9d641efd"
+    },
+    {
+      "path": "canonical/schemas/SampleRecordDecision.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/SampleRecordDecision.schema.json",
+      "sha256": "5050cc1cd1709a944971a9099a620921e012ee9eb9521635a176ce973b3ed342"
+    },
+    {
+      "path": "canonical/schemas/ScenarioEstimate.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ScenarioEstimate.schema.json",
+      "sha256": "c361e2141680f3a61165b5078bc788e83d0d016fa283f7bf1fe5d1f185298d0e"
+    },
+    {
+      "path": "canonical/schemas/Scope.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/Scope.schema.json",
+      "sha256": "e27ede322fa1dabc49d048b647f7989d31fbe6368215747b5e659eacc0d01e19"
+    },
+    {
+      "path": "canonical/schemas/SignalDefinition.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/SignalDefinition.schema.json",
+      "sha256": "9ade363077f29130b9a8985ced065699d534b2ac9b70c89e096c6b8312d7f66d"
+    },
+    {
+      "path": "canonical/schemas/SignalEvaluation.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/SignalEvaluation.schema.json",
+      "sha256": "704e4876a92f7d7311738955e51846ac01771b00c01c4ff72b6b46ade7364727"
+    },
+    {
+      "path": "canonical/schemas/SourceDefinition.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/SourceDefinition.schema.json",
+      "sha256": "96eb6c61c378f938d6fc92ece44ad35ef5d373db022bb60c7182f81d50ddf462"
+    },
+    {
+      "path": "canonical/schemas/Subject.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/Subject.schema.json",
+      "sha256": "c9746aae7b142e7b7a554af51d5f7704cc741068b9f948ef01ff796f7523847e"
+    },
+    {
+      "path": "canonical/schemas/SubjectBinding.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/SubjectBinding.schema.json",
+      "sha256": "c559ab5ada3e233837e7f0d55b699a4f1ed886edb8da77dedad217bb23e2578f"
+    },
+    {
+      "path": "canonical/schemas/SurfaceObservationValue.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/SurfaceObservationValue.schema.json",
+      "sha256": "3ba73380dff9fd125b2569133cc1f8980f44349d12da60aa8224acb0c412aabb"
+    },
+    {
+      "path": "canonical/schemas/TargetResult.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/TargetResult.schema.json",
+      "sha256": "aae9fca80f1b88f551ff1c356d4f0b271315f7f0df31fd1fc6b8f831de332079"
+    },
+    {
+      "path": "canonical/schemas/TaxonomyTerm.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/TaxonomyTerm.schema.json",
+      "sha256": "290699982b61e47b261d5b6d3a8f69b7049f3bf37b5919b7b75d02337fb5ea9c"
+    },
+    {
+      "path": "canonical/schemas/TechnologyReportValue.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/TechnologyReportValue.schema.json",
+      "sha256": "9cca5d0a082fa020632c940b36b6d5fcbcb51e7b8d025c9a60eab5d53159384a"
+    },
+    {
+      "path": "canonical/schemas/TechnologyValue.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/TechnologyValue.schema.json",
+      "sha256": "2c82f8ef84e5c7514270706436000da416c915fc523da2c84d7552e3cd67ac78"
+    },
+    {
+      "path": "canonical/schemas/TemplateDefinition.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/TemplateDefinition.schema.json",
+      "sha256": "fcc3ed2084703c3ff5c8ef9de62f0c2bf065a8b126793b1a2d42b4595b8bb0df"
+    },
+    {
+      "path": "canonical/schemas/ThemeClassificationValue.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/ThemeClassificationValue.schema.json",
+      "sha256": "aef91c980455fe686b93d53a001adfe428c7459cfddfac81ad76ebbabf3c8bfc"
+    },
+    {
+      "path": "canonical/schemas/TimeWindow.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/TimeWindow.schema.json",
+      "sha256": "8815c46bef7f873afa319d078c3130a2d1e8c86c7427997ea8a51ea9fbfefa96"
+    },
+    {
+      "path": "canonical/schemas/UseGateDecision.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/UseGateDecision.schema.json",
+      "sha256": "f45b5a0e68375d8d6d3b2524c5155c60208c329995e3f67862ea0017789e58b2"
+    },
+    {
+      "path": "canonical/schemas/UseRestriction.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/schemas/UseRestriction.schema.json",
+      "sha256": "bd9431c5e71da3942234c3bd83442d2288ee905c6da3bee58c491fbf0bec269c"
+    },
+    {
+      "path": "canonical/tests/test_audit_repairs.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/tests/test_audit_repairs.py",
+      "sha256": "f65323a61b64b07eee4bcd1ae5f32447b819fd5b207cbcc49f61fe4cc4f09af1"
+    },
+    {
+      "path": "canonical/tests/test_completion.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/tests/test_completion.py",
+      "sha256": "49bcb60e678d30cfcbfb4f908581ad2048ec3e98d4b2f6b175a4b8e53b72c588"
+    },
+    {
+      "path": "canonical/tests/test_contracts.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/tests/test_contracts.py",
+      "sha256": "76705861c9e656a92b4799003dde05fae13969c3f788cec22b1ba7d0abb1c028"
+    },
+    {
+      "path": "canonical/validate.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/canonical/validate.py",
+      "sha256": "d5bfbe070c1e2a4579d1ba21ec8347fd07d2b6c74a32f643050306e9cc8c7acf"
+    },
+    {
+      "path": "collector/.github/workflows/tests.yml",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/.github/workflows/tests.yml",
+      "sha256": "4ba7539ad3ade44c140a750a7d08abc63b420d278ab5c38580148a6314627547"
+    },
+    {
+      "path": "collector/.gitignore",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/.gitignore",
+      "sha256": "d38c6c72cc9dfda327e02510c2e8fa1c9f9d53095c846da9214eae184f5de9f4"
+    },
+    {
+      "path": "collector/README.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/README.md",
+      "sha256": "21191dd9a8d79e9c1d9acc07206c41e133e812ef8b736f8062ff73a50b10aa26"
+    },
+    {
+      "path": "collector/SECURITY.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/SECURITY.md",
+      "sha256": "627c92052981ad1136f50707d2763e382877945e1d4638a0fa1a0ff5bf8e7583"
+    },
+    {
+      "path": "collector/docs/ARCHITECTURE_BOUNDARY.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/docs/ARCHITECTURE_BOUNDARY.md",
+      "sha256": "1cdc5332fbd4dcf16a756866ab6613fc6d4b43aadd8942d704b33aec27ac3cd7"
+    },
+    {
+      "path": "collector/docs/COMMAND_COVERAGE.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/docs/COMMAND_COVERAGE.md",
+      "sha256": "e0080e7964354dc886275120c930faa992be9e9ec644264c8ce652e303274f98"
+    },
+    {
+      "path": "collector/docs/DEDUPLICATION.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/docs/DEDUPLICATION.md",
+      "sha256": "a4ead42d465e14b29c0ebdd909e0db22023b9fc65aa144ad6a251797cb328a0b"
+    },
+    {
+      "path": "collector/docs/DONOR_INTEGRATION.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/docs/DONOR_INTEGRATION.md",
+      "sha256": "c89774614e6d9ace9b8b348b2c87ed883053f7de153e103d75858268bcf9fe40"
+    },
+    {
+      "path": "collector/docs/SOURCES.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/docs/SOURCES.md",
+      "sha256": "c5a0ddb65cb15f064c37977b7f612db951fe4e3202ec837c5448491a241a9b5c"
+    },
+    {
+      "path": "collector/examples/demo-rules.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/examples/demo-rules.json",
+      "sha256": "e7566bce8ee3c86e1fddf92441869902d01a3be7eae835ce12c5865f1b5bdcf6"
+    },
+    {
+      "path": "collector/examples/demo-site.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/examples/demo-site.json",
+      "sha256": "e5e212f82d84225fea4d99628eaabb39f0a3f2239ee3e981fc78e5ed58e126cf"
+    },
+    {
+      "path": "collector/examples/donor-shaped.jsonl",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/examples/donor-shaped.jsonl",
+      "sha256": "7c67cf14b3cc87efe05f6f54710b16d24cfe226c8368f6d552f397499f3b9d66"
+    },
+    {
+      "path": "collector/examples/live-candidates.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/examples/live-candidates.json",
+      "sha256": "4ddce094de44ae323b9d2d4e1b5613ad1559f5babf708b8cae808f0972ded54f"
+    },
+    {
+      "path": "collector/examples/page.html",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/examples/page.html",
+      "sha256": "d7dfe7decb437ca705e915c53b9f18edb772fa6d6e9868f1f9f5d0c32fde4013"
+    },
+    {
+      "path": "collector/examples/vendor-map.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/examples/vendor-map.json",
+      "sha256": "368e6fe12515a4808e01e840d5ecb84150ee2e8da3c168a96e51c65f2c3d118a"
+    },
+    {
+      "path": "collector/pyproject.toml",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/pyproject.toml",
+      "sha256": "5266fd9c73e5177bba56e080980c4bc715e0d53d04b3b8445ca0936a80fa6efd"
+    },
+    {
+      "path": "collector/reports/VALIDATION.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/reports/VALIDATION.md",
+      "sha256": "0f8cf174f14afdcb7b7940db7db5c6b8564ab08a95f785249bd91d574365e569"
+    },
+    {
+      "path": "collector/reports/installed-wheel-pytest.txt",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/reports/installed-wheel-pytest.txt",
+      "sha256": "7f7ace856885ad9b4d6f66260021d6dfae3b6f97694bcb81bbdfd520889ee4bf"
+    },
+    {
+      "path": "collector/reports/installed-wheel-pytest.xml",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/reports/installed-wheel-pytest.xml",
+      "sha256": "62c6fc837f1bcbbe873c7aecde22638d70d1fd614868a9853b66e02c8791ae1b"
+    },
+    {
+      "path": "collector/reports/pytest.txt",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/reports/pytest.txt",
+      "sha256": "61fec0413a07391a5e14cb9553e472567ed2e7d4f1e39bd63c617f8b1d2ac8b9"
+    },
+    {
+      "path": "collector/reports/pytest.xml",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/reports/pytest.xml",
+      "sha256": "18e81ef144003b11be23ada4d823b64c254b649efd9929fffdbccaca62994392"
+    },
+    {
+      "path": "collector/reports/verification.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/reports/verification.json",
+      "sha256": "6e455c3bebd4f8bf894246a8b8a652d3b9980a79399bd0e2f5a2b7dd8d515698"
+    },
+    {
+      "path": "collector/reports/wheel-build.txt",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/reports/wheel-build.txt",
+      "sha256": "79554d9d60537a7bb8f1fa97566b95c378bf085ff8baff15ec97c69d5bf982da"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/__init__.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/__init__.py",
+      "sha256": "72b204a9b553a96ac45a1f7de80909431eaf0d62f5beb31356dafe083959f442"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/__main__.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/__main__.py",
+      "sha256": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/claims.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/claims.py",
+      "sha256": "045725bbecf7a5ea6fd80254a1f582102bd2b2d3f2002a2d45075da492b6f943"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/cli.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/cli.py",
+      "sha256": "d5aa220fe2f860245bdff88be8fcd2a2d4cbd5922454f84913946e903b3c3685"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/commands.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/commands.py",
+      "sha256": "d2759093e5d72f91b5ccd198bb86355b4ea69f2035c71f4a59406c3aafb752fb"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/core.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/core.py",
+      "sha256": "bf0089ed8ce49ab590d94ecd94482fa75a05432b595c638ebe241d17d9bbe33f"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/data/commands.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/data/commands.json",
+      "sha256": "4c51711c963c2caea97b720a2fd99e624fb27df75a6723298cc2ed855185e819"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/data/demo-rules.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/data/demo-rules.json",
+      "sha256": "e7566bce8ee3c86e1fddf92441869902d01a3be7eae835ce12c5865f1b5bdcf6"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/data/demo-site.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/data/demo-site.json",
+      "sha256": "e5e212f82d84225fea4d99628eaabb39f0a3f2239ee3e981fc78e5ed58e126cf"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/data/scan-bundle.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/data/scan-bundle.schema.json",
+      "sha256": "ff2b1deddcf340dc55ab25933437da947fc11c3dcb070e2a1d4538bc8ae05cfb"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/discovery.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/discovery.py",
+      "sha256": "19b817c6196367c9c2c9e0e4a90d437d1b833d85b5e684228f0c2e275f468b88"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/extraction.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/extraction.py",
+      "sha256": "e6eddef2c9537ef33029535c62ef5e2147f1aadca438855e2beb86c81017203a"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/importer.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/importer.py",
+      "sha256": "966683b103082c5e02be1396efe42f8979023347a8f7c9d9be8622c20b785123"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/pipeline.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/pipeline.py",
+      "sha256": "8aba39ce2fdfbb22695fde9759480be94da43a2dbbabddfd48106798de8919f5"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/rules.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/rules.py",
+      "sha256": "bb728fe394985196343bed967b439a4d93f29435eed106ae1ef710257104f220"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/standalone.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/standalone.py",
+      "sha256": "a49c840636fe01c1fc780510a7fb6a3b2d2ca9117fdb6e98c66c0864d6ae2fdf"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/storage.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/storage.py",
+      "sha256": "15322ecdfff153682f5dd23f73e5cc53e6762d54c4f9047301b2bc509d8d2103"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/transport.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/transport.py",
+      "sha256": "8471c1e78c3096a54cb252f68be139b2c6611fef6e61bed4791155617e650087"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/urls.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/urls.py",
+      "sha256": "d8f5f43103203addc03d36a4376c1970aeb67aff9605e85dac383fe802226133"
+    },
+    {
+      "path": "collector/src/keensight_scrapling/validation.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/src/keensight_scrapling/validation.py",
+      "sha256": "de115d25207d9a9fa850389f4286935781aa3407641b757027e905a055719311"
+    },
+    {
+      "path": "collector/tests/conftest.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/tests/conftest.py",
+      "sha256": "b1d664eb67ec70bb288d762864753d10c6c600ed11363449f512a77324150dc2"
+    },
+    {
+      "path": "collector/tests/test_audit_repairs.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/tests/test_audit_repairs.py",
+      "sha256": "bc25cf84afd9b8b454a85885cd6c44bcb65e863c50bdbabcaf9f4a53878da2c7"
+    },
+    {
+      "path": "collector/tests/test_claims.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/tests/test_claims.py",
+      "sha256": "4889592908f945f133c4c70b733d155d860d7193995340fccd09808bb571b195"
+    },
+    {
+      "path": "collector/tests/test_extraction.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/tests/test_extraction.py",
+      "sha256": "4598556a993a2d24ceb8aa5afd39a9fb16315863198ff651a2d773072eeaa99d"
+    },
+    {
+      "path": "collector/tests/test_import_storage_validation.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/tests/test_import_storage_validation.py",
+      "sha256": "3a96afd0c8b52796cd1e82098bad81b614b8cd10802c01fee37af62bdec00371"
+    },
+    {
+      "path": "collector/tests/test_live_integration.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/tests/test_live_integration.py",
+      "sha256": "6b4ab0ee3b95859dcbf13e8b8f138eb4677460f9ba0dfe9dcde041040630fd72"
+    },
+    {
+      "path": "collector/tests/test_pipeline.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/tests/test_pipeline.py",
+      "sha256": "b284d2b9bbe760fbb0b00d52260fc2299a7ac33cbd5fe49469a3a8ee0b01570a"
+    },
+    {
+      "path": "collector/tests/test_policy_transport.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/tests/test_policy_transport.py",
+      "sha256": "81468736439cbdb8f9be1d859c3ea8512e876b58c2c3cc61ef15fe3f6ac42cf7"
+    },
+    {
+      "path": "collector/tests/test_rules.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/collector/tests/test_rules.py",
+      "sha256": "3c2daed2eb52e1949f34d90cc17857a0fb5820560ea7f18d2ce1096f0e609726"
+    },
+    {
+      "path": "product-design/ACCEPTANCE.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/ACCEPTANCE.md",
+      "sha256": "62bd3063e120d3dd6118c55dce3d620598555df36f91702039adc2008d5f76e0"
+    },
+    {
+      "path": "product-design/BASELINE_SOURCES.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/BASELINE_SOURCES.json",
+      "sha256": "31927077eaf9515cad3f409fd1c70e1ad1c389c6de216e9c4cde4ed93ba2c0e4"
+    },
+    {
+      "path": "product-design/COMPATIBILITY.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/COMPATIBILITY.md",
+      "sha256": "2ea5df6e2ff2a6ef6b03391b86fb55de5188bab3e89deaec7fbcbb23ccc6d9e3"
+    },
+    {
+      "path": "product-design/DESIGN.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/DESIGN.md",
+      "sha256": "45254e744695b20ae9a397d734dfd84da21e6d15e62cefdcbe4aa58ddd068bca"
+    },
+    {
+      "path": "product-design/DESIGN_VALIDATION.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/DESIGN_VALIDATION.json",
+      "sha256": "8183261162a6d753695cad951d862e54cb7b5dcd647453a6203d7744fb9fc3d2"
+    },
+    {
+      "path": "product-design/DIAGRAMS.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/DIAGRAMS.md",
+      "sha256": "81c4d47b8d0c7fc1c3ddcd772cc301f1e47c12f3e83e0f6187d07fbae0203c0b"
+    },
+    {
+      "path": "product-design/HANDOFFS.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/HANDOFFS.md",
+      "sha256": "b874741c8326db8c8d4b5ed094d551b5a1af97f48f43ac382167d74d18782e9d"
+    },
+    {
+      "path": "product-design/MODULE_MATRIX.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/MODULE_MATRIX.md",
+      "sha256": "f830ca65cddcbe78f5417f2c81dda92e74f026597b8b62aaf6281e6d08b7ba8f"
+    },
+    {
+      "path": "product-design/PRODUCT_CONTRACTS.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/PRODUCT_CONTRACTS.md",
+      "sha256": "7902550da0d1b0384f9415798e599f1f8f61a3bf44e6fa611dbe8e1c08d448fd"
+    },
+    {
+      "path": "product-design/README.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/README.md",
+      "sha256": "4c07a9be016bf4ce0b731ef6c0a77b193b5f5d0b22a3bb67a53d4dc667f73c7e"
+    },
+    {
+      "path": "product-design/VALIDATION.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/VALIDATION.md",
+      "sha256": "27a0afd63186f6f69fd193311f8047b0bf0a80ed67ad82c371ce765d82aa6ad0"
+    },
+    {
+      "path": "product-design/baseline_contract_inspection.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/baseline_contract_inspection.json",
+      "sha256": "2903ff04523c3bb3f209d2f126e581298457d3d8e1b910891c3fe48c02a274bc"
+    },
+    {
+      "path": "product-design/diagrams/engagement_sequence.mmd",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/diagrams/engagement_sequence.mmd",
+      "sha256": "799e18847ca1ca92266390e032f60184f9919f611196e39a1004b9a52afa75bf"
+    },
+    {
+      "path": "product-design/diagrams/product_classes.mmd",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/diagrams/product_classes.mmd",
+      "sha256": "6f6b26cfa7a0aa319fd62f8b2cef082cc67173da97e119502947f15934f9bc1f"
+    },
+    {
+      "path": "product-design/diagrams/product_flow.mmd",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/diagrams/product_flow.mmd",
+      "sha256": "5f2bccf9f4455013912fadfb621d3c20d3d45cbd2a1a4d61e7b1f4ea306789e1"
+    },
+    {
+      "path": "product-design/module_catalog.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/module_catalog.json",
+      "sha256": "6441cc046d9e8c4a7e6b04f5ae822eea83e89310bacd0d1028df9e92282dae91"
+    },
+    {
+      "path": "product-design/proposed_product_contracts.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/proposed_product_contracts.json",
+      "sha256": "1cb917c914a98739c96ad0c52114ff86f2ff8e27f0bb111429aea7946fd32610"
+    },
+    {
+      "path": "product-design/reference/command_bindings.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/reference/command_bindings.json",
+      "sha256": "dbfc76434ed18093ee8a382d186f2df0b4a2dfdb92555d851111f348d7e9784b"
+    },
+    {
+      "path": "product-design/reference/modules.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/reference/modules.json",
+      "sha256": "92e03eeeb1a621494d5df198fc516c28255faee0292b582bd1e7455c3a9df71e"
+    },
+    {
+      "path": "product-design/reference/schemas/Common.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/reference/schemas/Common.schema.json",
+      "sha256": "83078476c8f71e2e2f21dd6900326236e646f2e5e8d390589fc9bb7af88af570"
+    },
+    {
+      "path": "product-design/reference/schemas/Diagnostic.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/reference/schemas/Diagnostic.schema.json",
+      "sha256": "ef9851619edb4e2f4c6fbae45fd05333aa86f9e5d6c255205e20832b3c514296"
+    },
+    {
+      "path": "product-design/reference/schemas/ModuleRequest.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/reference/schemas/ModuleRequest.schema.json",
+      "sha256": "deb634ff01883853b02113326c2612d5ea138ce3c410d68ee405a6e87230277f"
+    },
+    {
+      "path": "product-design/reference/schemas/ModuleResult.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/reference/schemas/ModuleResult.schema.json",
+      "sha256": "4d7a6904637efb47af96d647f1e3c203c5d818a76994792ec71501830a80672e"
+    },
+    {
+      "path": "product-design/validate_design.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/validate_design.py",
+      "sha256": "c77426d0e7dc15acecb883a4a5de24ad4c0f67fdecb11ba9c9da3ce2c8027c4b"
+    },
+    {
+      "path": "product-design/workflow_stage_plans.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/product-design/workflow_stage_plans.json",
+      "sha256": "a8e0d239cc36cf04fd1ab96befb5b55077dc99bb72b931db2b3dab0fa0e7da36"
+    },
+    {
+      "path": "protocol/BASELINE_SOURCES.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/BASELINE_SOURCES.json",
+      "sha256": "f100ec6740e896e8226eb7afb72c323c0d62825cb6b06ac5144988a7f40edaab"
+    },
+    {
+      "path": "protocol/DESIGN.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/DESIGN.md",
+      "sha256": "999270e8e25a7979179905ace9b9a33a083c85384b9f769dbde57f32b5c45ec2"
+    },
+    {
+      "path": "protocol/DIAGRAMS.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/DIAGRAMS.md",
+      "sha256": "cd0b9e6df4c87e3d319cba28c3da568f766b225f156ca0f93aa1ffcf43dc676b"
+    },
+    {
+      "path": "protocol/MODULE_MATRIX.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/MODULE_MATRIX.md",
+      "sha256": "0f7b200423cdd56019b7ef444c32c8d111351318186e6b688d25ae1365508af2"
+    },
+    {
+      "path": "protocol/README.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/README.md",
+      "sha256": "fbd6d90b667aaa79411ef057db0ac15cc2b8597cfb65b71c5e71432c45fc14f2"
+    },
+    {
+      "path": "protocol/VALIDATION.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/VALIDATION.md",
+      "sha256": "7ffb51efe3260d807903617543c881867931e845c247f0ec578805834f89dc3d"
+    },
+    {
+      "path": "protocol/command_bindings.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/command_bindings.json",
+      "sha256": "dbfc76434ed18093ee8a382d186f2df0b4a2dfdb92555d851111f348d7e9784b"
+    },
+    {
+      "path": "protocol/error_codes.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/error_codes.json",
+      "sha256": "e1163c9f519d761969a39d9ba0a7169071067d6be3730b61da4706df6e828be0"
+    },
+    {
+      "path": "protocol/examples/README.md",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/examples/README.md",
+      "sha256": "bbcb2182e1946a4e6a9fc2fd06aad426313f715a95844a91ba446841cbf4fb35"
+    },
+    {
+      "path": "protocol/examples/fixture_records.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/examples/fixture_records.json",
+      "sha256": "e57ddfcfac997802390edaab0925447fa455e38243ca27080c72ae00326df535"
+    },
+    {
+      "path": "protocol/examples/request.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/examples/request.json",
+      "sha256": "d19ac7ba712fddf3645ab2407de938f2c34c2228d0a129df4fb7e55f235ad9a6"
+    },
+    {
+      "path": "protocol/examples/result.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/examples/result.json",
+      "sha256": "8a0a8a41d0d360ecb6a135dee4dc6147cb791529612e8a41caed1dc2f70e2829"
+    },
+    {
+      "path": "protocol/modules.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/modules.json",
+      "sha256": "92e03eeeb1a621494d5df198fc516c28255faee0292b582bd1e7455c3a9df71e"
+    },
+    {
+      "path": "protocol/protocol-validation.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/protocol-validation.json",
+      "sha256": "ff3f5a1a39f04b50907b56727f76d7d92b48251d6d09d0579b19e63501e3bd44"
+    },
+    {
+      "path": "protocol/pytest-report.txt",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/pytest-report.txt",
+      "sha256": "f603bad9c83b0e4288ec12bbc8ae72e20cfc1108c5bd77bac46499fe1339396d"
+    },
+    {
+      "path": "protocol/requirements.txt",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/requirements.txt",
+      "sha256": "6a7eb14fae4631b5982e0e0044b8c87de156fa44486a0a4d6569011faf008d90"
+    },
+    {
+      "path": "protocol/schemas/Common.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/schemas/Common.schema.json",
+      "sha256": "83078476c8f71e2e2f21dd6900326236e646f2e5e8d390589fc9bb7af88af570"
+    },
+    {
+      "path": "protocol/schemas/Diagnostic.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/schemas/Diagnostic.schema.json",
+      "sha256": "ef9851619edb4e2f4c6fbae45fd05333aa86f9e5d6c255205e20832b3c514296"
+    },
+    {
+      "path": "protocol/schemas/ModuleRequest.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/schemas/ModuleRequest.schema.json",
+      "sha256": "deb634ff01883853b02113326c2612d5ea138ce3c410d68ee405a6e87230277f"
+    },
+    {
+      "path": "protocol/schemas/ModuleResult.schema.json",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/schemas/ModuleResult.schema.json",
+      "sha256": "4d7a6904637efb47af96d647f1e3c203c5d818a76994792ec71501830a80672e"
+    },
+    {
+      "path": "protocol/tests/test_audit_repairs.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/tests/test_audit_repairs.py",
+      "sha256": "56600cf8e4320becd128bce6762d2bcb5942c8b62182284f4facf9607ca09d9c"
+    },
+    {
+      "path": "protocol/tests/test_protocol.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/tests/test_protocol.py",
+      "sha256": "56005e9c6e7fa41cb43ba3d1e1386682bfcf9f33355db396359ced0d0ad928e9"
+    },
+    {
+      "path": "protocol/validate_protocol.py",
+      "archive": "KeenSight_E2E_Review_and_Repair_2026-09-15.zip",
+      "member": "keensight-e2e-review-repair/protocol/validate_protocol.py",
+      "sha256": "96dfbee92c4ea705838111f9f3a0d55ff5991950c351d1d7bb198658e7dd0f44"
+    }
+  ]
+}

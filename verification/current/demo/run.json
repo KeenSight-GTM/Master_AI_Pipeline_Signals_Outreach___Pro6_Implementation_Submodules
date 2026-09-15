@@ -1,0 +1,44 @@
+{
+  "source_root": "/mnt/data/keensight-ai-pipeline",
+  "steps": [
+    {
+      "name": "demo",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "keensight_scrapling.cli",
+        "demo",
+        "--output",
+        "/mnt/data/_assembly/demo-current/demo-store"
+      ],
+      "cwd": "/mnt/data/keensight-ai-pipeline",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "passed": true,
+      "elapsed_seconds": 1.684,
+      "stdout_file": "01-demo.stdout.txt",
+      "stderr_file": "01-demo.stderr.txt"
+    },
+    {
+      "name": "demo-check",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "keensight_scrapling.cli",
+        "check",
+        "/mnt/data/_assembly/demo-current/demo-store/scan-bundle.json",
+        "--store",
+        "/mnt/data/_assembly/demo-current/demo-store"
+      ],
+      "cwd": "/mnt/data/keensight-ai-pipeline",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "passed": true,
+      "elapsed_seconds": 1.653,
+      "stdout_file": "02-demo-check.stdout.txt",
+      "stderr_file": "02-demo-check.stderr.txt"
+    }
+  ],
+  "all_expected_exit_codes": true,
+  "scope": "LOCAL_WORKSPACE_COMMANDS_NOT_PRODUCTION_E2E"
+}

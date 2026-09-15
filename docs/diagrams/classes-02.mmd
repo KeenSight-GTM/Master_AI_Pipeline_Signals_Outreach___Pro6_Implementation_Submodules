@@ -1,0 +1,77 @@
+classDiagram
+    class CallEventValue {
+        call_key
+        callback_of
+        direction
+        duration_seconds
+        started_at
+        status
+    }
+    class CandidateRecord {
+        artifact_id
+        attempt_id
+        candidate_id
+        production_eligible
+        proposed_predicate_id
+        proposed_value
+        reason
+        tenant_id
+    }
+    class CapabilityProfile {
+        capture_source_ids
+        delivery_enabled
+        execute_function_ids
+        export_enabled
+        fact_predicate_ids
+        product_boundary
+        production_enabled
+        profile_id
+        research_context_enabled
+        signal_ids
+        template_ids
+        version
+    }
+    class CaseStudyOutcomeValue {
+        attribution
+        baseline_value
+        case_id
+        comparison_kind
+        measurement_window
+        method_description
+        metric_name
+        outcome_id
+        publisher
+        reported_quote
+        reported_value
+        sample_size
+        source_url
+        transfer_to_target_allowed
+        unit
+    }
+    class ChangeRecord {
+        actor_id
+        change_id
+        effective_at
+        kind
+        reason
+        recorded_at
+        replacement_id
+        target_id
+        target_type
+        tenant_id
+    }
+    class ClaimResolution {
+        accepted_fact_ids
+        as_of
+        observation_ids
+        policy_version
+        predicate_id
+        resolution_id
+        resolved_at
+        run_id
+        scope_id
+        status
+        subject_id
+        target
+        tenant_id
+    }

@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "release_id": "synthetic-demo-v1",
+  "fixture_only": true,
+  "aliases": {
+    "product:calendly-widget": "product:calendly"
+  },
+  "rules": [
+    {
+      "id": "calendly-script-exact",
+      "status": "APPROVED",
+      "predicate": "vendor.present",
+      "product_id": "product:calendly",
+      "kinds": [
+        "script_url"
+      ],
+      "operator": "host_equals",
+      "patterns": [
+        "assets.calendly.com"
+      ],
+      "review": {
+        "reviewer": "SYNTHETIC_TEST_FIXTURE_ONLY",
+        "fixture_report_hash": "afe875746012a6a07bfbc9ffd06f8be36b4aae263fe5baef5bb461ecf75e54b6"
+      },
+      "confidence": 0.98
+    },
+    {
+      "id": "calendly-script-suffix",
+      "status": "APPROVED",
+      "predicate": "vendor.present",
+      "product_id": "product:calendly-widget",
+      "kinds": [
+        "script_url"
+      ],
+      "operator": "host_suffix",
+      "patterns": [
+        "calendly.com"
+      ],
+      "review": {
+        "reviewer": "SYNTHETIC_TEST_FIXTURE_ONLY",
+        "fixture_report_hash": "afe875746012a6a07bfbc9ffd06f8be36b4aae263fe5baef5bb461ecf75e54b6"
+      },
+      "confidence": 0.99
+    },
+    {
+      "id": "calendly-iframe",
+      "status": "APPROVED",
+      "predicate": "vendor.present",
+      "product_id": "product:calendly",
+      "kinds": [
+        "iframe_url"
+      ],
+      "operator": "host_equals",
+      "patterns": [
+        "calendly.com"
+      ],
+      "review": {
+        "reviewer": "SYNTHETIC_TEST_FIXTURE_ONLY",
+        "fixture_report_hash": "afe875746012a6a07bfbc9ffd06f8be36b4aae263fe5baef5bb461ecf75e54b6"
+      },
+      "confidence": 0.97
+    },
+    {
+      "id": "calendly-script-candidate",
+      "status": "CANDIDATE",
+      "predicate": "vendor.present",
+      "product_id": "product:calendly",
+      "kinds": [
+        "script_url"
+      ],
+      "operator": "host_equals",
+      "patterns": [
+        "assets.calendly.com"
+      ],
+      "confidence": 1.0
+    }
+  ],
+  "negative_terms": [
+    "marketing agency"
+  ]
+}

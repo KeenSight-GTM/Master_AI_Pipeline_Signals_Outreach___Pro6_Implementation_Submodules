@@ -1,0 +1,200 @@
+{
+  "$id": "https://keensight.local/v4.2/PredicateDefinition.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "absence_allowed": {
+      "type": "boolean"
+    },
+    "allowed_natures": {
+      "items": {
+        "enum": [
+          "DIRECT_OBSERVATION",
+          "FIRST_PARTY_STATEMENT",
+          "THIRD_PARTY_REPORT",
+          "PROVIDER_ESTIMATE",
+          "REGISTRY_RECORD",
+          "INFERENCE",
+          "DERIVED_MEASUREMENT"
+        ]
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "allowed_processors": {
+      "items": {
+        "enum": [
+          "DETERMINISTIC",
+          "LLM",
+          "HUMAN_REVIEW",
+          "DERIVATION"
+        ]
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "copy_policy": {
+      "enum": [
+        "DIRECT_SCOPED",
+        "ATTRIBUTED_ONLY",
+        "ESTIMATE_ATTRIBUTED",
+        "REGISTRY_ATTRIBUTED",
+        "INTERNAL_ONLY",
+        "CONTEXT_ONLY"
+      ]
+    },
+    "description": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "example_target": {
+      "type": "object"
+    },
+    "example_value": {},
+    "family": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "origin": {
+      "enum": [
+        "V3_RETAINED",
+        "V3_REVISED",
+        "V4_ADDED"
+      ]
+    },
+    "predicate_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "reference_rules": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "container": {
+            "enum": [
+              "target",
+              "object"
+            ]
+          },
+          "path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "subject_kinds": {
+            "items": {
+              "enum": [
+                "ORG",
+                "LOCATION",
+                "PERSON",
+                "BRAND",
+                "WEBSITE",
+                "SOFTWARE_PRODUCT",
+                "INDUSTRY",
+                "JOB_POSTING",
+                "APPLICATION",
+                "LISTING",
+                "COHORT",
+                "ANGLE"
+              ]
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "target_type": {
+            "enum": [
+              "SUBJECT",
+              "FACT",
+              "ARTIFACT",
+              "LOCATOR"
+            ]
+          }
+        },
+        "required": [
+          "container",
+          "path",
+          "subject_kinds"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "section_ids": {
+      "items": {
+        "maximum": 11,
+        "minimum": 0,
+        "type": "integer"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "subject_kinds": {
+      "items": {
+        "enum": [
+          "ORG",
+          "LOCATION",
+          "PERSON",
+          "BRAND",
+          "WEBSITE",
+          "SOFTWARE_PRODUCT",
+          "INDUSTRY",
+          "JOB_POSTING",
+          "APPLICATION",
+          "LISTING",
+          "COHORT",
+          "ANGLE"
+        ]
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "target_schema": {
+      "type": "object"
+    },
+    "temporal_mode": {
+      "enum": [
+        "POINT",
+        "EVENT",
+        "PERIOD"
+      ]
+    },
+    "value_class": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "value_schema": {
+      "type": "object"
+    },
+    "version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "predicate_id",
+    "version",
+    "family",
+    "description",
+    "subject_kinds",
+    "target_schema",
+    "value_schema",
+    "allowed_natures",
+    "allowed_processors",
+    "absence_allowed",
+    "temporal_mode",
+    "copy_policy",
+    "reference_rules",
+    "section_ids",
+    "value_class",
+    "origin",
+    "example_target",
+    "example_value"
+  ],
+  "title": "PredicateDefinition",
+  "type": "object"
+}

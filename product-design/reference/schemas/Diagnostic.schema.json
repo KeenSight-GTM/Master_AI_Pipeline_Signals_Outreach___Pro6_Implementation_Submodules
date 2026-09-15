@@ -1,0 +1,92 @@
+{
+  "$id": "urn:keensight:module-protocol:1.0.0-draft.1:Diagnostic",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "cause_execution_id": {
+      "anyOf": [
+        {
+          "maxLength": 240,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "code": {
+      "pattern": "^[A-Z][A-Z0-9_]*(\\.[A-Z0-9_]+)+$",
+      "type": "string"
+    },
+    "diagnostic_id": {
+      "maxLength": 240,
+      "minLength": 1,
+      "type": "string"
+    },
+    "field_path": {
+      "anyOf": [
+        {
+          "maxLength": 500,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "message": {
+      "maxLength": 2000,
+      "type": "string"
+    },
+    "record_refs": {
+      "items": {
+        "$ref": "urn:keensight:module-protocol:1.0.0-draft.1:Common#/definitions/RecordRef"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "restricted_details_ref": {
+      "anyOf": [
+        {
+          "$ref": "urn:keensight:module-protocol:1.0.0-draft.1:Common#/definitions/RecordRef"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "severity": {
+      "enum": [
+        "INFO",
+        "WARNING",
+        "ERROR"
+      ]
+    },
+    "suggested_action": {
+      "enum": [
+        "NONE",
+        "FIX_INPUT",
+        "FIX_CONFIGURATION",
+        "RETRY_AFTER_POLICY",
+        "RECAPTURE",
+        "REVIEW",
+        "RECONCILE",
+        "REAUTHORIZE"
+      ]
+    }
+  },
+  "required": [
+    "diagnostic_id",
+    "code",
+    "severity",
+    "message",
+    "record_refs",
+    "field_path",
+    "cause_execution_id",
+    "suggested_action",
+    "restricted_details_ref"
+  ],
+  "type": "object"
+}

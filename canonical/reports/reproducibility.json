@@ -1,0 +1,19 @@
+{
+  "clean_room_generated_files": 95,
+  "clean_room_byte_identical": true,
+  "idempotent_check": "95 deterministic files match",
+  "python": "3.13.5",
+  "packages": {
+    "jsonschema": "4.26.0",
+    "pytest": "9.0.2",
+    "referencing": "0.37.0"
+  },
+  "graphviz": "dot - graphviz version 2.42.4 (0)",
+  "prior_archive_byte_preserved": true,
+  "mermaid_cli_run": false,
+  "browser_screenshot": "Chromium screenshot timed out; reviewed locally rasterized SVGs instead.",
+  "svg_count": 14,
+  "svg_well_formed": true,
+  "all_58_classes_and_fields_in_diagrams": true,
+  "readme_missing_links": []
+}

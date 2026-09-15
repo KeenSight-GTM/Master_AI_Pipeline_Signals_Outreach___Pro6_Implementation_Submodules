@@ -1,0 +1,59 @@
+classDiagram
+    class FingerprintDefinition {
+        authority
+        calibration_ref
+        capture_mode
+        emits
+        fingerprint_id
+        fixture_only
+        implementation_status
+        match_value
+        negative_fixtures
+        operator
+        positive_fixtures
+        product_subject_id
+        version
+    }
+    class FunctionDefinition {
+        authority
+        cross_subject_rule
+        detector_contract
+        entrypoint
+        fixture_only
+        function_id
+        implementation_status
+        input_predicates
+        output_predicates
+        parameter_schema
+        processor
+        version
+    }
+    class GroundedClause {
+        clause_id
+        evidence_roles
+        fact_ids
+        template_id
+        text
+    }
+    class HypothesisValue {
+        alternatives
+        conclusion
+        hypothesis_id
+        limitations
+        verification_question
+    }
+    class IntakeRequest {
+        idempotency_key
+        intake_id
+        profile_id
+        purpose
+        received_at
+        request_hash
+        requester_id
+        targets
+        tenant_id
+    }
+    class IntakeTarget {
+        resource_uri
+        subject_id
+    }

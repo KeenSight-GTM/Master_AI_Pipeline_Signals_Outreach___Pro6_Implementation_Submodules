@@ -1,0 +1,2332 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>KeenSight — features, journeys and iteration 2 audit</title><style>
+:root { --ink:#16283b; --muted:#506578; --line:#d8e1e8; --paper:#ffffff; --canvas:#eef2f6; --accent:#16626b; }
+* {box-sizing:border-box;} html{scroll-behavior:smooth;} body{margin:0;font:16px/1.65 system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:var(--canvas);}
+header{background:#172d42;color:white;padding:44px max(24px,calc((100% - 1160px)/2));}
+header .kicker{font-size:12px;letter-spacing:.16em;font-weight:700;text-transform:uppercase;color:#a7d5da;}header h1{font-size:36px;line-height:1.16;max-width:850px;margin:12px 0 16px;}header p{max-width:890px;color:#d2e0eb;}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;}.stat{border:1px solid #507084;border-radius:6px;padding:10px 16px;}.stat strong{font-size:22px;display:block;}.stat span{font-size:12px;color:#d2e0eb;}
+nav{position:sticky;top:0;z-index:10;background:white;border-bottom:1px solid var(--line);padding:12px 20px;display:flex;justify-content:center;flex-wrap:wrap;gap:8px 18px;}nav a{font-size:13px;font-weight:650;text-decoration:none;color:var(--accent);}
+main{max-width:1220px;margin:30px auto;padding:0 20px;}section{scroll-margin-top:95px;background:var(--paper);border:1px solid var(--line);border-radius:10px;margin:0 0 32px;padding:30px;overflow:hidden;}.section-title{display:flex;align-items:center;gap:14px;border-bottom:2px solid var(--line);padding-bottom:15px;margin-bottom:25px;}.section-title span{font-size:22px;font-weight:700;color:var(--accent);}.section-title h2{margin:0;font-size:25px;}
+h1,h2,h3,h4{line-height:1.3;}section h1{font-size:27px;}h2{font-size:23px;margin-top:32px;}h3{font-size:20px;margin-top:26px;}a{color:#145f7a;}p{max-width:1000px;}
+table{border-collapse:collapse;display:block;overflow-x:auto;margin:20px 0;font-size:14px;line-height:1.55;}th,td{text-align:left;vertical-align:top;border:1px solid var(--line);padding:11px 13px;min-width:100px;}th{background:#e9f0f4;font-weight:700;}tr:nth-child(even) td{background:#f7f9fb;}
+code{font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;background:#edf2f6;padding:2px 4px;border-radius:3px;overflow-wrap:anywhere;}pre{background:#122638;color:#e9f2f9;padding:19px;border-radius:6px;overflow:auto;}pre code{background:transparent;padding:0;color:inherit;white-space:pre;overflow-wrap:normal;}
+details{border:1px solid var(--line);border-radius:7px;margin:14px 0;scroll-margin-top:105px;}summary{cursor:pointer;font-size:16px;font-weight:700;padding:17px 20px;background:#f4f8fa;}details[open] summary{border-bottom:1px solid var(--line);background:#eaf3f4;}.card{padding:8px 23px 20px;}.card>p:first-child{color:var(--muted);}blockquote{margin:20px 0;border-left:4px solid var(--accent);padding:1px 20px;background:#f4f8fa;}footer{max-width:1180px;margin:0 auto;padding:0 20px 35px;color:var(--muted);font-size:13px;}li{margin:5px 0;}
+@media(max-width:700px){header h1{font-size:28px;}main{padding:0 10px;}section{padding:20px 14px;}nav{position:static;justify-content:flex-start;}section,details{scroll-margin-top:10px;}.card{padding:8px 13px 16px;}}
+@media print{body{background:white;font-size:11pt;}nav,.stats{display:none;}header{background:white;color:black;padding:0 0 20px;}header p,header .kicker{color:black;}main{padding:0;margin:0;max-width:none;}section{border:none;padding:0;page-break-before:always;}details{break-inside:avoid;}details:not([open])>.card{display:block!important;}summary{background:white!important;}table{font-size:9pt;}pre{white-space:pre-wrap;}a{color:inherit;text-decoration:none;}}
+</style></head><body>
+<header><div class="kicker">KeenSight / implementation review / 15 September 2026</div><h1>Feature map, user journeys<br>and submodule audit</h1><p>Start with the user’s goal. Follow its exact inputs, commands, evidence and failure states. Then inspect the owning submodule and the regression case that must pass before release.</p><p><strong>Read-only audit:</strong> runtime sources remain unchanged. Local fixture success is not a live system or provider test.</p><div class="stats"><div class="stat"><strong>36</strong><span>feature cards</span></div><div class="stat"><strong>19</strong><span>user journeys</span></div><div class="stat"><strong>27</strong><span>stage walkthroughs</span></div><div class="stat"><strong>8 / 20</strong><span>tested journeys / subprocesses</span></div><div class="stat"><strong>15 + 1</strong><span>findings + policy decision</span></div></div></header>
+<nav aria-label="Review sections"><a href="#start">How to use this review</a><a href="#features">Feature map</a><a href="#journeys">19 user journeys</a><a href="#stages">27 implementation stages</a><a href="#findings">Findings and repair decisions</a><a href="#modules">All module and submodule owners</a></nav><main><section id="start"><div class="section-title"><span>01</span><h2>How to use this review</h2></div><h1>KeenSight — iteration 2 audit, feature map and user journeys</h1>
+<p><strong>Read-only review of the repaired September 15 source, not a new runtime release.</strong></p>
+<p>Collector <strong>0.2.0</strong>, canonical reference <strong>4.2.0</strong>, the draft protocol checker and product-design records are retained under <code>baseline/</code>. No application behavior is patched in this package. Proposed repairs are described with reproducible failures and acceptance requirements.</p>
+<h2>Read in this order</h2>
+<ol>
+<li><code>REVIEW_NAVIGATOR.html</code> — offline feature/journey/stage review navigator.</li>
+<li><code>AUDIT.md</code> — 15 code/contract findings and one separately classified temporal-policy question.</li>
+<li><code>FEATURE_MAP.md</code> — 36 user-facing features mapped to all 39 module IDs.</li>
+<li><code>USER_JOURNEYS.md</code> — 19 user journeys with actors, steps, outputs, failure branches and real invocation commands where supported.</li>
+<li><code>UPDATED_STAGE_WALKTHROUGHS.md</code> — all 27 existing F00–F26 stage cards, enriched with feature, journey and finding links.</li>
+<li><code>SUBMODULE_TRACEABILITY.md</code> and <code>SOURCE_EXCERPTS.md</code> — exact submodule ownership and numbered source evidence.</li>
+</ol>
+<p>There is <strong>no invented endpoint</strong> for proposed contacts, campaigns, sending or CRM functionality. The eight executable walkthroughs use local synthetic fixtures/reference helpers, not live accounts. The collector-to-canonical bridge and enforcing generic module runner remain unimplemented. Original diagrams and service-extraction designs are retained under <code>baseline/docs/</code>; the new navigator does not claim new service deployments.</p>
+<h2>Install the local test dependencies</h2>
+<p>From the unpacked package root:</p>
+<pre><code class="language-bash">python -m venv .venv
+source .venv/bin/activate
+python -m pip install -e './baseline/collector[test]'
+python -m pip install -r ./baseline/canonical/requirements.txt
+</code></pre>
+<p>Use the corresponding virtual-environment activation command on Windows. These installation commands may access a package index; the walkthrough execution itself uses no network or sending. The actual Scrapling SDK is an optional separate integration prerequisite, described in J09; the test remains unverified here, and native browser capture is disabled.</p>
+<h2>Execute the tested walkthroughs</h2>
+<pre><code class="language-bash">python walkthroughs/run_local_journeys.py --output ./journey-output --journey all-local
+</code></pre>
+<p>Or select a journey such as independent extraction/matching/resolution:</p>
+<pre><code class="language-bash">python walkthroughs/run_local_journeys.py --output ./journey-J03 --journey J03
+</code></pre>
+<p>The harness launches separate Python processes and saves arguments, working directory, exit code, stdout and stderr. It is <strong>not</strong> the proposed general module runner. Use a fresh output directory so previous logs are not overwritten. Fixed synthetic evaluation timestamps are intentional; they do not grant current real-world permission.</p>
+<h2>Audit and verification</h2>
+<pre><code class="language-bash"># Verify every manifest-listed file in the unchanged source baseline.
+python baseline/verify_integrity.py
+
+# Cross-check this review's feature, journey, finding and evidence indexes.
+python verify_review.py
+
+# Rerun all read-only probes. Each uses temporary stores/synthetic copies.
+python audit_probes.py --output ./probe-results-new.json
+
+# Deliberately failing safety requirements against the unchanged baseline.
+python -m pytest tests -q --tb=short
+</code></pre>
+<p>The last command is expected to exit <strong>1</strong> until the repairs are implemented: <strong>16 failed, 6 passed</strong> in this review. The separately unresolved effective-time policy is not imposed as an assumed universal failing assertion. <code>audit_probes.py</code> also accepts <code>--select R2-A01 R2-A03</code>; set <code>KEENSIGHT_BASELINE</code> before invocation to test another explicitly compatible source directory.</p>
+<p>Baseline suites are separate:</p>
+<pre><code class="language-bash">(cd baseline/collector &amp;&amp; python -m pytest -q)
+(cd baseline/canonical &amp;&amp; python -m pytest -q)
+(cd baseline/protocol &amp;&amp; python -m pytest -q)
+</code></pre>
+<p>Observed baseline: <strong>834 passed, one skipped</strong> across the three suites. New probes: <strong>23</strong>, comprising 16 safety counterexamples, one temporal-policy question and six passing controls. Working smoke journeys: <strong>8</strong>, with <strong>20</strong> separate invocations. See <code>reports/</code> for the actual outputs. Do not add these different counts together as a single runtime-coverage score.</p>
+<h2>Repairs to prioritize</h2>
+<ol>
+<li>Identity-evidence closure, current template authority, and a single publication payload.</li>
+<li>Consistent historical snapshots, generated-artifact availability, and support-count semantics.</li>
+<li>Parsing completeness, immutable import identity, candidate eligibility and invocation-level diagnostics.</li>
+<li>Shared matching/attribution policy and a genuinely enforcing module runner before service extraction.</li>
+</ol>
+<p>Keep historical decisions separate from current-use vetoes. Keep all provenance but count only qualifying independent substantive support. Splitting code into services does not repair an inconsistent boundary; pass each operation's contract tests locally first.</p>
+</section><section id="features"><div class="section-title"><span>02</span><h2>Feature map</h2></div><h1>E2E feature map and invocation boundaries</h1>
+<p>This map covers all 39 logical module IDs through 36 user-facing feature areas. It is grounded in collector 0.2.0, canonical reference 4.2.0 and the supplied product design. Features are not declared implemented merely because a schema, diagram or module name exists.</p>
+<h2>Readiness legend</h2>
+<ul>
+<li><strong>LOCAL:</strong> a narrow local operation is implemented and exercised by the offline journeys; not production sign-off.</li>
+<li><strong>REFERENCE:</strong> only synthetic/reference functions or validation are executable; no real product workflow is implied.</li>
+<li><strong>SDK_UNVERIFIED:</strong> a real adapter exists but its dependency/integration could not be run here.</li>
+<li><strong>DISABLED:</strong> the delivered entrypoint deliberately refuses the capability.</li>
+<li><strong>PROPOSED:</strong> design/contract only; no working invocation exists.</li>
+</ul>
+<p><code>walkthroughs/run_local_journeys.py</code> is a test/documentation harness, not a replacement execution engine. It makes no network requests or sends.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>User</th>
+<th>Readiness</th>
+<th>Modules</th>
+<th>Journey / callable boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM01 — Define program, audience and offer</td>
+<td>Growth lead</td>
+<td>PROPOSED</td>
+<td>GTM-01</td>
+<td>J10: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM02 — Discover and select account seeds</td>
+<td>Research operator</td>
+<td>PROPOSED</td>
+<td>GTM-02</td>
+<td>J10: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM03 — Validate rules, contracts and release metadata</td>
+<td>Engineer</td>
+<td>REFERENCE</td>
+<td>CTL-01, CTL-03</td>
+<td>J08: reference-checks</td>
+</tr>
+<tr>
+<td>FM04 — Run the synthetic scanner demonstration</td>
+<td>Engineer</td>
+<td>LOCAL</td>
+<td>CTL-02, ING-02, ING-03, FP-02</td>
+<td>J01: demo</td>
+</tr>
+<tr>
+<td>FM05 — Analyze retained HTML</td>
+<td>Research engineer</td>
+<td>LOCAL</td>
+<td>ING-02, ING-04, FP-01, FP-02</td>
+<td>J02: analyze-file</td>
+</tr>
+<tr>
+<td>FM06 — Capture an authorized website with Scrapling</td>
+<td>Collection operator</td>
+<td>SDK_UNVERIFIED</td>
+<td>ING-02, ING-03</td>
+<td>J09: scan (dependency-gated)</td>
+</tr>
+<tr>
+<td>FM07 — Render JavaScript/browser/network evidence</td>
+<td>Collection operator</td>
+<td>DISABLED</td>
+<td>ING-03</td>
+<td>J09: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM08 — Extract the 17 surfaces as an independent process</td>
+<td>Debugger</td>
+<td>LOCAL</td>
+<td>ING-04</td>
+<td>J03: extract</td>
+</tr>
+<tr>
+<td>FM09 — Match pinned rules as an independent process</td>
+<td>Rule engineer</td>
+<td>LOCAL</td>
+<td>FP-01</td>
+<td>J03: match</td>
+</tr>
+<tr>
+<td>FM10 — Inspect duplicate support and collector claim views</td>
+<td>Analyst</td>
+<td>LOCAL</td>
+<td>FP-02</td>
+<td>J01, J03, J04: resolve / claims</td>
+</tr>
+<tr>
+<td>FM11 — Verify bundle, metadata and original bytes</td>
+<td>Debugger</td>
+<td>LOCAL</td>
+<td>PLAT-01, FP-02</td>
+<td>J03, J06: check</td>
+</tr>
+<tr>
+<td>FM12 — Replay retained evidence under a selected rule release</td>
+<td>Rule engineer</td>
+<td>LOCAL</td>
+<td>ING-05</td>
+<td>J04: replay</td>
+</tr>
+<tr>
+<td>FM13 — Import the supported donor-rule subset</td>
+<td>Rule curator</td>
+<td>LOCAL</td>
+<td>FP-03</td>
+<td>J05: import-donor</td>
+</tr>
+<tr>
+<td>FM14 — Inspect recurring unknown technical features</td>
+<td>Rule curator</td>
+<td>LOCAL</td>
+<td>FP-03</td>
+<td>J05: candidates</td>
+</tr>
+<tr>
+<td>FM15 — Promote and distribute reviewed rules</td>
+<td>Rule reviewer</td>
+<td>PROPOSED</td>
+<td>FP-03, QA-01</td>
+<td>J05, J18: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM16 — Resolve production subject identity</td>
+<td>Research analyst</td>
+<td>PROPOSED</td>
+<td>KN-01</td>
+<td>J11: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM17 — Admit collector output as canonical facts</td>
+<td>Knowledge engineer</td>
+<td>PROPOSED</td>
+<td>KN-02</td>
+<td>J11: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM18 — Check canonical claim resolution and samples</td>
+<td>Knowledge engineer</td>
+<td>REFERENCE</td>
+<td>KN-03, KN-04</td>
+<td>J07: canonical validate / Python fixture API</td>
+</tr>
+<tr>
+<td>FM19 — Capture broad third-party source families</td>
+<td>Research operator</td>
+<td>PROPOSED</td>
+<td>ING-01, CTL-03</td>
+<td>J12: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM20 — Run bounded live model extraction and repair</td>
+<td>Research engineer</td>
+<td>PROPOSED</td>
+<td>AI-01</td>
+<td>J12: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM21 — Compute research priors and explicit context joins</td>
+<td>Research analyst</td>
+<td>REFERENCE</td>
+<td>RE-02, RE-03</td>
+<td>J07, J12: canonical fixture validation / Python helpers</td>
+</tr>
+<tr>
+<td>FM22 — Find comparable cases and rank lookalikes</td>
+<td>Strategy analyst</td>
+<td>PROPOSED</td>
+<td>RE-04</td>
+<td>J12: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM23 — Evaluate derivations and business conditions</td>
+<td>Analyst</td>
+<td>REFERENCE</td>
+<td>RE-01, RE-05</td>
+<td>J07, J12: reference functions, not a product CLI</td>
+</tr>
+<tr>
+<td>FM24 — Choose a supported commercial opportunity</td>
+<td>Growth operator</td>
+<td>PROPOSED</td>
+<td>COM-01</td>
+<td>J13: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM25 — Assess contact, role, endpoint and permission</td>
+<td>Sales researcher</td>
+<td>PROPOSED</td>
+<td>AUD-01</td>
+<td>J13: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM26 — Render existing reference packages</td>
+<td>Content reviewer</td>
+<td>REFERENCE</td>
+<td>COM-02</td>
+<td>J07: Bundle.render(existing_package)</td>
+</tr>
+<tr>
+<td>FM27 — Approve exact content through an authenticated workspace</td>
+<td>Reviewer</td>
+<td>PROPOSED</td>
+<td>COM-03, UX-01</td>
+<td>J13: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM28 — Export a local reference preview with idempotency</td>
+<td>Reference tester</td>
+<td>REFERENCE</td>
+<td>COM-04</td>
+<td>J07: LocalPreviewExporter via walkthrough helper</td>
+</tr>
+<tr>
+<td>FM29 — Configure campaigns and sequence ownership</td>
+<td>Sales operations</td>
+<td>PROPOSED</td>
+<td>CAM-01</td>
+<td>J14: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM30 — Enroll a contact and schedule/stop steps</td>
+<td>Sales operations</td>
+<td>PROPOSED</td>
+<td>CAM-02</td>
+<td>J14: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM31 — Dispatch and reconcile an exact authorized message</td>
+<td>Sales operations</td>
+<td>PROPOSED</td>
+<td>COM-05</td>
+<td>J15: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM32 — Route replies and immediate stop requests</td>
+<td>Sales representative</td>
+<td>PROPOSED</td>
+<td>ENG-01, COM-06</td>
+<td>J16: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM33 — Synchronize sales handoff with CRM</td>
+<td>Sales owner</td>
+<td>PROPOSED</td>
+<td>CRM-01</td>
+<td>J16: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM34 — Measure outcomes, experiments and calibration</td>
+<td>Analyst/QA</td>
+<td>PROPOSED</td>
+<td>COM-06, QA-01</td>
+<td>J18: Not implemented; no command/API to invoke</td>
+</tr>
+<tr>
+<td>FM35 — Govern evidence, bindings, changes and retention</td>
+<td>Administrator</td>
+<td>REFERENCE</td>
+<td>PLAT-02, KN-03</td>
+<td>J17: Store.revoke or Bundle.validate_change (local/reference only)</td>
+</tr>
+<tr>
+<td>FM36 — Inspect/debug individual modules and service boundaries</td>
+<td>Engineer/operator</td>
+<td>LOCAL</td>
+<td>PLAT-01, PLAT-03, UX-01</td>
+<td>J03, J06, J08, J19: ks-module and offline walkthrough harness</td>
+</tr>
+</tbody>
+</table>
+<h2>Feature outputs and limitations</h2>
+<h3>FM01 — Define program, audience and offer</h3>
+<p><strong>Expected output:</strong> Versioned ProgramDefinition/AudienceDefinition/OfferDefinition.</p>
+<p><strong>Boundary:</strong> No program CLI, API or UI exists.</p>
+<h3>FM02 — Discover and select account seeds</h3>
+<p><strong>Expected output:</strong> AccountSeed, LeadSelection, ResearchPlan.</p>
+<p><strong>Boundary:</strong> The collector accepts a URL; it does not discover the complete prospect universe or import Harvest automatically.</p>
+<h3>FM03 — Validate rules, contracts and release metadata</h3>
+<p><strong>Expected output:</strong> Validation reports and fixture signature checks.</p>
+<p><strong>Boundary:</strong> No unified release compiler or effect-enforcing runner.</p>
+<h3>FM04 — Run the synthetic scanner demonstration</h3>
+<p><strong>Expected output:</strong> ScanBundle and deduplicated claim view.</p>
+<p><strong>Boundary:</strong> Synthetic transport and fixture authority; no real Scrapling call.</p>
+<h3>FM05 — Analyze retained HTML</h3>
+<p><strong>Expected output:</strong> Stored capture, evidence, matches, observations and ScanBundle.</p>
+<p><strong>Boundary:</strong> Operator asserts source/time/subject; use a unique run per target. F09.</p>
+<h3>FM06 — Capture an authorized website with Scrapling</h3>
+<p><strong>Expected output:</strong> Artifacts, attempts, bundle or diagnostics.</p>
+<p><strong>Boundary:</strong> SDK unavailable in the audit environment; no live integration claim.</p>
+<h3>FM07 — Render JavaScript/browser/network evidence</h3>
+<p><strong>Expected output:</strong> Proposed rendered Capture and network artifacts.</p>
+<p><strong>Boundary:</strong> FETCH_STEALTH is a disabled extension point. No public browser runtime.</p>
+<h3>FM08 — Extract the 17 surfaces as an independent process</h3>
+<p><strong>Expected output:</strong> PageEvidence with per-extractor reports.</p>
+<p><strong>Boundary:</strong> Parser-loss completeness and aside-region parity need F06/F14.</p>
+<h3>FM09 — Match pinned rules as an independent process</h3>
+<p><strong>Expected output:</strong> StandaloneMatchResult.</p>
+<p><strong>Boundary:</strong> Not canonical facts; no output publication to canonical store.</p>
+<h3>FM10 — Inspect duplicate support and collector claim views</h3>
+<p><strong>Expected output:</strong> One view per claim with all support links.</p>
+<p><strong>Boundary:</strong> Historical collector view, not a current commercial use gate.</p>
+<h3>FM11 — Verify bundle, metadata and original bytes</h3>
+<p><strong>Expected output:</strong> Valid response or nonzero rejection.</p>
+<p><strong>Boundary:</strong> Offline structural-only check without --store is weaker; use trusted store verification.</p>
+<h3>FM12 — Replay retained evidence under a selected rule release</h3>
+<p><strong>Expected output:</strong> New evaluation with original observation dates.</p>
+<p><strong>Boundary:</strong> Compatible release replay verified; no recapture, model call or TTL refresh.</p>
+<h3>FM13 — Import the supported donor-rule subset</h3>
+<p><strong>Expected output:</strong> Candidate rule pack and quarantine report.</p>
+<p><strong>Boundary:</strong> No inherited approval or complete donor-corpus integration.</p>
+<h3>FM14 — Inspect recurring unknown technical features</h3>
+<p><strong>Expected output:</strong> Candidate/prevalence rows.</p>
+<p><strong>Boundary:</strong> Revoked support is not filtered from current counts: F10.</p>
+<h3>FM15 — Promote and distribute reviewed rules</h3>
+<p><strong>Expected output:</strong> Reviewed immutable fingerprint release.</p>
+<p><strong>Boundary:</strong> No complete promotion/calibration/distribution runtime.</p>
+<h3>FM16 — Resolve production subject identity</h3>
+<p><strong>Expected output:</strong> Accepted binding with exact identity evidence.</p>
+<p><strong>Boundary:</strong> Fixture bindings exist; real resolver and admission workflow do not.</p>
+<h3>FM17 — Admit collector output as canonical facts</h3>
+<p><strong>Expected output:</strong> Fact/Evidence/Execution plus admission report.</p>
+<p><strong>Boundary:</strong> Executable bridge and persistent canonical repository absent.</p>
+<h3>FM18 — Check canonical claim resolution and samples</h3>
+<p><strong>Expected output:</strong> Reference validation and decision results.</p>
+<p><strong>Boundary:</strong> Not a hosted query API; sealed/current semantics need F04.</p>
+<h3>FM19 — Capture broad third-party source families</h3>
+<p><strong>Expected output:</strong> Approved artifacts and source-specific fact drafts.</p>
+<p><strong>Boundary:</strong> 213 predicate definitions are not 213 implemented collectors.</p>
+<h3>FM20 — Run bounded live model extraction and repair</h3>
+<p><strong>Expected output:</strong> ModelCall, artifacts, repair chain, typed output.</p>
+<p><strong>Boundary:</strong> Reference checks only; generated-output consumer bug F05.</p>
+<h3>FM21 — Compute research priors and explicit context joins</h3>
+<p><strong>Expected output:</strong> Sample-bound priors and internal ContextAssessment.</p>
+<p><strong>Boundary:</strong> No live-source research job; context is not outward company proof.</p>
+<h3>FM22 — Find comparable cases and rank lookalikes</h3>
+<p><strong>Expected output:</strong> Comparison and LookalikeMatch.</p>
+<p><strong>Boundary:</strong> No vector service/index or verified causal transfer.</p>
+<h3>FM23 — Evaluate derivations and business conditions</h3>
+<p><strong>Expected output:</strong> Derived drafts and signal decisions.</p>
+<p><strong>Boundary:</strong> Minimum-support units disagree: F08. Production selectors absent.</p>
+<h3>FM24 — Choose a supported commercial opportunity</h3>
+<p><strong>Expected output:</strong> OpportunitySelection.</p>
+<p><strong>Boundary:</strong> A detected tool does not automatically prove pain or offer fit.</p>
+<h3>FM25 — Assess contact, role, endpoint and permission</h3>
+<p><strong>Expected output:</strong> ContactProfile and ContactAssessment.</p>
+<p><strong>Boundary:</strong> No contact enrichment/verification runtime.</p>
+<h3>FM26 — Render existing reference packages</h3>
+<p><strong>Expected output:</strong> Grounded text from delivered fixture templates.</p>
+<p><strong>Boundary:</strong> No arbitrary-prose proof engine or all-channel renderer.</p>
+<h3>FM27 — Approve exact content through an authenticated workspace</h3>
+<p><strong>Expected output:</strong> ReviewDecision tied to exact revision/hash.</p>
+<p><strong>Boundary:</strong> Synthetic reviews and actor grants are fixtures, not human auth/UI.</p>
+<h3>FM28 — Export a local reference preview with idempotency</h3>
+<p><strong>Expected output:</strong> Local JSON preview; repeated key reuses bytes.</p>
+<p><strong>Boundary:</strong> No remote CRM export or send; current template veto F02.</p>
+<h3>FM29 — Configure campaigns and sequence ownership</h3>
+<p><strong>Expected output:</strong> CampaignDefinition/Approval/Readiness.</p>
+<p><strong>Boundary:</strong> No campaign manager or provider configuration mutation.</p>
+<h3>FM30 — Enroll a contact and schedule/stop steps</h3>
+<p><strong>Expected output:</strong> Enrollment, StepEligibility, DeliveryIntent.</p>
+<p><strong>Boundary:</strong> No durable enrollment/scheduler runtime.</p>
+<h3>FM31 — Dispatch and reconcile an exact authorized message</h3>
+<p><strong>Expected output:</strong> Attempt, receipt, Exposure.</p>
+<p><strong>Boundary:</strong> No sender; preview/export gates do not authorize sending.</p>
+<h3>FM32 — Route replies and immediate stop requests</h3>
+<p><strong>Expected output:</strong> Conversation, assessment, stop control, follow-up.</p>
+<p><strong>Boundary:</strong> No authenticated webhook/mailbox integration.</p>
+<h3>FM33 — Synchronize sales handoff with CRM</h3>
+<p><strong>Expected output:</strong> CRMSyncIntent/Receipt and linked handoff.</p>
+<p><strong>Boundary:</strong> No connected CRM mutations performed or implemented in this package.</p>
+<h3>FM34 — Measure outcomes, experiments and calibration</h3>
+<p><strong>Expected output:</strong> Attributable measurements and reviewed promotion proposals.</p>
+<p><strong>Boundary:</strong> Tests and schemas exist; no full exposure/attribution/experiment pipeline.</p>
+<h3>FM35 — Govern evidence, bindings, changes and retention</h3>
+<p><strong>Expected output:</strong> Revocation/change validation.</p>
+<p><strong>Boundary:</strong> No hosted auth, real retention worker or restore service. F01/F10 remain.</p>
+<h3>FM36 — Inspect/debug individual modules and service boundaries</h3>
+<p><strong>Expected output:</strong> JSON outputs and per-process logs.</p>
+<p><strong>Boundary:</strong> No operator UI, distributed trace backend or general ModuleRequest runner.</p>
+<h2>Execution boundaries that must remain explicit</h2>
+<p>A call to <code>canonical/validate.py</code> checks the supplied fixture bundle. It does not run account research, create a canonical service, execute all derivations, or perform identity resolution. <code>protocol/validate_protocol.py</code> checks its shipped example and signature; it does not accept arbitrary runtime requests or provide an HTTP endpoint. <code>ks-module</code> calls are separate processes around collector functions, not the proposed ModuleRequest transport. The local reference exporter does not create review decisions or send messages.</p>
+<p>Raw observations and product/industry context stay broad. Feature activation controls what can be computed or used, not whether the schema catalog must shrink to the initial few signals.</p>
+</section><section id="journeys"><div class="section-title"><span>03</span><h2>19 user journeys</h2></div><h1>Feature walkthroughs and user journeys</h1>
+<h2>What can be invoked now</h2>
+<p>Eight local/reference journeys below were executed in 20 separate subprocesses with expected exit codes. No network/provider operation was enabled. The real static Scrapling path is dependency-gated and unverified here; native browser is disabled. All business journeys without handlers are explicitly marked PROPOSED and have no pretend command or endpoint.</p>
+<p>From the unpacked review package root:</p>
+<pre><code class="language-bash">python -m pip install -e './baseline/collector[test]'
+python -m pip install -r ./baseline/canonical/requirements.txt
+python walkthroughs/run_local_journeys.py --output ./journey-output --journey all-local
+</code></pre>
+<p>The harness also works from the source tree through PYTHONPATH without installing CLI entrypoints, provided the core dependencies already exist. It records command argv, working directory, exit code, stdout and stderr under the chosen output directory. Use a new output directory for a new review so old logs are not overwritten. The records use fixed <strong>synthetic September 14, 2026 timestamps</strong>; they do not grant current production permission.</p>
+<p><strong>Artifact inspection loop:</strong> request/command → capture metadata and bytes → surface locators → rule match → observation and support → collector claim. The next canonical admission step is missing and must not be replaced by manual renaming of fields.</p>
+<table>
+<thead>
+<tr>
+<th>Journey</th>
+<th>User goal</th>
+<th>Readiness</th>
+<th>Stages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>J01</td>
+<td>First offline run: see duplicate fingerprints become one claim</td>
+<td>LOCAL</td>
+<td>F03–F07</td>
+</tr>
+<tr>
+<td>J02</td>
+<td>Analyze an already-retained page</td>
+<td>LOCAL</td>
+<td>F02,F05–F07</td>
+</tr>
+<tr>
+<td>J03</td>
+<td>Debug extraction, matching and resolution as separate processes</td>
+<td>LOCAL</td>
+<td>F06–F07,F26</td>
+</tr>
+<tr>
+<td>J04</td>
+<td>Replay retained evidence and compare before/after</td>
+<td>LOCAL</td>
+<td>F07–F08,F11</td>
+</tr>
+<tr>
+<td>J05</td>
+<td>Inspect unknown features and import donor candidates</td>
+<td>LOCAL/PARTIAL</td>
+<td>F08</td>
+</tr>
+<tr>
+<td>J06</td>
+<td>Investigate a failed check and preserve diagnostics</td>
+<td>LOCAL/PARTIAL</td>
+<td>F05,F07,F26</td>
+</tr>
+<tr>
+<td>J07</td>
+<td>Review the canonical reference path and produce a local preview</td>
+<td>REFERENCE</td>
+<td>F09–F18,F21</td>
+</tr>
+<tr>
+<td>J08</td>
+<td>Verify the shared protocol and product design inventories</td>
+<td>REFERENCE</td>
+<td>F03,F26</td>
+</tr>
+<tr>
+<td>J09</td>
+<td>Enable and verify a real permitted static capture</td>
+<td>SDK_UNVERIFIED; BROWSER DISABLED</td>
+<td>F03–F07</td>
+</tr>
+<tr>
+<td>J10</td>
+<td>Set up a sales program and select accounts</td>
+<td>PROPOSED</td>
+<td>F00–F03</td>
+</tr>
+<tr>
+<td>J11</td>
+<td>Move collector observations into canonical, searchable knowledge</td>
+<td>PROPOSED BRIDGE</td>
+<td>F02,F09–F11</td>
+</tr>
+<tr>
+<td>J12</td>
+<td>Build enriched account research and product/industry context</td>
+<td>PROPOSED RUNTIME; REFERENCE CHECKS ONLY</td>
+<td>F12–F15</td>
+</tr>
+<tr>
+<td>J13</td>
+<td>Choose an offer, assess a contact and review supported copy</td>
+<td>PROPOSED PRODUCT; NARROW RENDERER REFERENCE</td>
+<td>F16–F18,F21</td>
+</tr>
+<tr>
+<td>J14</td>
+<td>Approve a campaign, enroll and schedule one step</td>
+<td>PROPOSED</td>
+<td>F19–F20</td>
+</tr>
+<tr>
+<td>J15</td>
+<td>Authorize, dispatch and reconcile a message</td>
+<td>PROPOSED</td>
+<td>F21–F22</td>
+</tr>
+<tr>
+<td>J16</td>
+<td>Handle replies, stop outreach and hand off to sales/CRM</td>
+<td>PROPOSED</td>
+<td>F23–F24</td>
+</tr>
+<tr>
+<td>J17</td>
+<td>Correct identity or revoke evidence/authority</td>
+<td>REFERENCE / LOCAL OWNER ONLY</td>
+<td>F26</td>
+</tr>
+<tr>
+<td>J18</td>
+<td>Measure outcomes and improve rules/templates</td>
+<td>PROPOSED</td>
+<td>F08,F25</td>
+</tr>
+<tr>
+<td>J19</td>
+<td>Run submodules separately and prepare service extraction</td>
+<td>LOCAL PROCESSES; PROPOSED SERVICES</td>
+<td>F03,F26</td>
+</tr>
+</tbody>
+</table>
+<h2>Step-by-step journey cards</h2>
+<details id="user_journeys-J01"><summary>J01 — First offline run: see duplicate fingerprints become one claim</summary><div class="card"><p><strong>Actor:</strong> Engineer. <strong>Readiness:</strong> LOCAL. <strong>Stages:</strong> F03–F07.</p>
+<p><strong>Features:</strong> FM04, FM10. <strong>Open findings:</strong> See general implementation boundaries.</p>
+<p><strong>Preconditions / inputs:</strong> The included collector examples and installed core parser dependencies. No credentials.</p>
+<ol>
+<li>List the 38 registered command IDs; this is an inventory, not all-38 live sign-off.</li>
+<li>Run the synthetic two-page demonstration with fixture transport.</li>
+<li>Inspect all 7 match records, 2 observations and 1 claim; keep the support links.</li>
+<li>Check the bundle against its trusted metadata and original blobs.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> demo-store/scan-bundle.json, claims.json, scanner.sqlite3 and retained fixture blobs.</p>
+<p><strong>Failure/hold path:</strong> A dependency or contract error produces nonzero exit. No LLM, provider, campaign or sender is called.</p>
+<p><strong>Invocation:</strong></p>
+<pre><code class="language-bash">python walkthroughs/run_local_journeys.py --output ./journey-output --journey J01
+</code></pre>
+<p><strong>Acceptance:</strong> The shipped synthetic result is 7 matches → 2 observations → 1 claim, with no combined confidence. This count is an example, not a business scoring policy.</p>
+</div></details><details id="user_journeys-J02"><summary>J02 — Analyze an already-retained page</summary><div class="card"><p><strong>Actor:</strong> Research engineer. <strong>Readiness:</strong> LOCAL. <strong>Stages:</strong> F02,F05–F07.</p>
+<p><strong>Features:</strong> FM05. <strong>Open findings:</strong> F06, F09, F14.</p>
+<p><strong>Preconditions / inputs:</strong> HTML bytes, page URL, asserted collection timestamp, explicit subject/tenant, selected rule release.</p>
+<ol>
+<li>Confirm your right to retain/process the page and record the actual collection time separately from today.</li>
+<li>Choose explicit tenant and subject identifiers and a new single-target run ID.</li>
+<li>Call analyze-file; the source is marked user-provided-snapshot.</li>
+<li>Inspect the capture, extraction reports and observation support; run the trusted-store bundle check.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> imported-store/scan-bundle.json and original-content store.</p>
+<p><strong>Failure/hold path:</strong> The importer does not verify legal company ownership. F09 means a reused run can currently mix subjects: do not reuse a run across targets. F06 affects deep/malformed HTML.</p>
+<p><strong>Invocation:</strong></p>
+<pre><code class="language-bash">python walkthroughs/run_local_journeys.py --output ./journey-output --journey J02
+</code></pre>
+<p><strong>Acceptance:</strong> No network calls. Supported observations trace to the supplied bytes; user-supplied timestamps are not independently authenticated.</p>
+</div></details><details id="user_journeys-J03"><summary>J03 — Debug extraction, matching and resolution as separate processes</summary><div class="card"><p><strong>Actor:</strong> Debugger. <strong>Readiness:</strong> LOCAL. <strong>Stages:</strong> F06–F07,F26.</p>
+<p><strong>Features:</strong> FM08, FM09, FM10, FM11, FM36. <strong>Open findings:</strong> F03, F06, F11, F14.</p>
+<p><strong>Preconditions / inputs:</strong> An existing trusted collector store and ScanBundle.</p>
+<ol>
+<li>Select a capture_id from observations or evaluated_capture_ids, not an arbitrary robots response.</li>
+<li>Run ks-module extract and inspect PageEvidence and every extractor status.</li>
+<li>Run ks-module match against those evidence records and a pinned rule pack.</li>
+<li>Run check for the whole bundle; run resolve for its historical claim view.</li>
+<li>Use IDs to follow claim → observation → support → match → surface → capture.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> page-evidence.json, matches.json, checked.json, resolved.json plus per-process logs.</p>
+<p><strong>Failure/hold path:</strong> Do not equate standalone match output with canonical Fact admission. F11 means a command-family timeline is not yet unambiguous; F03 is the publication API issue.</p>
+<p><strong>Invocation:</strong></p>
+<pre><code class="language-bash">python walkthroughs/run_local_journeys.py --output ./journey-output --journey J03
+</code></pre>
+<p><strong>Acceptance:</strong> Each process uses stored bytes and returns parseable JSON or an explicit nonzero failure. No service deployment is implied.</p>
+</div></details><details id="user_journeys-J04"><summary>J04 — Replay retained evidence and compare before/after</summary><div class="card"><p><strong>Actor:</strong> Rule engineer. <strong>Readiness:</strong> LOCAL. <strong>Stages:</strong> F07–F08,F11.</p>
+<p><strong>Features:</strong> FM10, FM12. <strong>Open findings:</strong> F04, F09.</p>
+<p><strong>Preconditions / inputs:</strong> Original store, original capture-run ID, evaluation-run ID, rule pack and evaluation as_of.</p>
+<ol>
+<li>Keep the original capture run unchanged.</li>
+<li>Choose an evaluation ID and rule release; the replay uses no transport.</li>
+<li>Run replay and compare matches, observations, rule release and capture time.</li>
+<li>Query historical collector claims under an explicit currently selected rule allowlist.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> replay.json; all original observations retain their captured timestamps.</p>
+<p><strong>Failure/hold path:</strong> Missing capture modalities require recapture; they cannot be reconstructed. F04 is a separate canonical historical-visibility defect, not a failure of this passing collector replay example.</p>
+<p><strong>Invocation:</strong></p>
+<pre><code class="language-bash">python walkthroughs/run_local_journeys.py --output ./journey-output --journey J04
+</code></pre>
+<p><strong>Acceptance:</strong> The smoke test asserts identical observations for unchanged evidence/rules. A separate control verifies a compatible changed release replays successfully.</p>
+</div></details><details id="user_journeys-J05"><summary>J05 — Inspect unknown features and import donor candidates</summary><div class="card"><p><strong>Actor:</strong> Rule curator. <strong>Readiness:</strong> LOCAL/PARTIAL. <strong>Stages:</strong> F08.</p>
+<p><strong>Features:</strong> FM13, FM14, FM15. <strong>Open findings:</strong> F10.</p>
+<p><strong>Preconditions / inputs:</strong> Retained captures, donor rows, canonical vendor mapping, reviewer policies for future promotion.</p>
+<ol>
+<li>Run candidates against the local technical index; the demo lowers min-hosts to 1 only for inspection.</li>
+<li>Import donor-shaped JSONL using an explicit vendor map.</li>
+<li>Review IMPORTED_CANDIDATE versus QUARANTINED disposition for every input row.</li>
+<li>Stop before promotion: no production approval or distribution command is implemented.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> imported-candidates.json, import-report.json and candidate-query output.</p>
+<p><strong>Failure/hold path:</strong> F10 means revoked evidence still affects unlabelled candidate counts. Never treat current output as automatically eligible promotion evidence.</p>
+<p><strong>Invocation:</strong></p>
+<pre><code class="language-bash">python walkthroughs/run_local_journeys.py --output ./journey-output --journey J05
+</code></pre>
+<p><strong>Acceptance:</strong> Automatic approvals remain zero and every row is accounted for. This is a subset adapter, not the full 739-definition donor corpus or 2,500-signature catalog.</p>
+</div></details><details id="user_journeys-J06"><summary>J06 — Investigate a failed check and preserve diagnostics</summary><div class="card"><p><strong>Actor:</strong> Engineer/operator. <strong>Readiness:</strong> LOCAL/PARTIAL. <strong>Stages:</strong> F05,F07,F26.</p>
+<p><strong>Features:</strong> FM11, FM36. <strong>Open findings:</strong> F07, F11, F12, F13.</p>
+<p><strong>Preconditions / inputs:</strong> A valid fixture store and the new audit tests.</p>
+<ol>
+<li>Make a copy of a valid bundle; do not modify original capture bytes or the database.</li>
+<li>Change one supplied metadata field in that copy and run check.</li>
+<li>Expect exit 2 and inspect stderr; the original bundle must still validate.</li>
+<li>For acquisition failures inspect attempts and run configuration with read-only SQL; do not fabricate a capture.</li>
+<li>Run the separate required-behavior suite to see the still-failing diagnostic boundaries.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> tampered-bundle.json, expected rejection logs, valid-after-rejection.json.</p>
+<p><strong>Failure/hold path:</strong> F12 currently drops start fields at attempt finalization and omits zero-capture evaluation identity; F13 rejects honest post-deadline timeout reports. These are not repaired by the passing tamper test.</p>
+<p><strong>Invocation:</strong></p>
+<pre><code class="language-bash">python walkthroughs/run_local_journeys.py --output ./journey-output --journey J06
+</code></pre>
+<p><strong>Acceptance:</strong> The deliberate tamper must fail, while original data remains valid. New safety tests are intentionally failing until code fixes land.</p>
+</div></details><details id="user_journeys-J07"><summary>J07 — Review the canonical reference path and produce a local preview</summary><div class="card"><p><strong>Actor:</strong> Reference tester. <strong>Readiness:</strong> REFERENCE. <strong>Stages:</strong> F09–F18,F21.</p>
+<p><strong>Features:</strong> FM18, FM21, FM23, FM26, FM28. <strong>Open findings:</strong> F01, F02, F04, F05, F07, F08.</p>
+<p><strong>Preconditions / inputs:</strong> The shipped canonical fixture bundle, trusted synthetic actor.fixture grant and fixture destination.</p>
+<ol>
+<li>Check canonical generated files and validate the shipped synthetic bundle.</li>
+<li>Inspect existing bindings, facts, claim resolutions, sample priors, signals and package evidence.</li>
+<li>Use the existing fixture review and gate at their fixed historical timestamps.</li>
+<li>Export a local no-send JSON preview; repeat the same idempotency key and confirm reused bytes.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> reference/reference-preview.json and one idempotent local preview JSON.</p>
+<p><strong>Failure/hold path:</strong> This is not capture-to-canonical admission, real review/authentication, contact enrichment or current production permission. F01/F02/F04/F05/F08 remain blockers for the corresponding paths.</p>
+<p><strong>Invocation:</strong></p>
+<pre><code class="language-bash">python walkthroughs/run_local_journeys.py --output ./journey-output --journey J07
+</code></pre>
+<p><strong>Acceptance:</strong> Full reference validation passes, repeated export reuses bytes, send_allowed remains false, and no collector data is silently converted to canonical facts.</p>
+</div></details><details id="user_journeys-J08"><summary>J08 — Verify the shared protocol and product design inventories</summary><div class="card"><p><strong>Actor:</strong> Integration engineer. <strong>Readiness:</strong> REFERENCE. <strong>Stages:</strong> F03,F26.</p>
+<p><strong>Features:</strong> FM03, FM36. <strong>Open findings:</strong> F13, F15.</p>
+<p><strong>Preconditions / inputs:</strong> protocol/examples and product-design definitions.</p>
+<ol>
+<li>Run the protocol fixture checker.</li>
+<li>Inspect the exact registered operation: FP-01.match with example-only payload schemas.</li>
+<li>Run the 39-module product-design inventory checker.</li>
+<li>Compare desired deployment with the proposed eight ownership groups; do not deploy the checker as a worker.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> Protocol/example consistency and design-inventory reports.</p>
+<p><strong>Failure/hold path:</strong> F13/F15 show the checker still lacks correct failure/effect semantics. No arbitrary operation handler, auth server or HTTP endpoint is supplied.</p>
+<p><strong>Invocation:</strong></p>
+<pre><code class="language-bash">python walkthroughs/run_local_journeys.py --output ./journey-output --journey J08
+</code></pre>
+<p><strong>Acceptance:</strong> Passing reports explicitly remain fixture/design checks. Unknown implementation names are not treated as supported modules.</p>
+</div></details><details id="user_journeys-J09"><summary>J09 — Enable and verify a real permitted static capture</summary><div class="card"><p><strong>Actor:</strong> Collection operator. <strong>Readiness:</strong> SDK_UNVERIFIED; BROWSER DISABLED. <strong>Stages:</strong> F03–F07.</p>
+<p><strong>Features:</strong> FM06, FM07. <strong>Open findings:</strong> F06, F12.</p>
+<p><strong>Preconditions / inputs:</strong> Permitted target, installed pinned SDK, source-purpose approval, bounded ScanConfig and candidate-only rules.</p>
+<ol>
+<li>Install the live extra in an environment that can obtain Scrapling 0.4.15.</li>
+<li>Require the SDK import to succeed before running test_live_integration.py; a skipped test is not sign-off.</li>
+<li>Run the controlled local HTTP fixture integration before an authorized public target.</li>
+<li>Use the candidate-only live rule example; inspect limits, redirects, failures and coverage.</li>
+<li>Keep browser capture disabled until egress, cookies, resources and cancellation have their own verified boundary.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> Real attempts, artifacts and scan bundle only after actual integration succeeds.</p>
+<p><strong>Failure/hold path:</strong> No live call was made in this iteration. F06/F12/F14 must be understood; never bypass rate limits or source restrictions to make a test green. Browser has no working default.</p>
+<p><strong>Invocation:</strong></p>
+<pre><code class="language-bash">python -m pip install -e './baseline/collector[live,test]'
+python -c &quot;from scrapling.fetchers import FetcherSession; from importlib.metadata import version; assert version('scrapling') == '0.4.15'&quot;
+(cd baseline/collector &amp;&amp; python -m pytest -q tests/test_live_integration.py)
+</code></pre>
+<p><strong>Acceptance:</strong> Require actual execution (not skip), then real capture within declared policy. User-supplied target identity is still not canonical ownership evidence.</p>
+</div></details><details id="user_journeys-J10"><summary>J10 — Set up a sales program and select accounts</summary><div class="card"><p><strong>Actor:</strong> Growth lead. <strong>Readiness:</strong> PROPOSED. <strong>Stages:</strong> F00–F03.</p>
+<p><strong>Features:</strong> FM01, FM02. <strong>Open findings:</strong> See general implementation boundaries.</p>
+<p><strong>Preconditions / inputs:</strong> Program/audience/offer definitions, seed origin, current account/CRM exclusions and trusted principal.</p>
+<ol>
+<li>Define services, audience, geography, exclusions, permitted sources and budgets.</li>
+<li>Approve a versioned program and derive a research plan.</li>
+<li>Import/discover seeds and deduplicate account identities without turning fit criteria into facts.</li>
+<li>Authorize a bounded run with a pinned capability profile.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> Program revision, AccountSeed, LeadSelection, ResearchPlan, IntakeRequest and BatchRun.</p>
+<p><strong>Failure/hold path:</strong> No program UI or seed-selection handler exists. The one-URL collector is not an account-discovery engine.</p>
+<p><strong>Invocation:</strong> No executable product command/API is implemented for this journey. The steps above are implementation acceptance requirements, not a simulated successful run. Related fixture or local checks are identified separately.</p>
+<p><strong>Acceptance:</strong> Implement tests for exclusions, provenance, identity ambiguity, budget denial and zero eligible accounts before enabling this journey.</p>
+</div></details><details id="user_journeys-J11"><summary>J11 — Move collector observations into canonical, searchable knowledge</summary><div class="card"><p><strong>Actor:</strong> Knowledge engineer. <strong>Readiness:</strong> PROPOSED BRIDGE. <strong>Stages:</strong> F02,F09–F11.</p>
+<p><strong>Features:</strong> FM16, FM17. <strong>Open findings:</strong> F01, F03, F07, F14, F16.</p>
+<p><strong>Preconditions / inputs:</strong> Collector observations/support, canonical predicate/source release and accepted identity evidence.</p>
+<ol>
+<li>Read the complete ScanBundle, not just host priority or one claim row.</li>
+<li>Verify successful producers, original captures, subject bindings and typed predicate mappings.</li>
+<li>Admit one captured observation with all its supports and exact provenance.</li>
+<li>Resolve complete claim groups; separate historical and current visibility.</li>
+<li>Publish a searchable knowledge result even when no commercial rule fires.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> Canonical Fact/Evidence/Execution plus admission report, ClaimResolution and InputSnapshot.</p>
+<p><strong>Failure/hold path:</strong> No executable production bridge or persistent canonical API exists. F01/F03/F04/F07/F09/F14 must be closed before the integration is trusted.</p>
+<p><strong>Invocation:</strong> No executable product command/API is implemented for this journey. The steps above are implementation acceptance requirements, not a simulated successful run. Related fixture or local checks are identified separately.</p>
+<p><strong>Acceptance:</strong> A real stored capture traverses admission without manual fixture editing; missing identity, stale/candidate/conflicting evidence and zero results are handled honestly.</p>
+</div></details><details id="user_journeys-J12"><summary>J12 — Build enriched account research and product/industry context</summary><div class="card"><p><strong>Actor:</strong> Research analyst. <strong>Readiness:</strong> PROPOSED RUNTIME; REFERENCE CHECKS ONLY. <strong>Stages:</strong> F12–F15.</p>
+<p><strong>Features:</strong> FM19, FM20, FM21, FM22, FM23. <strong>Open findings:</strong> F05, F08, F16.</p>
+<p><strong>Preconditions / inputs:</strong> Permitted source records, InputSnapshot, versioned functions, sample/support policies and context rules.</p>
+<ol>
+<li>Select approved source families and capture relevant hiring, technology, review, traffic, registry or publication artifacts.</li>
+<li>Run typed extraction; any model task retains original I/O and bounded repair history.</li>
+<li>Create samples with explicit eligible, excluded and unclassified members.</li>
+<li>Compute priors and join them through declared product/industry links.</li>
+<li>Run enabled derivations/signals over pinned complete claim groups.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> Typed facts, sample-bound priors, ContextAssessment, derivations and SignalEvaluation.</p>
+<p><strong>Failure/hold path:</strong> The current reference bundle illustrates records but does not execute the broad live flow. F05/F08/F16 require consistent decisions; context cannot become company-specific proof.</p>
+<p><strong>Invocation:</strong> No executable product command/API is implemented for this journey. The steps above are implementation acceptance requirements, not a simulated successful run. Related fixture or local checks are identified separately.</p>
+<p><strong>Acceptance:</strong> A product-prior change or deleted denominator changes its eligibility. Failed model calls produce honest uncertainty. Duplicate origins cannot inflate support.</p>
+</div></details><details id="user_journeys-J13"><summary>J13 — Choose an offer, assess a contact and review supported copy</summary><div class="card"><p><strong>Actor:</strong> Growth operator/reviewer. <strong>Readiness:</strong> PROPOSED PRODUCT; NARROW RENDERER REFERENCE. <strong>Stages:</strong> F16–F18,F21.</p>
+<p><strong>Features:</strong> FM24, FM25, FM27. <strong>Open findings:</strong> F02, F08, F16.</p>
+<p><strong>Preconditions / inputs:</strong> Opportunity, account proof, contact assessment, approved template and trusted reviewer.</p>
+<ol>
+<li>Select a supported service-line opportunity; allow no-opportunity as a valid result.</li>
+<li>Resolve relevant person/account relation, role, endpoint status and permission separately.</li>
+<li>Render approved clauses using eligible account evidence; context may guide a neutral question only.</li>
+<li>Review the exact message revision and hash with an authenticated reviewer.</li>
+<li>Obtain a fresh use decision for its specific purpose and destination.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> OpportunitySelection, ContactAssessment, GroundedClause, OutreachPackage, ReviewDecision and gate.</p>
+<p><strong>Failure/hold path:</strong> Live contacts, opportunity orchestration, review UI and authenticated service are not implemented. Reference preview is J07. Unknown maturity blocks maturity claims, not every neutral question.</p>
+<p><strong>Invocation:</strong> No executable product command/API is implemented for this journey. The steps above are implementation acceptance requirements, not a simulated successful run. Related fixture or local checks are identified separately.</p>
+<p><strong>Acceptance:</strong> Changed content invalidates old review; demoted template blocks current use; incomplete contact assessment holds contact-specific export.</p>
+</div></details><details id="user_journeys-J14"><summary>J14 — Approve a campaign, enroll and schedule one step</summary><div class="card"><p><strong>Actor:</strong> Sales operations. <strong>Readiness:</strong> PROPOSED. <strong>Stages:</strong> F19–F20.</p>
+<p><strong>Features:</strong> FM29, FM30. <strong>Open findings:</strong> See general implementation boundaries.</p>
+<p><strong>Preconditions / inputs:</strong> Approved program/campaign, assessed contact, reviewed content and restrictions.</p>
+<ol>
+<li>Define allowed audience, templates, sequence steps, sender limits, timezone and stop rules.</li>
+<li>Choose exactly one scheduling authority: local application or provider.</li>
+<li>Approve campaign readiness separately from reviewing one account message.</li>
+<li>Enroll an eligible contact with deduplication and cross-campaign frequency limits.</li>
+<li>Produce a due DeliveryIntent; do not send just because a package exists.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> CampaignApproval, Enrollment, StepEligibility and stable DeliveryIntent.</p>
+<p><strong>Failure/hold path:</strong> No campaign, enrollment or schedule-management CLI/API exists. Do not invent provider campaign IDs or activation commands.</p>
+<p><strong>Invocation:</strong> No executable product command/API is implemented for this journey. The steps above are implementation acceptance requirements, not a simulated successful run. Related fixture or local checks are identified separately.</p>
+<p><strong>Acceptance:</strong> Duplicate enrollment is idempotent, step progression has one owner, reply/opt-out/customer exclusions hold subsequent steps.</p>
+</div></details><details id="user_journeys-J15"><summary>J15 — Authorize, dispatch and reconcile a message</summary><div class="card"><p><strong>Actor:</strong> Sales operations. <strong>Readiness:</strong> PROPOSED. <strong>Stages:</strong> F21–F22.</p>
+<p><strong>Features:</strong> FM31. <strong>Open findings:</strong> See general implementation boundaries.</p>
+<p><strong>Preconditions / inputs:</strong> DeliveryIntent, exact message, authenticated authority and a dedicated send gate.</p>
+<ol>
+<li>Resolve the exact reviewed message and stable logical send identity.</li>
+<li>Check current contact, campaign, enrollment, source rights, restrictions and sender readiness.</li>
+<li>Commit intent/outbox state before external dispatch.</li>
+<li>Record acceptance, rejection or uncertainty.</li>
+<li>Reconcile possible acceptance before retry; do not equate acceptance with inbox delivery.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> Delivery attempt, receipt, Exposure or unresolved reconciliation state.</p>
+<p><strong>Failure/hold path:</strong> No sender exists. Current canonical preview/contact export purposes are not send authority. New attempts and CRM retries never authorize duplicate sends.</p>
+<p><strong>Invocation:</strong> No executable product command/API is implemented for this journey. The steps above are implementation acceptance requirements, not a simulated successful run. Related fixture or local checks are identified separately.</p>
+<p><strong>Acceptance:</strong> Provider timeout after acceptance results in one reconciled send, not a blind retry. Late restrictions stop subsequent actions with actual chronology retained.</p>
+</div></details><details id="user_journeys-J16"><summary>J16 — Handle replies, stop outreach and hand off to sales/CRM</summary><div class="card"><p><strong>Actor:</strong> Sales representative. <strong>Readiness:</strong> PROPOSED. <strong>Stages:</strong> F23–F24.</p>
+<p><strong>Features:</strong> FM32, FM33. <strong>Open findings:</strong> See general implementation boundaries.</p>
+<p><strong>Preconditions / inputs:</strong> Verified event, permitted content, contact/exposure/enrollment IDs and current restrictions.</p>
+<ol>
+<li>Authenticate and deduplicate inbound events; correlate the exposure and conversation.</li>
+<li>Apply immediate pause/stop/restriction rules before optional model classification.</li>
+<li>Route interest, questions, objections, out-of-office and referrals appropriately.</li>
+<li>Create human response/sales-handoff tasks.</li>
+<li>Synchronize CRM with field ownership and idempotent receipts; reconcile retries without resending outreach.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> Conversation, ReplyAssessment, EnrollmentControl, follow-up/SalesHandoff and CRM sync receipt.</p>
+<p><strong>Failure/hold path:</strong> No mailbox/webhook/CRM runtime exists here. An opt-out cannot wait for analytics or a model. Referrals create candidates, not automatic outreach permission.</p>
+<p><strong>Invocation:</strong> No executable product command/API is implemented for this journey. The steps above are implementation acceptance requirements, not a simulated successful run. Related fixture or local checks are identified separately.</p>
+<p><strong>Acceptance:</strong> Duplicate events do not duplicate effects; CRM failure retries only the CRM action; uncorrelated events are quarantined without invented exposure links.</p>
+</div></details><details id="user_journeys-J17"><summary>J17 — Correct identity or revoke evidence/authority</summary><div class="card"><p><strong>Actor:</strong> Administrator. <strong>Readiness:</strong> REFERENCE / LOCAL OWNER ONLY. <strong>Stages:</strong> F26.</p>
+<p><strong>Features:</strong> FM35. <strong>Open findings:</strong> F01, F02, F04, F10.</p>
+<p><strong>Preconditions / inputs:</strong> Trusted configured actor (reference only), exact target, reason, effective/recorded chronology and policy.</p>
+<ol>
+<li>Identify the exact fact, binding, artifact, template or source and its dependencies.</li>
+<li>Authorize the requested correction/revocation with typed target and tenant ownership.</li>
+<li>Keep history while blocking current use and invalidating affected projections.</li>
+<li>Separate historical reads from current action permission.</li>
+<li>Verify all dependent research, identity and content surfaces report the changed state.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> Reference ChangeRecord validation or local collector capture revocation; production workflow still absent.</p>
+<p><strong>Failure/hold path:</strong> F01 binding support, F02 template gate and F10 research candidates are incomplete. Hosted auth/grant management/deletion workers remain unimplemented. Historical metadata retention is policy-specific.</p>
+<p><strong>Invocation:</strong> No executable product command/API is implemented for this journey. The steps above are implementation acceptance requirements, not a simulated successful run. Related fixture or local checks are identified separately.</p>
+<p><strong>Acceptance:</strong> Required-behavior tests for F01/F02/F10/F04 must pass before presenting a complete revoke/correct workflow.</p>
+</div></details><details id="user_journeys-J18"><summary>J18 — Measure outcomes and improve rules/templates</summary><div class="card"><p><strong>Actor:</strong> QA/analyst. <strong>Readiness:</strong> PROPOSED. <strong>Stages:</strong> F08,F25.</p>
+<p><strong>Features:</strong> FM15, FM34. <strong>Open findings:</strong> See general implementation boundaries.</p>
+<p><strong>Preconditions / inputs:</strong> Valid exposures/outcomes, evaluation sets, release versions and measurement policies.</p>
+<ol>
+<li>Join verified outcomes to deduplicated exposures and sample eligible mature windows.</li>
+<li>Keep denominator, attribution, exclusions and missingness explicit.</li>
+<li>Measure detector/extractor quality separately from outreach conversion.</li>
+<li>Evaluate changes on appropriate gold sets or approved experiments.</li>
+<li>Review promotion proposals and publish a new immutable release for later runs.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> Descriptive measurement facts, QualityAssessment and PromotionProposal.</p>
+<p><strong>Failure/hold path:</strong> No full metric/experiment/promotion runtime exists. Success rates cannot turn weak evidence into truth; observational comparison is not causal proof.</p>
+<p><strong>Invocation:</strong> No executable product command/API is implemented for this journey. The steps above are implementation acceptance requirements, not a simulated successful run. Related fixture or local checks are identified separately.</p>
+<p><strong>Acceptance:</strong> Retries, duplicate replies, immature response windows, selection bias and source-origin duplication are covered by acceptance tests before activation.</p>
+</div></details><details id="user_journeys-J19"><summary>J19 — Run submodules separately and prepare service extraction</summary><div class="card"><p><strong>Actor:</strong> Integration engineer. <strong>Readiness:</strong> LOCAL PROCESSES; PROPOSED SERVICES. <strong>Stages:</strong> F03,F26.</p>
+<p><strong>Features:</strong> FM36. <strong>Open findings:</strong> F03, F11, F12, F13, F15.</p>
+<p><strong>Preconditions / inputs:</strong> Existing package, typed contract plans, service ownership map, scoped storage and release locks.</p>
+<ol>
+<li>Use J03 for extract/match/check/resolve in separate Python processes.</li>
+<li>Retain one owner for publication, canonical admission, enrollment/send intent and restrictions.</li>
+<li>Add a real enforcing runner and trusted record resolver before remote workers.</li>
+<li>Close operation modes/effects, timeout diagnostics, auth, idempotency and transaction boundaries.</li>
+<li>Extract a service only for a demonstrated isolation/scaling reason; do not deploy one service per cheap extractor.</li>
+</ol>
+<p><strong>Outputs to inspect:</strong> Today: standalone JSON artifacts/logs. Later: authorized worker requests/results with tested boundary parity.</p>
+<p><strong>Failure/hold path:</strong> There is no HTTP endpoint, broker, distributed tracing backend or generic task dispatcher. Shared SQLite across machines is not a service architecture.</p>
+<p><strong>Invocation:</strong> No executable product command/API is implemented for this journey. The steps above are implementation acceptance requirements, not a simulated successful run. Related fixture or local checks are identified separately.</p>
+<p><strong>Acceptance:</strong> Pure outputs agree across in-process and worker execution. F03/F11/F12/F13/F15 must be closed before wrapper behavior is relied on.</p>
+<h2>Direct commands behind J03</h2>
+<p>After J01 creates <code>journey-output/demo-store</code>, these are the actual collector entrypoints (after editable installation). They are separate processes, not services:</p>
+<pre><code class="language-bash"># Select a technical capture that actually supports an observation.
+CAPTURE_ID=$(python -c 'import json; print(json.load(open(&quot;journey-output/demo-store/scan-bundle.json&quot;))[&quot;observations&quot;][0][&quot;capture_id&quot;])')
+ks-module extract --tenant demo --capture-id &quot;$CAPTURE_ID&quot;   --store ./journey-output/demo-store --output ./journey-output/page-evidence.json
+ks-module match --page ./journey-output/page-evidence.json   --rules ./baseline/collector/examples/demo-rules.json   --store ./journey-output/demo-store --output ./journey-output/matches.json
+ks-module check --bundle ./journey-output/demo-store/scan-bundle.json   --store ./journey-output/demo-store --output ./journey-output/checked.json
+ks-module resolve --bundle ./journey-output/demo-store/scan-bundle.json   --as-of 2026-09-14T12:00:00Z --store ./journey-output/demo-store   --output ./journey-output/resolved.json
+</code></pre>
+<p>For reference validation, use <code>(cd baseline/canonical &amp;&amp; python validate.py)</code>. It validates the included bundle; it does not accept a collector bundle or run the missing canonical service.</p>
+<p>For the protocol, use <code>(cd baseline/protocol &amp;&amp; python validate_protocol.py)</code>. Only the shipped example operation/signature is registered. There is no working <code>ks-program</code>, <code>ks-enroll</code>, <code>ks-send</code>, generic <code>--module KN-02</code>, or HTTP service command in this package.</p>
+<h2>Read-only diagnostics for an existing local store</h2>
+<p>This inspection does not update attempts or claims:</p>
+<pre><code class="language-bash">python - &lt;&lt;'PYREAD'
+from pathlib import Path
+import sqlite3,json
+path=Path('journey-output/demo-store/scanner.sqlite3').resolve()
+with sqlite3.connect(path.as_uri()+'?mode=ro',uri=True) as db:
+    db.row_factory=sqlite3.Row
+    for row in db.execute('SELECT tenant,run_id,request_key,status,payload FROM attempts ORDER BY rowid'):
+        r=dict(row);r['payload']=json.loads(r['payload']);print(json.dumps(r))
+PYREAD
+</code></pre>
+<p>Local filesystem ownership is trusted. These CLI flags and reads are not authentication or multi-tenant authorization.</p>
+<h2>Separate-process acceptance versus service deployment</h2>
+<p>The evidence here verifies local process invocation with a shared local owner. A service must additionally authenticate callers, resolve scoped immutable records, enforce exact operation/effect signatures, preserve successful/failed target manifests, and publish one consistent payload transactionally. The original service extraction document remains in <code>baseline/docs/SERVICE_EXTRACTION.md</code>; this audit adds blockers F03, F11, F12, F13 and F15 to its pre-service gate.</p>
+</div></details></section><section id="stages"><div class="section-title"><span>04</span><h2>27 implementation stages</h2></div><h1>Expanded implementation walkthrough: 27 stages with feature/invocation links</h1>
+<p>Original F00–F26 titles, owners, inputs and outputs are preserved from the supplied stage_cards.json. New sections below link user-facing features, callable boundaries and this audit. No missing handler is silently treated as implemented.</p>
+<details id="updated_stage_walkthroughs-F00"><summary>F00 — Define program and offer</summary><div class="card"><p><strong>Owners:</strong> GTM-01</p>
+<p><strong>Original stated inputs:</strong> ProgramDefinition, AudienceDefinition, OfferDefinition</p>
+<p><strong>Original stated outputs:</strong> Program revision and capability-profile reference</p>
+<p><strong>Processing:</strong> Check owner approval, geography, source purposes, service-line prerequisites, exclusions and budget. Freeze the revision used for a selection run.</p>
+<p><strong>Transaction:</strong> One configuration revision commits atomically. No account facts or provider calls are produced.</p>
+<p><strong>Failure path:</strong> Reject an invalid program; never translate an audience criterion into a fact that a prospect satisfies it.</p>
+<p><strong>Identity:</strong> (tenant, program_id, revision, content_hash)</p>
+<p><strong>Original critique question:</strong> Which exclusions and offers are mandatory, and who can approve a change?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM01: Define program, audience and offer</td>
+<td>PROPOSED</td>
+<td>No implementation; J10</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J10. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> No new reproduced issue for this stage; this is not completeness sign-off.</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F01"><summary>F01 — Source and select account seeds</summary><div class="card"><p><strong>Owners:</strong> GTM-02</p>
+<p><strong>Original stated inputs:</strong> Program revision; CSV/Harvest or approved source records; existing CRMAccountView</p>
+<p><strong>Original stated outputs:</strong> AccountSeed, LeadSelection, ResearchPlan, IntakeRequest</p>
+<p><strong>Processing:</strong> Preserve original source and external IDs. Normalize provisional targets. Deduplicate seeds without assuming domain ownership. Record fit and exclusion decisions against their input snapshot.</p>
+<p><strong>Transaction:</strong> Commit seed provenance and selection decisions together. Discovery calls, when enabled, are separate acquisition attempts.</p>
+<p><strong>Failure path:</strong> Unresolved account or stale relevant CRM exclusion becomes HOLD, not invented identity or a lost seed.</p>
+<p><strong>Identity:</strong> (tenant, source_namespace, external_record, revision, program_revision)</p>
+<p><strong>Original critique question:</strong> What constitutes the same account: legal entity, location, brand or franchisee?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM02: Discover and select account seeds</td>
+<td>PROPOSED</td>
+<td>No implementation; J10</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J10. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> No new reproduced issue for this stage; this is not completeness sign-off.</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F02"><summary>F02 — Bind subject and permitted scope</summary><div class="card"><p><strong>Owners:</strong> KN-01</p>
+<p><strong>Original stated inputs:</strong> Provisional target; existing subjects; literal identity evidence</p>
+<p><strong>Original stated outputs:</strong> Subject, SubjectBinding, resolved or unresolved target</p>
+<p><strong>Processing:</strong> Resolve organization/location/person/product/industry separately. Require evidence for website ownership and relationships. Keep aliases and external IDs namespaced. Redirect/canonical tags are claims, not automatic ownership proof.</p>
+<p><strong>Transaction:</strong> Subject and accepted binding decisions commit under one owner. Preserve rejected and ambiguous candidates.</p>
+<p><strong>Failure path:</strong> Ambiguity blocks account-specific admission/copy but may still allow a bounded diagnostic capture request.</p>
+<p><strong>Identity:</strong> (tenant, candidate_identity, binding_policy, evidence_digest)</p>
+<p><strong>Original critique question:</strong> When may a multi-location domain support organization-wide conclusions?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM16: Resolve production subject identity</td>
+<td>PROPOSED</td>
+<td>No implementation; J11</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J11. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> F01 — Identity-binding evidence is outside eligibility/provenance closure</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F03"><summary>F03 — Authorize and pin execution</summary><div class="card"><p><strong>Owners:</strong> CTL-01, CTL-02, CTL-03</p>
+<p><strong>Original stated inputs:</strong> IntakeRequest; trusted principal; profile; installed implementation manifest</p>
+<p><strong>Original stated outputs:</strong> ReleaseLock, BatchRun, authorized context, bounded work specification</p>
+<p><strong>Processing:</strong> Resolve exact schemas/functions/rules/mappings and allowed operations. Verify acyclic dependency closure including self-edges. Obtain tenant and permissions from trusted local configuration or authentication, not caller text.</p>
+<p><strong>Transaction:</strong> Persist run configuration and idempotency identity before scheduling. The initial runner is sequential, not distributed.</p>
+<p><strong>Failure path:</strong> Missing implementation or incompatible schema is a startup failure. Disabled capabilities are recorded as disabled, not false business conditions.</p>
+<p><strong>Identity:</strong> (tenant, logical_request, normalized_config_hash, release_lock)</p>
+<p><strong>Original critique question:</strong> Which operations must fail the whole target rather than return a partial knowledge result?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM03: Validate rules, contracts and release metadata</td>
+<td>REFERENCE</td>
+<td>reference-checks; J08</td>
+</tr>
+<tr>
+<td>FM04: Run the synthetic scanner demonstration</td>
+<td>LOCAL</td>
+<td>demo; J01</td>
+</tr>
+<tr>
+<td>FM19: Capture broad third-party source families</td>
+<td>PROPOSED</td>
+<td>No implementation; J12</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J01, J08, J12. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> F05 — Generated-artifact handoff is accepted by one validator and rejected by another; F09 — Retained-file import does not pin subject identity in run configuration; F12 — No-byte failures lose invocation details and have no persisted evaluation manifest; F13 — Protocol rejects an honest timeout failure reported after its deadline; F15 — The protocol fixture does not constrain mode/effects against operation parameters</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F04"><summary>F04 — Plan bounded Scrapling acquisition</summary><div class="card"><p><strong>Owners:</strong> ING-02</p>
+<p><strong>Original stated inputs:</strong> Target origin; robots/source policy; previous capture disposition; budget</p>
+<p><strong>Original stated outputs:</strong> ScanPlan and per-resource acquisition requests</p>
+<p><strong>Processing:</strong> Normalize URL. Apply origin policy to seeds, sitemap entries, redirects and probes. Rank requested templates. Budget attempts, not successes; count metadata and redirects. Do not submit forms or authenticate into public portals.</p>
+<p><strong>Transaction:</strong> Persist request identity before execution; a PENDING prior attempt is crash uncertainty. Resume cannot reset the budget.</p>
+<p><strong>Failure path:</strong> Malformed discoveries become diagnostics. Robots denial or cooldown prevents content capture; 429 is not a reason to bypass controls.</p>
+<p><strong>Identity:</strong> (tenant, capture_run, normalized_URL, capture_mode)</p>
+<p><strong>Original critique question:</strong> Is eight top-level attempts an acceptable fast-profile limit, and what triggers an expanded profile?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM04: Run the synthetic scanner demonstration</td>
+<td>LOCAL</td>
+<td>demo; J01</td>
+</tr>
+<tr>
+<td>FM05: Analyze retained HTML</td>
+<td>LOCAL</td>
+<td>analyze-file; J02</td>
+</tr>
+<tr>
+<td>FM06: Capture an authorized website with Scrapling</td>
+<td>SDK_UNVERIFIED</td>
+<td>scan (dependency-gated); J09</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J01, J02, J09. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> F09 — Retained-file import does not pin subject identity in run configuration</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F05"><summary>F05 — Capture response or honest failure</summary><div class="card"><p><strong>Owners:</strong> ING-03</p>
+<p><strong>Original stated inputs:</strong> One approved request; transport policy; attempt budget</p>
+<p><strong>Original stated outputs:</strong> AcquisitionAttempt; Capture; original blob; headers; limitations</p>
+<p><strong>Processing:</strong> Use one checked static request, with explicit redirects/retries outside the SDK. Retain approved bytes and scrubbed headers. Bind capture metadata to the trusted stored record. A denied/no-byte request gets a diagnostic, not an empty response.</p>
+<p><strong>Transaction:</strong> Finalize blob before reference commit. Orphan blobs can be cleaned up; positive output cannot reference missing bytes. Attempts and response time remain distinct from evaluation time.</p>
+<p><strong>Failure path:</strong> Timeout, rate limit, body truncation, network denial or unavailable SDK records failure/incomplete status. Browser remains disabled until its separate egress and resource contract is tested.</p>
+<p><strong>Identity:</strong> (tenant, capture_run, request_key); capture ID does not collapse distinct observations by body hash</p>
+<p><strong>Original critique question:</strong> What response modalities and retention classes are permitted per source?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM04: Run the synthetic scanner demonstration</td>
+<td>LOCAL</td>
+<td>demo; J01</td>
+</tr>
+<tr>
+<td>FM06: Capture an authorized website with Scrapling</td>
+<td>SDK_UNVERIFIED</td>
+<td>scan (dependency-gated); J09</td>
+</tr>
+<tr>
+<td>FM07: Render JavaScript/browser/network evidence</td>
+<td>DISABLED</td>
+<td>No implementation; J09</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J01, J09. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> F12 — No-byte failures lose invocation details and have no persisted evaluation manifest</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F06"><summary>F06 — Extract evidence surfaces</summary><div class="card"><p><strong>Owners:</strong> ING-04</p>
+<p><strong>Original stated inputs:</strong> Trusted Capture and retained bytes; parser release</p>
+<p><strong>Original stated outputs:</strong> PageEvidence, Surface records, per-extractor CommandResult</p>
+<p><strong>Processing:</strong> Decode with pinned BOM/transport/declaration/fallback policy. Run all applicable extraction functions. Preserve element context, raw JSON-LD, parsed subjects, errors, node-local attributes and surface completeness. Label static prose as not computed CSS visibility.</p>
+<p><strong>Transaction:</strong> No canonical business writes. Standalone output is a typed evidence artifact. Metadata and extraction can be verified by recomputing against original bytes.</p>
+<p><strong>Failure path:</strong> A failed extractor emits diagnostics without positive surfaces. Item/text limits are PARTIAL. An empty complete extraction is distinct from an unperformed check.</p>
+<p><strong>Identity:</strong> (capture_id, parser_release, extractor_parameters)</p>
+<p><strong>Original critique question:</strong> Which surface limits are safe for our target-site sizes?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM05: Analyze retained HTML</td>
+<td>LOCAL</td>
+<td>analyze-file; J02</td>
+</tr>
+<tr>
+<td>FM08: Extract the 17 surfaces as an independent process</td>
+<td>LOCAL</td>
+<td>extract; J03</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J02, J03. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> F06 — HTML recovery can silently truncate the parse while reporting complete detection; F14 — Collector and canonical matcher disagree on aside-region semantics</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F07"><summary>F07 — Match, preserve support and consolidate</summary><div class="card"><p><strong>Owners:</strong> FP-01, FP-02</p>
+<p><strong>Original stated inputs:</strong> Page/host evidence; immutable rule pack; canonical product mapping</p>
+<p><strong>Original stated outputs:</strong> All Match records; Observation; SupportLink; ClaimView; ScanBundle</p>
+<p><strong>Processing:</strong> Evaluate declared surfaces, alternatives and correlation scope. Preserve each rule/element support, but make one observation per captured claim/value. Keep separate pages/scans as history. Do not combine authored confidence or count overlapping detectors as independent origins.</p>
+<p><strong>Transaction:</strong> Validate full candidate bundle before atomic publication of findings, research features and replay-selection manifest. Raw capture diagnostics may survive failure; supported claims must not.</p>
+<p><strong>Failure path:</strong> No pages is NOT_EVALUATED. Required truncated surface is PARTIAL, not ordinary NO_MATCH. Conflicting values stay conflict. Gates/scores affect selection, never source authority.</p>
+<p><strong>Identity:</strong> match=(semantic_rule_digest,release,capture,surface,branch); observation excludes rule ID</p>
+<p><strong>Original critique question:</strong> Are presence, mention, provider report and verified capability kept separate for each imported rule?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM04: Run the synthetic scanner demonstration</td>
+<td>LOCAL</td>
+<td>demo; J01</td>
+</tr>
+<tr>
+<td>FM05: Analyze retained HTML</td>
+<td>LOCAL</td>
+<td>analyze-file; J02</td>
+</tr>
+<tr>
+<td>FM09: Match pinned rules as an independent process</td>
+<td>LOCAL</td>
+<td>match; J03</td>
+</tr>
+<tr>
+<td>FM10: Inspect duplicate support and collector claim views</td>
+<td>LOCAL</td>
+<td>resolve / claims; J01, J03, J04</td>
+</tr>
+<tr>
+<td>FM11: Verify bundle, metadata and original bytes</td>
+<td>LOCAL</td>
+<td>check; J03, J06</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J01, J02, J03, J04, J06. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> F03 — Publication validates one payload and can persist a different argument set; F06 — HTML recovery can silently truncate the parse while reporting complete detection; F09 — Retained-file import does not pin subject identity in run configuration; F11 — Contradictory duplicate command outcomes are accepted; F14 — Collector and canonical matcher disagree on aside-region semantics</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F08"><summary>F08 — Review dynamic fingerprint candidates</summary><div class="card"><p><strong>Owners:</strong> FP-03</p>
+<p><strong>Original stated inputs:</strong> Unknown technical features; bounded distinct-site samples; donor rows</p>
+<p><strong>Original stated outputs:</strong> Candidate records, quarantine report, review proposal, next immutable rule release</p>
+<p><strong>Processing:</strong> Normalize stable technical residues and count sites without counting repeated visits as new sites. Retain every donor row with disposition. A reviewer/model may propose a definition; only explicit approval after fixture/calibration checks can change production eligibility.</p>
+<p><strong>Transaction:</strong> The active scan never rewrites its pinned rule release. Technical index is rebuildable, not a second canonical fact store.</p>
+<p><strong>Failure path:</strong> Unsupported operators/mappings are quarantined. Candidate status, prevalence and high authored confidence never auto-promote a rule.</p>
+<p><strong>Identity:</strong> (feature_normalizer_version, feature_key); reviewed rule semantic digest</p>
+<p><strong>Original critique question:</strong> What gold-set precision and false-positive criteria authorize promotion?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM13: Import the supported donor-rule subset</td>
+<td>LOCAL</td>
+<td>import-donor; J05</td>
+</tr>
+<tr>
+<td>FM14: Inspect recurring unknown technical features</td>
+<td>LOCAL</td>
+<td>candidates; J05</td>
+</tr>
+<tr>
+<td>FM15: Promote and distribute reviewed rules</td>
+<td>PROPOSED</td>
+<td>No implementation; J05, J18</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J05, J18. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> F10 — Current candidate discovery counts unlabelled revoked evidence</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F09"><summary>F09 — Admit canonical facts</summary><div class="card"><p><strong>Owners:</strong> KN-02</p>
+<p><strong>Original stated inputs:</strong> Collector/source output; concrete support; verified bindings; successful producer</p>
+<p><strong>Original stated outputs:</strong> Fact, EvidenceSet, EvidenceLocator, ExecutionRecord, admission report</p>
+<p><strong>Processing:</strong> Map collector meaning to a registered predicate/nature. Verify actual bytes/locators, successful production, object schema, scope, time, source rights and binding. Preserve complete provenance. A fixture proving a rule works is not proof this fact was detected.</p>
+<p><strong>Transaction:</strong> One fact transaction writes fact, lineage and admission decision. Reject duplicate identity with different payload. This bridge is still to implement; collector observations are not canonical Fact objects.</p>
+<p><strong>Failure path:</strong> Rejected candidates remain quarantined. Non-detection requires completed capture AND compatible successful detector coverage.</p>
+<p><strong>Identity:</strong> (tenant, subject, predicate, nature, scope, target, window, observation_origin)</p>
+<p><strong>Original critique question:</strong> Which source-specific mappings permit commercial use rather than internal storage only?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM17: Admit collector output as canonical facts</td>
+<td>PROPOSED</td>
+<td>No implementation; J11</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J11. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> F01 — Identity-binding evidence is outside eligibility/provenance closure; F05 — Generated-artifact handoff is accepted by one validator and rejected by another; F07 — A self-superseding fact raises RecursionError before semantic rejection; F14 — Collector and canonical matcher disagree on aside-region semantics; F16 — effective_at is stored but its decision semantics are undefined/unused</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F10"><summary>F10 — Resolve the complete claim group</summary><div class="card"><p><strong>Owners:</strong> KN-03</p>
+<p><strong>Original stated inputs:</strong> All eligible observations for the claim identity; binding/source/change state</p>
+<p><strong>Original stated outputs:</strong> ClaimResolution and retained observation history</p>
+<p><strong>Processing:</strong> Group with target/cardinality and temporal dimensions, not just subject+predicate. Preserve vendors and source disagreements. Use explicit resolution rules; UNKNOWN does not erase usable knowledge. Multiple model transcripts are not independent support.</p>
+<p><strong>Transaction:</strong> Resolution is a derived projection; original facts are retained. Authorized corrections have typed targets, actors, tenant ownership, compatible replacements and chronology.</p>
+<p><strong>Failure path:</strong> Conflict is a successful resolution result, not a software exception. It blocks cherry-picked downstream proof.</p>
+<p><strong>Identity:</strong> (claim_key, input_membership_hash, resolution_policy, as_of)</p>
+<p><strong>Original critique question:</strong> Which conflicts require human adjudication instead of automatic precedence?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM18: Check canonical claim resolution and samples</td>
+<td>REFERENCE</td>
+<td>canonical validate / Python fixture API; J07</td>
+</tr>
+<tr>
+<td>FM35: Govern evidence, bindings, changes and retention</td>
+<td>REFERENCE</td>
+<td>Store.revoke or Bundle.validate_change (local/reference only); J17</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J07, J17. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> F01 — Identity-binding evidence is outside eligibility/provenance closure; F04 — Later supersession leaks into an earlier sealed evaluation; F07 — A self-superseding fact raises RecursionError before semantic rejection; F08 — Requirement minimum means fact count in the helper but origin count in validation; F16 — effective_at is stored but its decision semantics are undefined/unused</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F11"><summary>F11 — Seal evaluation inputs and execute dependencies</summary><div class="card"><p><strong>Owners:</strong> KN-04, CTL-02</p>
+<p><strong>Original stated inputs:</strong> Requested account/product evaluation; current knowledge; exact release versions</p>
+<p><strong>Original stated outputs:</strong> InputSnapshot / BatchRun manifests and scheduled operations</p>
+<p><strong>Processing:</strong> Separate sealed external inputs from artifacts/facts produced in this run. Each produced record has one declared successful producer; a consumer cannot read it before completion. Keep logical as_of, knowledge cutoff, capture time and wall-clock execution time distinct.</p>
+<p><strong>Transaction:</strong> Publish complete targets independently. Do not hold one database transaction across model or HTTP calls.</p>
+<p><strong>Failure path:</strong> Unknown or unpinned references, self-produced input cycles, failed producers and unauthorized current reads abort that operation.</p>
+<p><strong>Identity:</strong> (tenant, target, external_input_digest, release_lock, logical_as_of)</p>
+<p><strong>Original critique question:</strong> Must selected facts be frozen per account or per program batch?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM04: Run the synthetic scanner demonstration</td>
+<td>LOCAL</td>
+<td>demo; J01</td>
+</tr>
+<tr>
+<td>FM18: Check canonical claim resolution and samples</td>
+<td>REFERENCE</td>
+<td>canonical validate / Python fixture API; J07</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J01, J07. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> F04 — Later supersession leaks into an earlier sealed evaluation; F05 — Generated-artifact handoff is accepted by one validator and rejected by another; F09 — Retained-file import does not pin subject identity in run configuration; F12 — No-byte failures lose invocation details and have no persisted evaluation manifest; F13 — Protocol rejects an honest timeout failure reported after its deadline</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F12"><summary>F12 — Acquire enrichment and run bounded model tasks</summary><div class="card"><p><strong>Owners:</strong> ING-01, AI-01</p>
+<p><strong>Original stated inputs:</strong> Approved source/task request; selected evidence; model/prompt configuration; budget</p>
+<p><strong>Original stated outputs:</strong> Typed provider records, ModelCall, raw request/response artifacts, RepairAttempt</p>
+<p><strong>Processing:</strong> Keep all eleven fact areas and the ledger sources available as registered capabilities. Provider estimates stay estimates, statements stay attributed statements, hypotheses stay internal. Retain raw I/O before parse; every repair consumes the same bounded budget.</p>
+<p><strong>Transaction:</strong> External calls have durable attempt IDs. Generated model I/O enters the produced-artifact manifest, not backdated external inputs. Deterministic downstream replay consumes retained responses, not a new call.</p>
+<p><strong>Failure path:</strong> Invalid output/repair exhaustion yields abstention. Source denial, rate limits, unknown costs and unsupported fields remain explicit.</p>
+<p><strong>Identity:</strong> (task_version, exact_inputs, prompt/config); new model call is not replay</p>
+<p><strong>Original critique question:</strong> Which sources are approved and which exact tasks should spend model budget?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM19: Capture broad third-party source families</td>
+<td>PROPOSED</td>
+<td>No implementation; J12</td>
+</tr>
+<tr>
+<td>FM20: Run bounded live model extraction and repair</td>
+<td>PROPOSED</td>
+<td>No implementation; J12</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J12. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> F05 — Generated-artifact handoff is accepted by one validator and rejected by another</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F13"><summary>F13 — Build research samples and priors</summary><div class="card"><p><strong>Owners:</strong> RE-02</p>
+<p><strong>Original stated inputs:</strong> Product/industry review/discussion records; sample decisions; support policy</p>
+<p><strong>Original stated outputs:</strong> ResearchSample, classifications, prior drafts and execution report</p>
+<p><strong>Processing:</strong> Record every retrieved item: eligible, support, contradict, no-theme, unclassified, excluded. Deduplicate original record identities. Distinguish workflow mention from negative experience. Pin all numerator, denominator and exclusion dependencies.</p>
+<p><strong>Transaction:</strong> Calculation drafts pass canonical admission. A denominator-only deletion invalidates current use of the statistic even if supporting items remain.</p>
+<p><strong>Failure path:</strong> No eligible denominator is UNKNOWN. A biased or selected sample cannot imply population prevalence or company-specific pain.</p>
+<p><strong>Identity:</strong> (sample_membership, dispositions, classification_release, window, support_policy)</p>
+<p><strong>Original critique question:</strong> What is the sample population and which selection bias must the UI display?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM21: Compute research priors and explicit context joins</td>
+<td>REFERENCE</td>
+<td>canonical fixture validation / Python helpers; J07, J12</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J07, J12. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> No new reproduced issue for this stage; this is not completeness sign-off.</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F14"><summary>F14 — Join contextual knowledge and case studies</summary><div class="card"><p><strong>Owners:</strong> RE-03, RE-04</p>
+<p><strong>Original stated inputs:</strong> Account product/industry links; admitted priors; case-study reports; join policy</p>
+<p><strong>Original stated outputs:</strong> ContextAssessment; optional LookalikeMatch; comparison report</p>
+<p><strong>Processing:</strong> Require explicit account-to-product/industry relationship. Keep prior subject unchanged. Preserve reported case-study outcomes and methodology limitations; similarity is an algorithmic result, not transferred proof.</p>
+<p><strong>Transaction:</strong> Context and comparisons are separate records from facts about the account. Embedding index, when built, is a rebuildable read model.</p>
+<p><strong>Failure path:</strong> ABSTAINED context cannot influence eligible decisions. Context cannot enter a company factual clause unless an explicit attributed comparison renderer is implemented.</p>
+<p><strong>Identity:</strong> (account_snapshot, research_snapshot, join/matching_version)</p>
+<p><strong>Original critique question:</strong> Should context affect ranking, question selection, or neither in the first release?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM21: Compute research priors and explicit context joins</td>
+<td>REFERENCE</td>
+<td>canonical fixture validation / Python helpers; J07, J12</td>
+</tr>
+<tr>
+<td>FM22: Find comparable cases and rank lookalikes</td>
+<td>PROPOSED</td>
+<td>No implementation; J12</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J07, J12. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> No new reproduced issue for this stage; this is not completeness sign-off.</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F15"><summary>F15 — Compute descriptors and business conditions</summary><div class="card"><p><strong>Owners:</strong> RE-01, RE-05</p>
+<p><strong>Original stated inputs:</strong> Pinned resolved inputs; value conditions; function parameters; context</p>
+<p><strong>Original stated outputs:</strong> Derived-fact drafts; SignalEvaluation; adjudication; verification request</p>
+<p><strong>Processing:</strong> Execute declared dependencies in a stable topological order. Implement ordinary versioned functions and exact input selectors. Distinguish complete false condition from insufficient evidence. Historical/peer metrics require comparable periods, dimensions and eligible denominators.</p>
+<p><strong>Transaction:</strong> Derived facts reenter admission. Signals keep their exact inputs. Verification requests schedule another bounded acquisition/evaluation, not recursive same-epoch mutation.</p>
+<p><strong>Failure path:</strong> Missing cohort implementation disables dependent signals. An ERROR is not a false condition; DNC belongs to operational permission, not a fact about the business.</p>
+<p><strong>Identity:</strong> (signal/function_version, input_snapshot, parameter_digest)</p>
+<p><strong>Original critique question:</strong> Which first three conditions have implementable input selectors and meaningful negative fixtures?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM23: Evaluate derivations and business conditions</td>
+<td>REFERENCE</td>
+<td>reference functions, not a product CLI; J07, J12</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J07, J12. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> F04 — Later supersession leaks into an earlier sealed evaluation; F05 — Generated-artifact handoff is accepted by one validator and rejected by another; F08 — Requirement minimum means fact count in the helper but origin count in validation; F16 — effective_at is stored but its decision semantics are undefined/unused</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F16"><summary>F16 — Select a supported opportunity</summary><div class="card"><p><strong>Owners:</strong> COM-01</p>
+<p><strong>Original stated inputs:</strong> Signals, eligibility, offer prerequisites, bounded context, program policy</p>
+<p><strong>Original stated outputs:</strong> OpportunitySelection or explicit no-selection result</p>
+<p><strong>Processing:</strong> Map support to a service line and relevant offer/audience. Keep selection score explanatory and separate from confidence or claim authority. Public observation-led questions do not require global maturity scoring.</p>
+<p><strong>Transaction:</strong> Commit selection with reasons and policy revision. No contacts are invented or messages sent.</p>
+<p><strong>Failure path:</strong> No compatible offer is a normal knowledge outcome. Do not weaken signal semantics just to improve match rate.</p>
+<p><strong>Identity:</strong> (program_revision, account_snapshot, offer_policy)</p>
+<p><strong>Original critique question:</strong> What minimum evidence and commercial relevance makes an opportunity worth contact enrichment?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM24: Choose a supported commercial opportunity</td>
+<td>PROPOSED</td>
+<td>No implementation; J13</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J13. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> No new reproduced issue for this stage; this is not completeness sign-off.</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F17"><summary>F17 — Assess the contact and endpoint</summary><div class="card"><p><strong>Owners:</strong> AUD-01</p>
+<p><strong>Original stated inputs:</strong> Account identity; opportunity; approved contact sources; restrictions</p>
+<p><strong>Original stated outputs:</strong> ContactProfile, ContactAssessment, accepted recipient binding</p>
+<p><strong>Processing:</strong> Separate person/account relationship, role relevance, endpoint usability and permission. Keep observation/check times and provenance. A guessed email or verified inbox is not proof of role, employment or consent.</p>
+<p><strong>Transaction:</strong> Endpoint enrichment has its own budget and attempt. Contact records use least-privilege fields; no raw credentials in telemetry.</p>
+<p><strong>Failure path:</strong> No relevant verified contact yields HOLD. Referral names are new candidates, not automatic enrollment permissions.</p>
+<p><strong>Identity:</strong> (person/account_binding, endpoint, verification_method, checked_at)</p>
+<p><strong>Original critique question:</strong> What endpoint verification expires when, and which roles are eligible for each offer?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM25: Assess contact, role, endpoint and permission</td>
+<td>PROPOSED</td>
+<td>No implementation; J13</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J13. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> No new reproduced issue for this stage; this is not completeness sign-off.</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F18"><summary>F18 — Render and review exact content</summary><div class="card"><p><strong>Owners:</strong> COM-02, COM-03</p>
+<p><strong>Original stated inputs:</strong> Opportunity; eligible account proof; template revision; audience</p>
+<p><strong>Original stated outputs:</strong> GroundedClause, OutreachPackage, MessageArtifact, ReviewDecision</p>
+<p><strong>Processing:</strong> Validate fixed wording as well as inserted slots. Keep questions free of unsupported premises. Attribute quotes and reported comparison outcomes. Approve exact message bytes, revision, purpose and reviewer identity.</p>
+<p><strong>Transaction:</strong> Rendered content is immutable by revision. A new revision requires a new review. Package validation and successful target completion precede approval.</p>
+<p><strong>Failure path:</strong> Wrong-account, inferred, stale, conflicted or prohibited support blocks factual clauses. Human review cannot override hard evidence/permission failures.</p>
+<p><strong>Identity:</strong> (package_id, revision, rendered_content_hash, reviewer_decision)</p>
+<p><strong>Original critique question:</strong> What can be auto-rendered versus draft-only, and who signs off each template?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM26: Render existing reference packages</td>
+<td>REFERENCE</td>
+<td>Bundle.render(existing_package); J07</td>
+</tr>
+<tr>
+<td>FM27: Approve exact content through an authenticated workspace</td>
+<td>PROPOSED</td>
+<td>No implementation; J13</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J07, J13. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> F02 — Demoted templates pass the standalone current-use/export boundary</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F19"><summary>F19 — Approve campaign policy</summary><div class="card"><p><strong>Owners:</strong> CAM-01</p>
+<p><strong>Original stated inputs:</strong> Program, approved templates, audience policy, channel/sender capabilities</p>
+<p><strong>Original stated outputs:</strong> CampaignDefinition, CampaignApproval, CampaignReadiness</p>
+<p><strong>Processing:</strong> Define step order, delays, timezone, frequency limits, route identity, sender caps and stop conditions. Separate draft creation, append, activation and sending. Pick exactly one schedule owner: local or provider.</p>
+<p><strong>Transaction:</strong> Campaign revision and activation approval are distinct from package review. Immutable revision references accompany enrollment.</p>
+<p><strong>Failure path:</strong> Unsupported provider stop/cancel guarantees or unknown ownership block activation.</p>
+<p><strong>Identity:</strong> (campaign_id, revision, activation_decision)</p>
+<p><strong>Original critique question:</strong> Will the initial provider dispatch individual messages or own the entire sequence?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM29: Configure campaigns and sequence ownership</td>
+<td>PROPOSED</td>
+<td>No implementation; J14</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J14. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> No new reproduced issue for this stage; this is not completeness sign-off.</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F20"><summary>F20 — Enroll and schedule one logical step</summary><div class="card"><p><strong>Owners:</strong> CAM-02</p>
+<p><strong>Original stated inputs:</strong> Campaign approval; contact assessment; reviewed content; CRM exclusions</p>
+<p><strong>Original stated outputs:</strong> Enrollment, StepEligibility, DeliveryIntent</p>
+<p><strong>Processing:</strong> Reject duplicate active enrollment and apply cross-campaign contact limits. Determine due time from the approved policy. Stop/pause state is authoritative and must not be inferred from cached analytics.</p>
+<p><strong>Transaction:</strong> Create stable business-send identity and durable intent in one transaction. The same logical step across retries retains the same effect identity.</p>
+<p><strong>Failure path:</strong> Missing contact, unresolved CRM exclusion, opt-out, reply or overdue review puts the step on hold; a scheduler retry never creates a new intended send.</p>
+<p><strong>Identity:</strong> (tenant, campaign_revision, enrollment, step, channel)</p>
+<p><strong>Original critique question:</strong> Which replies stop all campaigns for a contact versus only this enrollment?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM30: Enroll a contact and schedule/stop steps</td>
+<td>PROPOSED</td>
+<td>No implementation; J14</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J14. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> No new reproduced issue for this stage; this is not completeness sign-off.</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F21"><summary>F21 — Check current use and perform reviewed export</summary><div class="card"><p><strong>Owners:</strong> COM-04</p>
+<p><strong>Original stated inputs:</strong> Exact package/review; destination mapping; current complete claims/restrictions</p>
+<p><strong>Original stated outputs:</strong> UseGateDecision, ExportReceipt or blocked reason</p>
+<p><strong>Processing:</strong> Historical evaluation uses frozen inputs; this gate reads complete current claim groups. Check revocation, new contradictions, retention, correction, DNC, purpose, destination and reviewer scope immediately before action.</p>
+<p><strong>Transaction:</strong> Gate binds exact revision/destination and expires. Prepare export intent before external handoff; successful local preview output is idempotent.</p>
+<p><strong>Failure path:</strong> A refreshed version hash alone is not reevaluation. Restriction-service uncertainty blocks use. An old approval does not grant perpetual permission.</p>
+<p><strong>Identity:</strong> (tenant, destination, logical_export_key, exact_payload_hash)</p>
+<p><strong>Original critique question:</strong> How fresh must source/CRM/restriction checks be for each destination?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM28: Export a local reference preview with idempotency</td>
+<td>REFERENCE</td>
+<td>LocalPreviewExporter via walkthrough helper; J07</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J07. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> F01 — Identity-binding evidence is outside eligibility/provenance closure; F02 — Demoted templates pass the standalone current-use/export boundary</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F22"><summary>F22 — Dispatch or reconcile a send</summary><div class="card"><p><strong>Owners:</strong> COM-05</p>
+<p><strong>Original stated inputs:</strong> DeliveryIntent, current SendGateDecision, recipient, campaign/sender state</p>
+<p><strong>Original stated outputs:</strong> DeliveryAttempt, acceptance/rejection/unknown record, Exposure</p>
+<p><strong>Processing:</strong> Sending requires a separate contract: current UseGateDecision only covers exports. Dispatch exact reviewed bytes under stable effect identity. Record actual provider acceptance; do not label it inbox delivery.</p>
+<p><strong>Transaction:</strong> Local outbox transaction ends before provider call. Recover by reconciliation/provider identity; cannot atomically commit a remote network action with SQLite.</p>
+<p><strong>Failure path:</strong> Timeout after possible acceptance is UNKNOWN, never a blind retry. Failure to synchronize CRM cannot authorize another send. Restriction after provider acceptance cannot unsend that message.</p>
+<p><strong>Identity:</strong> (tenant, campaign_revision, enrollment, step, recipient, channel) independent of execution_id</p>
+<p><strong>Original critique question:</strong> What provider lookup/idempotency capability resolves uncertain acceptance?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM31: Dispatch and reconcile an exact authorized message</td>
+<td>PROPOSED</td>
+<td>No implementation; J15</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J15. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> No new reproduced issue for this stage; this is not completeness sign-off.</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F23"><summary>F23 — Handle inbound replies before measurement</summary><div class="card"><p><strong>Owners:</strong> COM-06, ENG-01</p>
+<p><strong>Original stated inputs:</strong> Authenticated provider/mailbox event; known exposure/thread; permitted content</p>
+<p><strong>Original stated outputs:</strong> OutcomeEvent, Conversation, ReplyAssessment, EnrollmentControl, task/handoff</p>
+<p><strong>Processing:</strong> Verify webhook/message origin and deduplicate. Apply immediate local stop/hold before optional model classification or CRM calls. Correlate to exposure; unmatched messages stay quarantined. Opt-out restrictions are sticky until authorized release.</p>
+<p><strong>Transaction:</strong> Commit inbox event plus stop intent atomically. If governance sync is delayed, local contact-level hold remains; downstream analytics does not own this safety action.</p>
+<p><strong>Failure path:</strong> Uncertain sender identity or correlation requires human review. Out-of-office and referrals use explicit policy; model labels are assessments, not literal HUMAN facts.</p>
+<p><strong>Identity:</strong> (provider, tenant, event_id); fallback content identity is explicitly versioned</p>
+<p><strong>Original critique question:</strong> What is the safe default for any credible reply, and when may automation resume?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM32: Route replies and immediate stop requests</td>
+<td>PROPOSED</td>
+<td>No implementation; J16</td>
+</tr>
+<tr>
+<td>FM34: Measure outcomes, experiments and calibration</td>
+<td>PROPOSED</td>
+<td>No implementation; J18</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J16, J18. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> No new reproduced issue for this stage; this is not completeness sign-off.</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F24"><summary>F24 — Synchronize sales handoff and CRM</summary><div class="card"><p><strong>Owners:</strong> CRM-01</p>
+<p><strong>Original stated inputs:</strong> Conversation, task/handoff, account/contact links; CRM lifecycle events</p>
+<p><strong>Original stated outputs:</strong> CRMSyncIntent, CRMSyncReceipt, CRMAccountView, attributable sales outcomes</p>
+<p><strong>Processing:</strong> Define field-level authority. CRM owns human sales owner/stage/customer state; KeenSight owns evidence and delivery history. Merge restrictions conservatively. Preserve external IDs and avoid update loops.</p>
+<p><strong>Transaction:</strong> CRM writes retry through their own sync identity/outbox. They are never coupled to send retries. Human stage changes become attributed lifecycle evidence.</p>
+<p><strong>Failure path:</strong> CRM outage creates pending handoff and operator task, not message resend. A blank CRM field does not release local DNC.</p>
+<p><strong>Identity:</strong> (destination, external_entity, owned_field_revision, sync_action)</p>
+<p><strong>Original critique question:</strong> Who owns each bidirectional field, and how are conflicting edits reconciled?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM33: Synchronize sales handoff with CRM</td>
+<td>PROPOSED</td>
+<td>No implementation; J16</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J16. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> No new reproduced issue for this stage; this is not completeness sign-off.</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F25"><summary>F25 — Measure outcomes and propose improvements</summary><div class="card"><p><strong>Owners:</strong> COM-06, QA-01</p>
+<p><strong>Original stated inputs:</strong> Exposures, attributed events, mature windows, calibrated gold sets</p>
+<p><strong>Original stated outputs:</strong> Measurement facts, quality reports, experiment results, release proposals</p>
+<p><strong>Processing:</strong> Use explicit exposure denominator, response maturity and exclusion rules. Dedupe provider events and cross-angle contamination. Separate detector quality from commercial outcomes; observational response rates are not causal effects.</p>
+<p><strong>Transaction:</strong> Reviewed changes publish a new version for later evaluations. Never promote authority merely because an angle received replies.</p>
+<p><strong>Failure path:</strong> Immature/uncertain denominators remain unmeasured. Drift can disable future use; it does not rewrite historical bytes.</p>
+<p><strong>Identity:</strong> (measurement_definition, population_snapshot, window, version)</p>
+<p><strong>Original critique question:</strong> Which decisions require experiments versus descriptive reporting?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM15: Promote and distribute reviewed rules</td>
+<td>PROPOSED</td>
+<td>No implementation; J05, J18</td>
+</tr>
+<tr>
+<td>FM32: Route replies and immediate stop requests</td>
+<td>PROPOSED</td>
+<td>No implementation; J16</td>
+</tr>
+<tr>
+<td>FM34: Measure outcomes, experiments and calibration</td>
+<td>PROPOSED</td>
+<td>No implementation; J18</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J05, J16, J18. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> No new reproduced issue for this stage; this is not completeness sign-off.</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details><details id="updated_stage_walkthroughs-F26"><summary>F26 — Govern, inspect, correct and recover</summary><div class="card"><p><strong>Owners:</strong> PLAT-01, PLAT-02, PLAT-03, UX-01</p>
+<p><strong>Original stated inputs:</strong> Authorized read/administrative request; records; execution diagnostics</p>
+<p><strong>Original stated outputs:</strong> Timeline, why/why-not, ChangeRecord, tombstone, restore report</p>
+<p><strong>Processing:</strong> Expose evidence back-links and exact versions from any package/exposure/fact. Enforce actor, tenant, typed target, compatible replacement and time on corrections. Keep logs redacted; retained evidence has separate access and deletion policies.</p>
+<p><strong>Transaction:</strong> Each record type has one writer. Backups and restore are tested before production. Source-rights deletion must affect derived eligibility, including sample denominators.</p>
+<p><strong>Failure path:</strong> Unavailable evidence cannot be replaced by a digest-only assertion. Unauthorized corrections never take effect; full admission rejects them. A local ActorGrant fixture is not hosted authentication.</p>
+<p><strong>Identity:</strong> (authorized_action_id, tenant, target_type/id, expected_revision)</p>
+<p><strong>Original critique question:</strong> What retention, audit, access and recovery guarantees are required before the first real account batch?</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Actual readiness in this audit</th>
+<th>Invocation / journey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM11: Verify bundle, metadata and original bytes</td>
+<td>LOCAL</td>
+<td>check; J03, J06</td>
+</tr>
+<tr>
+<td>FM27: Approve exact content through an authenticated workspace</td>
+<td>PROPOSED</td>
+<td>No implementation; J13</td>
+</tr>
+<tr>
+<td>FM35: Govern evidence, bindings, changes and retention</td>
+<td>REFERENCE</td>
+<td>Store.revoke or Bundle.validate_change (local/reference only); J17</td>
+</tr>
+<tr>
+<td>FM36: Inspect/debug individual modules and service boundaries</td>
+<td>LOCAL</td>
+<td>ks-module and offline walkthrough harness; J03, J06, J08, J19</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User walkthroughs:</strong> J03, J06, J08, J13, J17, J19. See USER_JOURNEYS.md for steps and outputs.</p>
+<p><strong>New issues to address:</strong> F03 — Publication validates one payload and can persist a different argument set; F10 — Current candidate discovery counts unlabelled revoked evidence; F11 — Contradictory duplicate command outcomes are accepted; F12 — No-byte failures lose invocation details and have no persisted evaluation manifest; F13 — Protocol rejects an honest timeout failure reported after its deadline; F15 — The protocol fixture does not constrain mode/effects against operation parameters</p>
+<p><strong>Review decision:</strong> Accept / Change / Defer. Owner: ______. Required test evidence: ______.</p>
+</div></details></section><section id="findings"><div class="section-title"><span>05</span><h2>Findings and repair decisions</h2></div><h1>Iteration 2: submodule audit and implementation decisions</h1>
+<h2>Verdict and scope</h2>
+<p>The repaired local source still passes its existing test suites, but several adjacent boundaries remain inconsistent. This is a <strong>new audit, reproducible safety tests, and walkthrough addendum</strong>, not a new runtime release. Collector 0.2.0, canonical reference 4.2.0, the draft protocol checker and product design remain unchanged.</p>
+<p>The baseline's integrity verifier confirms all 438 manifest-listed packaged files. This review did not modify GitHub, contact providers, crawl public sites, send messages, or run CRM mutations. All injected records and exports are synthetic local fixtures.</p>
+<h2>Executed evidence</h2>
+<table>
+<thead>
+<tr>
+<th>Verification</th>
+<th>Result</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Collector original suite</td>
+<td>183 passed, 1 skipped</td>
+<td>Actual Scrapling dependency is absent; native browser is still disabled.</td>
+</tr>
+<tr>
+<td>Canonical original suite</td>
+<td>609 passed</td>
+<td>Reference contracts and retained fixture tests.</td>
+</tr>
+<tr>
+<td>Protocol original suite</td>
+<td>42 passed</td>
+<td>Fixture signature/payload checker, not a general runner.</td>
+</tr>
+<tr>
+<td>New probes</td>
+<td>23 executed</td>
+<td>16 concrete contract counterexamples, 1 separately classified temporal-policy question, 6 passing controls.</td>
+</tr>
+<tr>
+<td>Required-behavior suite</td>
+<td>16 failed, 6 passed</td>
+<td>Failures deliberately express unimplemented repairs; no xfail/skip hides them.</td>
+</tr>
+<tr>
+<td>Walkthrough smoke run</td>
+<td>8 journeys; 20 subprocesses</td>
+<td>Offline local commands/reference fixtures; all expected exit codes and assertions passed.</td>
+</tr>
+</tbody>
+</table>
+<p>The 16 safety counterexamples are grouped into <strong>15 code/contract findings</strong> because two probes describe different parts of the same diagnostic gap. F16 is a separate temporal-policy decision. Passing the 834 original tests is not evidence that the new failing cases are safe. The local walkthroughs exercise narrow working paths, not a complete deployed business workflow.</p>
+<h2>Priority convention</h2>
+<p>P0 means close before trusting autonomous outward use or a shared admission/publication boundary. P1 means close before completing the corresponding user journey or service extraction. P2 means a reference/interface design gap that must be settled before enabling that operation. These are review priorities, not externally scored security ratings.</p>
+<h2>Summary</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Priority</th>
+<th>Finding</th>
+<th>Boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F01</td>
+<td>P0</td>
+<td>Identity-binding evidence is outside eligibility/provenance closure</td>
+<td>FULL_VALIDATOR_ACCEPTS_INVALID_BOUNDARY</td>
+</tr>
+<tr>
+<td>F02</td>
+<td>P0</td>
+<td>Demoted templates pass the standalone current-use/export boundary</td>
+<td>LOCAL_REFERENCE_EXPORTER_GAP</td>
+</tr>
+<tr>
+<td>F03</td>
+<td>P0</td>
+<td>Publication validates one payload and can persist a different argument set</td>
+<td>INTERNAL_API_CONTRACT_SPLIT</td>
+</tr>
+<tr>
+<td>F04</td>
+<td>P1</td>
+<td>Later supersession leaks into an earlier sealed evaluation</td>
+<td>HISTORICAL_QUERY_INCONSISTENCY</td>
+</tr>
+<tr>
+<td>F05</td>
+<td>P1</td>
+<td>Generated-artifact handoff is accepted by one validator and rejected by another</td>
+<td>INCOMPATIBLE_VALIDATOR_LAYERS</td>
+</tr>
+<tr>
+<td>F06</td>
+<td>P1</td>
+<td>HTML recovery can silently truncate the parse while reporting complete detection</td>
+<td>EXECUTED_COLLECTOR_DEFECT</td>
+</tr>
+<tr>
+<td>F07</td>
+<td>P1</td>
+<td>A self-superseding fact raises RecursionError before semantic rejection</td>
+<td>UNCONTROLLED_INVALID_INPUT_FAILURE</td>
+</tr>
+<tr>
+<td>F08</td>
+<td>P1</td>
+<td>Requirement minimum means fact count in the helper but origin count in validation</td>
+<td>REFERENCE_FUNCTION_CONTRACT_MISMATCH</td>
+</tr>
+<tr>
+<td>F09</td>
+<td>P1</td>
+<td>Retained-file import does not pin subject identity in run configuration</td>
+<td>EXECUTED_CLI_IDENTITY_DEFECT</td>
+</tr>
+<tr>
+<td>F10</td>
+<td>P1</td>
+<td>Current candidate discovery counts unlabelled revoked evidence</td>
+<td>RESEARCH_INDEX_ELIGIBILITY_GAP</td>
+</tr>
+<tr>
+<td>F11</td>
+<td>P1</td>
+<td>Contradictory duplicate command outcomes are accepted</td>
+<td>COMMAND_REPORT_IDENTITY_GAP</td>
+</tr>
+<tr>
+<td>F12</td>
+<td>P1</td>
+<td>No-byte failures lose invocation details and have no persisted evaluation manifest</td>
+<td>DIAGNOSTIC_AND_COMPLETENESS_GAP</td>
+</tr>
+<tr>
+<td>F13</td>
+<td>P1</td>
+<td>Protocol rejects an honest timeout failure reported after its deadline</td>
+<td>FAILURE_REPORT_CONTRACT_GAP</td>
+</tr>
+<tr>
+<td>F14</td>
+<td>P1</td>
+<td>Collector and canonical matcher disagree on aside-region semantics</td>
+<td>CROSS_MODULE_MATCHER_POLICY_MISMATCH</td>
+</tr>
+<tr>
+<td>F15</td>
+<td>P2</td>
+<td>The protocol fixture does not constrain mode/effects against operation parameters</td>
+<td>DRAFT_CHECKER_INCOMPLETENESS</td>
+</tr>
+<tr>
+<td>F16</td>
+<td>P2</td>
+<td>effective_at is stored but its decision semantics are undefined/unused</td>
+<td>POLICY_DECISION_REQUIRED</td>
+</tr>
+</tbody>
+</table>
+<h2>Detailed findings</h2>
+<details id="audit-F01"><summary>F01 — Identity-binding evidence is outside eligibility/provenance closure</summary><div class="card"><p><strong>Priority:</strong> P0. <strong>Owners:</strong> KN-01, KN-02, KN-03, COM-04. <strong>Probes:</strong> R2-A01.</p>
+<p><strong>Observed:</strong> A binding is changed to depend exclusively on a DELETED artifact. The account fact remains current-eligible, and full bundle validation passes. The binding artifact is not in roots(fact).</p>
+<p><strong>Impact and scope:</strong> A fact can lose the evidence establishing whose website or record it is while still supporting account-specific copy. Pinning a binding ID does not pin or preserve its supporting artifacts.</p>
+<p><strong>Proposed repair:</strong> Include accepted binding decisions, their exact evidence locators/artifacts and permitted source state in dependency closure. Separate substantive corroboration from this mandatory identity support. Admit/resolve bindings before dependent facts and invalidate current use when required binding evidence becomes unusable.</p>
+<p><strong>Acceptance condition:</strong> Deleted, expired, revoked, unpinned, or foreign binding support must block affected current claims. A valid alternative accepted binding should be an explicit new decision rather than an automatic guessed fallback.</p>
+<p><strong>Affected journeys:</strong> J07, J11, J17.</p>
+<p><strong>Source:</strong> <code>canonical/keensight_contracts/validation.py:65–118</code>; <code>canonical/keensight_contracts/validation.py:123–172</code>; <code>canonical/keensight_contracts/validation.py:297–303</code>; <code>canonical/keensight_contracts/completion.py:149–161</code>. Numbered excerpts are in <code>SOURCE_EXCERPTS.md</code>; actual observations are in <code>reports/probe-results.json</code>.</p>
+</div></details><details id="audit-F02"><summary>F02 — Demoted templates pass the standalone current-use/export boundary</summary><div class="card"><p><strong>Priority:</strong> P0. <strong>Owners:</strong> COM-02, COM-03, COM-04. <strong>Probes:</strong> R2-A02.</p>
+<p><strong>Observed:</strong> After an existing template is demoted from ACTIVE to CANDIDATE and the current version vector is refreshed, LocalPreviewExporter writes the preview. The full bundle validator rejects the same state with MISSING_APPROVAL.</p>
+<p><strong>Impact and scope:</strong> Calling the local gate/export method independently has weaker authority rules than validating the whole bundle. This is a local fixture boundary, not a tested live sender bypass.</p>
+<p><strong>Proposed repair:</strong> Make current-use eligibility explicitly check the current template/renderer, offer where applicable, source and reviewed-release authority. Bind review to immutable historical bytes but perform current vetoes at export. Keep shared validation logic rather than relying on callers to rerun the entire fixture bundle.</p>
+<p><strong>Acceptance condition:</strong> Template demotion/retirement must block a new export without erasing the historic review. Existing permitted byte-identical exports retain their receipt; a fresh gate must not restore authority just by recomputing a hash.</p>
+<p><strong>Affected journeys:</strong> J07, J13, J17.</p>
+<p><strong>Source:</strong> <code>canonical/keensight_contracts/completion.py:298–377</code>; <code>canonical/keensight_contracts/handoff.py:19–43</code>; <code>canonical/keensight_contracts/validation.py:408–422</code>. Numbered excerpts are in <code>SOURCE_EXCERPTS.md</code>; actual observations are in <code>reports/probe-results.json</code>.</p>
+</div></details><details id="audit-F03"><summary>F03 — Publication validates one payload and can persist a different argument set</summary><div class="card"><p><strong>Priority:</strong> P0. <strong>Owners:</strong> FP-02, PLAT-01. <strong>Probes:</strong> R2-C06.</p>
+<p><strong>Observed:</strong> Store.publish_evaluation receives a valid bundle describing one observation and separately receives empty match/observation/support arguments. It commits a successful manifest with one observation but zero observation rows.</p>
+<p><strong>Impact and scope:</strong> The normal Scanner passes consistent arguments; the defect is the public local-owner publication API. A future wrapper or refactor can commit an internally contradictory database even though the manifest validated.</p>
+<p><strong>Proposed repair:</strong> Accept one validated publication object and derive all database rows from it, or compare all separate arguments byte-for-byte before beginning the transaction. Re-extract trusted capture evidence at the boundary that owns admission; do not merely validate a sibling object.</p>
+<p><strong>Acceptance condition:</strong> Mismatch must reject before any findings or successful manifest commit. Add matching, missing, added and altered-row cases plus rollback fault injection.</p>
+<p><strong>Affected journeys:</strong> J03, J11, J19.</p>
+<p><strong>Source:</strong> <code>collector/src/keensight_scrapling/storage.py:211–258</code>; <code>collector/src/keensight_scrapling/pipeline.py:231–246</code>. Numbered excerpts are in <code>SOURCE_EXCERPTS.md</code>; actual observations are in <code>reports/probe-results.json</code>.</p>
+</div></details><details id="audit-F04"><summary>F04 — Later supersession leaks into an earlier sealed evaluation</summary><div class="card"><p><strong>Priority:</strong> P1. <strong>Owners:</strong> KN-03, KN-04, RE-01. <strong>Probes:</strong> R2-A06.</p>
+<p><strong>Observed:</strong> The old run pins f.tech. A replacement recorded after its knowledge cutoff, but before its logical as_of, is not in that run. Historical resolution nevertheless becomes UNKNOWN because usable() searches every fact in the bundle for supersession.</p>
+<p><strong>Impact and scope:</strong> Reproducing an old result depends on later database contents. This is distinct from the intended current-use check, which should see newly recorded evidence.</p>
+<p><strong>Proposed repair:</strong> Give historical eligibility an explicit permitted input set/knowledge cutoff and snapshot-specific changes. Keep current-use eligibility as a different operation. Route supersession lookup through the same visibility context rather than scanning all rows.</p>
+<p><strong>Acceptance condition:</strong> Adding later observations/corrections must leave sealed historical results unchanged; a current view and use gate must still reflect those changes.</p>
+<p><strong>Affected journeys:</strong> J04, J07, J17.</p>
+<p><strong>Source:</strong> <code>canonical/keensight_contracts/validation.py:123–144</code>; <code>canonical/keensight_contracts/completion.py:170–199</code>; <code>canonical/keensight_contracts/engine.py:86–98</code>. Numbered excerpts are in <code>SOURCE_EXCERPTS.md</code>; actual observations are in <code>reports/probe-results.json</code>.</p>
+</div></details><details id="audit-F05"><summary>F05 — Generated-artifact handoff is accepted by one validator and rejected by another</summary><div class="card"><p><strong>Priority:</strong> P1. <strong>Owners:</strong> AI-01, RE-01, CTL-02, KN-02. <strong>Probes:</strong> R2-A03.</p>
+<p><strong>Observed:</strong> A model response is correctly declared as a run-produced artifact, with a successful earlier producer. A later declared execution consumes it. validate_completion passes; Bundle.validate rejects ARTIFACT_OUTSIDE_RUN because an older loop still requires every execution artifact to be in input_artifact_ids.</p>
+<p><strong>Impact and scope:</strong> The repaired manifest can represent generated model I/O, but a downstream consumer cannot consistently use it in the same run.</p>
+<p><strong>Proposed repair:</strong> Use one available-artifact resolver in all validators. It must admit sealed external inputs or eligible prior outputs, enforce chronology and producer ownership, and reject self-consumption. Do not copy a generated response into the external-input list to satisfy the older check.</p>
+<p><strong>Acceptance condition:</strong> A two-stage generated-output→consumer path must pass both validators; unfinished, future, self-produced or undeclared inputs must fail.</p>
+<p><strong>Affected journeys:</strong> J07, J12.</p>
+<p><strong>Source:</strong> <code>canonical/keensight_contracts/completion.py:425–458</code>; <code>canonical/keensight_contracts/validation.py:340–356</code>. Numbered excerpts are in <code>SOURCE_EXCERPTS.md</code>; actual observations are in <code>reports/probe-results.json</code>.</p>
+</div></details><details id="audit-F06"><summary>F06 — HTML recovery can silently truncate the parse while reporting complete detection</summary><div class="card"><p><strong>Priority:</strong> P1. <strong>Owners:</strong> ING-04, FP-01. <strong>Probes:</strong> R2-C05.</p>
+<p><strong>Observed:</strong> A retained page with 400 nested div elements and a later product script triggers parser recovery. Script extraction reports COMPLETE with zero surfaces, and its rules report NO_MATCH. The retained bytes do contain the marker.</p>
+<p><strong>Impact and scope:</strong> The previous fix handles explicit item/text caps, but not structural information discarded by the parser. No absence fact is emitted today; coverage/reporting is nevertheless wrong.</p>
+<p><strong>Proposed repair:</strong> Inspect parser diagnostics and classify information-losing recovery or depth/resource limits. Propagate an explicit partial capability state to all affected extractors and match evaluations. Harmless HTML repairs need a documented policy rather than blanket success or blanket failure.</p>
+<p><strong>Acceptance condition:</strong> Deeply nested, truncated and malformed inputs must not produce a complete negative when evidence was dropped. Ordinary recoverable pages should retain deterministic extraction.</p>
+<p><strong>Affected journeys:</strong> J02, J03, J09.</p>
+<p><strong>Source:</strong> <code>collector/src/keensight_scrapling/extraction.py:54–67</code>; <code>collector/src/keensight_scrapling/extraction.py:96–110</code>; <code>collector/src/keensight_scrapling/rules.py:158–191</code>. Numbered excerpts are in <code>SOURCE_EXCERPTS.md</code>; actual observations are in <code>reports/probe-results.json</code>.</p>
+</div></details><details id="audit-F07"><summary>F07 — A self-superseding fact raises RecursionError before semantic rejection</summary><div class="card"><p><strong>Priority:</strong> P1. <strong>Owners:</strong> KN-02, KN-03. <strong>Probes:</strong> R2-A04.</p>
+<p><strong>Observed:</strong> Setting f.tech.supersedes_fact_id to f.tech causes full validation to raise RecursionError, rather than the intended ordered-supersession ContractError.</p>
+<p><strong>Impact and scope:</strong> The data does not become accepted, but an ordinary malformed record escapes the controlled contract-failure path and can abort a batch or obscure the actual invalid field.</p>
+<p><strong>Proposed repair:</strong> Validate supersession identity, ordering and acyclicity before eligibility recursion. Add an explicit recursion/visited guard to public read helpers so malformed unadmitted data cannot exhaust the stack.</p>
+<p><strong>Acceptance condition:</strong> Self and multi-record cycles receive stable diagnostic codes and no publication; valid historical chains remain queryable.</p>
+<p><strong>Affected journeys:</strong> J06, J07, J11.</p>
+<p><strong>Source:</strong> <code>canonical/keensight_contracts/validation.py:123–130</code>; <code>canonical/keensight_contracts/validation.py:485–489</code>; <code>canonical/keensight_contracts/completion.py:183–199</code>. Numbered excerpts are in <code>SOURCE_EXCERPTS.md</code>; actual observations are in <code>reports/probe-results.json</code>.</p>
+</div></details><details id="audit-F08"><summary>F08 — Requirement minimum means fact count in the helper but origin count in validation</summary><div class="card"><p><strong>Priority:</strong> P1. <strong>Owners:</strong> RE-05, KN-03. <strong>Probes:</strong> R2-A08.</p>
+<p><strong>Observed:</strong> evaluate_requirements resolves minimum=2 from two eligible fact rows backed by the same substantive origin. The full signal validator requires two distinct substantive artifact origins.</p>
+<p><strong>Impact and scope:</strong> The allowlisted rule helper can compute a result that its consuming validator rejects. This is a helper-level comparison, not a claim that a fully admitted forged signal passed.</p>
+<p><strong>Proposed repair:</strong> Name the unit explicitly (observations, evidence elements, origins, independent corroboration) in the requirement contract. Share one support-selection/evaluation function between the rule and the validator. Multiple records from one origin cannot satisfy an origin threshold.</p>
+<p><strong>Acceptance condition:</strong> Duplicate rows/origins must not increase the selected unit. Independent eligible origins should satisfy a properly configured threshold.</p>
+<p><strong>Affected journeys:</strong> J07, J12, J13.</p>
+<p><strong>Source:</strong> <code>canonical/keensight_contracts/engine.py:143–150</code>; <code>canonical/keensight_contracts/validation.py:399–407</code>. Numbered excerpts are in <code>SOURCE_EXCERPTS.md</code>; actual observations are in <code>reports/probe-results.json</code>.</p>
+</div></details><details id="audit-F09"><summary>F09 — Retained-file import does not pin subject identity in run configuration</summary><div class="card"><p><strong>Priority:</strong> P1. <strong>Owners:</strong> CTL-02, ING-02, FP-02. <strong>Probes:</strong> R2-C07.</p>
+<p><strong>Observed:</strong> Two analyze-file calls use the same tenant, run, URL, observation time and rules but different subjects. Both return exit 0. The resulting run contains both subjects, and replay fails with Cross-subject/tenant/origin host rollup forbidden.</p>
+<p><strong>Impact and scope:</strong> Independent CLI invocations can create a run that the replay contract cannot consume. The import path pins fewer identity fields than the live scan path.</p>
+<p><strong>Proposed repair:</strong> Use one immutable ScanPlan/run identity for live and imported capture. Include subject, input mode, code/parser version, source and content/import manifest. A single-target run rejects subject changes; a multi-target run requires explicit partitions.</p>
+<p><strong>Acceptance condition:</strong> The second changed-subject invocation must fail without appending its capture. A deliberate new run should work and replay independently.</p>
+<p><strong>Affected journeys:</strong> J02, J04.</p>
+<p><strong>Source:</strong> <code>collector/src/keensight_scrapling/cli.py:103–114</code>; <code>collector/src/keensight_scrapling/storage.py:59–67</code>; <code>collector/src/keensight_scrapling/pipeline.py:248–256</code>. Numbered excerpts are in <code>SOURCE_EXCERPTS.md</code>; actual observations are in <code>reports/probe-results.json</code>.</p>
+</div></details><details id="audit-F10"><summary>F10 — Current candidate discovery counts unlabelled revoked evidence</summary><div class="card"><p><strong>Priority:</strong> P1. <strong>Owners:</strong> FP-03, PLAT-02. <strong>Probes:</strong> R2-C04.</p>
+<p><strong>Observed:</strong> After the only supporting capture is revoked, candidates(tenant,min_hosts=1) returns the same current candidate and prevalence counts. The query does not join revocation state.</p>
+<p><strong>Impact and scope:</strong> An operator can prioritize or export a research candidate without seeing that its support is no longer eligible. This probe concerns derived metadata, not continued export of the original revoked bytes.</p>
+<p><strong>Proposed repair:</strong> Separate historical occurrence counts from eligible support counts and expose both with an as_of/policy identity. Filter or flag revoked/expired support in current candidate selection; keep audit history according to policy.</p>
+<p><strong>Acceptance condition:</strong> Revoking all support must remove current eligibility or display an explicit unsupported/historical state. New eligible support can restore candidacy without erasing prior history.</p>
+<p><strong>Affected journeys:</strong> J05, J17.</p>
+<p><strong>Source:</strong> <code>collector/src/keensight_scrapling/storage.py:164–215</code>. Numbered excerpts are in <code>SOURCE_EXCERPTS.md</code>; actual observations are in <code>reports/probe-results.json</code>.</p>
+</div></details><details id="audit-F11"><summary>F11 — Contradictory duplicate command outcomes are accepted</summary><div class="card"><p><strong>Priority:</strong> P1. <strong>Owners:</strong> FP-01, FP-02, PLAT-03. <strong>Probes:</strong> R2-C10.</p>
+<p><strong>Observed:</strong> Appending a FAILED MATCH_HOST_SUFFIX record with the same inputs alongside valid COMPLETE records still passes validate_bundle. The matcher check accepts any matching correct row; CommandResult has no invocation identity.</p>
+<p><strong>Impact and scope:</strong> A timeline cannot tell whether this is a retry, another operator using the same command name, or a contradiction. The baseline already has multiple COMPLETE rows because host_equals and host_suffix map to the same command.</p>
+<p><strong>Proposed repair:</strong> Assign command_execution_id, operator/version, target and attempt identifiers. Validate exactly one terminal outcome per invocation. Aggregate command-family status separately without discarding individual executions.</p>
+<p><strong>Acceptance condition:</strong> Contradictory terminal states for the same invocation fail. Legitimate distinct operators/attempts remain representable and inspectable.</p>
+<p><strong>Affected journeys:</strong> J03, J06, J19.</p>
+<p><strong>Source:</strong> <code>collector/src/keensight_scrapling/pipeline.py:211–218</code>; <code>collector/src/keensight_scrapling/validation.py:60–72</code>; <code>collector/src/keensight_scrapling/core.py:100–111</code>. Numbered excerpts are in <code>SOURCE_EXCERPTS.md</code>; actual observations are in <code>reports/probe-results.json</code>.</p>
+</div></details><details id="audit-F12"><summary>F12 — No-byte failures lose invocation details and have no persisted evaluation manifest</summary><div class="card"><p><strong>Priority:</strong> P1. <strong>Owners:</strong> ING-03, CTL-02, PLAT-01, PLAT-03. <strong>Probes:</strong> R2-C01, R2-C09.</p>
+<p><strong>Observed:</strong> finish_attempt replaces the reserved request payload; after timeout, started_at, command_id and mode are gone. A no-byte scan emits a bundle with no top-level tenant/subject/run identity (only evaluation_id), no captures, and no stored evaluation row.</p>
+<p><strong>Impact and scope:</strong> The attempts table retains tenant/run and run configuration separately, so identity is not wholly lost in the store. But the exported failure is not self-identifying and cannot produce a complete attempt timeline or durable failed-target evaluation.</p>
+<p><strong>Proposed repair:</strong> Keep immutable request metadata and append/merge the terminal outcome without deleting start fields. Require explicit evaluation tenant, target and run identity independently of artifacts. Persist zero-output success/failure/abstention manifests as first-class results.</p>
+<p><strong>Acceptance condition:</strong> Two failed targets with the same human run label remain distinguishable. Start/end/command/mode survive timeout and resume, without manufacturing bytes or positive facts.</p>
+<p><strong>Affected journeys:</strong> J06, J09, J19.</p>
+<p><strong>Source:</strong> <code>collector/src/keensight_scrapling/pipeline.py:46–60</code>; <code>collector/src/keensight_scrapling/pipeline.py:76–126</code>; <code>collector/src/keensight_scrapling/storage.py:69–94</code>; <code>collector/src/keensight_scrapling/storage.py:214–236</code>. Numbered excerpts are in <code>SOURCE_EXCERPTS.md</code>; actual observations are in <code>reports/probe-results.json</code>.</p>
+</div></details><details id="audit-F13"><summary>F13 — Protocol rejects an honest timeout failure reported after its deadline</summary><div class="card"><p><strong>Priority:</strong> P1. <strong>Owners:</strong> CTL-02, PLAT-03. <strong>Probes:</strong> R2-P01.</p>
+<p><strong>Observed:</strong> A FAILED result with no positive outputs and an explicit timeout diagnostic, finalized one second after deadline, is rejected as Operation finished beyond deadline.</p>
+<p><strong>Impact and scope:</strong> The system needs to deny late success/effects while still recording the real end time and failed outcome. Otherwise a worker must lie about finish time or lose its failure report.</p>
+<p><strong>Proposed repair:</strong> Separate execution deadline, cancellation/timeout outcome, report completion and late-effect handling. Accept truthful terminal diagnostics after a deadline without allowing success publication or new side effects.</p>
+<p><strong>Acceptance condition:</strong> Late FAILED/CANCELLED reports with appropriate reasons are admissible; a late success without approved semantics remains rejected and any uncertain side effect is reconciled.</p>
+<p><strong>Affected journeys:</strong> J06, J08, J19.</p>
+<p><strong>Source:</strong> <code>protocol/validate_protocol.py:92–151</code>. Numbered excerpts are in <code>SOURCE_EXCERPTS.md</code>; actual observations are in <code>reports/probe-results.json</code>.</p>
+</div></details><details id="audit-F14"><summary>F14 — Collector and canonical matcher disagree on aside-region semantics</summary><div class="card"><p><strong>Priority:</strong> P1. <strong>Owners:</strong> ING-04, FP-01, KN-02. <strong>Probes:</strong> R2-C08.</p>
+<p><strong>Observed:</strong> For the same script in an aside element, the collector supports vendor.present; canonical fingerprint_hosts returns no match because it excludes aside.</p>
+<p><strong>Impact and scope:</strong> A future bridge can reject a collector finding that looked valid, or change its meaning. This review does not assert that every aside must be ignored or accepted.</p>
+<p><strong>Proposed repair:</strong> Choose and version one attribution/region policy; share a matcher/evidence representation or run parity fixtures through both implementations. Do not silently map the two predicate contracts as equivalent.</p>
+<p><strong>Acceptance condition:</strong> Identical content and the declared same rule policy yield compatible results across collection and admission; differences require explicit policy/version labels.</p>
+<p><strong>Affected journeys:</strong> J02, J03, J11.</p>
+<p><strong>Source:</strong> <code>collector/src/keensight_scrapling/extraction.py:23–35</code>; <code>collector/src/keensight_scrapling/rules.py:163–169</code>; <code>canonical/keensight_contracts/engine.py:117–138</code>. Numbered excerpts are in <code>SOURCE_EXCERPTS.md</code>; actual observations are in <code>reports/probe-results.json</code>.</p>
+</div></details><details id="audit-F15"><summary>F15 — The protocol fixture does not constrain mode/effects against operation parameters</summary><div class="card"><p><strong>Priority:</strong> P2. <strong>Owners:</strong> CTL-01, CTL-03, PLAT-03. <strong>Probes:</strong> R2-P02.</p>
+<p><strong>Observed:</strong> The complete fixture payload check accepts FP-01.match in CAPTURE mode reporting five network attempts even though its validated parameters say allow_network=false.</p>
+<p><strong>Impact and scope:</strong> No network was performed; this is a checker-consistency test. The enforcing runner still does not exist, so the current envelope cannot be advertised as enforcing effect permissions.</p>
+<p><strong>Proposed repair:</strong> Extend trusted operation signatures with allowed modes, effect classes and budget policies; compare reported usage to those constraints and enforce them before execution through capability-limited dependencies. Diagnostics must remain truthful when policy is violated.</p>
+<p><strong>Acceptance condition:</strong> Offline matching cannot be authorized to capture; reported forbidden effects trigger a policy failure and alert rather than a successful eligible output.</p>
+<p><strong>Affected journeys:</strong> J08, J19.</p>
+<p><strong>Source:</strong> <code>protocol/validate_protocol.py:51–131</code>. Numbered excerpts are in <code>SOURCE_EXCERPTS.md</code>; actual observations are in <code>reports/probe-results.json</code>.</p>
+</div></details><details id="audit-F16"><summary>F16 — effective_at is stored but its decision semantics are undefined/unused</summary><div class="card"><p><strong>Priority:</strong> P2. <strong>Owners:</strong> KN-02, KN-03, RE-05. <strong>Probes:</strong> R2-A05.</p>
+<p><strong>Observed:</strong> A fact with effective_at a month after the use gate remains current-eligible and passes full validation. The gate time, observed_at and recorded_at are distinct, but effective_at is not consulted.</p>
+<p><strong>Impact and scope:</strong> Some records describe future events and are valid observations now; others must not be interpreted as a currently effective status. The generic contract does not say which rule applies. This is separately reported, not an assumed universal failing requirement.</p>
+<p><strong>Proposed repair:</strong> Define per-predicate temporal semantics: observation of an announcement, asserted valid-time state, reporting period, and validity interval. Test the permitted language and signal conditions separately rather than universally dropping future-dated records.</p>
+<p><strong>Acceptance condition:</strong> A future license effective date cannot prove currently effective licensure; a supported statement that the record announces a future effective date remains possible.</p>
+<p><strong>Affected journeys:</strong> J11, J12, J13.</p>
+<p><strong>Source:</strong> <code>canonical/keensight_contracts/engine.py:37–44</code>; <code>canonical/keensight_contracts/validation.py:123–171</code>; <code>canonical/keensight_contracts/validation.py:452–493</code>. Numbered excerpts are in <code>SOURCE_EXCERPTS.md</code>; actual observations are in <code>reports/probe-results.json</code>.</p>
+<h2>Existing repairs that still hold</h2>
+<p>Six controls passed: changed capture metadata is rejected; duplicate evaluation input does not publish findings; compatible rule-release replay succeeds; an unresolved binding blocks use; a cross-tenant ChangeRecord cannot veto the other tenant's fact; and an undeclared protocol input is rejected. These results distinguish residual gaps from blanket claims that previous repairs failed.</p>
+<h2>Repair sequence</h2>
+<ol>
+<li><strong>One trusted decision dependency closure:</strong> binding evidence, sealed versus current visibility, current template authority (F01, F02, F04). Keep the historical view separate from the current-use veto.</li>
+<li><strong>One publication payload and invocation identity:</strong> atomic persistence from the validated object, self-identifying zero-output evaluations, immutable attempts and command execution IDs (F03, F11, F12).</li>
+<li><strong>Collector completeness and identity parity:</strong> parser-loss diagnostics, shared region policy, run-subject identity and eligible research support (F06, F09, F10, F14).</li>
+<li><strong>Canonical execution consistency:</strong> one artifact-availability resolver, guarded supersession and shared requirement-counting logic (F05, F07, F08).</li>
+<li><strong>Service protocol:</strong> allow honest late failure reports and constrain operation modes/effects before exposing network workers (F13, F15). Decide predicate-specific effective-time behavior (F16).</li>
+<li>Re-run the old suites, these safety tests, and the linked journeys. Only then broaden the capture→canonical→preview integration.</li>
+</ol>
+<h2>Incompleteness remains explicit</h2>
+<p>There is no executable collector-to-canonical production admission bridge, persistent authenticated canonical service, general module runner, full donor-rule promotion service, native bounded browser, broad production connector suite, contact/campaign/enrollment implementation, sender, inbound conversation processor or CRM synchronization service in this baseline. The design provides module names, contracts and intended ownership. The feature map records these as proposed, not as callable endpoints.</p>
+<p>The request in this iteration is to identify bugs and add critique/invocation walkthroughs. No application behavior has been patched. A local helper was added solely to run and log the documented offline journeys; it is not the proposed execution middleware.</p>
+<h2>Reproduction</h2>
+<p>From this review package's root:</p>
+<pre><code class="language-bash"># Existing baseline; dependency installation may need network access in your environment.
+python -m pip install -e './baseline/collector[test]'
+python -m pip install -r ./baseline/canonical/requirements.txt
+python baseline/verify_integrity.py
+(cd baseline/collector &amp;&amp; python -m pytest -q)
+(cd baseline/canonical &amp;&amp; python generate.py --check &amp;&amp; python validate.py &amp;&amp; python -m pytest -q)
+(cd baseline/protocol &amp;&amp; python validate_protocol.py &amp;&amp; python -m pytest -q)
+
+# New audit: expected to identify the documented defects against this unchanged baseline.
+python audit_probes.py --output ./audit-output.json
+python -m pytest -q tests/test_required_behaviour.py
+
+# Narrow working user paths: offline and no-send, not full-system sign-off.
+python walkthroughs/run_local_journeys.py --output ./journey-output --journey all-local
+</code></pre>
+<p>The failing safety suite should remain separate from the original passing-test count until patches intentionally change the expected outcomes. No defect is proven merely by a higher test count.</p>
+</div></details></section><section id="modules"><div class="section-title"><span>06</span><h2>All module and submodule owners</h2></div><h1>Submodule, feature, invocation and bug traceability</h1>
+<p>The original 39 module IDs, names and submodule names are retained. This view does not turn every function into a network service. Feature status is finer grained than module status.</p>
+<h2>CTL-01 — Contracts and release compiler</h2>
+<p><strong>Submodules:</strong> schema registry; domain catalogs; 38-command registry; function allowlist; release compatibility</p>
+<p><strong>Original inputs:</strong> CapabilityProfile, VersionedDefinitions, ImplementationManifest</p>
+<p><strong>Original outputs:</strong> ReleaseLock, ValidationReport</p>
+<p><strong>Feature coverage:</strong> FM03 (REFERENCE)</p>
+<p><strong>Invoke:</strong> reference-checks</p>
+<p><strong>Audit:</strong> F15 The protocol fixture does not constrain mode/effects against operation parameters</p>
+<h2>CTL-02 — Intake and batch coordination</h2>
+<p><strong>Submodules:</strong> target intake; operation identity; dependency order; per-target completion; checkpoint and resume</p>
+<p><strong>Original inputs:</strong> IntakeRequest, ReleaseLock, ProgramDefinition, ResearchPlan</p>
+<p><strong>Original outputs:</strong> BatchRun, ModuleRequest, TargetResult, RunReport</p>
+<p><strong>Feature coverage:</strong> FM04 (LOCAL)</p>
+<p><strong>Invoke:</strong> demo</p>
+<p><strong>Audit:</strong> F05 Generated-artifact handoff is accepted by one validator and rejected by another; F09 Retained-file import does not pin subject identity in run configuration; F12 No-byte failures lose invocation details and have no persisted evaluation manifest; F13 Protocol rejects an honest timeout failure reported after its deadline</p>
+<h2>CTL-03 — Access, source policy and budget admission</h2>
+<p><strong>Submodules:</strong> trusted authentication context; tenant authorization; source rights; purpose restrictions; budget allocation</p>
+<p><strong>Original inputs:</strong> TrustedPrincipal, DataAccessPolicy, CapabilityProfile, BudgetAccount</p>
+<p><strong>Original outputs:</strong> AuthorizedContext, AccessDecision, BudgetReservation</p>
+<p><strong>Feature coverage:</strong> FM03 (REFERENCE); FM19 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation; reference-checks</p>
+<p><strong>Audit:</strong> F15 The protocol fixture does not constrain mode/effects against operation parameters</p>
+<h2>ING-01 — Source connector dispatcher</h2>
+<p><strong>Submodules:</strong> ATS/jobs; reviews/forums; traffic and SEO; registries/filings; publications/case studies; authorized operations</p>
+<p><strong>Original inputs:</strong> SourceDefinition, AcquisitionSpec, AuthorizedContext</p>
+<p><strong>Original outputs:</strong> AcquisitionAttempt, Artifact, SourceRecord</p>
+<p><strong>Feature coverage:</strong> FM19 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation</p>
+<p><strong>Audit:</strong> No new reproduced bug; implementation gaps remain as shown.</p>
+<h2>ING-02 — Scrapling discovery and capture planner</h2>
+<p><strong>Submodules:</strong> normalization; robots policy integration; sitemaps; well-known paths; template discovery; follow-up queue</p>
+<p><strong>Original inputs:</strong> IntakeTarget, ReleaseLock, Capture, Surface</p>
+<p><strong>Original outputs:</strong> ScanPlan, AcquisitionSpec, DiscoveryDecision</p>
+<p><strong>Feature coverage:</strong> FM04 (LOCAL); FM05 (LOCAL); FM06 (SDK_UNVERIFIED)</p>
+<p><strong>Invoke:</strong> analyze-file; demo; scan (dependency-gated)</p>
+<p><strong>Audit:</strong> F09 Retained-file import does not pin subject identity in run configuration</p>
+<h2>ING-03 — Scrapling transport and evidence capture</h2>
+<p><strong>Submodules:</strong> static HTTP; bounded browser; headers/cookies; original bytes; rendered DOM; network events; timeouts</p>
+<p><strong>Original inputs:</strong> AcquisitionSpec, BudgetReservation, AuthorizedContext</p>
+<p><strong>Original outputs:</strong> AcquisitionAttempt, Capture, Artifact, CaptureCapabilities</p>
+<p><strong>Feature coverage:</strong> FM04 (LOCAL); FM06 (SDK_UNVERIFIED); FM07 (DISABLED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation; demo; scan (dependency-gated)</p>
+<p><strong>Audit:</strong> F12 No-byte failures lose invocation details and have no persisted evaluation manifest</p>
+<h2>ING-04 — Surface extraction</h2>
+<p><strong>Submodules:</strong> 17 EXTRACT commands; DOM/node locators; full JSON-LD; prose; surface completeness</p>
+<p><strong>Original inputs:</strong> Capture, Artifact, ParserRelease</p>
+<p><strong>Original outputs:</strong> Surface, PageEvidence, ExtractionReport</p>
+<p><strong>Feature coverage:</strong> FM05 (LOCAL); FM08 (LOCAL)</p>
+<p><strong>Invoke:</strong> analyze-file; extract</p>
+<p><strong>Audit:</strong> F06 HTML recovery can silently truncate the parse while reporting complete detection; F14 Collector and canonical matcher disagree on aside-region semantics</p>
+<h2>FP-01 — Fingerprint rule execution</h2>
+<p><strong>Submodules:</strong> closed rule compiler; literal/alternative/regex/host/image matching; page/host correlation</p>
+<p><strong>Original inputs:</strong> ReleaseLock, PageEvidence, HostEvidenceIndex</p>
+<p><strong>Original outputs:</strong> Match, MatchEvaluation</p>
+<p><strong>Feature coverage:</strong> FM05 (LOCAL); FM09 (LOCAL)</p>
+<p><strong>Invoke:</strong> analyze-file; match</p>
+<p><strong>Audit:</strong> F06 HTML recovery can silently truncate the parse while reporting complete detection; F11 Contradictory duplicate command outcomes are accepted; F14 Collector and canonical matcher disagree on aside-region semantics</p>
+<h2>FP-02 — Collector observations and scan assembly</h2>
+<p><strong>Submodules:</strong> observation identity; support links; claim projection; vertical qualification; priority; bundle output</p>
+<p><strong>Original inputs:</strong> Capture, Surface, Match, ReleaseLock</p>
+<p><strong>Original outputs:</strong> Observation, SupportLink, ClaimView, QualificationAssessment, PriorityAssessment, ScanBundle</p>
+<p><strong>Feature coverage:</strong> FM04 (LOCAL); FM05 (LOCAL); FM10 (LOCAL); FM11 (LOCAL)</p>
+<p><strong>Invoke:</strong> analyze-file; check; demo; resolve / claims</p>
+<p><strong>Audit:</strong> F03 Publication validates one payload and can persist a different argument set; F09 Retained-file import does not pin subject identity in run configuration; F11 Contradictory duplicate command outcomes are accepted</p>
+<h2>FP-03 — Fingerprint discovery and promotion</h2>
+<p><strong>Submodules:</strong> unknown normalization; prevalence; bounded samples; donor import; quarantine; review; fixture and calibration gates</p>
+<p><strong>Original inputs:</strong> Surface, FingerprintCandidate, RuleReview, FixtureReport</p>
+<p><strong>Original outputs:</strong> CandidateRecord, ImportReport, RuleReleaseProposal</p>
+<p><strong>Feature coverage:</strong> FM13 (LOCAL); FM14 (LOCAL); FM15 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation; candidates; import-donor</p>
+<p><strong>Audit:</strong> F10 Current candidate discovery counts unlabelled revoked evidence</p>
+<h2>ING-05 — Stored-evidence replay and comparison</h2>
+<p><strong>Submodules:</strong> capability checks; byte verification; re-extraction; rematching; diffs; recapture requests</p>
+<p><strong>Original inputs:</strong> ReplayRequest, ScanBundle, ReleaseLock</p>
+<p><strong>Original outputs:</strong> ScanBundle, ReplayReport, DiffReport, RecaptureRequest</p>
+<p><strong>Feature coverage:</strong> FM12 (LOCAL)</p>
+<p><strong>Invoke:</strong> replay</p>
+<p><strong>Audit:</strong> No new reproduced bug; implementation gaps remain as shown.</p>
+<h2>AI-01 — Bounded model gateway</h2>
+<p><strong>Submodules:</strong> task/prompt registry; approved providers; raw I/O; structured parsing; bounded repair; cost and terminal state</p>
+<p><strong>Original inputs:</strong> ModelTask, Artifact, EvidenceSet, BudgetReservation</p>
+<p><strong>Original outputs:</strong> ModelCall, RepairAttempt, TypedModelResult</p>
+<p><strong>Feature coverage:</strong> FM20 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation</p>
+<p><strong>Audit:</strong> F05 Generated-artifact handoff is accepted by one validator and rejected by another</p>
+<h2>KN-01 — Identity and subject binding</h2>
+<p><strong>Submodules:</strong> organization/person/location/product/industry resolution; external IDs; domain ownership; aliases; merge/split review</p>
+<p><strong>Original inputs:</strong> IntakeTarget, SourceRecord, BindingEvidence, Subject</p>
+<p><strong>Original outputs:</strong> Subject, SubjectBinding, BindingDecision</p>
+<p><strong>Feature coverage:</strong> FM16 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation</p>
+<p><strong>Audit:</strong> F01 Identity-binding evidence is outside eligibility/provenance closure</p>
+<h2>KN-02 — Canonical fact admission</h2>
+<p><strong>Submodules:</strong> collector bridge; predicate-specific validation; source mapping; producer and lineage closure; coverage; idempotent insert</p>
+<p><strong>Original inputs:</strong> Observation, SupportLink, SourceRecord, TypedModelResult, SubjectBinding, AcquisitionAttempt</p>
+<p><strong>Original outputs:</strong> Fact, EvidenceSet, EvidenceLocator, ExecutionRecord, AdmissionReport, CandidateRecord</p>
+<p><strong>Feature coverage:</strong> FM17 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation</p>
+<p><strong>Audit:</strong> F01 Identity-binding evidence is outside eligibility/provenance closure; F05 Generated-artifact handoff is accepted by one validator and rejected by another; F07 A self-superseding fact raises RecursionError before semantic rejection; F14 Collector and canonical matcher disagree on aside-region semantics; F16 effective_at is stored but its decision semantics are undefined/unused</p>
+<h2>KN-03 — Canonical claim resolution</h2>
+<p><strong>Submodules:</strong> complete claim grouping; scope/cardinality; freshness/authority; conflict policy; corrections</p>
+<p><strong>Original inputs:</strong> Fact, EvidenceSet, SubjectBinding, ChangeRecord, ResolutionPolicy</p>
+<p><strong>Original outputs:</strong> ClaimResolution</p>
+<p><strong>Feature coverage:</strong> FM18 (REFERENCE); FM35 (REFERENCE)</p>
+<p><strong>Invoke:</strong> Store.revoke or Bundle.validate_change (local/reference only); canonical validate / Python fixture API</p>
+<p><strong>Audit:</strong> F01 Identity-binding evidence is outside eligibility/provenance closure; F04 Later supersession leaks into an earlier sealed evaluation; F07 A self-superseding fact raises RecursionError before semantic rejection; F08 Requirement minimum means fact count in the helper but origin count in validation; F16 effective_at is stored but its decision semantics are undefined/unused</p>
+<h2>KN-04 — Knowledge queries and evaluation input selection</h2>
+<p><strong>Submodules:</strong> typed filters; knowledge-only results; as-of/known-at reads; exact input manifests; upstream closure</p>
+<p><strong>Original inputs:</strong> KnowledgeQuery, BatchRun, Fact, ClaimResolution</p>
+<p><strong>Original outputs:</strong> KnowledgeView, InputSnapshot, QueryReport</p>
+<p><strong>Feature coverage:</strong> FM18 (REFERENCE)</p>
+<p><strong>Invoke:</strong> canonical validate / Python fixture API</p>
+<p><strong>Audit:</strong> F04 Later supersession leaks into an earlier sealed evaluation</p>
+<h2>RE-01 — Deterministic derivations and temporal/cohort calculations</h2>
+<p><strong>Submodules:</strong> input selectors; descriptors; history comparisons; membership aggregation; baselines/percentiles</p>
+<p><strong>Original inputs:</strong> InputSnapshot, FunctionDefinition, TypedParameters</p>
+<p><strong>Original outputs:</strong> DerivedFactDraft, ExecutionRecord, DerivationReport</p>
+<p><strong>Feature coverage:</strong> FM23 (REFERENCE)</p>
+<p><strong>Invoke:</strong> reference functions, not a product CLI</p>
+<p><strong>Audit:</strong> F04 Later supersession leaks into an earlier sealed evaluation; F05 Generated-artifact handoff is accepted by one validator and rejected by another</p>
+<h2>RE-02 — Research samples and priors</h2>
+<p><strong>Submodules:</strong> sample selection; deduplication; classifications; support policy; denominators/exclusions; priors</p>
+<p><strong>Original inputs:</strong> InputSnapshot, ResearchSample, ResearchSupportPolicy, SampleRecordDecision</p>
+<p><strong>Original outputs:</strong> ResearchPriorDraft, ExecutionRecord, ResearchReport</p>
+<p><strong>Feature coverage:</strong> FM21 (REFERENCE)</p>
+<p><strong>Invoke:</strong> canonical fixture validation / Python helpers</p>
+<p><strong>Audit:</strong> No new reproduced bug; implementation gaps remain as shown.</p>
+<h2>RE-03 — Account-to-research context joins</h2>
+<p><strong>Submodules:</strong> product relationships; industry membership; allowlisted cross-subject joins</p>
+<p><strong>Original inputs:</strong> ClaimResolution, ContextJoinRule, ResearchPriorFact</p>
+<p><strong>Original outputs:</strong> ContextAssessment</p>
+<p><strong>Feature coverage:</strong> FM21 (REFERENCE)</p>
+<p><strong>Invoke:</strong> canonical fixture validation / Python helpers</p>
+<p><strong>Audit:</strong> No new reproduced bug; implementation gaps remain as shown.</p>
+<h2>RE-04 — Case-study and lookalike analysis</h2>
+<p><strong>Submodules:</strong> reported case-study extraction; quality assessment; feature versions; optional similarity; differences</p>
+<p><strong>Original inputs:</strong> InputSnapshot, CaseStudyFacts, ComparisonPolicy</p>
+<p><strong>Original outputs:</strong> LookalikeMatch, ComparisonReport</p>
+<p><strong>Feature coverage:</strong> FM22 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation</p>
+<p><strong>Audit:</strong> No new reproduced bug; implementation gaps remain as shown.</p>
+<h2>RE-05 — Signals and adjudication</h2>
+<p><strong>Submodules:</strong> condition functions; confounds; explicit negative/unknown/error reasons; verification requests</p>
+<p><strong>Original inputs:</strong> InputSnapshot, ClaimResolution, ContextAssessment, SignalDefinition</p>
+<p><strong>Original outputs:</strong> SignalEvaluation, SignalDecision, AdjudicationReport, VerificationRequest</p>
+<p><strong>Feature coverage:</strong> FM23 (REFERENCE)</p>
+<p><strong>Invoke:</strong> reference functions, not a product CLI</p>
+<p><strong>Audit:</strong> F08 Requirement minimum means fact count in the helper but origin count in validation; F16 effective_at is stored but its decision semantics are undefined/unused</p>
+<h2>COM-01 — Opportunity and playbook selection</h2>
+<p><strong>Submodules:</strong> service-line mapping; audience/offer fit; priority; template eligibility; playbooks</p>
+<p><strong>Original inputs:</strong> SignalEvaluation, ContextAssessment, ComparisonReport, OfferPolicy</p>
+<p><strong>Original outputs:</strong> OpportunitySelection</p>
+<p><strong>Feature coverage:</strong> FM24 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation</p>
+<p><strong>Audit:</strong> No new reproduced bug; implementation gaps remain as shown.</p>
+<h2>COM-02 — Grounded clauses and packages</h2>
+<p><strong>Submodules:</strong> approved renderers; whole-clause checks; quote context; assumption-labeled scenarios; package revisions</p>
+<p><strong>Original inputs:</strong> OpportunitySelection, InputSnapshot, TemplateDefinition, ClaimResolution</p>
+<p><strong>Original outputs:</strong> GroundedClause, OutreachPackage, PackageValidationReport, MessageArtifact</p>
+<p><strong>Feature coverage:</strong> FM26 (REFERENCE)</p>
+<p><strong>Invoke:</strong> Bundle.render(existing_package)</p>
+<p><strong>Audit:</strong> F02 Demoted templates pass the standalone current-use/export boundary</p>
+<h2>COM-03 — Authorized review</h2>
+<p><strong>Submodules:</strong> evidence viewer; revision comparison; reviewer permissions; approval/rejection</p>
+<p><strong>Original inputs:</strong> OutreachPackage, PackageValidationReport, TrustedPrincipal</p>
+<p><strong>Original outputs:</strong> ReviewDecision</p>
+<p><strong>Feature coverage:</strong> FM27 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation</p>
+<p><strong>Audit:</strong> F02 Demoted templates pass the standalone current-use/export boundary</p>
+<h2>COM-04 — Current-use gate and controlled export</h2>
+<p><strong>Submodules:</strong> freshness/rights/restrictions; purpose/destination; mapping; local/CRM export; receipts</p>
+<p><strong>Original inputs:</strong> OutreachPackage, ReviewDecision, DestinationDefinition, CurrentRestrictionSnapshot, DeliveryIntent, CampaignApproval, CampaignReadiness, ContactAssessment</p>
+<p><strong>Original outputs:</strong> UseGateDecision, ExportReceipt, SendGateDecision</p>
+<p><strong>Feature coverage:</strong> FM28 (REFERENCE)</p>
+<p><strong>Invoke:</strong> LocalPreviewExporter via walkthrough helper</p>
+<p><strong>Audit:</strong> F01 Identity-binding evidence is outside eligibility/provenance closure; F02 Demoted templates pass the standalone current-use/export boundary</p>
+<h2>COM-05 — Delivery and reconciliation</h2>
+<p><strong>Submodules:</strong> recipient resolution; send permissions; outbox; provider dispatch; unknown acceptance; unsubscribe</p>
+<p><strong>Original inputs:</strong> DeliveryIntent, UseGateDecision, OutreachPackage, TrustedRecipientBinding, SendGateDecision, MessageArtifact, StepEligibility</p>
+<p><strong>Original outputs:</strong> DeliveryAttempt, Exposure, ReconciliationRecord, SenderCapabilitySnapshot</p>
+<p><strong>Feature coverage:</strong> FM31 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation</p>
+<p><strong>Audit:</strong> No new reproduced bug; implementation gaps remain as shown.</p>
+<h2>COM-06 — Outcomes and descriptive performance</h2>
+<p><strong>Submodules:</strong> webhook verification; event deduplication; exposure joins; mature windows; measurement</p>
+<p><strong>Original inputs:</strong> OutcomeEvent, Exposure, AttributionPolicy, MeasurementWindow, CRMSyncReceipt</p>
+<p><strong>Original outputs:</strong> AttributedOutcome, MeasurementFactDraft, OutcomeReport</p>
+<p><strong>Feature coverage:</strong> FM32 (PROPOSED); FM34 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation</p>
+<p><strong>Audit:</strong> No new reproduced bug; implementation gaps remain as shown.</p>
+<h2>PLAT-01 — Records, blobs and transactions</h2>
+<p><strong>Submodules:</strong> immutable references; content hashes; record manifests; SQLite/local backend; atomic commit; checkpoints</p>
+<p><strong>Original inputs:</strong> ValidatedRecord, ArtifactBytes, WriteTransaction</p>
+<p><strong>Original outputs:</strong> RecordRef, CommitReceipt</p>
+<p><strong>Feature coverage:</strong> FM11 (LOCAL); FM36 (LOCAL)</p>
+<p><strong>Invoke:</strong> check; ks-module and offline walkthrough harness</p>
+<p><strong>Audit:</strong> F03 Publication validates one payload and can persist a different argument set; F12 No-byte failures lose invocation details and have no persisted evaluation manifest</p>
+<h2>PLAT-02 — Governance, corrections and retention</h2>
+<p><strong>Submodules:</strong> authorized change records; rule/source revocation; deletion/tombstones; backup/restore; current-use invalidation</p>
+<p><strong>Original inputs:</strong> AuthorizedChangeRequest, DataAccessPolicy, RecordRef, TrustedPrincipal</p>
+<p><strong>Original outputs:</strong> ChangeRecord, RevocationRecord, RetentionAction, RestoreReport</p>
+<p><strong>Feature coverage:</strong> FM35 (REFERENCE)</p>
+<p><strong>Invoke:</strong> Store.revoke or Bundle.validate_change (local/reference only)</p>
+<p><strong>Audit:</strong> F10 Current candidate discovery counts unlabelled revoked evidence</p>
+<h2>PLAT-03 — Diagnostics and operator interface</h2>
+<p><strong>Submodules:</strong> execution index; structured logs; why/why-not; trace/diff; offline replay UI; safe debug bundles; metrics</p>
+<p><strong>Original inputs:</strong> ModuleRequest, ModuleResult, RecordRef, Diagnostic</p>
+<p><strong>Original outputs:</strong> ExecutionTimeline, ExplanationReport, DebugBundle, RunReport</p>
+<p><strong>Feature coverage:</strong> FM36 (LOCAL)</p>
+<p><strong>Invoke:</strong> ks-module and offline walkthrough harness</p>
+<p><strong>Audit:</strong> F11 Contradictory duplicate command outcomes are accepted; F12 No-byte failures lose invocation details and have no persisted evaluation manifest; F13 Protocol rejects an honest timeout failure reported after its deadline; F15 The protocol fixture does not constrain mode/effects against operation parameters</p>
+<h2>GTM-01 — Program, audience and offer design</h2>
+<p><strong>Submodules:</strong> service-line objectives; versioned ideal-customer criteria; exclusions and existing-customer policies; geography and scope; offer and playbook catalog; per-program acquisition and outreach limits</p>
+<p><strong>Original inputs:</strong> ProgramDraft, OfferCatalog, DataAccessPolicy</p>
+<p><strong>Original outputs:</strong> ProgramDefinition, AudienceDefinition, OfferDefinition</p>
+<p><strong>Feature coverage:</strong> FM01 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation</p>
+<p><strong>Audit:</strong> No new reproduced bug; implementation gaps remain as shown.</p>
+<h2>GTM-02 — Account sourcing, selection and research planning</h2>
+<p><strong>Submodules:</strong> CSV and Harvest intake adapter; permitted discovery-source queries; candidate origin tracking; deduplication through identity service; fit selection without truth promotion; coverage gaps and bounded enrichment planning</p>
+<p><strong>Original inputs:</strong> ProgramDefinition, AudienceDefinition, SourceRecord, SubjectBinding, CRMAccountView, KnowledgeView</p>
+<p><strong>Original outputs:</strong> AccountSeed, LeadSelection, ResearchPlan, IntakeRequest</p>
+<p><strong>Feature coverage:</strong> FM02 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation</p>
+<p><strong>Audit:</strong> No new reproduced bug; implementation gaps remain as shown.</p>
+<h2>AUD-01 — Contacts, role evidence and audience selection</h2>
+<p><strong>Submodules:</strong> person-account relationship evidence; approved endpoint enrichment; email/phone verification status; persona selection; recipient scope and source rights; endpoint alias and role changes</p>
+<p><strong>Original inputs:</strong> Subject, SubjectBinding, OpportunitySelection, SourceRecord, DataAccessPolicy, CurrentRestrictionSnapshot</p>
+<p><strong>Original outputs:</strong> ContactProfile, ContactAssessment</p>
+<p><strong>Feature coverage:</strong> FM25 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation</p>
+<p><strong>Audit:</strong> No new reproduced bug; implementation gaps remain as shown.</p>
+<h2>CAM-01 — Campaign and sequence policy</h2>
+<p><strong>Submodules:</strong> route mappings; ordered step definitions; template eligibility; sender constraints; timezone/calendar policy; frequency and cross-campaign caps; approval and remote-state preflight</p>
+<p><strong>Original inputs:</strong> ProgramDefinition, OfferDefinition, TemplateDefinition, DestinationDefinition, SenderCapabilitySnapshot</p>
+<p><strong>Original outputs:</strong> CampaignDefinition, CampaignApproval, CampaignReadiness</p>
+<p><strong>Feature coverage:</strong> FM29 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation</p>
+<p><strong>Audit:</strong> No new reproduced bug; implementation gaps remain as shown.</p>
+<h2>CAM-02 — Enrollment, scheduling and stop control</h2>
+<p><strong>Submodules:</strong> contact/account enrollment deduplication; cross-program fatigue and exclusivity; durable next-step eligibility; holds and cancellation; reply-driven stops; out-of-order event handling; provider-managed schedule reconciliation</p>
+<p><strong>Original inputs:</strong> CampaignDefinition, CampaignApproval, CampaignReadiness, ContactAssessment, ReviewDecision, CRMAccountView, UseRestriction, EnrollmentControl, DeliveryAttempt, ReplyAssessment</p>
+<p><strong>Original outputs:</strong> Enrollment, StepEligibility, DeliveryIntent</p>
+<p><strong>Feature coverage:</strong> FM30 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation</p>
+<p><strong>Audit:</strong> No new reproduced bug; implementation gaps remain as shown.</p>
+<h2>ENG-01 — Conversations, replies and response handling</h2>
+<p><strong>Submodules:</strong> verified inbound routing; immediate safety stop path; reply thread and exposure linkage; bounded intent classification; out-of-office handling; human response drafts; referrals and new contact admission; meeting/sales handoff</p>
+<p><strong>Original inputs:</strong> OutcomeEvent, Exposure, ContactProfile, Enrollment, Artifact, TypedModelResult</p>
+<p><strong>Original outputs:</strong> Conversation, ReplyAssessment, EnrollmentControl, SalesHandoff, FollowUpTask, AuthorizedChangeRequest</p>
+<p><strong>Feature coverage:</strong> FM32 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation</p>
+<p><strong>Audit:</strong> No new reproduced bug; implementation gaps remain as shown.</p>
+<h2>CRM-01 — CRM synchronization and sales handoff</h2>
+<p><strong>Submodules:</strong> provider identity mapping; field ownership and schema mappings; existing account/deal exclusions; upsert and receipt reconciliation; sales tasks and meeting handoff; deal-stage and outcome ingestion; sync-loop prevention</p>
+<p><strong>Original inputs:</strong> CRMMapping, SalesHandoff, ExportReceipt, Conversation, OutcomeEvent, AuthorizedContext</p>
+<p><strong>Original outputs:</strong> CRMAccountView, CRMSyncIntent, CRMSyncReceipt, OutcomeEvent, CRMMapping</p>
+<p><strong>Feature coverage:</strong> FM33 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation</p>
+<p><strong>Audit:</strong> No new reproduced bug; implementation gaps remain as shown.</p>
+<h2>QA-01 — Evaluation, experiments and promotion assessment</h2>
+<p><strong>Submodules:</strong> gold-set evaluation; detector and semantic extraction quality; template review quality; measured source costs and coverage; campaign holdouts and assignment; drift checks; promotion/demotion proposals</p>
+<p><strong>Original inputs:</strong> ExperimentDefinition, FixtureReport, CalibrationRecord, OutcomeReport, ExecutionRecord, RuleReleaseProposal</p>
+<p><strong>Original outputs:</strong> ExperimentAssignment, QualityAssessment, PromotionProposal, ExperimentDefinition</p>
+<p><strong>Feature coverage:</strong> FM15 (PROPOSED); FM34 (PROPOSED)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation</p>
+<p><strong>Audit:</strong> No new reproduced bug; implementation gaps remain as shown.</p>
+<h2>UX-01 — Product workspace and operator workflows</h2>
+<p><strong>Submodules:</strong> program and source setup; account evidence and research browser; contact and candidate review; package and campaign review; inbox and sales queues; CRM and delivery health; audit permissions and diagnostic navigation</p>
+<p><strong>Original inputs:</strong> KnowledgeView, RunReport, ExecutionTimeline, OpportunitySelection, OutreachPackage, ContactProfile, Enrollment, Conversation, CRMSyncReceipt, TrustedPrincipal</p>
+<p><strong>Original outputs:</strong> WorkspaceView, ModuleRequest</p>
+<p><strong>Feature coverage:</strong> FM27 (PROPOSED); FM36 (LOCAL)</p>
+<p><strong>Invoke:</strong> Proposed: no callable product operation; ks-module and offline walkthrough harness</p>
+<p><strong>Audit:</strong> No new reproduced bug; implementation gaps remain as shown.</p>
+</section></main><footer>Self-contained document. No external assets, analytics, forms, provider calls or sender. The downloadable package includes numbered source excerpts, unchanged baseline source, failing safety expectations and actual invocation logs.</footer></body></html>

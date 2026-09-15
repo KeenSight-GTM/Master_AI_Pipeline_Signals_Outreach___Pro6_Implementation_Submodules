@@ -1,0 +1,1966 @@
+[
+  {
+    "name": "AcquisitionAttempt",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/AcquisitionAttempt.schema.json",
+    "fields": [
+      "adapter_version",
+      "artifact_ids",
+      "attempt_id",
+      "body_limit_bytes",
+      "cost_minor",
+      "cost_status",
+      "currency",
+      "execution_mode",
+      "finished_at",
+      "intake_id",
+      "max_requests",
+      "operation_key",
+      "pagination",
+      "request_hash",
+      "requests_made",
+      "scope_id",
+      "source_id",
+      "source_version",
+      "started_at",
+      "status",
+      "target",
+      "tenant_id",
+      "terminal_reason",
+      "timeout_seconds",
+      "truncated"
+    ]
+  },
+  {
+    "name": "ActorGrant",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ActorGrant.schema.json",
+    "fields": [
+      "active",
+      "actor_id",
+      "fixture_only",
+      "permissions",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "Artifact",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/Artifact.schema.json",
+    "fields": [
+      "artifact_id",
+      "byte_count",
+      "captured_at",
+      "classification",
+      "content_hash",
+      "content_ref",
+      "independence_group",
+      "media_type",
+      "origin_namespace",
+      "origin_record_id",
+      "origin_revision",
+      "parent_artifact_id",
+      "published_at",
+      "resource_uri",
+      "retained_until",
+      "retention_state",
+      "scope_id",
+      "source_id",
+      "status",
+      "tenant_id",
+      "truncated"
+    ]
+  },
+  {
+    "name": "AttributedStatementValue",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/AttributedStatementValue.schema.json",
+    "fields": [
+      "modality",
+      "statement_id",
+      "text",
+      "topic_id"
+    ]
+  },
+  {
+    "name": "BatchRun",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/BatchRun.schema.json",
+    "fields": [
+      "approval_policy_version",
+      "as_of",
+      "binding_ids",
+      "code_release",
+      "created_at",
+      "imported_execution_ids",
+      "input_artifact_ids",
+      "input_fact_ids",
+      "intake_id",
+      "knowledge_cutoff",
+      "mode",
+      "produced_artifact_ids",
+      "produced_fact_ids",
+      "profile_id",
+      "registry_release",
+      "resolution_ids",
+      "run_id",
+      "sample_ids",
+      "sealed_at",
+      "status",
+      "target_results",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "CalibrationRecord",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/CalibrationRecord.schema.json",
+    "fields": [
+      "calibration_id",
+      "evaluation_dataset_id",
+      "false_positives",
+      "fixture_only",
+      "measured_precision",
+      "report_hash",
+      "review_ref",
+      "target_id",
+      "target_version",
+      "true_positives"
+    ]
+  },
+  {
+    "name": "CallEventValue",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/CallEventValue.schema.json",
+    "fields": [
+      "call_key",
+      "callback_of",
+      "direction",
+      "duration_seconds",
+      "started_at",
+      "status"
+    ]
+  },
+  {
+    "name": "CandidateRecord",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/CandidateRecord.schema.json",
+    "fields": [
+      "artifact_id",
+      "attempt_id",
+      "candidate_id",
+      "production_eligible",
+      "proposed_predicate_id",
+      "proposed_value",
+      "reason",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "CapabilityProfile",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/CapabilityProfile.schema.json",
+    "fields": [
+      "capture_source_ids",
+      "delivery_enabled",
+      "execute_function_ids",
+      "export_enabled",
+      "fact_predicate_ids",
+      "product_boundary",
+      "production_enabled",
+      "profile_id",
+      "research_context_enabled",
+      "signal_ids",
+      "template_ids",
+      "version"
+    ]
+  },
+  {
+    "name": "CaseStudyOutcomeValue",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/CaseStudyOutcomeValue.schema.json",
+    "fields": [
+      "attribution",
+      "baseline_value",
+      "case_id",
+      "comparison_kind",
+      "measurement_window",
+      "method_description",
+      "metric_name",
+      "outcome_id",
+      "publisher",
+      "reported_quote",
+      "reported_value",
+      "sample_size",
+      "source_url",
+      "transfer_to_target_allowed",
+      "unit"
+    ]
+  },
+  {
+    "name": "ChangeRecord",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ChangeRecord.schema.json",
+    "fields": [
+      "actor_id",
+      "change_id",
+      "effective_at",
+      "kind",
+      "reason",
+      "recorded_at",
+      "replacement_id",
+      "target_id",
+      "target_type",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "ClaimResolution",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ClaimResolution.schema.json",
+    "fields": [
+      "accepted_fact_ids",
+      "as_of",
+      "observation_ids",
+      "policy_version",
+      "predicate_id",
+      "resolution_id",
+      "resolved_at",
+      "run_id",
+      "scope_id",
+      "status",
+      "subject_id",
+      "target",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "ConfidenceAssessment",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ConfidenceAssessment.schema.json",
+    "fields": [
+      "calibration_id",
+      "meaning",
+      "value"
+    ]
+  },
+  {
+    "name": "ContextAssessment",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ContextAssessment.schema.json",
+    "fields": [
+      "account_subject_id",
+      "company_claim_allowed",
+      "context_fact_ids",
+      "context_id",
+      "context_subject_id",
+      "join_rule_id",
+      "link_fact_id",
+      "purpose",
+      "relationship_strength",
+      "run_id",
+      "status",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "ContextJoinRule",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ContextJoinRule.schema.json",
+    "fields": [
+      "company_claim_allowed",
+      "context_predicate",
+      "join_rule_id",
+      "link_kind",
+      "link_object_path",
+      "link_predicate",
+      "maximum_hops",
+      "purpose",
+      "target_kinds",
+      "version"
+    ]
+  },
+  {
+    "name": "CoverageCheck",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/CoverageCheck.schema.json",
+    "fields": [
+      "artifact_id",
+      "resource",
+      "result"
+    ]
+  },
+  {
+    "name": "CoverageFamilyPlan",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/CoverageFamilyPlan.schema.json",
+    "fields": [
+      "contract_status",
+      "live_adapter_status",
+      "metric_ids",
+      "predicate_ids",
+      "section",
+      "title"
+    ]
+  },
+  {
+    "name": "CoverageRecord",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/CoverageRecord.schema.json",
+    "fields": [
+      "attempt_ids",
+      "checked",
+      "checked_at",
+      "coverage_id",
+      "detector_execution_id",
+      "detector_release",
+      "planned_resources",
+      "predicate_ids",
+      "scope_id",
+      "scope_limitations",
+      "source_id",
+      "status",
+      "target",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "DataAccessPolicy",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/DataAccessPolicy.schema.json",
+    "fields": [
+      "allow_personal_data",
+      "allow_sensitive_data",
+      "approval_ref",
+      "attribution_text",
+      "deletion_cascades",
+      "fixture_only",
+      "max_derived_retention_seconds",
+      "max_raw_retention_seconds",
+      "policy_id",
+      "purposes",
+      "review_status",
+      "reviewed_at",
+      "tenant_ids",
+      "terms_ref",
+      "valid_until",
+      "version"
+    ]
+  },
+  {
+    "name": "DestinationDefinition",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/DestinationDefinition.schema.json",
+    "fields": [
+      "automatic_sending",
+      "destination_id",
+      "enabled",
+      "fixture_only",
+      "kind",
+      "mapping_version",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "DiscussionRecordValue",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/DiscussionRecordValue.schema.json",
+    "fields": [
+      "community",
+      "language",
+      "post_key",
+      "published_at",
+      "role",
+      "text",
+      "thread_key"
+    ]
+  },
+  {
+    "name": "EconomicHypothesisValue",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/EconomicHypothesisValue.schema.json",
+    "fields": [
+      "assumptions",
+      "currency",
+      "estimated_amount_minor",
+      "limitations"
+    ]
+  },
+  {
+    "name": "EvidenceLocator",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/EvidenceLocator.schema.json",
+    "fields": [
+      "artifact_id",
+      "end",
+      "kind",
+      "locator_id",
+      "pointer",
+      "quote",
+      "start"
+    ]
+  },
+  {
+    "name": "EvidenceSet",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/EvidenceSet.schema.json",
+    "fields": [
+      "attempt_id",
+      "coverage_id",
+      "directness",
+      "evidence_id",
+      "execution_id",
+      "input_fact_ids",
+      "locator_ids",
+      "sample_ids",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "ExecutionRecord",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ExecutionRecord.schema.json",
+    "fields": [
+      "execution_id",
+      "finished_at",
+      "function_id",
+      "function_version",
+      "input_artifact_ids",
+      "input_fact_ids",
+      "input_sample_ids",
+      "input_set_hash",
+      "model_call_id",
+      "output_artifact_ids",
+      "output_fact_ids",
+      "parameters",
+      "run_id",
+      "sample_set_hash",
+      "started_at",
+      "status",
+      "subject_id",
+      "tenant_id",
+      "terminal_reason"
+    ]
+  },
+  {
+    "name": "ExportReceipt",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ExportReceipt.schema.json",
+    "fields": [
+      "actor_id",
+      "automatic_sending",
+      "completed_at",
+      "destination_id",
+      "export_id",
+      "external_reference",
+      "gate_id",
+      "idempotency_key",
+      "mapping_version",
+      "package",
+      "payload_hash",
+      "payload_ref",
+      "recipient_key",
+      "requested_at",
+      "status",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "Exposure",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/Exposure.schema.json",
+    "fields": [
+      "accepted_at",
+      "business_send_key",
+      "exposure_id",
+      "package_id",
+      "provider_message_id",
+      "recipient_key",
+      "status",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "ExternalIdentifier",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ExternalIdentifier.schema.json",
+    "fields": [
+      "namespace",
+      "value"
+    ]
+  },
+  {
+    "name": "Fact",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/Fact.schema.json",
+    "fields": [
+      "binding_id",
+      "confidence",
+      "effective_at",
+      "evidence_id",
+      "execution_id",
+      "expires_at",
+      "fact_id",
+      "nature",
+      "object",
+      "observed_at",
+      "predicate_id",
+      "reason",
+      "recorded_at",
+      "run_id",
+      "schema_version",
+      "scope_id",
+      "source_id",
+      "state",
+      "subject_id",
+      "supersedes_fact_id",
+      "target",
+      "tenant_id",
+      "window"
+    ]
+  },
+  {
+    "name": "FactRequirement",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/FactRequirement.schema.json",
+    "fields": [
+      "allowed_natures",
+      "counting_unit",
+      "minimum",
+      "predicate_id",
+      "state"
+    ]
+  },
+  {
+    "name": "FingerprintDefinition",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/FingerprintDefinition.schema.json",
+    "fields": [
+      "authority",
+      "calibration_ref",
+      "capture_mode",
+      "emits",
+      "fingerprint_id",
+      "fixture_only",
+      "implementation_status",
+      "match_value",
+      "negative_fixtures",
+      "operator",
+      "positive_fixtures",
+      "product_subject_id",
+      "version"
+    ]
+  },
+  {
+    "name": "FunctionDefinition",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/FunctionDefinition.schema.json",
+    "fields": [
+      "authority",
+      "cross_subject_rule",
+      "detector_contract",
+      "entrypoint",
+      "fixture_only",
+      "function_id",
+      "implementation_status",
+      "input_predicates",
+      "output_predicates",
+      "parameter_schema",
+      "processor",
+      "version"
+    ]
+  },
+  {
+    "name": "GroundedClause",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/GroundedClause.schema.json",
+    "fields": [
+      "clause_id",
+      "evidence_roles",
+      "fact_ids",
+      "template_id",
+      "text"
+    ]
+  },
+  {
+    "name": "HypothesisValue",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/HypothesisValue.schema.json",
+    "fields": [
+      "alternatives",
+      "conclusion",
+      "hypothesis_id",
+      "limitations",
+      "verification_question"
+    ]
+  },
+  {
+    "name": "IntakeRequest",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/IntakeRequest.schema.json",
+    "fields": [
+      "idempotency_key",
+      "intake_id",
+      "profile_id",
+      "purpose",
+      "received_at",
+      "request_hash",
+      "requester_id",
+      "targets",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "IntakeTarget",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/IntakeTarget.schema.json",
+    "fields": [
+      "resource_uri",
+      "subject_id"
+    ]
+  },
+  {
+    "name": "JobPostingValue",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/JobPostingValue.schema.json",
+    "fields": [
+      "department",
+      "employment_type",
+      "namespace",
+      "posting_id",
+      "published_at",
+      "title",
+      "url"
+    ]
+  },
+  {
+    "name": "LookalikeMatch",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/LookalikeMatch.schema.json",
+    "fields": [
+      "comparison_subject_id",
+      "corpus_release",
+      "differences",
+      "implementation_status",
+      "index_version",
+      "input_fact_ids",
+      "match_id",
+      "missing_features",
+      "outcome_transfer_allowed",
+      "representation_version",
+      "run_id",
+      "similarity_score",
+      "target_subject_id",
+      "tenant_id",
+      "use"
+    ]
+  },
+  {
+    "name": "MeasurementValue",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/MeasurementValue.schema.json",
+    "fields": [
+      "denominator",
+      "dimensions",
+      "method_version",
+      "metric_id",
+      "numerator",
+      "reporting_timezone",
+      "sample_size",
+      "uncertainty",
+      "unit",
+      "value"
+    ]
+  },
+  {
+    "name": "MetricDefinition",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/MetricDefinition.schema.json",
+    "fields": [
+      "aggregation",
+      "allowed_natures",
+      "description",
+      "dimensions_schema",
+      "metric_id",
+      "requires_denominator",
+      "section_ids",
+      "subject_kinds",
+      "unit",
+      "value_schema"
+    ]
+  },
+  {
+    "name": "ModelCall",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ModelCall.schema.json",
+    "fields": [
+      "call_id",
+      "input_artifact_ids",
+      "max_repair_attempts",
+      "model",
+      "output_schema_id",
+      "policy_ids",
+      "prompt_hash",
+      "provider",
+      "request_artifact_id",
+      "response_artifact_id",
+      "status",
+      "task_version",
+      "tenant_id",
+      "terminal_reason"
+    ]
+  },
+  {
+    "name": "ObjectReferenceRule",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ObjectReferenceRule.schema.json",
+    "fields": [
+      "container",
+      "path",
+      "subject_kinds",
+      "target_type"
+    ]
+  },
+  {
+    "name": "OutcomeEvent",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/OutcomeEvent.schema.json",
+    "fields": [
+      "attribution_status",
+      "event_id",
+      "evidence_id",
+      "exposure_id",
+      "kind",
+      "occurred_at",
+      "provider",
+      "provider_event_id",
+      "received_at",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "OutreachPackage",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/OutreachPackage.schema.json",
+    "fields": [
+      "approved_at",
+      "clauses",
+      "context_ids",
+      "maturity_fact_id",
+      "package_id",
+      "rendered_text",
+      "review_id",
+      "revision",
+      "run_id",
+      "send_allowed",
+      "signal_ids",
+      "status",
+      "subject_id",
+      "template_id",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "PackageReference",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/PackageReference.schema.json",
+    "fields": [
+      "content_hash",
+      "package_id",
+      "revision"
+    ]
+  },
+  {
+    "name": "PredicateDefinition",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/PredicateDefinition.schema.json",
+    "fields": [
+      "absence_allowed",
+      "allowed_natures",
+      "allowed_processors",
+      "copy_policy",
+      "description",
+      "example_target",
+      "example_value",
+      "family",
+      "origin",
+      "predicate_id",
+      "reference_rules",
+      "section_ids",
+      "subject_kinds",
+      "target_schema",
+      "temporal_mode",
+      "value_class",
+      "value_schema",
+      "version"
+    ]
+  },
+  {
+    "name": "ProviderBlueprint",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ProviderBlueprint.schema.json",
+    "fields": [
+      "adapter_implemented",
+      "approval_required",
+      "blueprint_id",
+      "families",
+      "methods",
+      "notes",
+      "provider",
+      "section_ids",
+      "terms_url"
+    ]
+  },
+  {
+    "name": "PublishedRecordValue",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/PublishedRecordValue.schema.json",
+    "fields": [
+      "namespace",
+      "published_at",
+      "publisher",
+      "record_id",
+      "record_type",
+      "text",
+      "title",
+      "url"
+    ]
+  },
+  {
+    "name": "QuotedTextResult",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/QuotedTextResult.schema.json",
+    "fields": [
+      "text"
+    ]
+  },
+  {
+    "name": "RegistryRecordValue",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/RegistryRecordValue.schema.json",
+    "fields": [
+      "effective_at",
+      "filed_at",
+      "issuer",
+      "jurisdiction",
+      "namespace",
+      "record_id",
+      "record_status"
+    ]
+  },
+  {
+    "name": "RepairAttempt",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/RepairAttempt.schema.json",
+    "fields": [
+      "attempt_id",
+      "call_id",
+      "input_response_artifact_id",
+      "method",
+      "ordinal",
+      "output_response_artifact_id",
+      "status",
+      "validation_errors"
+    ]
+  },
+  {
+    "name": "ResearchPriorValue",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ResearchPriorValue.schema.json",
+    "fields": [
+      "classified_eligible_count",
+      "contradicting_fact_ids",
+      "denominator_definition",
+      "eligible_count",
+      "population_claim",
+      "sample_id",
+      "sample_share",
+      "support_count",
+      "support_policy_id",
+      "supporting_fact_ids",
+      "theme_id",
+      "unclassified_count"
+    ]
+  },
+  {
+    "name": "ResearchSample",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ResearchSample.schema.json",
+    "fields": [
+      "complete_population",
+      "created_at",
+      "dedupe_policy_version",
+      "eligible_artifact_ids",
+      "excluded_artifact_ids",
+      "limitations",
+      "policy_ids",
+      "population_size",
+      "record_decisions",
+      "retrieved_artifact_ids",
+      "sample_id",
+      "sampling_frame",
+      "scope_id",
+      "selection_method",
+      "subject_id",
+      "support_policy_id",
+      "tenant_id",
+      "theme_id",
+      "window"
+    ]
+  },
+  {
+    "name": "ResearchSupportPolicy",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ResearchSupportPolicy.schema.json",
+    "fields": [
+      "allowed_sentiments",
+      "allowed_stances",
+      "counting_unit",
+      "denominator_rule",
+      "meaning",
+      "support_policy_id",
+      "unclassified_policy",
+      "version"
+    ]
+  },
+  {
+    "name": "ReviewDecision",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ReviewDecision.schema.json",
+    "fields": [
+      "action",
+      "decided_at",
+      "package",
+      "policy_version",
+      "reason",
+      "review_id",
+      "reviewer_id",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "ReviewRecordValue",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ReviewRecordValue.schema.json",
+    "fields": [
+      "edited",
+      "language",
+      "platform",
+      "published_at",
+      "rating",
+      "rating_scale_max",
+      "review_key",
+      "text"
+    ]
+  },
+  {
+    "name": "SalaryValue",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/SalaryValue.schema.json",
+    "fields": [
+      "basis",
+      "currency",
+      "maximum_minor",
+      "minimum_minor",
+      "minor_unit_exponent",
+      "period"
+    ]
+  },
+  {
+    "name": "SampleRecordDecision",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/SampleRecordDecision.schema.json",
+    "fields": [
+      "artifact_id",
+      "classification_fact_ids",
+      "reason",
+      "status"
+    ]
+  },
+  {
+    "name": "ScenarioEstimate",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ScenarioEstimate.schema.json",
+    "fields": [
+      "assumptions",
+      "currency",
+      "formula_version",
+      "implementation_status",
+      "limitations",
+      "lower_minor",
+      "observed_input_fact_ids",
+      "scenario_id",
+      "subject_id",
+      "tenant_id",
+      "time_period",
+      "upper_minor",
+      "verified_loss"
+    ]
+  },
+  {
+    "name": "Scope",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/Scope.schema.json",
+    "fields": [
+      "capture_mode",
+      "kind",
+      "population_description",
+      "resources",
+      "scope_id",
+      "stable_scope_key",
+      "subject_id",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "SignalDefinition",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/SignalDefinition.schema.json",
+    "fields": [
+      "context_allowed",
+      "description",
+      "function_id",
+      "required_facts",
+      "signal_type_id",
+      "status",
+      "version"
+    ]
+  },
+  {
+    "name": "SignalEvaluation",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/SignalEvaluation.schema.json",
+    "fields": [
+      "context_ids",
+      "evaluated_at",
+      "input_fact_ids",
+      "reason",
+      "run_id",
+      "signal_id",
+      "signal_type_id",
+      "status",
+      "subject_id",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "SourceDefinition",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/SourceDefinition.schema.json",
+    "fields": [
+      "acquisition_method",
+      "adapter_status",
+      "allowed_natures",
+      "authority",
+      "emits",
+      "fixture_only",
+      "freshness_seconds",
+      "policy_id",
+      "provider",
+      "source_id",
+      "upstream_namespace",
+      "version"
+    ]
+  },
+  {
+    "name": "Subject",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/Subject.schema.json",
+    "fields": [
+      "display_name",
+      "external_ids",
+      "kind",
+      "subject_id",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "SubjectBinding",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/SubjectBinding.schema.json",
+    "fields": [
+      "artifact_ids",
+      "binding_id",
+      "decided_at",
+      "evidence_locator_ids",
+      "method",
+      "role",
+      "scope_id",
+      "status",
+      "subject_id",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "SurfaceObservationValue",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/SurfaceObservationValue.schema.json",
+    "fields": [
+      "observed_value",
+      "surface_key"
+    ]
+  },
+  {
+    "name": "TargetResult",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/TargetResult.schema.json",
+    "fields": [
+      "completed_at",
+      "reason",
+      "status",
+      "subject_id"
+    ]
+  },
+  {
+    "name": "TaxonomyTerm",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/TaxonomyTerm.schema.json",
+    "fields": [
+      "label",
+      "parent_id",
+      "scheme_id",
+      "scheme_version",
+      "term_id"
+    ]
+  },
+  {
+    "name": "TechnologyReportValue",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/TechnologyReportValue.schema.json",
+    "fields": [
+      "product_id",
+      "provider",
+      "provider_detected_at",
+      "reported_version"
+    ]
+  },
+  {
+    "name": "TechnologyValue",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/TechnologyValue.schema.json",
+    "fields": [
+      "deployment_claim",
+      "fingerprint_id",
+      "matched_value",
+      "product_id",
+      "surface",
+      "version"
+    ]
+  },
+  {
+    "name": "TemplateDefinition",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/TemplateDefinition.schema.json",
+    "fields": [
+      "allowed_natures",
+      "authority",
+      "maturity_required",
+      "mode",
+      "offered_rung",
+      "question",
+      "renderer",
+      "required_predicate",
+      "review_ref",
+      "template_id",
+      "version"
+    ]
+  },
+  {
+    "name": "ThemeClassificationValue",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/ThemeClassificationValue.schema.json",
+    "fields": [
+      "record_key",
+      "sentiment",
+      "stance",
+      "support_locator_ids",
+      "theme_id"
+    ]
+  },
+  {
+    "name": "TimeWindow",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/TimeWindow.schema.json",
+    "fields": [
+      "end",
+      "start"
+    ]
+  },
+  {
+    "name": "UseGateDecision",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/UseGateDecision.schema.json",
+    "fields": [
+      "actor_id",
+      "decision",
+      "destination_id",
+      "evaluated_at",
+      "gate_id",
+      "package",
+      "purpose",
+      "reasons",
+      "recipient_key",
+      "review_id",
+      "tenant_id",
+      "valid_until",
+      "version_vector"
+    ]
+  },
+  {
+    "name": "UseRestriction",
+    "status": "REFERENCE CONTRACT v4.2",
+    "source": "canonical/schemas/UseRestriction.schema.json",
+    "fields": [
+      "actor_id",
+      "effective_at",
+      "kind",
+      "reason",
+      "recipient_key",
+      "released_at",
+      "released_by",
+      "restriction_id",
+      "subject_id",
+      "tenant_id"
+    ]
+  },
+  {
+    "name": "ProgramDefinition",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "program_id",
+      "tenant_id",
+      "revision",
+      "objectives",
+      "audience_ref",
+      "offer_refs",
+      "capability_profile_ref",
+      "acquisition_limits",
+      "outreach_policy_ref",
+      "owner",
+      "approval_state"
+    ],
+    "invariant": "Program configuration does not assert that accounts satisfy it."
+  },
+  {
+    "name": "AudienceDefinition",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "audience_id",
+      "revision",
+      "account_filters",
+      "permitted_geographies",
+      "excluded_segments",
+      "membership_as_of_policy",
+      "selection_reason_codes"
+    ],
+    "invariant": "Selections record their input snapshot; broad facts persist even for rejected targets."
+  },
+  {
+    "name": "OfferDefinition",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "offer_id",
+      "revision",
+      "service_line",
+      "supported_problem_classes",
+      "prerequisites",
+      "allowed_template_refs",
+      "persona_rules",
+      "restrictions"
+    ],
+    "invariant": "Named service/offer policy; not proof of prospect pain or an implemented automation playbook catalog."
+  },
+  {
+    "name": "AccountSeed",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "seed_id",
+      "tenant_id",
+      "program_id",
+      "discovery_source_ref",
+      "original_record_ref",
+      "resource_uri",
+      "provisional_external_ids",
+      "discovered_at",
+      "normalization_decision"
+    ],
+    "invariant": "Unresolved seeds remain provisional; neither a redirect nor source label proves domain ownership."
+  },
+  {
+    "name": "LeadSelection",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "selection_id",
+      "program_id",
+      "account_ref",
+      "input_snapshot_ref",
+      "fit_decision",
+      "reasons",
+      "exclusion_state_refs",
+      "selected_at"
+    ],
+    "invariant": "Fit and exclusion decisions are not evidence strength or source authority."
+  },
+  {
+    "name": "ResearchPlan",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "plan_id",
+      "account_ref",
+      "intended_predicates",
+      "existing_coverage_refs",
+      "permitted_source_refs",
+      "acquisition_limits",
+      "priority_reasons",
+      "stopping_rules"
+    ],
+    "invariant": "Missing evidence results in a bounded plan or explicit defer, never a fabricated fact."
+  },
+  {
+    "name": "ContactProfile",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "contact_profile_id",
+      "tenant_id",
+      "person_subject_ref",
+      "account_relationship_ref",
+      "endpoint_refs",
+      "source_evidence_refs",
+      "role_effective_window",
+      "verified_at",
+      "retention_policy_ref"
+    ],
+    "invariant": "Identifiers, evidence, and operational view remain separate; KN-01 owns canonical identity."
+  },
+  {
+    "name": "ContactAssessment",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "assessment_id",
+      "contact_profile_ref",
+      "opportunity_ref",
+      "role_fit",
+      "employer_binding_status",
+      "endpoint_verification",
+      "source_use_state",
+      "restrictions_refs",
+      "checked_at",
+      "reasons"
+    ],
+    "invariant": "Deliverable endpoint does not imply appropriate recipient or outreach permission."
+  },
+  {
+    "name": "MessageArtifact",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "message_id",
+      "revision",
+      "package_ref",
+      "channel",
+      "subject_or_title",
+      "body_ref",
+      "required_footer_ref",
+      "rendered_content_digest",
+      "renderer_version",
+      "permitted_transformations"
+    ],
+    "invariant": "Exact recipient-visible factual content must be reviewed. Channel rendering cannot add unsupported assertions after package review."
+  },
+  {
+    "name": "CampaignDefinition",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "campaign_id",
+      "revision",
+      "program_ref",
+      "route_ref",
+      "ordered_step_definitions",
+      "template_refs",
+      "schedule_owner",
+      "send_window_policy",
+      "timezone_policy",
+      "sender_constraints",
+      "stop_policy",
+      "frequency_caps"
+    ],
+    "invariant": "Exactly one scheduler owns progression; campaign activation is separate from creation or review."
+  },
+  {
+    "name": "CampaignApproval",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "approval_id",
+      "campaign_id",
+      "revision",
+      "definition_hash",
+      "authorized_actor",
+      "allowed_mode",
+      "approved_at",
+      "policy_ref"
+    ],
+    "invariant": "Does not substitute for a package ReviewDecision or per-effect current-use/send authorization."
+  },
+  {
+    "name": "CampaignReadiness",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "readiness_id",
+      "campaign_ref",
+      "sender_snapshot_refs",
+      "provider_state_refs",
+      "compatibility_checks",
+      "checked_at",
+      "decision",
+      "reasons"
+    ],
+    "invariant": "Readiness is time-sensitive; provider drift can block dispatch despite prior approval."
+  },
+  {
+    "name": "Enrollment",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "enrollment_id",
+      "tenant_id",
+      "campaign_ref",
+      "account_ref",
+      "contact_ref",
+      "enrollment_policy_ref",
+      "state",
+      "next_step_id",
+      "state_revision",
+      "enrolled_at",
+      "last_event_ref"
+    ],
+    "invariant": "Same recipient/account can be constrained across campaigns. State changes use expected revisions and event identities."
+  },
+  {
+    "name": "StepEligibility",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "eligibility_id",
+      "enrollment_ref",
+      "step_id",
+      "due_at",
+      "timezone_basis",
+      "package_ref",
+      "contact_assessment_ref",
+      "cap_reservation_ref",
+      "state_revision",
+      "decision",
+      "reasons"
+    ],
+    "invariant": "Scheduling eligibility is not SendGateDecision; final current restrictions are checked again before dispatch."
+  },
+  {
+    "name": "DeliveryIntent",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "intent_id",
+      "tenant_id",
+      "enrollment_ref",
+      "step_id",
+      "recipient_binding_ref",
+      "channel",
+      "reviewed_message_ref",
+      "logical_effect_key",
+      "execution_owner"
+    ],
+    "invariant": "Stable business intent across retries and code upgrades; altered payload under same effect is an error."
+  },
+  {
+    "name": "SendGateDecision",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "gate_id",
+      "intent_ref",
+      "message_ref",
+      "review_ref",
+      "campaign_approval_ref",
+      "readiness_ref",
+      "recipient_ref",
+      "current_restriction_vector",
+      "current_contact_vector",
+      "evaluated_at",
+      "valid_until",
+      "decision",
+      "reasons"
+    ],
+    "invariant": "New proposed family. Existing UseGateDecision supports export purposes only. Recheck immediately before effect; no indefinite gate caching."
+  },
+  {
+    "name": "SenderCapabilitySnapshot",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "snapshot_id",
+      "tenant_id",
+      "sender_account_ref",
+      "provider",
+      "channel",
+      "verified_capabilities",
+      "live_state",
+      "checked_at",
+      "configuration_digest"
+    ],
+    "invariant": "Secrets remain protected references; do not assume a provider supports idempotency, cancellation, or exact content preservation."
+  },
+  {
+    "name": "DeliveryAttempt",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "attempt_id",
+      "intent_ref",
+      "gate_ref",
+      "request_digest",
+      "started_at",
+      "finished_at",
+      "transport_status",
+      "acceptance_status",
+      "external_message_ref",
+      "error_ref"
+    ],
+    "invariant": "Transport completion and remote acceptance are separate; ambiguous acceptance requires reconciliation, not resend."
+  },
+  {
+    "name": "Conversation",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "conversation_id",
+      "tenant_id",
+      "account_ref",
+      "contact_refs",
+      "provider_account_ref",
+      "external_thread_ref",
+      "event_refs",
+      "enrollment_links",
+      "current_owner",
+      "state"
+    ],
+    "invariant": "Reply chains link exposures without guessing causal attribution for analytics; unmatched events remain visible."
+  },
+  {
+    "name": "ReplyAssessment",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "assessment_id",
+      "inbound_event_ref",
+      "classification_kind",
+      "literal_support_refs",
+      "producer_execution_ref",
+      "confidence_metadata",
+      "human_review_state",
+      "recommended_action"
+    ],
+    "invariant": "Model labels are inferences; pause/opt-out controls do not wait on or take permission from model confidence."
+  },
+  {
+    "name": "EnrollmentControl",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "control_id",
+      "target_enrollment_refs",
+      "cause_event_ref",
+      "desired_transition",
+      "scope",
+      "created_at",
+      "expected_state_refs"
+    ],
+    "invariant": "ENG-01 requests stops; CAM-02 applies them idempotently. Authorized restrictions are written separately by PLAT-02."
+  },
+  {
+    "name": "FollowUpTask",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "task_id",
+      "conversation_ref",
+      "assigned_owner",
+      "task_kind",
+      "due_at",
+      "source_event_ref",
+      "state",
+      "authorization_requirements"
+    ],
+    "invariant": "Creating a human task is not authorizing an automated follow-up, referral send, or calendar action."
+  },
+  {
+    "name": "SalesHandoff",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "handoff_id",
+      "account_ref",
+      "contact_ref",
+      "conversation_ref",
+      "exposure_refs",
+      "qualification_notes_refs",
+      "intended_owner",
+      "meeting_or_next_action",
+      "created_at"
+    ],
+    "invariant": "A positive reply is not a confirmed meeting, won sale, or permission to invent additional factual qualifications."
+  },
+  {
+    "name": "CRMMapping",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "mapping_id",
+      "provider",
+      "schema_version",
+      "field_ownership",
+      "inbound_outbound_transforms",
+      "idempotency_policy",
+      "suppression_rules",
+      "loop_prevention"
+    ],
+    "invariant": "Each field has one authority or an explicit merge policy; use versions/receipts, not unrestricted last-write-wins."
+  },
+  {
+    "name": "CRMAccountView",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "view_id",
+      "account_ref",
+      "external_record_links",
+      "owner",
+      "lifecycle_stage",
+      "customer_or_open_deal_state",
+      "restriction_observations",
+      "provider_version",
+      "fetched_at"
+    ],
+    "invariant": "Imported pipeline data is a current provider report. Stale critical exclusions cause refresh or hold, not automatic reactivation."
+  },
+  {
+    "name": "CRMSyncIntent",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "sync_id",
+      "tenant_id",
+      "mapping_ref",
+      "entity_link",
+      "desired_fields",
+      "source_record_refs",
+      "expected_remote_version",
+      "idempotency_key"
+    ],
+    "invariant": "No delivery commands in CRM write retries; emit approved record mutations only."
+  },
+  {
+    "name": "CRMSyncReceipt",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "receipt_id",
+      "sync_intent_ref",
+      "external_record_ref",
+      "payload_hash",
+      "status",
+      "provider_version",
+      "confirmed_at",
+      "reconciliation_ref"
+    ],
+    "invariant": "Record ambiguous writes and reconcile without duplicating tasks or deals; missing data cannot release DNC."
+  },
+  {
+    "name": "ExperimentDefinition",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "experiment_id",
+      "hypothesis",
+      "eligible_population",
+      "randomization_or_observational_design",
+      "treatment_refs",
+      "holdout_policy",
+      "outcome_definition",
+      "maturity_window",
+      "stopping_rule"
+    ],
+    "invariant": "Label observational versus randomized designs explicitly; no promised causal conclusions."
+  },
+  {
+    "name": "ExperimentAssignment",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "assignment_id",
+      "experiment_ref",
+      "unit_ref",
+      "assigned_variant",
+      "assignment_rule_version",
+      "assigned_at",
+      "exposure_links"
+    ],
+    "invariant": "Pin before exposure; deduplicate and track cross-campaign contamination."
+  },
+  {
+    "name": "QualityAssessment",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "assessment_id",
+      "evaluated_release_refs",
+      "gold_set_ref",
+      "eligible_sample",
+      "observed_metrics",
+      "errors",
+      "uncertainty",
+      "limitations"
+    ],
+    "invariant": "Quality outcomes do not alter source authority by themselves; preserve fixture versus live-evaluation distinction."
+  },
+  {
+    "name": "PromotionProposal",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "proposal_id",
+      "target_definition_ref",
+      "assessed_release_ref",
+      "quality_assessment_refs",
+      "intended_change",
+      "reasons",
+      "review_requirements"
+    ],
+    "invariant": "Proposal only. Authorized governance and release compiler publish a new immutable release for later runs."
+  },
+  {
+    "name": "WorkspaceView",
+    "status": "PROPOSED PRODUCT RECORD",
+    "source": "product-design/proposed_product_contracts.json",
+    "fields": [
+      "view_id",
+      "tenant_id",
+      "view_kind",
+      "permitted_record_refs",
+      "as_of",
+      "redaction_policy_ref",
+      "completeness_notes"
+    ],
+    "invariant": "Read model only; user actions must route through authenticated owning operations."
+  },
+  {
+    "name": "Common",
+    "status": "DRAFT COMMON ENVELOPE",
+    "source": "protocol/schemas/Common.schema.json",
+    "fields": []
+  },
+  {
+    "name": "Diagnostic",
+    "status": "DRAFT COMMON ENVELOPE",
+    "source": "protocol/schemas/Diagnostic.schema.json",
+    "fields": [
+      "cause_execution_id",
+      "code",
+      "diagnostic_id",
+      "field_path",
+      "message",
+      "record_refs",
+      "restricted_details_ref",
+      "severity",
+      "suggested_action"
+    ]
+  },
+  {
+    "name": "ModuleRequest",
+    "status": "DRAFT COMMON ENVELOPE",
+    "source": "protocol/schemas/ModuleRequest.schema.json",
+    "fields": [
+      "attempt",
+      "budget_reservation_ref",
+      "context",
+      "deadline_at",
+      "execution_id",
+      "idempotency_key",
+      "input_refs",
+      "module_id",
+      "operation",
+      "parameters_ref",
+      "protocol_version",
+      "release_lock_ref",
+      "request_id",
+      "trace"
+    ]
+  },
+  {
+    "name": "ModuleResult",
+    "status": "DRAFT COMMON ENVELOPE",
+    "source": "protocol/schemas/ModuleResult.schema.json",
+    "fields": [
+      "consumed_refs",
+      "context",
+      "diagnostic_record_refs",
+      "diagnostics",
+      "execution_id",
+      "execution_status",
+      "finished_at",
+      "module_id",
+      "operation",
+      "output_refs",
+      "protocol_version",
+      "request_digest",
+      "request_id",
+      "reused_execution_id",
+      "started_at",
+      "trace",
+      "usage"
+    ]
+  },
+  {
+    "name": "CollectorCapture",
+    "status": "IMPLEMENTED DATACLASS (COLLECTOR)",
+    "source": "collector/src/keensight_scrapling/core.py",
+    "fields": [
+      "capture_id",
+      "tenant_id",
+      "subject_id",
+      "run_id",
+      "url",
+      "observed_at",
+      "mode",
+      "status_code",
+      "body_sha256",
+      "body_path",
+      "headers",
+      "complete",
+      "source_id",
+      "limitations",
+      "source_ttl_seconds"
+    ]
+  },
+  {
+    "name": "CollectorSurface",
+    "status": "IMPLEMENTED DATACLASS (COLLECTOR)",
+    "source": "collector/src/keensight_scrapling/core.py",
+    "fields": [
+      "surface_id",
+      "capture_id",
+      "command_id",
+      "kind",
+      "locator",
+      "value",
+      "context",
+      "attributes"
+    ]
+  },
+  {
+    "name": "CollectorCommandResult",
+    "status": "IMPLEMENTED DATACLASS (COLLECTOR)",
+    "source": "collector/src/keensight_scrapling/core.py",
+    "fields": [
+      "command_id",
+      "status",
+      "input_ids",
+      "output_ids",
+      "limitations",
+      "details"
+    ]
+  },
+  {
+    "name": "CollectorPageEvidence",
+    "status": "IMPLEMENTED DATACLASS (COLLECTOR)",
+    "source": "collector/src/keensight_scrapling/core.py",
+    "fields": [
+      "capture",
+      "surfaces",
+      "commands"
+    ]
+  },
+  {
+    "name": "CollectorMatch",
+    "status": "IMPLEMENTED DATACLASS (COLLECTOR)",
+    "source": "collector/src/keensight_scrapling/core.py",
+    "fields": [
+      "match_id",
+      "rule_id",
+      "rule_digest",
+      "release_digest",
+      "authority",
+      "capture_id",
+      "surface_id",
+      "branch",
+      "predicate",
+      "product_id",
+      "object_value",
+      "evidence_key",
+      "rule_evidence_key",
+      "authored_confidence"
+    ]
+  },
+  {
+    "name": "CollectorObservation",
+    "status": "IMPLEMENTED DATACLASS (COLLECTOR)",
+    "source": "collector/src/keensight_scrapling/core.py",
+    "fields": [
+      "observation_id",
+      "claim_key",
+      "tenant_id",
+      "subject_id",
+      "predicate",
+      "target",
+      "scope_id",
+      "nature",
+      "state",
+      "object_value",
+      "capture_id",
+      "source_id",
+      "source_group",
+      "observed_at",
+      "expires_at"
+    ]
+  },
+  {
+    "name": "CollectorSupportLink",
+    "status": "IMPLEMENTED DATACLASS (COLLECTOR)",
+    "source": "collector/src/keensight_scrapling/core.py",
+    "fields": [
+      "observation_id",
+      "match_id"
+    ]
+  },
+  {
+    "name": "CollectorClaimView",
+    "status": "IMPLEMENTED DATACLASS (COLLECTOR)",
+    "source": "collector/src/keensight_scrapling/core.py",
+    "fields": [
+      "claim_key",
+      "predicate",
+      "target",
+      "status",
+      "object_value",
+      "observation_ids",
+      "supporting_match_ids",
+      "eligible_match_ids",
+      "rule_ids",
+      "capture_count",
+      "source_group_count",
+      "evidence_count",
+      "confidence",
+      "confidence_policy"
+    ]
+  }
+]

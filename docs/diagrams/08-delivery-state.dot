@@ -1,0 +1,24 @@
+digraph G {
+rankdir=LR;
+graph [fontname="DejaVu Sans",nodesep=0.35,ranksep=0.75,bgcolor="white"];
+node [shape=box,fontname="DejaVu Sans",fontsize=12,margin="0.14,0.09"];
+edge [fontname="DejaVu Sans",fontsize=10];
+"p" [label="PREPARED"];
+"g" [label="GATED"];
+"s" [label="DISPATCHING"];
+"a" [label="ACCEPTED"];
+"u" [label="UNKNOWN_ACCEPTANCE"];
+"r" [label="RECONCILING"];
+"f" [label="DEFINITIVE_FAILURE"];
+"h" [label="HELD / CANCELLED"];
+"p" -> "g" [label="current checks"];
+"g" -> "h" [label="restriction / expiry"];
+"g" -> "s" [label="permitted"];
+"s" -> "a" [label="receipt"];
+"s" -> "u" [label="timeout after possible acceptance"];
+"u" -> "r" [label="provider lookup"];
+"r" -> "a" [label="original accepted"];
+"r" -> "f" [label="definitively rejected"];
+"r" -> "h" [label="cannot resolve; operator hold"];
+"f" -> "p" [label="new attempt only under same effect policy"];
+}

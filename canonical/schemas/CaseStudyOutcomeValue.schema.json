@@ -1,0 +1,130 @@
+{
+  "$id": "https://keensight.local/v4.2/CaseStudyOutcomeValue.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "attribution": {
+      "const": "PUBLISHER_REPORTED_NOT_CAUSALLY_VERIFIED"
+    },
+    "baseline_value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "case_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "comparison_kind": {
+      "enum": [
+        "ABSOLUTE",
+        "ABSOLUTE_CHANGE",
+        "RELATIVE_CHANGE",
+        "UNSPECIFIED"
+      ]
+    },
+    "measurement_window": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "end": {
+              "format": "date-time",
+              "pattern": "Z$",
+              "type": "string"
+            },
+            "start": {
+              "format": "date-time",
+              "pattern": "Z$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "start",
+            "end"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "method_description": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "metric_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "outcome_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "publisher": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reported_quote": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reported_value": {
+      "type": "number"
+    },
+    "sample_size": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "source_url": {
+      "format": "uri",
+      "type": "string"
+    },
+    "transfer_to_target_allowed": {
+      "const": false
+    },
+    "unit": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "case_id",
+    "outcome_id",
+    "publisher",
+    "source_url",
+    "reported_quote",
+    "metric_name",
+    "reported_value",
+    "unit",
+    "baseline_value",
+    "comparison_kind",
+    "measurement_window",
+    "sample_size",
+    "method_description",
+    "attribution",
+    "transfer_to_target_allowed"
+  ],
+  "title": "CaseStudyOutcomeValue",
+  "type": "object"
+}

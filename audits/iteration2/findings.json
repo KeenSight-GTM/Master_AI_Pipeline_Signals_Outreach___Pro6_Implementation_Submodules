@@ -1,0 +1,617 @@
+[
+  {
+    "id": "F01",
+    "title": "Identity-binding evidence is outside eligibility/provenance closure",
+    "priority": "P0",
+    "classification": "FULL_VALIDATOR_ACCEPTS_INVALID_BOUNDARY",
+    "probe_ids": [
+      "R2-A01"
+    ],
+    "modules": [
+      "KN-01",
+      "KN-02",
+      "KN-03",
+      "COM-04"
+    ],
+    "source_ranges": [
+      [
+        "canonical/keensight_contracts/validation.py",
+        65,
+        118
+      ],
+      [
+        "canonical/keensight_contracts/validation.py",
+        123,
+        172
+      ],
+      [
+        "canonical/keensight_contracts/validation.py",
+        297,
+        303
+      ],
+      [
+        "canonical/keensight_contracts/completion.py",
+        149,
+        161
+      ]
+    ],
+    "observed": "A binding is changed to depend exclusively on a DELETED artifact. The account fact remains current-eligible, and full bundle validation passes. The binding artifact is not in roots(fact).",
+    "impact": "A fact can lose the evidence establishing whose website or record it is while still supporting account-specific copy. Pinning a binding ID does not pin or preserve its supporting artifacts.",
+    "proposed_repair": "Include accepted binding decisions, their exact evidence locators/artifacts and permitted source state in dependency closure. Separate substantive corroboration from this mandatory identity support. Admit/resolve bindings before dependent facts and invalidate current use when required binding evidence becomes unusable.",
+    "acceptance": "Deleted, expired, revoked, unpinned, or foreign binding support must block affected current claims. A valid alternative accepted binding should be an explicit new decision rather than an automatic guessed fallback.",
+    "journeys": [
+      "J07",
+      "J11",
+      "J17"
+    ],
+    "patched_in_this_review": false
+  },
+  {
+    "id": "F02",
+    "title": "Demoted templates pass the standalone current-use/export boundary",
+    "priority": "P0",
+    "classification": "LOCAL_REFERENCE_EXPORTER_GAP",
+    "probe_ids": [
+      "R2-A02"
+    ],
+    "modules": [
+      "COM-02",
+      "COM-03",
+      "COM-04"
+    ],
+    "source_ranges": [
+      [
+        "canonical/keensight_contracts/completion.py",
+        298,
+        377
+      ],
+      [
+        "canonical/keensight_contracts/handoff.py",
+        19,
+        43
+      ],
+      [
+        "canonical/keensight_contracts/validation.py",
+        408,
+        422
+      ]
+    ],
+    "observed": "After an existing template is demoted from ACTIVE to CANDIDATE and the current version vector is refreshed, LocalPreviewExporter writes the preview. The full bundle validator rejects the same state with MISSING_APPROVAL.",
+    "impact": "Calling the local gate/export method independently has weaker authority rules than validating the whole bundle. This is a local fixture boundary, not a tested live sender bypass.",
+    "proposed_repair": "Make current-use eligibility explicitly check the current template/renderer, offer where applicable, source and reviewed-release authority. Bind review to immutable historical bytes but perform current vetoes at export. Keep shared validation logic rather than relying on callers to rerun the entire fixture bundle.",
+    "acceptance": "Template demotion/retirement must block a new export without erasing the historic review. Existing permitted byte-identical exports retain their receipt; a fresh gate must not restore authority just by recomputing a hash.",
+    "journeys": [
+      "J07",
+      "J13",
+      "J17"
+    ],
+    "patched_in_this_review": false
+  },
+  {
+    "id": "F03",
+    "title": "Publication validates one payload and can persist a different argument set",
+    "priority": "P0",
+    "classification": "INTERNAL_API_CONTRACT_SPLIT",
+    "probe_ids": [
+      "R2-C06"
+    ],
+    "modules": [
+      "FP-02",
+      "PLAT-01"
+    ],
+    "source_ranges": [
+      [
+        "collector/src/keensight_scrapling/storage.py",
+        211,
+        258
+      ],
+      [
+        "collector/src/keensight_scrapling/pipeline.py",
+        231,
+        246
+      ]
+    ],
+    "observed": "Store.publish_evaluation receives a valid bundle describing one observation and separately receives empty match/observation/support arguments. It commits a successful manifest with one observation but zero observation rows.",
+    "impact": "The normal Scanner passes consistent arguments; the defect is the public local-owner publication API. A future wrapper or refactor can commit an internally contradictory database even though the manifest validated.",
+    "proposed_repair": "Accept one validated publication object and derive all database rows from it, or compare all separate arguments byte-for-byte before beginning the transaction. Re-extract trusted capture evidence at the boundary that owns admission; do not merely validate a sibling object.",
+    "acceptance": "Mismatch must reject before any findings or successful manifest commit. Add matching, missing, added and altered-row cases plus rollback fault injection.",
+    "journeys": [
+      "J03",
+      "J11",
+      "J19"
+    ],
+    "patched_in_this_review": false
+  },
+  {
+    "id": "F04",
+    "title": "Later supersession leaks into an earlier sealed evaluation",
+    "priority": "P1",
+    "classification": "HISTORICAL_QUERY_INCONSISTENCY",
+    "probe_ids": [
+      "R2-A06"
+    ],
+    "modules": [
+      "KN-03",
+      "KN-04",
+      "RE-01"
+    ],
+    "source_ranges": [
+      [
+        "canonical/keensight_contracts/validation.py",
+        123,
+        144
+      ],
+      [
+        "canonical/keensight_contracts/completion.py",
+        170,
+        199
+      ],
+      [
+        "canonical/keensight_contracts/engine.py",
+        86,
+        98
+      ]
+    ],
+    "observed": "The old run pins f.tech. A replacement recorded after its knowledge cutoff, but before its logical as_of, is not in that run. Historical resolution nevertheless becomes UNKNOWN because usable() searches every fact in the bundle for supersession.",
+    "impact": "Reproducing an old result depends on later database contents. This is distinct from the intended current-use check, which should see newly recorded evidence.",
+    "proposed_repair": "Give historical eligibility an explicit permitted input set/knowledge cutoff and snapshot-specific changes. Keep current-use eligibility as a different operation. Route supersession lookup through the same visibility context rather than scanning all rows.",
+    "acceptance": "Adding later observations/corrections must leave sealed historical results unchanged; a current view and use gate must still reflect those changes.",
+    "journeys": [
+      "J04",
+      "J07",
+      "J17"
+    ],
+    "patched_in_this_review": false
+  },
+  {
+    "id": "F05",
+    "title": "Generated-artifact handoff is accepted by one validator and rejected by another",
+    "priority": "P1",
+    "classification": "INCOMPATIBLE_VALIDATOR_LAYERS",
+    "probe_ids": [
+      "R2-A03"
+    ],
+    "modules": [
+      "AI-01",
+      "RE-01",
+      "CTL-02",
+      "KN-02"
+    ],
+    "source_ranges": [
+      [
+        "canonical/keensight_contracts/completion.py",
+        425,
+        458
+      ],
+      [
+        "canonical/keensight_contracts/validation.py",
+        340,
+        356
+      ]
+    ],
+    "observed": "A model response is correctly declared as a run-produced artifact, with a successful earlier producer. A later declared execution consumes it. validate_completion passes; Bundle.validate rejects ARTIFACT_OUTSIDE_RUN because an older loop still requires every execution artifact to be in input_artifact_ids.",
+    "impact": "The repaired manifest can represent generated model I/O, but a downstream consumer cannot consistently use it in the same run.",
+    "proposed_repair": "Use one available-artifact resolver in all validators. It must admit sealed external inputs or eligible prior outputs, enforce chronology and producer ownership, and reject self-consumption. Do not copy a generated response into the external-input list to satisfy the older check.",
+    "acceptance": "A two-stage generated-output\u2192consumer path must pass both validators; unfinished, future, self-produced or undeclared inputs must fail.",
+    "journeys": [
+      "J07",
+      "J12"
+    ],
+    "patched_in_this_review": false
+  },
+  {
+    "id": "F06",
+    "title": "HTML recovery can silently truncate the parse while reporting complete detection",
+    "priority": "P1",
+    "classification": "EXECUTED_COLLECTOR_DEFECT",
+    "probe_ids": [
+      "R2-C05"
+    ],
+    "modules": [
+      "ING-04",
+      "FP-01"
+    ],
+    "source_ranges": [
+      [
+        "collector/src/keensight_scrapling/extraction.py",
+        54,
+        67
+      ],
+      [
+        "collector/src/keensight_scrapling/extraction.py",
+        96,
+        110
+      ],
+      [
+        "collector/src/keensight_scrapling/rules.py",
+        158,
+        191
+      ]
+    ],
+    "observed": "A retained page with 400 nested div elements and a later product script triggers parser recovery. Script extraction reports COMPLETE with zero surfaces, and its rules report NO_MATCH. The retained bytes do contain the marker.",
+    "impact": "The previous fix handles explicit item/text caps, but not structural information discarded by the parser. No absence fact is emitted today; coverage/reporting is nevertheless wrong.",
+    "proposed_repair": "Inspect parser diagnostics and classify information-losing recovery or depth/resource limits. Propagate an explicit partial capability state to all affected extractors and match evaluations. Harmless HTML repairs need a documented policy rather than blanket success or blanket failure.",
+    "acceptance": "Deeply nested, truncated and malformed inputs must not produce a complete negative when evidence was dropped. Ordinary recoverable pages should retain deterministic extraction.",
+    "journeys": [
+      "J02",
+      "J03",
+      "J09"
+    ],
+    "patched_in_this_review": false
+  },
+  {
+    "id": "F07",
+    "title": "A self-superseding fact raises RecursionError before semantic rejection",
+    "priority": "P1",
+    "classification": "UNCONTROLLED_INVALID_INPUT_FAILURE",
+    "probe_ids": [
+      "R2-A04"
+    ],
+    "modules": [
+      "KN-02",
+      "KN-03"
+    ],
+    "source_ranges": [
+      [
+        "canonical/keensight_contracts/validation.py",
+        123,
+        130
+      ],
+      [
+        "canonical/keensight_contracts/validation.py",
+        485,
+        489
+      ],
+      [
+        "canonical/keensight_contracts/completion.py",
+        183,
+        199
+      ]
+    ],
+    "observed": "Setting f.tech.supersedes_fact_id to f.tech causes full validation to raise RecursionError, rather than the intended ordered-supersession ContractError.",
+    "impact": "The data does not become accepted, but an ordinary malformed record escapes the controlled contract-failure path and can abort a batch or obscure the actual invalid field.",
+    "proposed_repair": "Validate supersession identity, ordering and acyclicity before eligibility recursion. Add an explicit recursion/visited guard to public read helpers so malformed unadmitted data cannot exhaust the stack.",
+    "acceptance": "Self and multi-record cycles receive stable diagnostic codes and no publication; valid historical chains remain queryable.",
+    "journeys": [
+      "J06",
+      "J07",
+      "J11"
+    ],
+    "patched_in_this_review": false
+  },
+  {
+    "id": "F08",
+    "title": "Requirement minimum means fact count in the helper but origin count in validation",
+    "priority": "P1",
+    "classification": "REFERENCE_FUNCTION_CONTRACT_MISMATCH",
+    "probe_ids": [
+      "R2-A08"
+    ],
+    "modules": [
+      "RE-05",
+      "KN-03"
+    ],
+    "source_ranges": [
+      [
+        "canonical/keensight_contracts/engine.py",
+        143,
+        150
+      ],
+      [
+        "canonical/keensight_contracts/validation.py",
+        399,
+        407
+      ]
+    ],
+    "observed": "evaluate_requirements resolves minimum=2 from two eligible fact rows backed by the same substantive origin. The full signal validator requires two distinct substantive artifact origins.",
+    "impact": "The allowlisted rule helper can compute a result that its consuming validator rejects. This is a helper-level comparison, not a claim that a fully admitted forged signal passed.",
+    "proposed_repair": "Name the unit explicitly (observations, evidence elements, origins, independent corroboration) in the requirement contract. Share one support-selection/evaluation function between the rule and the validator. Multiple records from one origin cannot satisfy an origin threshold.",
+    "acceptance": "Duplicate rows/origins must not increase the selected unit. Independent eligible origins should satisfy a properly configured threshold.",
+    "journeys": [
+      "J07",
+      "J12",
+      "J13"
+    ],
+    "patched_in_this_review": false
+  },
+  {
+    "id": "F09",
+    "title": "Retained-file import does not pin subject identity in run configuration",
+    "priority": "P1",
+    "classification": "EXECUTED_CLI_IDENTITY_DEFECT",
+    "probe_ids": [
+      "R2-C07"
+    ],
+    "modules": [
+      "CTL-02",
+      "ING-02",
+      "FP-02"
+    ],
+    "source_ranges": [
+      [
+        "collector/src/keensight_scrapling/cli.py",
+        103,
+        114
+      ],
+      [
+        "collector/src/keensight_scrapling/storage.py",
+        59,
+        67
+      ],
+      [
+        "collector/src/keensight_scrapling/pipeline.py",
+        248,
+        256
+      ]
+    ],
+    "observed": "Two analyze-file calls use the same tenant, run, URL, observation time and rules but different subjects. Both return exit 0. The resulting run contains both subjects, and replay fails with Cross-subject/tenant/origin host rollup forbidden.",
+    "impact": "Independent CLI invocations can create a run that the replay contract cannot consume. The import path pins fewer identity fields than the live scan path.",
+    "proposed_repair": "Use one immutable ScanPlan/run identity for live and imported capture. Include subject, input mode, code/parser version, source and content/import manifest. A single-target run rejects subject changes; a multi-target run requires explicit partitions.",
+    "acceptance": "The second changed-subject invocation must fail without appending its capture. A deliberate new run should work and replay independently.",
+    "journeys": [
+      "J02",
+      "J04"
+    ],
+    "patched_in_this_review": false
+  },
+  {
+    "id": "F10",
+    "title": "Current candidate discovery counts unlabelled revoked evidence",
+    "priority": "P1",
+    "classification": "RESEARCH_INDEX_ELIGIBILITY_GAP",
+    "probe_ids": [
+      "R2-C04"
+    ],
+    "modules": [
+      "FP-03",
+      "PLAT-02"
+    ],
+    "source_ranges": [
+      [
+        "collector/src/keensight_scrapling/storage.py",
+        164,
+        215
+      ]
+    ],
+    "observed": "After the only supporting capture is revoked, candidates(tenant,min_hosts=1) returns the same current candidate and prevalence counts. The query does not join revocation state.",
+    "impact": "An operator can prioritize or export a research candidate without seeing that its support is no longer eligible. This probe concerns derived metadata, not continued export of the original revoked bytes.",
+    "proposed_repair": "Separate historical occurrence counts from eligible support counts and expose both with an as_of/policy identity. Filter or flag revoked/expired support in current candidate selection; keep audit history according to policy.",
+    "acceptance": "Revoking all support must remove current eligibility or display an explicit unsupported/historical state. New eligible support can restore candidacy without erasing prior history.",
+    "journeys": [
+      "J05",
+      "J17"
+    ],
+    "patched_in_this_review": false
+  },
+  {
+    "id": "F11",
+    "title": "Contradictory duplicate command outcomes are accepted",
+    "priority": "P1",
+    "classification": "COMMAND_REPORT_IDENTITY_GAP",
+    "probe_ids": [
+      "R2-C10"
+    ],
+    "modules": [
+      "FP-01",
+      "FP-02",
+      "PLAT-03"
+    ],
+    "source_ranges": [
+      [
+        "collector/src/keensight_scrapling/pipeline.py",
+        211,
+        218
+      ],
+      [
+        "collector/src/keensight_scrapling/validation.py",
+        60,
+        72
+      ],
+      [
+        "collector/src/keensight_scrapling/core.py",
+        100,
+        111
+      ]
+    ],
+    "observed": "Appending a FAILED MATCH_HOST_SUFFIX record with the same inputs alongside valid COMPLETE records still passes validate_bundle. The matcher check accepts any matching correct row; CommandResult has no invocation identity.",
+    "impact": "A timeline cannot tell whether this is a retry, another operator using the same command name, or a contradiction. The baseline already has multiple COMPLETE rows because host_equals and host_suffix map to the same command.",
+    "proposed_repair": "Assign command_execution_id, operator/version, target and attempt identifiers. Validate exactly one terminal outcome per invocation. Aggregate command-family status separately without discarding individual executions.",
+    "acceptance": "Contradictory terminal states for the same invocation fail. Legitimate distinct operators/attempts remain representable and inspectable.",
+    "journeys": [
+      "J03",
+      "J06",
+      "J19"
+    ],
+    "patched_in_this_review": false
+  },
+  {
+    "id": "F12",
+    "title": "No-byte failures lose invocation details and have no persisted evaluation manifest",
+    "priority": "P1",
+    "classification": "DIAGNOSTIC_AND_COMPLETENESS_GAP",
+    "probe_ids": [
+      "R2-C01",
+      "R2-C09"
+    ],
+    "modules": [
+      "ING-03",
+      "CTL-02",
+      "PLAT-01",
+      "PLAT-03"
+    ],
+    "source_ranges": [
+      [
+        "collector/src/keensight_scrapling/pipeline.py",
+        46,
+        60
+      ],
+      [
+        "collector/src/keensight_scrapling/pipeline.py",
+        76,
+        126
+      ],
+      [
+        "collector/src/keensight_scrapling/storage.py",
+        69,
+        94
+      ],
+      [
+        "collector/src/keensight_scrapling/storage.py",
+        214,
+        236
+      ]
+    ],
+    "observed": "finish_attempt replaces the reserved request payload; after timeout, started_at, command_id and mode are gone. A no-byte scan emits a bundle with no top-level tenant/subject/run identity (only evaluation_id), no captures, and no stored evaluation row.",
+    "impact": "The attempts table retains tenant/run and run configuration separately, so identity is not wholly lost in the store. But the exported failure is not self-identifying and cannot produce a complete attempt timeline or durable failed-target evaluation.",
+    "proposed_repair": "Keep immutable request metadata and append/merge the terminal outcome without deleting start fields. Require explicit evaluation tenant, target and run identity independently of artifacts. Persist zero-output success/failure/abstention manifests as first-class results.",
+    "acceptance": "Two failed targets with the same human run label remain distinguishable. Start/end/command/mode survive timeout and resume, without manufacturing bytes or positive facts.",
+    "journeys": [
+      "J06",
+      "J09",
+      "J19"
+    ],
+    "patched_in_this_review": false
+  },
+  {
+    "id": "F13",
+    "title": "Protocol rejects an honest timeout failure reported after its deadline",
+    "priority": "P1",
+    "classification": "FAILURE_REPORT_CONTRACT_GAP",
+    "probe_ids": [
+      "R2-P01"
+    ],
+    "modules": [
+      "CTL-02",
+      "PLAT-03"
+    ],
+    "source_ranges": [
+      [
+        "protocol/validate_protocol.py",
+        92,
+        151
+      ]
+    ],
+    "observed": "A FAILED result with no positive outputs and an explicit timeout diagnostic, finalized one second after deadline, is rejected as Operation finished beyond deadline.",
+    "impact": "The system needs to deny late success/effects while still recording the real end time and failed outcome. Otherwise a worker must lie about finish time or lose its failure report.",
+    "proposed_repair": "Separate execution deadline, cancellation/timeout outcome, report completion and late-effect handling. Accept truthful terminal diagnostics after a deadline without allowing success publication or new side effects.",
+    "acceptance": "Late FAILED/CANCELLED reports with appropriate reasons are admissible; a late success without approved semantics remains rejected and any uncertain side effect is reconciled.",
+    "journeys": [
+      "J06",
+      "J08",
+      "J19"
+    ],
+    "patched_in_this_review": false
+  },
+  {
+    "id": "F14",
+    "title": "Collector and canonical matcher disagree on aside-region semantics",
+    "priority": "P1",
+    "classification": "CROSS_MODULE_MATCHER_POLICY_MISMATCH",
+    "probe_ids": [
+      "R2-C08"
+    ],
+    "modules": [
+      "ING-04",
+      "FP-01",
+      "KN-02"
+    ],
+    "source_ranges": [
+      [
+        "collector/src/keensight_scrapling/extraction.py",
+        23,
+        35
+      ],
+      [
+        "collector/src/keensight_scrapling/rules.py",
+        163,
+        169
+      ],
+      [
+        "canonical/keensight_contracts/engine.py",
+        117,
+        138
+      ]
+    ],
+    "observed": "For the same script in an aside element, the collector supports vendor.present; canonical fingerprint_hosts returns no match because it excludes aside.",
+    "impact": "A future bridge can reject a collector finding that looked valid, or change its meaning. This review does not assert that every aside must be ignored or accepted.",
+    "proposed_repair": "Choose and version one attribution/region policy; share a matcher/evidence representation or run parity fixtures through both implementations. Do not silently map the two predicate contracts as equivalent.",
+    "acceptance": "Identical content and the declared same rule policy yield compatible results across collection and admission; differences require explicit policy/version labels.",
+    "journeys": [
+      "J02",
+      "J03",
+      "J11"
+    ],
+    "patched_in_this_review": false
+  },
+  {
+    "id": "F15",
+    "title": "The protocol fixture does not constrain mode/effects against operation parameters",
+    "priority": "P2",
+    "classification": "DRAFT_CHECKER_INCOMPLETENESS",
+    "probe_ids": [
+      "R2-P02"
+    ],
+    "modules": [
+      "CTL-01",
+      "CTL-03",
+      "PLAT-03"
+    ],
+    "source_ranges": [
+      [
+        "protocol/validate_protocol.py",
+        51,
+        131
+      ]
+    ],
+    "observed": "The complete fixture payload check accepts FP-01.match in CAPTURE mode reporting five network attempts even though its validated parameters say allow_network=false.",
+    "impact": "No network was performed; this is a checker-consistency test. The enforcing runner still does not exist, so the current envelope cannot be advertised as enforcing effect permissions.",
+    "proposed_repair": "Extend trusted operation signatures with allowed modes, effect classes and budget policies; compare reported usage to those constraints and enforce them before execution through capability-limited dependencies. Diagnostics must remain truthful when policy is violated.",
+    "acceptance": "Offline matching cannot be authorized to capture; reported forbidden effects trigger a policy failure and alert rather than a successful eligible output.",
+    "journeys": [
+      "J08",
+      "J19"
+    ],
+    "patched_in_this_review": false
+  },
+  {
+    "id": "F16",
+    "title": "effective_at is stored but its decision semantics are undefined/unused",
+    "priority": "P2",
+    "classification": "POLICY_DECISION_REQUIRED",
+    "probe_ids": [
+      "R2-A05"
+    ],
+    "modules": [
+      "KN-02",
+      "KN-03",
+      "RE-05"
+    ],
+    "source_ranges": [
+      [
+        "canonical/keensight_contracts/engine.py",
+        37,
+        44
+      ],
+      [
+        "canonical/keensight_contracts/validation.py",
+        123,
+        171
+      ],
+      [
+        "canonical/keensight_contracts/validation.py",
+        452,
+        493
+      ]
+    ],
+    "observed": "A fact with effective_at a month after the use gate remains current-eligible and passes full validation. The gate time, observed_at and recorded_at are distinct, but effective_at is not consulted.",
+    "impact": "Some records describe future events and are valid observations now; others must not be interpreted as a currently effective status. The generic contract does not say which rule applies. This is separately reported, not an assumed universal failing requirement.",
+    "proposed_repair": "Define per-predicate temporal semantics: observation of an announcement, asserted valid-time state, reporting period, and validity interval. Test the permitted language and signal conditions separately rather than universally dropping future-dated records.",
+    "acceptance": "A future license effective date cannot prove currently effective licensure; a supported statement that the record announces a future effective date remains possible.",
+    "journeys": [
+      "J11",
+      "J12",
+      "J13"
+    ],
+    "patched_in_this_review": false
+  }
+]

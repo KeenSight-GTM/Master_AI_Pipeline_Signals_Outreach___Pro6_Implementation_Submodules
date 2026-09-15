@@ -1,0 +1,65 @@
+{
+  "$id": "https://keensight.local/v4.2/SalaryValue.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "basis": {
+      "enum": [
+        "BASE",
+        "TOTAL_COMPENSATION",
+        "UNSPECIFIED"
+      ]
+    },
+    "currency": {
+      "pattern": "^[A-Z]{3}$",
+      "type": "string"
+    },
+    "maximum_minor": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "minimum_minor": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "minor_unit_exponent": {
+      "maximum": 4,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "period": {
+      "enum": [
+        "HOUR",
+        "DAY",
+        "WEEK",
+        "MONTH",
+        "YEAR",
+        "PROJECT"
+      ]
+    }
+  },
+  "required": [
+    "minimum_minor",
+    "maximum_minor",
+    "currency",
+    "minor_unit_exponent",
+    "period",
+    "basis"
+  ],
+  "title": "SalaryValue",
+  "type": "object"
+}

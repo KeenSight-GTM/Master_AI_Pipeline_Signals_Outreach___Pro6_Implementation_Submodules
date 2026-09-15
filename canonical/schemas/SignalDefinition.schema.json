@@ -1,0 +1,93 @@
+{
+  "$id": "https://keensight.local/v4.2/SignalDefinition.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "context_allowed": {
+      "type": "boolean"
+    },
+    "description": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "function_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "required_facts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allowed_natures": {
+            "items": {
+              "enum": [
+                "DIRECT_OBSERVATION",
+                "FIRST_PARTY_STATEMENT",
+                "THIRD_PARTY_REPORT",
+                "PROVIDER_ESTIMATE",
+                "REGISTRY_RECORD",
+                "INFERENCE",
+                "DERIVED_MEASUREMENT"
+              ]
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "counting_unit": {
+            "const": "DISTINCT_ORIGIN"
+          },
+          "minimum": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "predicate_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+            "type": "string"
+          },
+          "state": {
+            "enum": [
+              "OBSERVED",
+              "NOT_FOUND"
+            ]
+          }
+        },
+        "required": [
+          "predicate_id",
+          "allowed_natures",
+          "state",
+          "minimum",
+          "counting_unit"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "signal_type_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "REFERENCE_IMPLEMENTED",
+        "DESIGN_ONLY"
+      ]
+    },
+    "version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "signal_type_id",
+    "version",
+    "required_facts",
+    "function_id",
+    "context_allowed",
+    "description",
+    "status"
+  ],
+  "title": "SignalDefinition",
+  "type": "object"
+}

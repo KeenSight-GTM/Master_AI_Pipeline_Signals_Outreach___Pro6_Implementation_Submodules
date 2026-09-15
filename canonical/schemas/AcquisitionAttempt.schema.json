@@ -1,0 +1,215 @@
+{
+  "$id": "https://keensight.local/v4.2/AcquisitionAttempt.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "adapter_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "artifact_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "attempt_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "body_limit_bytes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "cost_minor": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "cost_status": {
+      "enum": [
+        "KNOWN",
+        "UNKNOWN",
+        "NOT_CHARGED"
+      ]
+    },
+    "currency": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Z]{3}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "execution_mode": {
+      "enum": [
+        "REPLAY_IMPORT",
+        "LIVE_CAPTURE"
+      ]
+    },
+    "finished_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "intake_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "max_requests": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "operation_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "pagination": {
+      "enum": [
+        "NOT_APPLICABLE",
+        "EXHAUSTED",
+        "INCOMPLETE",
+        "UNKNOWN"
+      ]
+    },
+    "request_hash": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "requests_made": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "scope_id": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "source_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "source_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "started_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "SUCCEEDED",
+        "EMPTY_RESULT",
+        "PARTIAL",
+        "TIMEOUT",
+        "FAILED",
+        "POLICY_DENIED",
+        "BUDGET_DENIED",
+        "CANCELLED"
+      ]
+    },
+    "target": {
+      "additionalProperties": false,
+      "properties": {
+        "resource_uri": {
+          "format": "uri",
+          "type": "string"
+        },
+        "subject_id": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "resource_uri",
+        "subject_id"
+      ],
+      "type": "object"
+    },
+    "tenant_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "terminal_reason": {
+      "anyOf": [
+        {
+          "enum": [
+            "TIMEOUT",
+            "POLICY_DENIED",
+            "BUDGET_DENIED",
+            "CANCELLED",
+            "PROVIDER_ERROR",
+            "PARTIAL_RESPONSE",
+            "NO_RESULTS"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "timeout_seconds": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "truncated": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "attempt_id",
+    "tenant_id",
+    "intake_id",
+    "source_id",
+    "source_version",
+    "adapter_version",
+    "target",
+    "scope_id",
+    "request_hash",
+    "operation_key",
+    "started_at",
+    "finished_at",
+    "status",
+    "artifact_ids",
+    "terminal_reason",
+    "pagination",
+    "truncated",
+    "max_requests",
+    "requests_made",
+    "timeout_seconds",
+    "body_limit_bytes",
+    "cost_status",
+    "cost_minor",
+    "currency",
+    "execution_mode"
+  ],
+  "title": "AcquisitionAttempt",
+  "type": "object"
+}

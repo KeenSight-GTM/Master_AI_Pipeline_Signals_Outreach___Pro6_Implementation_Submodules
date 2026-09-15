@@ -1,0 +1,44 @@
+{
+  "baseline": "collector 0.2.0 / canonical 4.2.0 / supplied draft protocol",
+  "scope": "unchanged uploaded Iteration 2 baseline; standard usage; no remote writes",
+  "baseline_integrity": "438 manifest-listed files match",
+  "existing_tests": {
+    "collector": {
+      "passed": 183,
+      "skipped": 1
+    },
+    "canonical": {
+      "passed": 609
+    },
+    "protocol": {
+      "passed": 42
+    }
+  },
+  "new_probes": {
+    "executed": 17,
+    "findings": 9,
+    "existing_policy_or_scope_limits": 3,
+    "controls": 5
+  },
+  "new_poc_acceptance_tests": {
+    "failed": 9,
+    "passed": 5,
+    "xfail": 0,
+    "note": "includes proposed missing capabilities, not just implementation bugs"
+  },
+  "multipage_probe": {
+    "fixed_run_id_cases": 10,
+    "failed": 4,
+    "note": "not a live failure-rate estimate"
+  },
+  "preview_smoke": {
+    "journey": "J07",
+    "subprocesses": 3,
+    "passed": true,
+    "collector_to_canonical_bridge_tested": false
+  },
+  "scrapling_sdk": "package-resolution check failed; SDK absent; integration test skipped",
+  "live_network_or_models_or_sender_tested": false,
+  "application_behavior_patched": false,
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]"
+}

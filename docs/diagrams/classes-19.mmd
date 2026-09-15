@@ -1,0 +1,82 @@
+classDiagram
+    class Diagnostic {
+        cause_execution_id
+        code
+        diagnostic_id
+        field_path
+        message
+        record_refs
+        restricted_details_ref
+        severity
+        suggested_action
+    }
+    class ModuleRequest {
+        attempt
+        budget_reservation_ref
+        context
+        deadline_at
+        execution_id
+        idempotency_key
+        input_refs
+        module_id
+        operation
+        parameters_ref
+        protocol_version
+        release_lock_ref
+        request_id
+        trace
+    }
+    class ModuleResult {
+        consumed_refs
+        context
+        diagnostic_record_refs
+        diagnostics
+        execution_id
+        execution_status
+        finished_at
+        module_id
+        operation
+        output_refs
+        protocol_version
+        request_digest
+        request_id
+        reused_execution_id
+        started_at
+        trace
+        usage
+    }
+    class CollectorCapture {
+        capture_id
+        tenant_id
+        subject_id
+        run_id
+        url
+        observed_at
+        mode
+        status_code
+        body_sha256
+        body_path
+        headers
+        complete
+        source_id
+        limitations
+        source_ttl_seconds
+    }
+    class CollectorSurface {
+        surface_id
+        capture_id
+        command_id
+        kind
+        locator
+        value
+        context
+        attributes
+    }
+    class CollectorCommandResult {
+        command_id
+        status
+        input_ids
+        output_ids
+        limitations
+        details
+    }

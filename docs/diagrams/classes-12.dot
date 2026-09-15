@@ -1,0 +1,16 @@
+digraph G {
+rankdir=LR;
+graph [nodesep=0.35,ranksep=0.6];
+node [shape=plain,fontname="DejaVu Sans",fontsize=11];
+"TargetResult" [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#e6edf3"><B>TargetResult</B></TD></TR><TR><TD><FONT POINT-SIZE="9">REFERENCE CONTRACT v4.2</FONT></TD></TR><TR><TD ALIGN="LEFT">completed_at</TD></TR><TR><TD ALIGN="LEFT">reason</TD></TR><TR><TD ALIGN="LEFT">status</TD></TR><TR><TD ALIGN="LEFT">subject_id</TD></TR></TABLE>>];
+"TaxonomyTerm" [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#e6edf3"><B>TaxonomyTerm</B></TD></TR><TR><TD><FONT POINT-SIZE="9">REFERENCE CONTRACT v4.2</FONT></TD></TR><TR><TD ALIGN="LEFT">label</TD></TR><TR><TD ALIGN="LEFT">parent_id</TD></TR><TR><TD ALIGN="LEFT">scheme_id</TD></TR><TR><TD ALIGN="LEFT">scheme_version</TD></TR><TR><TD ALIGN="LEFT">term_id</TD></TR></TABLE>>];
+"TechnologyReportValue" [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#e6edf3"><B>TechnologyReportValue</B></TD></TR><TR><TD><FONT POINT-SIZE="9">REFERENCE CONTRACT v4.2</FONT></TD></TR><TR><TD ALIGN="LEFT">product_id</TD></TR><TR><TD ALIGN="LEFT">provider</TD></TR><TR><TD ALIGN="LEFT">provider_detected_at</TD></TR><TR><TD ALIGN="LEFT">reported_version</TD></TR></TABLE>>];
+"TechnologyValue" [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#e6edf3"><B>TechnologyValue</B></TD></TR><TR><TD><FONT POINT-SIZE="9">REFERENCE CONTRACT v4.2</FONT></TD></TR><TR><TD ALIGN="LEFT">deployment_claim</TD></TR><TR><TD ALIGN="LEFT">fingerprint_id</TD></TR><TR><TD ALIGN="LEFT">matched_value</TD></TR><TR><TD ALIGN="LEFT">product_id</TD></TR><TR><TD ALIGN="LEFT">surface</TD></TR><TR><TD ALIGN="LEFT">version</TD></TR></TABLE>>];
+"TemplateDefinition" [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#e6edf3"><B>TemplateDefinition</B></TD></TR><TR><TD><FONT POINT-SIZE="9">REFERENCE CONTRACT v4.2</FONT></TD></TR><TR><TD ALIGN="LEFT">allowed_natures</TD></TR><TR><TD ALIGN="LEFT">authority</TD></TR><TR><TD ALIGN="LEFT">maturity_required</TD></TR><TR><TD ALIGN="LEFT">mode</TD></TR><TR><TD ALIGN="LEFT">offered_rung</TD></TR><TR><TD ALIGN="LEFT">question</TD></TR><TR><TD ALIGN="LEFT">renderer</TD></TR><TR><TD ALIGN="LEFT">required_predicate</TD></TR><TR><TD ALIGN="LEFT">review_ref</TD></TR><TR><TD ALIGN="LEFT">template_id</TD></TR><TR><TD ALIGN="LEFT">version</TD></TR></TABLE>>];
+"ThemeClassificationValue" [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#e6edf3"><B>ThemeClassificationValue</B></TD></TR><TR><TD><FONT POINT-SIZE="9">REFERENCE CONTRACT v4.2</FONT></TD></TR><TR><TD ALIGN="LEFT">record_key</TD></TR><TR><TD ALIGN="LEFT">sentiment</TD></TR><TR><TD ALIGN="LEFT">stance</TD></TR><TR><TD ALIGN="LEFT">support_locator_ids</TD></TR><TR><TD ALIGN="LEFT">theme_id</TD></TR></TABLE>>];
+"TargetResult" -> "TaxonomyTerm" [style=invis];
+"TaxonomyTerm" -> "TechnologyReportValue" [style=invis];
+"TechnologyReportValue" -> "TechnologyValue" [style=invis];
+"TechnologyValue" -> "TemplateDefinition" [style=invis];
+"TemplateDefinition" -> "ThemeClassificationValue" [style=invis];
+}

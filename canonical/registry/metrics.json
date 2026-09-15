@@ -1,0 +1,4077 @@
+[
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "Estimated visits",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.visits",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "Estimated unique visitors",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.unique_visitors",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "Estimated pageviews",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.pageviews",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "Estimated pages per visit",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.pages_per_visit",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "pages_per_visit",
+    "value_schema": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "Estimated visit duration",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.visit_duration",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "seconds",
+    "value_schema": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "Estimated bounce proportion",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.bounce_rate",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "Estimated growth across comparable periods",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.growth",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "proportion_change",
+    "value_schema": {
+      "minimum": -1,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "RANK",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "Estimated worldwide rank",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.global_rank",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "rank",
+    "value_schema": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "RANK",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "Estimated country rank",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.country_rank",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "rank",
+    "value_schema": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "RANK",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "Estimated category rank",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.category_rank",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "rank",
+    "value_schema": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "channel share",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "channel": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity",
+        "channel"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.channel_share",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "geography share",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        },
+        "visitor_country": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity",
+        "visitor_country"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.geography_share",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "popular page share",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        },
+        "page_url": {
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity",
+        "page_url"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.popular_page_share",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "referral share",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        },
+        "referring_domain": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity",
+        "referring_domain"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.referral_share",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "outgoing share",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        },
+        "outgoing_domain": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity",
+        "outgoing_domain"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.outgoing_share",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "paid referral concentration",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        },
+        "top_n": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity",
+        "top_n"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.paid_referral_concentration",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "audience overlap",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "basis": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        },
+        "peer_domain": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity",
+        "peer_domain",
+        "basis"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.audience_overlap",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "social source share",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        },
+        "social_network": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity",
+        "social_network"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.social_source_share",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "device share",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "device_segment": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity",
+        "device_segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.device_share",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "organic visits",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.organic_visits",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "paid visits",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.paid_visits",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "referral visits",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.referral_visits",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "social visits",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.social_visits",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "direct visits",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.direct_visits",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "search visits",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "enum": [
+            "DESKTOP",
+            "MOBILE_WEB",
+            "ALL"
+          ]
+        },
+        "granularity": {
+          "enum": [
+            "DAILY",
+            "WEEKLY",
+            "MONTHLY"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "granularity"
+      ],
+      "type": "object"
+    },
+    "metric_id": "traffic.search_visits",
+    "requires_denominator": false,
+    "section_ids": [
+      7
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "open postings",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "department": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "department",
+        "country"
+      ],
+      "type": "object"
+    },
+    "metric_id": "hiring.open_postings",
+    "requires_denominator": false,
+    "section_ids": [
+      1
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "new postings",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "department": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "department",
+        "country"
+      ],
+      "type": "object"
+    },
+    "metric_id": "hiring.new_postings",
+    "requires_denominator": false,
+    "section_ids": [
+      1
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "closed postings",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "department": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "department",
+        "country"
+      ],
+      "type": "object"
+    },
+    "metric_id": "hiring.closed_postings",
+    "requires_denominator": false,
+    "section_ids": [
+      1
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "workflow mention count",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "department": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "department",
+        "country"
+      ],
+      "type": "object"
+    },
+    "metric_id": "hiring.workflow_mention_count",
+    "requires_denominator": false,
+    "section_ids": [
+      1
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "spreadsheet mention count",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "department": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "department",
+        "country"
+      ],
+      "type": "object"
+    },
+    "metric_id": "hiring.spreadsheet_mention_count",
+    "requires_denominator": false,
+    "section_ids": [
+      1
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "document mention count",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "department": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "department",
+        "country"
+      ],
+      "type": "object"
+    },
+    "metric_id": "hiring.document_mention_count",
+    "requires_denominator": false,
+    "section_ids": [
+      1
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "count",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "platform": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "profile_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "platform",
+        "profile_id"
+      ],
+      "type": "object"
+    },
+    "metric_id": "review.count",
+    "requires_denominator": false,
+    "section_ids": [
+      4,
+      5,
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "new reviews",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "platform": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "profile_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "platform",
+        "profile_id"
+      ],
+      "type": "object"
+    },
+    "metric_id": "review.new_reviews",
+    "requires_denominator": false,
+    "section_ids": [
+      4,
+      5,
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "owner responses",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "platform": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "profile_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "platform",
+        "profile_id"
+      ],
+      "type": "object"
+    },
+    "metric_id": "review.owner_responses",
+    "requires_denominator": false,
+    "section_ids": [
+      4,
+      5,
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "negative reviews",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "platform": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "profile_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "platform",
+        "profile_id"
+      ],
+      "type": "object"
+    },
+    "metric_id": "review.negative_reviews",
+    "requires_denominator": false,
+    "section_ids": [
+      4,
+      5,
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "theme support count",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "platform": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "profile_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "platform",
+        "profile_id"
+      ],
+      "type": "object"
+    },
+    "metric_id": "review.theme_support_count",
+    "requires_denominator": false,
+    "section_ids": [
+      4,
+      5,
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "MEAN",
+    "allowed_natures": [
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "Reported mean rating",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "platform": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "profile_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "scale_maximum": {
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "platform",
+        "profile_id",
+        "scale_maximum"
+      ],
+      "type": "object"
+    },
+    "metric_id": "review.rating",
+    "requires_denominator": false,
+    "section_ids": [
+      4,
+      5,
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION"
+    ],
+    "unit": "rating",
+    "value_schema": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "RATE",
+    "allowed_natures": [
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "response ratio",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "platform": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "profile_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "platform",
+        "profile_id"
+      ],
+      "type": "object"
+    },
+    "metric_id": "review.response_ratio",
+    "requires_denominator": true,
+    "section_ids": [
+      4,
+      5,
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "RATE",
+    "allowed_natures": [
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "negative share",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "platform": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "profile_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "platform",
+        "profile_id"
+      ],
+      "type": "object"
+    },
+    "metric_id": "review.negative_share",
+    "requires_denominator": true,
+    "section_ids": [
+      4,
+      5,
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "RATE",
+    "allowed_natures": [
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "theme share",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "platform": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "profile_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "platform",
+        "profile_id"
+      ],
+      "type": "object"
+    },
+    "metric_id": "review.theme_share",
+    "requires_denominator": true,
+    "section_ids": [
+      4,
+      5,
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT"
+    ],
+    "description": "keyword count",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "engine",
+        "device"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.keyword_count",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT"
+    ],
+    "description": "indexed pages",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "engine",
+        "device"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.indexed_pages",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT"
+    ],
+    "description": "backlinks",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "engine",
+        "device"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.backlinks",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT"
+    ],
+    "description": "referring domains",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "engine",
+        "device"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.referring_domains",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT"
+    ],
+    "description": "mentions",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "engine",
+        "device"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.mentions",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT"
+    ],
+    "description": "broken links",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "engine",
+        "device"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.broken_links",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT"
+    ],
+    "description": "pages crawled",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "engine",
+        "device"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.pages_crawled",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT"
+    ],
+    "description": "local results count",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "engine",
+        "device"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.local_results_count",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "RANK",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT"
+    ],
+    "description": "organic rank",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "query": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "query",
+        "country",
+        "engine",
+        "device"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.organic_rank",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "rank",
+    "value_schema": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "RANK",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT"
+    ],
+    "description": "paid rank",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "query": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "query",
+        "country",
+        "engine",
+        "device"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.paid_rank",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "rank",
+    "value_schema": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "RANK",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT"
+    ],
+    "description": "local rank",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "query": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "query",
+        "country",
+        "engine",
+        "device"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.local_rank",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "rank",
+    "value_schema": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "RANK",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT"
+    ],
+    "description": "shopping rank",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "query": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "query",
+        "country",
+        "engine",
+        "device"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.shopping_rank",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "rank",
+    "value_schema": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "DESCRIPTIVE",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT"
+    ],
+    "description": "lcp",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "scope_level": {
+          "enum": [
+            "PAGE",
+            "ORIGIN"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "scope_level"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.lcp",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "milliseconds",
+    "value_schema": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "DESCRIPTIVE",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT"
+    ],
+    "description": "inp",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "scope_level": {
+          "enum": [
+            "PAGE",
+            "ORIGIN"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "scope_level"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.inp",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "milliseconds",
+    "value_schema": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "DESCRIPTIVE",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT"
+    ],
+    "description": "cls",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "scope_level": {
+          "enum": [
+            "PAGE",
+            "ORIGIN"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "scope_level"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.cls",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "score",
+    "value_schema": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "DESCRIPTIVE",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT"
+    ],
+    "description": "authority",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "device": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "scope_level": {
+          "enum": [
+            "PAGE",
+            "ORIGIN"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "device",
+        "scope_level"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.authority",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "score",
+    "value_schema": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "search volume",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "query": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "query",
+        "engine"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.search_volume",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "keyword difficulty",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "query": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "query",
+        "engine"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.keyword_difficulty",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "score",
+    "value_schema": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "estimated organic traffic",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "query": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "query",
+        "engine"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.estimated_organic_traffic",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "estimated paid traffic",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "query": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "query",
+        "engine"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.estimated_paid_traffic",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "ESTIMATE",
+    "allowed_natures": [
+      "PROVIDER_ESTIMATE"
+    ],
+    "description": "Estimated cost per click",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "type": "string"
+        },
+        "query": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "query",
+        "currency"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.cpc",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "currency_major",
+    "value_schema": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "RATE",
+    "allowed_natures": [
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "Citation proportion in the completed probe set",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "locale": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "prompt_set_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "engine",
+        "prompt_set_id",
+        "locale"
+      ],
+      "type": "object"
+    },
+    "metric_id": "seo.ai_citation_share",
+    "requires_denominator": true,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "REGISTRY_RECORD",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "providers",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "registry.providers",
+    "requires_denominator": false,
+    "section_ids": [
+      9
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "REGISTRY_RECORD",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "advisers",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "registry.advisers",
+    "requires_denominator": false,
+    "section_ids": [
+      9
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "REGISTRY_RECORD",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "locations",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "registry.locations",
+    "requires_denominator": false,
+    "section_ids": [
+      9
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "REGISTRY_RECORD",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "licenses",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "registry.licenses",
+    "requires_denominator": false,
+    "section_ids": [
+      9
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "REGISTRY_RECORD",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "permits",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "registry.permits",
+    "requires_denominator": false,
+    "section_ids": [
+      9
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "inbound calls",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "phone.inbound_calls",
+    "requires_denominator": false,
+    "section_ids": [
+      10
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "answered calls",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "phone.answered_calls",
+    "requires_denominator": false,
+    "section_ids": [
+      10
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "missed calls",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "phone.missed_calls",
+    "requires_denominator": false,
+    "section_ids": [
+      10
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "callbacks",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "phone.callbacks",
+    "requires_denominator": false,
+    "section_ids": [
+      10
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "voicemail calls",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "phone.voicemail_calls",
+    "requires_denominator": false,
+    "section_ids": [
+      10
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "reviews",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "app.reviews",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "ratings",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "app.ratings",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "downloads reported",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "app.downloads_reported",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "listings",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "shopping.listings",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "offers",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "shopping.offers",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "sellers",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "shopping.sellers",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "active ads",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "ads.active_ads",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "creatives",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "ads.creatives",
+    "requires_denominator": false,
+    "section_ids": [
+      8
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "products detected",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "technology.products_detected",
+    "requires_denominator": false,
+    "section_ids": [
+      2
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "domains observed",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "technology.domains_observed",
+    "requires_denominator": false,
+    "section_ids": [
+      2
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "COUNT",
+    "allowed_natures": [
+      "DIRECT_OBSERVATION",
+      "THIRD_PARTY_REPORT",
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "cooccurrence support",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "segment": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "segment"
+      ],
+      "type": "object"
+    },
+    "metric_id": "technology.cooccurrence_support",
+    "requires_denominator": false,
+    "section_ids": [
+      2
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE",
+      "SOFTWARE_PRODUCT",
+      "APPLICATION",
+      "LISTING"
+    ],
+    "unit": "count",
+    "value_schema": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  {
+    "aggregation": "DESCRIPTIVE",
+    "allowed_natures": [
+      "REGISTRY_RECORD"
+    ],
+    "description": "Reported regulatory assets under management",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "pattern": "^[A-Z]{3}$",
+          "type": "string"
+        },
+        "filing_namespace": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "form_item": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "currency",
+        "filing_namespace",
+        "form_item"
+      ],
+      "type": "object"
+    },
+    "metric_id": "registry.aum",
+    "requires_denominator": false,
+    "section_ids": [
+      9
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "currency_major",
+    "value_schema": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "RATE",
+    "allowed_natures": [
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "missed call rate",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "system_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "system_id"
+      ],
+      "type": "object"
+    },
+    "metric_id": "phone.missed_call_rate",
+    "requires_denominator": true,
+    "section_ids": [
+      10
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "RATE",
+    "allowed_natures": [
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "callback rate",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "system_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "system_id"
+      ],
+      "type": "object"
+    },
+    "metric_id": "phone.callback_rate",
+    "requires_denominator": true,
+    "section_ids": [
+      10
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "RATE",
+    "allowed_natures": [
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "booking conversion rate",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "system_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "system_id"
+      ],
+      "type": "object"
+    },
+    "metric_id": "phone.booking_conversion_rate",
+    "requires_denominator": true,
+    "section_ids": [
+      10
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "MEAN",
+    "allowed_natures": [
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "Mean callback delay",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "system_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "system_id"
+      ],
+      "type": "object"
+    },
+    "metric_id": "phone.callback_delay",
+    "requires_denominator": false,
+    "section_ids": [
+      10
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "WEBSITE"
+    ],
+    "unit": "seconds",
+    "value_schema": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  {
+    "aggregation": "RATE",
+    "allowed_natures": [
+      "DERIVED_MEASUREMENT"
+    ],
+    "description": "Sample theme share; not a population frequency",
+    "dimensions_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "sample_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "theme_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sample_id",
+        "theme_id"
+      ],
+      "type": "object"
+    },
+    "metric_id": "research.theme_share",
+    "requires_denominator": true,
+    "section_ids": [
+      4,
+      6
+    ],
+    "subject_kinds": [
+      "SOFTWARE_PRODUCT",
+      "INDUSTRY"
+    ],
+    "unit": "proportion",
+    "value_schema": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  }
+]

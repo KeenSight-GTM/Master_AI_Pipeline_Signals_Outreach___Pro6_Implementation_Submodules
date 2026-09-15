@@ -1,0 +1,48 @@
+{
+  "$id": "https://keensight.local/v4.2/ActorGrant.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "active": {
+      "type": "boolean"
+    },
+    "actor_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "fixture_only": {
+      "type": "boolean"
+    },
+    "permissions": {
+      "items": {
+        "enum": [
+          "INTAKE",
+          "REVIEW_PACKAGE",
+          "USE_GATE",
+          "EXPORT",
+          "RESTRICT",
+          "CHANGE_FACT",
+          "CHANGE_BINDING",
+          "CHANGE_ARTIFACT",
+          "CHANGE_REGISTRY"
+        ]
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "tenant_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "actor_id",
+    "tenant_id",
+    "permissions",
+    "fixture_only",
+    "active"
+  ],
+  "title": "ActorGrant",
+  "type": "object"
+}

@@ -1,0 +1,31 @@
+flowchart TD
+    p["Program / offer<br/>GTM-01"]
+    s["Account sourcing<br/>GTM-02"]
+    i["Subject / scope<br/>KN-01"]
+    a["Acquisition<br/>ING / FP / AI"]
+    k["Admitted facts + claims<br/>KN-02 / KN-03"]
+    r["Research / signals<br/>RE"]
+    o["Opportunity + contacts<br/>COM-01 / AUD-01"]
+    m["Grounded content + review<br/>COM-02 / COM-03"]
+    c["Campaign / enrollment<br/>CAM"]
+    g["Current-use / send gates<br/>COM-04"]
+    d["Dispatch / reconciliation<br/>COM-05"]
+    e["Replies / CRM<br/>ENG-01 / CRM-01"]
+    q["Measured outcomes / quality<br/>COM-06 / QA-01"]
+    knowledge["Knowledge + diagnostics<br/>valid terminal output"]
+    preview["Reviewed no-send export<br/>valid terminal output"]
+    p -->|"approved program"| s
+    s -->|"seeds"| i
+    i -->|"bounded targets"| a
+    a -->|"evidence-backed candidates"| k
+    k -->|"no opportunity required"| knowledge
+    k -->|"pinned resolved inputs"| r
+    r -->|"signals + internal context"| o
+    o -->|"eligible proof"| m
+    m -->|"export gate"| preview
+    m -->|"separate campaign approval"| c
+    c -->|"due step"| g
+    g -->|"fresh permission"| d
+    d -->|"verified reply"| e
+    e -->|"attributed outcomes"| q
+    q -->|"reviewed future revision"| p

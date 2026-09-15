@@ -1,0 +1,571 @@
+[
+  {
+    "feature_id": "FM01",
+    "title": "Define program, audience and offer",
+    "actor": "Growth lead",
+    "status": "PROPOSED",
+    "modules": [
+      "GTM-01"
+    ],
+    "journeys": [
+      "J10"
+    ],
+    "invocation": null,
+    "expected_output": "Versioned ProgramDefinition/AudienceDefinition/OfferDefinition",
+    "limits": "No program CLI, API or UI exists."
+  },
+  {
+    "feature_id": "FM02",
+    "title": "Discover and select account seeds",
+    "actor": "Research operator",
+    "status": "PROPOSED",
+    "modules": [
+      "GTM-02"
+    ],
+    "journeys": [
+      "J10"
+    ],
+    "invocation": null,
+    "expected_output": "AccountSeed, LeadSelection, ResearchPlan",
+    "limits": "The collector accepts a URL; it does not discover the complete prospect universe or import Harvest automatically."
+  },
+  {
+    "feature_id": "FM03",
+    "title": "Validate rules, contracts and release metadata",
+    "actor": "Engineer",
+    "status": "REFERENCE",
+    "modules": [
+      "CTL-01",
+      "CTL-03"
+    ],
+    "journeys": [
+      "J08"
+    ],
+    "invocation": "reference-checks",
+    "expected_output": "Validation reports and fixture signature checks",
+    "limits": "No unified release compiler or effect-enforcing runner."
+  },
+  {
+    "feature_id": "FM04",
+    "title": "Run the synthetic scanner demonstration",
+    "actor": "Engineer",
+    "status": "LOCAL",
+    "modules": [
+      "CTL-02",
+      "ING-02",
+      "ING-03",
+      "FP-02"
+    ],
+    "journeys": [
+      "J01"
+    ],
+    "invocation": "demo",
+    "expected_output": "ScanBundle and deduplicated claim view",
+    "limits": "Synthetic transport and fixture authority; no real Scrapling call."
+  },
+  {
+    "feature_id": "FM05",
+    "title": "Analyze retained HTML",
+    "actor": "Research engineer",
+    "status": "LOCAL",
+    "modules": [
+      "ING-02",
+      "ING-04",
+      "FP-01",
+      "FP-02"
+    ],
+    "journeys": [
+      "J02"
+    ],
+    "invocation": "analyze-file",
+    "expected_output": "Stored capture, evidence, matches, observations and ScanBundle",
+    "limits": "Operator asserts source/time/subject; use a unique run per target. F09."
+  },
+  {
+    "feature_id": "FM06",
+    "title": "Capture an authorized website with Scrapling",
+    "actor": "Collection operator",
+    "status": "SDK_UNVERIFIED",
+    "modules": [
+      "ING-02",
+      "ING-03"
+    ],
+    "journeys": [
+      "J09"
+    ],
+    "invocation": "scan (dependency-gated)",
+    "expected_output": "Artifacts, attempts, bundle or diagnostics",
+    "limits": "SDK unavailable in the audit environment; no live integration claim."
+  },
+  {
+    "feature_id": "FM07",
+    "title": "Render JavaScript/browser/network evidence",
+    "actor": "Collection operator",
+    "status": "DISABLED",
+    "modules": [
+      "ING-03"
+    ],
+    "journeys": [
+      "J09"
+    ],
+    "invocation": null,
+    "expected_output": "Proposed rendered Capture and network artifacts",
+    "limits": "FETCH_STEALTH is a disabled extension point. No public browser runtime."
+  },
+  {
+    "feature_id": "FM08",
+    "title": "Extract the 17 surfaces as an independent process",
+    "actor": "Debugger",
+    "status": "LOCAL",
+    "modules": [
+      "ING-04"
+    ],
+    "journeys": [
+      "J03"
+    ],
+    "invocation": "extract",
+    "expected_output": "PageEvidence with per-extractor reports",
+    "limits": "Parser-loss completeness and aside-region parity need F06/F14."
+  },
+  {
+    "feature_id": "FM09",
+    "title": "Match pinned rules as an independent process",
+    "actor": "Rule engineer",
+    "status": "LOCAL",
+    "modules": [
+      "FP-01"
+    ],
+    "journeys": [
+      "J03"
+    ],
+    "invocation": "match",
+    "expected_output": "StandaloneMatchResult",
+    "limits": "Not canonical facts; no output publication to canonical store."
+  },
+  {
+    "feature_id": "FM10",
+    "title": "Inspect duplicate support and collector claim views",
+    "actor": "Analyst",
+    "status": "LOCAL",
+    "modules": [
+      "FP-02"
+    ],
+    "journeys": [
+      "J01",
+      "J03",
+      "J04"
+    ],
+    "invocation": "resolve / claims",
+    "expected_output": "One view per claim with all support links",
+    "limits": "Historical collector view, not a current commercial use gate."
+  },
+  {
+    "feature_id": "FM11",
+    "title": "Verify bundle, metadata and original bytes",
+    "actor": "Debugger",
+    "status": "LOCAL",
+    "modules": [
+      "PLAT-01",
+      "FP-02"
+    ],
+    "journeys": [
+      "J03",
+      "J06"
+    ],
+    "invocation": "check",
+    "expected_output": "Valid response or nonzero rejection",
+    "limits": "Offline structural-only check without --store is weaker; use trusted store verification."
+  },
+  {
+    "feature_id": "FM12",
+    "title": "Replay retained evidence under a selected rule release",
+    "actor": "Rule engineer",
+    "status": "LOCAL",
+    "modules": [
+      "ING-05"
+    ],
+    "journeys": [
+      "J04"
+    ],
+    "invocation": "replay",
+    "expected_output": "New evaluation with original observation dates",
+    "limits": "Compatible release replay verified; no recapture, model call or TTL refresh."
+  },
+  {
+    "feature_id": "FM13",
+    "title": "Import the supported donor-rule subset",
+    "actor": "Rule curator",
+    "status": "LOCAL",
+    "modules": [
+      "FP-03"
+    ],
+    "journeys": [
+      "J05"
+    ],
+    "invocation": "import-donor",
+    "expected_output": "Candidate rule pack and quarantine report",
+    "limits": "No inherited approval or complete donor-corpus integration."
+  },
+  {
+    "feature_id": "FM14",
+    "title": "Inspect recurring unknown technical features",
+    "actor": "Rule curator",
+    "status": "LOCAL",
+    "modules": [
+      "FP-03"
+    ],
+    "journeys": [
+      "J05"
+    ],
+    "invocation": "candidates",
+    "expected_output": "Candidate/prevalence rows",
+    "limits": "Revoked support is not filtered from current counts: F10."
+  },
+  {
+    "feature_id": "FM15",
+    "title": "Promote and distribute reviewed rules",
+    "actor": "Rule reviewer",
+    "status": "PROPOSED",
+    "modules": [
+      "FP-03",
+      "QA-01"
+    ],
+    "journeys": [
+      "J05",
+      "J18"
+    ],
+    "invocation": null,
+    "expected_output": "Reviewed immutable fingerprint release",
+    "limits": "No complete promotion/calibration/distribution runtime."
+  },
+  {
+    "feature_id": "FM16",
+    "title": "Resolve production subject identity",
+    "actor": "Research analyst",
+    "status": "PROPOSED",
+    "modules": [
+      "KN-01"
+    ],
+    "journeys": [
+      "J11"
+    ],
+    "invocation": null,
+    "expected_output": "Accepted binding with exact identity evidence",
+    "limits": "Fixture bindings exist; real resolver and admission workflow do not."
+  },
+  {
+    "feature_id": "FM17",
+    "title": "Admit collector output as canonical facts",
+    "actor": "Knowledge engineer",
+    "status": "PROPOSED",
+    "modules": [
+      "KN-02"
+    ],
+    "journeys": [
+      "J11"
+    ],
+    "invocation": null,
+    "expected_output": "Fact/Evidence/Execution plus admission report",
+    "limits": "Executable bridge and persistent canonical repository absent."
+  },
+  {
+    "feature_id": "FM18",
+    "title": "Check canonical claim resolution and samples",
+    "actor": "Knowledge engineer",
+    "status": "REFERENCE",
+    "modules": [
+      "KN-03",
+      "KN-04"
+    ],
+    "journeys": [
+      "J07"
+    ],
+    "invocation": "canonical validate / Python fixture API",
+    "expected_output": "Reference validation and decision results",
+    "limits": "Not a hosted query API; sealed/current semantics need F04."
+  },
+  {
+    "feature_id": "FM19",
+    "title": "Capture broad third-party source families",
+    "actor": "Research operator",
+    "status": "PROPOSED",
+    "modules": [
+      "ING-01",
+      "CTL-03"
+    ],
+    "journeys": [
+      "J12"
+    ],
+    "invocation": null,
+    "expected_output": "Approved artifacts and source-specific fact drafts",
+    "limits": "213 predicate definitions are not 213 implemented collectors."
+  },
+  {
+    "feature_id": "FM20",
+    "title": "Run bounded live model extraction and repair",
+    "actor": "Research engineer",
+    "status": "PROPOSED",
+    "modules": [
+      "AI-01"
+    ],
+    "journeys": [
+      "J12"
+    ],
+    "invocation": null,
+    "expected_output": "ModelCall, artifacts, repair chain, typed output",
+    "limits": "Reference checks only; generated-output consumer bug F05."
+  },
+  {
+    "feature_id": "FM21",
+    "title": "Compute research priors and explicit context joins",
+    "actor": "Research analyst",
+    "status": "REFERENCE",
+    "modules": [
+      "RE-02",
+      "RE-03"
+    ],
+    "journeys": [
+      "J07",
+      "J12"
+    ],
+    "invocation": "canonical fixture validation / Python helpers",
+    "expected_output": "Sample-bound priors and internal ContextAssessment",
+    "limits": "No live-source research job; context is not outward company proof."
+  },
+  {
+    "feature_id": "FM22",
+    "title": "Find comparable cases and rank lookalikes",
+    "actor": "Strategy analyst",
+    "status": "PROPOSED",
+    "modules": [
+      "RE-04"
+    ],
+    "journeys": [
+      "J12"
+    ],
+    "invocation": null,
+    "expected_output": "Comparison and LookalikeMatch",
+    "limits": "No vector service/index or verified causal transfer."
+  },
+  {
+    "feature_id": "FM23",
+    "title": "Evaluate derivations and business conditions",
+    "actor": "Analyst",
+    "status": "REFERENCE",
+    "modules": [
+      "RE-01",
+      "RE-05"
+    ],
+    "journeys": [
+      "J07",
+      "J12"
+    ],
+    "invocation": "reference functions, not a product CLI",
+    "expected_output": "Derived drafts and signal decisions",
+    "limits": "Minimum-support units disagree: F08. Production selectors absent."
+  },
+  {
+    "feature_id": "FM24",
+    "title": "Choose a supported commercial opportunity",
+    "actor": "Growth operator",
+    "status": "PROPOSED",
+    "modules": [
+      "COM-01"
+    ],
+    "journeys": [
+      "J13"
+    ],
+    "invocation": null,
+    "expected_output": "OpportunitySelection",
+    "limits": "A detected tool does not automatically prove pain or offer fit."
+  },
+  {
+    "feature_id": "FM25",
+    "title": "Assess contact, role, endpoint and permission",
+    "actor": "Sales researcher",
+    "status": "PROPOSED",
+    "modules": [
+      "AUD-01"
+    ],
+    "journeys": [
+      "J13"
+    ],
+    "invocation": null,
+    "expected_output": "ContactProfile and ContactAssessment",
+    "limits": "No contact enrichment/verification runtime."
+  },
+  {
+    "feature_id": "FM26",
+    "title": "Render existing reference packages",
+    "actor": "Content reviewer",
+    "status": "REFERENCE",
+    "modules": [
+      "COM-02"
+    ],
+    "journeys": [
+      "J07"
+    ],
+    "invocation": "Bundle.render(existing_package)",
+    "expected_output": "Grounded text from delivered fixture templates",
+    "limits": "No arbitrary-prose proof engine or all-channel renderer."
+  },
+  {
+    "feature_id": "FM27",
+    "title": "Approve exact content through an authenticated workspace",
+    "actor": "Reviewer",
+    "status": "PROPOSED",
+    "modules": [
+      "COM-03",
+      "UX-01"
+    ],
+    "journeys": [
+      "J13"
+    ],
+    "invocation": null,
+    "expected_output": "ReviewDecision tied to exact revision/hash",
+    "limits": "Synthetic reviews and actor grants are fixtures, not human auth/UI."
+  },
+  {
+    "feature_id": "FM28",
+    "title": "Export a local reference preview with idempotency",
+    "actor": "Reference tester",
+    "status": "REFERENCE",
+    "modules": [
+      "COM-04"
+    ],
+    "journeys": [
+      "J07"
+    ],
+    "invocation": "LocalPreviewExporter via walkthrough helper",
+    "expected_output": "Local JSON preview; repeated key reuses bytes",
+    "limits": "No remote CRM export or send; current template veto F02."
+  },
+  {
+    "feature_id": "FM29",
+    "title": "Configure campaigns and sequence ownership",
+    "actor": "Sales operations",
+    "status": "PROPOSED",
+    "modules": [
+      "CAM-01"
+    ],
+    "journeys": [
+      "J14"
+    ],
+    "invocation": null,
+    "expected_output": "CampaignDefinition/Approval/Readiness",
+    "limits": "No campaign manager or provider configuration mutation."
+  },
+  {
+    "feature_id": "FM30",
+    "title": "Enroll a contact and schedule/stop steps",
+    "actor": "Sales operations",
+    "status": "PROPOSED",
+    "modules": [
+      "CAM-02"
+    ],
+    "journeys": [
+      "J14"
+    ],
+    "invocation": null,
+    "expected_output": "Enrollment, StepEligibility, DeliveryIntent",
+    "limits": "No durable enrollment/scheduler runtime."
+  },
+  {
+    "feature_id": "FM31",
+    "title": "Dispatch and reconcile an exact authorized message",
+    "actor": "Sales operations",
+    "status": "PROPOSED",
+    "modules": [
+      "COM-05"
+    ],
+    "journeys": [
+      "J15"
+    ],
+    "invocation": null,
+    "expected_output": "Attempt, receipt, Exposure",
+    "limits": "No sender; preview/export gates do not authorize sending."
+  },
+  {
+    "feature_id": "FM32",
+    "title": "Route replies and immediate stop requests",
+    "actor": "Sales representative",
+    "status": "PROPOSED",
+    "modules": [
+      "ENG-01",
+      "COM-06"
+    ],
+    "journeys": [
+      "J16"
+    ],
+    "invocation": null,
+    "expected_output": "Conversation, assessment, stop control, follow-up",
+    "limits": "No authenticated webhook/mailbox integration."
+  },
+  {
+    "feature_id": "FM33",
+    "title": "Synchronize sales handoff with CRM",
+    "actor": "Sales owner",
+    "status": "PROPOSED",
+    "modules": [
+      "CRM-01"
+    ],
+    "journeys": [
+      "J16"
+    ],
+    "invocation": null,
+    "expected_output": "CRMSyncIntent/Receipt and linked handoff",
+    "limits": "No connected CRM mutations performed or implemented in this package."
+  },
+  {
+    "feature_id": "FM34",
+    "title": "Measure outcomes, experiments and calibration",
+    "actor": "Analyst/QA",
+    "status": "PROPOSED",
+    "modules": [
+      "COM-06",
+      "QA-01"
+    ],
+    "journeys": [
+      "J18"
+    ],
+    "invocation": null,
+    "expected_output": "Attributable measurements and reviewed promotion proposals",
+    "limits": "Tests and schemas exist; no full exposure/attribution/experiment pipeline."
+  },
+  {
+    "feature_id": "FM35",
+    "title": "Govern evidence, bindings, changes and retention",
+    "actor": "Administrator",
+    "status": "REFERENCE",
+    "modules": [
+      "PLAT-02",
+      "KN-03"
+    ],
+    "journeys": [
+      "J17"
+    ],
+    "invocation": "Store.revoke or Bundle.validate_change (local/reference only)",
+    "expected_output": "Revocation/change validation",
+    "limits": "No hosted auth, real retention worker or restore service. F01/F10 remain."
+  },
+  {
+    "feature_id": "FM36",
+    "title": "Inspect/debug individual modules and service boundaries",
+    "actor": "Engineer/operator",
+    "status": "LOCAL",
+    "modules": [
+      "PLAT-01",
+      "PLAT-03",
+      "UX-01"
+    ],
+    "journeys": [
+      "J03",
+      "J06",
+      "J08",
+      "J19"
+    ],
+    "invocation": "ks-module and offline walkthrough harness",
+    "expected_output": "JSON outputs and per-process logs",
+    "limits": "No operator UI, distributed trace backend or general ModuleRequest runner."
+  }
+]

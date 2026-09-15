@@ -1,0 +1,45 @@
+flowchart TB
+  A["Broad catalog: 11 areas plus 52 ledger placements"]
+  T["Intake: known or provisional target and purpose"]
+  B["Enabled callable closure and source policy"]
+  C["Bounded acquisition attempt: import or live capture"]
+  D["Retained artifacts and acquisition completion"]
+  Z["Zero-byte failure: attempt-backed UNKNOWN"]
+  E["Extraction and scoped detector execution"]
+  F["Successful producer, required coverage, lineage and binding admission"]
+  Q["Quarantined or rejected candidates"]
+  G["Reusable fact store"]
+  H["Pinned target inputs and claim resolutions"]
+  I["Successful enabled derivations"]
+  J["Complete research sample: support, unclassified and exclusions"]
+  K["Usable explicit context join"]
+  L["Signal requirements over resolved claims"]
+  M["Evidence-bound template"]
+  N["Completed preview package"]
+  R["Authorized review of exact revision and hash"]
+  U["Fresh purpose and destination gate"]
+  O["Idempotent LOCAL PREVIEW export and receipt"]
+  P["Live delivery disabled"]
+  A -->|"definitions not automatic activation"| B
+  T --> B
+  B -->|"authorized capability"| C
+  C -->|"capture or import succeeds"| D
+  C -->|"no bytes; no business absence"| Z
+  D --> E
+  E --> F
+  F -->|"invalid / failed / ambiguous"| Q
+  F -->|"admitted"| G
+  G -->|"exact facts and bindings"| H
+  H -->|"reject conflicting inputs"| I
+  G -->|"exact sample dependency closure"| J
+  H -->|"account link"| K
+  J -->|"matching product or industry"| K
+  I --> L
+  K -->|"internal context only"| L
+  L -->|"usable condition"| M
+  H -->|"eligible account evidence"| M
+  M -->|"whole message validates"| N
+  N --> R
+  R -->|"historical approval not current permission"| U
+  U -->|"ALLOW; no sending"| O
+  U -->|"not enabled in this profile"| P

@@ -1,0 +1,73 @@
+classDiagram
+    class JobPostingValue {
+        department
+        employment_type
+        namespace
+        posting_id
+        published_at
+        title
+        url
+    }
+    class LookalikeMatch {
+        comparison_subject_id
+        corpus_release
+        differences
+        implementation_status
+        index_version
+        input_fact_ids
+        match_id
+        missing_features
+        outcome_transfer_allowed
+        representation_version
+        run_id
+        similarity_score
+        target_subject_id
+        tenant_id
+        use
+    }
+    class MeasurementValue {
+        denominator
+        dimensions
+        method_version
+        metric_id
+        numerator
+        reporting_timezone
+        sample_size
+        uncertainty
+        unit
+        value
+    }
+    class MetricDefinition {
+        aggregation
+        allowed_natures
+        description
+        dimensions_schema
+        metric_id
+        requires_denominator
+        section_ids
+        subject_kinds
+        unit
+        value_schema
+    }
+    class ModelCall {
+        call_id
+        input_artifact_ids
+        max_repair_attempts
+        model
+        output_schema_id
+        policy_ids
+        prompt_hash
+        provider
+        request_artifact_id
+        response_artifact_id
+        status
+        task_version
+        tenant_id
+        terminal_reason
+    }
+    class ObjectReferenceRule {
+        container
+        path
+        subject_kinds
+        target_type
+    }

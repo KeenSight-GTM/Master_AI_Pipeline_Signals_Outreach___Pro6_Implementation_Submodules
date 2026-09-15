@@ -1,0 +1,100 @@
+{
+  "$id": "https://keensight.local/v4.2/SourceDefinition.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "acquisition_method": {
+      "enum": [
+        "HTTP_CAPTURE",
+        "API",
+        "DNS",
+        "CERTIFICATE_LOG",
+        "AUTHORIZED_EXPORT",
+        "HUMAN_UPLOAD",
+        "DERIVATION"
+      ]
+    },
+    "adapter_status": {
+      "enum": [
+        "FIXTURE_ONLY",
+        "DESIGN_ONLY",
+        "IMPLEMENTED"
+      ]
+    },
+    "allowed_natures": {
+      "items": {
+        "enum": [
+          "DIRECT_OBSERVATION",
+          "FIRST_PARTY_STATEMENT",
+          "THIRD_PARTY_REPORT",
+          "PROVIDER_ESTIMATE",
+          "REGISTRY_RECORD",
+          "INFERENCE",
+          "DERIVED_MEASUREMENT"
+        ]
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "authority": {
+      "enum": [
+        "CANDIDATE",
+        "ACTIVE",
+        "DEPRECATED"
+      ]
+    },
+    "emits": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "fixture_only": {
+      "type": "boolean"
+    },
+    "freshness_seconds": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "policy_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "provider": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "upstream_namespace": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "source_id",
+    "version",
+    "provider",
+    "acquisition_method",
+    "authority",
+    "fixture_only",
+    "policy_id",
+    "emits",
+    "allowed_natures",
+    "freshness_seconds",
+    "adapter_status",
+    "upstream_namespace"
+  ],
+  "title": "SourceDefinition",
+  "type": "object"
+}

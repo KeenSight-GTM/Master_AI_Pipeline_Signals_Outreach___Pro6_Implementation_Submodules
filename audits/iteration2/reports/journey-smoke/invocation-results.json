@@ -1,0 +1,429 @@
+{
+  "baseline": "/mnt/data/keensight-iteration-2-review/baseline",
+  "journeys": [
+    {
+      "id": "J01",
+      "status": "PASSED",
+      "scope": "OFFLINE_FIXTURE_OR_REFERENCE_ONLY"
+    },
+    {
+      "id": "J02",
+      "status": "PASSED",
+      "scope": "OFFLINE_FIXTURE_OR_REFERENCE_ONLY"
+    },
+    {
+      "id": "J03",
+      "status": "PASSED",
+      "scope": "OFFLINE_FIXTURE_OR_REFERENCE_ONLY"
+    },
+    {
+      "id": "J04",
+      "status": "PASSED",
+      "scope": "OFFLINE_FIXTURE_OR_REFERENCE_ONLY"
+    },
+    {
+      "id": "J05",
+      "status": "PASSED",
+      "scope": "OFFLINE_FIXTURE_OR_REFERENCE_ONLY"
+    },
+    {
+      "id": "J06",
+      "status": "PASSED",
+      "scope": "OFFLINE_FIXTURE_OR_REFERENCE_ONLY"
+    },
+    {
+      "id": "J07",
+      "status": "PASSED",
+      "scope": "OFFLINE_FIXTURE_OR_REFERENCE_ONLY"
+    },
+    {
+      "id": "J08",
+      "status": "PASSED",
+      "scope": "OFFLINE_FIXTURE_OR_REFERENCE_ONLY"
+    }
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "label": "command-inventory",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "keensight_scrapling.cli",
+        "commands"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.712
+    },
+    {
+      "step": 2,
+      "label": "demo",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "keensight_scrapling.cli",
+        "demo",
+        "--output",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/demo-store"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 1.734
+    },
+    {
+      "step": 3,
+      "label": "demo-check",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "keensight_scrapling.cli",
+        "check",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/demo-store/scan-bundle.json",
+        "--store",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/demo-store"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 1.621
+    },
+    {
+      "step": 4,
+      "label": "retained-html",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "keensight_scrapling.cli",
+        "analyze-file",
+        "--html",
+        "/mnt/data/keensight-iteration-2-review/baseline/collector/examples/page.html",
+        "--url",
+        "https://example.test/",
+        "--observed-at",
+        "2026-09-14T12:00:00Z",
+        "--tenant",
+        "local",
+        "--subject",
+        "account:example",
+        "--run",
+        "retained-example-01",
+        "--rules",
+        "/mnt/data/keensight-iteration-2-review/baseline/collector/examples/demo-rules.json",
+        "--store",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/imported-store",
+        "--output",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/imported-store/scan-bundle.json"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 1.604
+    },
+    {
+      "step": 5,
+      "label": "retained-check",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "keensight_scrapling.cli",
+        "check",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/imported-store/scan-bundle.json",
+        "--store",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/imported-store"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 1.523
+    },
+    {
+      "step": 6,
+      "label": "extract",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "keensight_scrapling.standalone",
+        "extract",
+        "--tenant",
+        "demo",
+        "--capture-id",
+        "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+        "--store",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/demo-store",
+        "--output",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/page-evidence.json"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 1.617
+    },
+    {
+      "step": 7,
+      "label": "match",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "keensight_scrapling.standalone",
+        "match",
+        "--page",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/page-evidence.json",
+        "--rules",
+        "/mnt/data/keensight-iteration-2-review/baseline/collector/examples/demo-rules.json",
+        "--store",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/demo-store",
+        "--output",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/matches.json"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 1.563
+    },
+    {
+      "step": 8,
+      "label": "check-module",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "keensight_scrapling.standalone",
+        "check",
+        "--bundle",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/demo-store/scan-bundle.json",
+        "--store",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/demo-store",
+        "--output",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/checked.json"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 1.651
+    },
+    {
+      "step": 9,
+      "label": "resolve",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "keensight_scrapling.standalone",
+        "resolve",
+        "--bundle",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/demo-store/scan-bundle.json",
+        "--as-of",
+        "2026-09-14T12:00:00Z",
+        "--store",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/demo-store",
+        "--output",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/resolved.json"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 1.707
+    },
+    {
+      "step": 10,
+      "label": "replay",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "keensight_scrapling.cli",
+        "replay",
+        "--store",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/demo-store",
+        "--tenant",
+        "demo",
+        "--capture-run",
+        "demo-capture-1",
+        "--evaluation-run",
+        "walkthrough-replay-01",
+        "--as-of",
+        "2026-09-14T13:00:00Z",
+        "--rules",
+        "/mnt/data/keensight-iteration-2-review/baseline/collector/examples/demo-rules.json",
+        "--output",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/replay.json"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 1.638
+    },
+    {
+      "step": 11,
+      "label": "query-claims",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "keensight_scrapling.cli",
+        "claims",
+        "--store",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/demo-store",
+        "--tenant",
+        "demo",
+        "--rules",
+        "/mnt/data/keensight-iteration-2-review/baseline/collector/examples/demo-rules.json",
+        "--as-of",
+        "2026-09-14T13:00:00Z"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.655
+    },
+    {
+      "step": 12,
+      "label": "donor-import",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "keensight_scrapling.cli",
+        "import-donor",
+        "--input",
+        "/mnt/data/keensight-iteration-2-review/baseline/collector/examples/donor-shaped.jsonl",
+        "--vendor-map",
+        "/mnt/data/keensight-iteration-2-review/baseline/collector/examples/vendor-map.json",
+        "--output",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/imported-candidates.json",
+        "--report",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/import-report.json"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.666
+    },
+    {
+      "step": 13,
+      "label": "candidate-query",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "keensight_scrapling.cli",
+        "candidates",
+        "--store",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/demo-store",
+        "--tenant",
+        "demo",
+        "--min-hosts",
+        "1"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.685
+    },
+    {
+      "step": 14,
+      "label": "expected-integrity-rejection",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "keensight_scrapling.standalone",
+        "check",
+        "--bundle",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/tampered-bundle.json",
+        "--store",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/demo-store",
+        "--output",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/must-not-exist.json"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review",
+      "returncode": 2,
+      "expected_returncode": 2,
+      "elapsed_seconds": 1.498
+    },
+    {
+      "step": 15,
+      "label": "unchanged-valid-bundle",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "keensight_scrapling.standalone",
+        "check",
+        "--bundle",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/demo-store/scan-bundle.json",
+        "--store",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/demo-store",
+        "--output",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/valid-after-rejection.json"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 1.49
+    },
+    {
+      "step": 16,
+      "label": "canonical-generate-check",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "generate.py",
+        "--check"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review/baseline/canonical",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 1.743
+    },
+    {
+      "step": 17,
+      "label": "canonical-validate",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "validate.py"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review/baseline/canonical",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 2.042
+    },
+    {
+      "step": 18,
+      "label": "reference-export",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "/mnt/data/keensight-iteration-2-review/walkthroughs/reference_preview.py",
+        "--canonical",
+        "/mnt/data/keensight-iteration-2-review/baseline/canonical",
+        "--output",
+        "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/reference"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 1.985
+    },
+    {
+      "step": 19,
+      "label": "protocol-fixture-check",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "validate_protocol.py"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review/baseline/protocol",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 1.565
+    },
+    {
+      "step": 20,
+      "label": "product-design-check",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "validate_design.py"
+      ],
+      "cwd": "/mnt/data/keensight-iteration-2-review/baseline/product-design",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.683
+    }
+  ],
+  "network_enabled": false,
+  "send_allowed": false,
+  "all_expected_exit_codes": true
+}

@@ -1,0 +1,82 @@
+{
+  "$id": "https://keensight.local/v4.2/ChangeRecord.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "actor_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "change_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "effective_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "RETRACTION",
+        "BINDING_CORRECTION",
+        "AUTHORITY_CHANGE",
+        "POLICY_REVOCATION",
+        "ARTIFACT_DELETION"
+      ]
+    },
+    "reason": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "recorded_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "replacement_id": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "target_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "target_type": {
+      "enum": [
+        "facts",
+        "bindings",
+        "sources",
+        "policies",
+        "artifacts",
+        "fingerprints",
+        "functions"
+      ]
+    },
+    "tenant_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "change_id",
+    "tenant_id",
+    "kind",
+    "target_id",
+    "effective_at",
+    "reason",
+    "replacement_id",
+    "actor_id",
+    "target_type",
+    "recorded_at"
+  ],
+  "title": "ChangeRecord",
+  "type": "object"
+}

@@ -1,0 +1,5245 @@
+{
+  "artifacts": [
+    {
+      "artifact_id": "art.home",
+      "byte_count": 242,
+      "captured_at": "2026-09-14T16:00:00Z",
+      "classification": "PUBLIC_BUSINESS",
+      "content_hash": "sha256:3a2b75628725ff8723293e04b8b6cbb6e2f4d779840b0c2ed30c88ad7e43cbee",
+      "content_ref": "fixtures/art.home.html",
+      "independence_group": "art.home",
+      "media_type": "text/html",
+      "origin_namespace": "fixture.web",
+      "origin_record_id": "art.home",
+      "origin_revision": "1",
+      "parent_artifact_id": null,
+      "published_at": null,
+      "resource_uri": "https://acme.example.test/",
+      "retained_until": "2026-10-01T00:00:00Z",
+      "retention_state": "RETAINED",
+      "scope_id": "scope.home",
+      "source_id": "source.web",
+      "status": "OK",
+      "tenant_id": "tenant.demo",
+      "truncated": false
+    },
+    {
+      "artifact_id": "art.job",
+      "byte_count": 451,
+      "captured_at": "2026-09-14T16:00:00Z",
+      "classification": "PUBLIC_BUSINESS",
+      "content_hash": "sha256:ac78b36459f4f6b126ae7bdb8bf05ff4ce27286e5353d4f710706ab23dda1ad4",
+      "content_ref": "fixtures/art.job.json",
+      "independence_group": "art.job",
+      "media_type": "application/json",
+      "origin_namespace": "fixture.web",
+      "origin_record_id": "art.job",
+      "origin_revision": "1",
+      "parent_artifact_id": null,
+      "published_at": "2026-09-01T00:00:00Z",
+      "resource_uri": "https://acme.example.test/careers/operations",
+      "retained_until": "2026-10-01T00:00:00Z",
+      "retention_state": "RETAINED",
+      "scope_id": "scope.job",
+      "source_id": "source.web",
+      "status": "OK",
+      "tenant_id": "tenant.demo",
+      "truncated": false
+    },
+    {
+      "artifact_id": "art.product1",
+      "byte_count": 68,
+      "captured_at": "2026-09-14T16:00:00Z",
+      "classification": "PUBLIC_BUSINESS",
+      "content_hash": "sha256:a32f6a3c69218fdef5fe87954648a8453b6aea4bc0380dd87faa20f2a4dc9ddc",
+      "content_ref": "fixtures/art.product1.json",
+      "independence_group": "art.product1",
+      "media_type": "application/json",
+      "origin_namespace": "fixture.review",
+      "origin_record_id": "art.product1",
+      "origin_revision": "1",
+      "parent_artifact_id": null,
+      "published_at": "2026-09-01T00:00:00Z",
+      "resource_uri": "https://reviews.example.test/product/1",
+      "retained_until": "2026-10-01T00:00:00Z",
+      "retention_state": "RETAINED",
+      "scope_id": "scope.product",
+      "source_id": "source.review",
+      "status": "OK",
+      "tenant_id": "tenant.demo",
+      "truncated": false
+    },
+    {
+      "artifact_id": "art.product2",
+      "byte_count": 68,
+      "captured_at": "2026-09-14T16:00:00Z",
+      "classification": "PUBLIC_BUSINESS",
+      "content_hash": "sha256:c4e9a655e7c9a521e3916041547f58bcf755cd9f80610e6dd36d99325fd93ae4",
+      "content_ref": "fixtures/art.product2.json",
+      "independence_group": "art.product2",
+      "media_type": "application/json",
+      "origin_namespace": "fixture.review",
+      "origin_record_id": "art.product2",
+      "origin_revision": "1",
+      "parent_artifact_id": null,
+      "published_at": "2026-09-02T00:00:00Z",
+      "resource_uri": "https://reviews.example.test/product/2",
+      "retained_until": "2026-10-01T00:00:00Z",
+      "retention_state": "RETAINED",
+      "scope_id": "scope.product",
+      "source_id": "source.review",
+      "status": "OK",
+      "tenant_id": "tenant.demo",
+      "truncated": false
+    },
+    {
+      "artifact_id": "art.product3",
+      "byte_count": 48,
+      "captured_at": "2026-09-14T16:00:00Z",
+      "classification": "PUBLIC_BUSINESS",
+      "content_hash": "sha256:0c4a1e850a0f9c3f019960c414bb8d11ca498d6957754565a6655c8cfb095df1",
+      "content_ref": "fixtures/art.product3.json",
+      "independence_group": "art.product3",
+      "media_type": "application/json",
+      "origin_namespace": "fixture.review",
+      "origin_record_id": "art.product3",
+      "origin_revision": "1",
+      "parent_artifact_id": null,
+      "published_at": "2026-09-03T00:00:00Z",
+      "resource_uri": "https://reviews.example.test/product/3",
+      "retained_until": "2026-10-01T00:00:00Z",
+      "retention_state": "RETAINED",
+      "scope_id": "scope.product",
+      "source_id": "source.review",
+      "status": "OK",
+      "tenant_id": "tenant.demo",
+      "truncated": false
+    },
+    {
+      "artifact_id": "art.local1",
+      "byte_count": 56,
+      "captured_at": "2026-09-14T16:00:00Z",
+      "classification": "PUBLIC_BUSINESS",
+      "content_hash": "sha256:a2144de6b7f358084d7f800fc5f5a730b782aea78c4922d08a99aa0ee7f611d1",
+      "content_ref": "fixtures/art.local1.json",
+      "independence_group": "art.local1",
+      "media_type": "application/json",
+      "origin_namespace": "fixture.review",
+      "origin_record_id": "art.local1",
+      "origin_revision": "1",
+      "parent_artifact_id": null,
+      "published_at": "2026-09-01T00:00:00Z",
+      "resource_uri": "https://reviews.example.test/local/1",
+      "retained_until": "2026-10-01T00:00:00Z",
+      "retention_state": "RETAINED",
+      "scope_id": "scope.local",
+      "source_id": "source.review",
+      "status": "OK",
+      "tenant_id": "tenant.demo",
+      "truncated": false
+    },
+    {
+      "artifact_id": "art.local2",
+      "byte_count": 53,
+      "captured_at": "2026-09-14T16:00:00Z",
+      "classification": "PUBLIC_BUSINESS",
+      "content_hash": "sha256:d0464e71173f5f494dc39deb51d158e5f417286fd68048766a087474ee702b21",
+      "content_ref": "fixtures/art.local2.json",
+      "independence_group": "art.local2",
+      "media_type": "application/json",
+      "origin_namespace": "fixture.review",
+      "origin_record_id": "art.local2",
+      "origin_revision": "1",
+      "parent_artifact_id": null,
+      "published_at": "2026-09-02T00:00:00Z",
+      "resource_uri": "https://reviews.example.test/local/2",
+      "retained_until": "2026-10-01T00:00:00Z",
+      "retention_state": "RETAINED",
+      "scope_id": "scope.local",
+      "source_id": "source.review",
+      "status": "OK",
+      "tenant_id": "tenant.demo",
+      "truncated": false
+    },
+    {
+      "artifact_id": "art.forum1",
+      "byte_count": 82,
+      "captured_at": "2026-09-14T16:00:00Z",
+      "classification": "PUBLIC_BUSINESS",
+      "content_hash": "sha256:e252197a5e91b0f42b63f536b1e187bf229fb954e2acbefc9820771081913b08",
+      "content_ref": "fixtures/art.forum1.json",
+      "independence_group": "art.forum1",
+      "media_type": "application/json",
+      "origin_namespace": "fixture.forum",
+      "origin_record_id": "art.forum1",
+      "origin_revision": "1",
+      "parent_artifact_id": null,
+      "published_at": "2026-09-01T00:00:00Z",
+      "resource_uri": "https://forum.example.test/posts/1",
+      "retained_until": "2026-10-01T00:00:00Z",
+      "retention_state": "RETAINED",
+      "scope_id": "scope.industry",
+      "source_id": "source.forum",
+      "status": "OK",
+      "tenant_id": "tenant.demo",
+      "truncated": false
+    },
+    {
+      "artifact_id": "art.forum2",
+      "byte_count": 49,
+      "captured_at": "2026-09-14T16:00:00Z",
+      "classification": "PUBLIC_BUSINESS",
+      "content_hash": "sha256:18d2e48e3f8bdd5ad552e82f4813efc5250b0cbe9dcadf2b29ce3610cebc6d6a",
+      "content_ref": "fixtures/art.forum2.json",
+      "independence_group": "art.forum2",
+      "media_type": "application/json",
+      "origin_namespace": "fixture.forum",
+      "origin_record_id": "art.forum2",
+      "origin_revision": "1",
+      "parent_artifact_id": null,
+      "published_at": "2026-09-02T00:00:00Z",
+      "resource_uri": "https://forum.example.test/posts/2",
+      "retained_until": "2026-10-01T00:00:00Z",
+      "retention_state": "RETAINED",
+      "scope_id": "scope.industry",
+      "source_id": "source.forum",
+      "status": "OK",
+      "tenant_id": "tenant.demo",
+      "truncated": false
+    },
+    {
+      "artifact_id": "art.traffic",
+      "byte_count": 82,
+      "captured_at": "2026-09-14T16:00:00Z",
+      "classification": "PUBLIC_BUSINESS",
+      "content_hash": "sha256:a31135991ba17dc0212713b1d9e4c44d7539451ffff8098efe7250839def6279",
+      "content_ref": "fixtures/art.traffic.json",
+      "independence_group": "art.traffic",
+      "media_type": "application/json",
+      "origin_namespace": "fixture.estimate",
+      "origin_record_id": "art.traffic",
+      "origin_revision": "1",
+      "parent_artifact_id": null,
+      "published_at": null,
+      "resource_uri": "https://fixture.example.test/traffic",
+      "retained_until": "2026-10-01T00:00:00Z",
+      "retention_state": "RETAINED",
+      "scope_id": "scope.traffic",
+      "source_id": "source.estimate",
+      "status": "OK",
+      "tenant_id": "tenant.demo",
+      "truncated": false
+    },
+    {
+      "artifact_id": "art.data",
+      "byte_count": 108,
+      "captured_at": "2026-09-14T16:00:00Z",
+      "classification": "PUBLIC_BUSINESS",
+      "content_hash": "sha256:5762fb94c9e388481aaf43e73957ade64c4ac4f395858607476e7711620b9998",
+      "content_ref": "fixtures/art.data.json",
+      "independence_group": "art.data",
+      "media_type": "application/json",
+      "origin_namespace": "fixture.data",
+      "origin_record_id": "art.data",
+      "origin_revision": "1",
+      "parent_artifact_id": null,
+      "published_at": null,
+      "resource_uri": "https://fixture.example.test/data",
+      "retained_until": "2026-10-01T00:00:00Z",
+      "retention_state": "RETAINED",
+      "scope_id": "scope.data",
+      "source_id": "source.data",
+      "status": "OK",
+      "tenant_id": "tenant.demo",
+      "truncated": false
+    },
+    {
+      "artifact_id": "art.registry",
+      "byte_count": 115,
+      "captured_at": "2026-09-14T16:00:00Z",
+      "classification": "PUBLIC_BUSINESS",
+      "content_hash": "sha256:d03ded0d0c6f9f43b0b39467a162998d41dc40a2b47b60d19cf9085a05782d37",
+      "content_ref": "fixtures/art.registry.json",
+      "independence_group": "art.registry",
+      "media_type": "application/json",
+      "origin_namespace": "fixture.registry",
+      "origin_record_id": "art.registry",
+      "origin_revision": "1",
+      "parent_artifact_id": null,
+      "published_at": null,
+      "resource_uri": "https://fixture.example.test/registry",
+      "retained_until": "2026-10-01T00:00:00Z",
+      "retention_state": "RETAINED",
+      "scope_id": "scope.registry",
+      "source_id": "source.registry",
+      "status": "OK",
+      "tenant_id": "tenant.demo",
+      "truncated": false
+    },
+    {
+      "artifact_id": "art.private",
+      "byte_count": 82,
+      "captured_at": "2026-09-14T16:00:00Z",
+      "classification": "PUBLIC_BUSINESS",
+      "content_hash": "sha256:17f3951c6ea61bc95529eab5769415d7ea2f4f8838dfd6db87aecc2fefda9b53",
+      "content_ref": "fixtures/art.private.json",
+      "independence_group": "art.private",
+      "media_type": "application/json",
+      "origin_namespace": "fixture.private",
+      "origin_record_id": "art.private",
+      "origin_revision": "1",
+      "parent_artifact_id": null,
+      "published_at": null,
+      "resource_uri": "https://fixture.example.test/private",
+      "retained_until": "2026-10-01T00:00:00Z",
+      "retention_state": "RETAINED",
+      "scope_id": "scope.private",
+      "source_id": "source.private",
+      "status": "OK",
+      "tenant_id": "tenant.demo",
+      "truncated": false
+    },
+    {
+      "artifact_id": "art.product_docs",
+      "byte_count": 89,
+      "captured_at": "2026-09-14T16:00:00Z",
+      "classification": "PUBLIC_BUSINESS",
+      "content_hash": "sha256:e4175b0e6681904128aef3949f211c53202a33fe55652af20a31041a955ef4db",
+      "content_ref": "fixtures/art.product_docs.json",
+      "independence_group": "art.product_docs",
+      "media_type": "application/json",
+      "origin_namespace": "fixture.web",
+      "origin_record_id": "art.product_docs",
+      "origin_revision": "1",
+      "parent_artifact_id": null,
+      "published_at": null,
+      "resource_uri": "https://fixture.example.test/product_docs",
+      "retained_until": "2026-10-01T00:00:00Z",
+      "retention_state": "RETAINED",
+      "scope_id": "scope.product_docs",
+      "source_id": "source.web",
+      "status": "OK",
+      "tenant_id": "tenant.demo",
+      "truncated": false
+    },
+    {
+      "artifact_id": "art.request",
+      "byte_count": 74,
+      "captured_at": "2026-09-14T16:00:00Z",
+      "classification": "PUBLIC_BUSINESS",
+      "content_hash": "sha256:0a98db425d33f1eee6fa26e5a456281d544ca6cf07162b093d5e8a9a398480fd",
+      "content_ref": "fixtures/art.request.json",
+      "independence_group": "art.request",
+      "media_type": "application/json",
+      "origin_namespace": "fixture.model",
+      "origin_record_id": "art.request",
+      "origin_revision": "1",
+      "parent_artifact_id": null,
+      "published_at": null,
+      "resource_uri": "https://fixture.example.test/model/request",
+      "retained_until": "2026-10-01T00:00:00Z",
+      "retention_state": "RETAINED",
+      "scope_id": "scope.model",
+      "source_id": "source.model",
+      "status": "OK",
+      "tenant_id": "tenant.demo",
+      "truncated": false
+    },
+    {
+      "artifact_id": "art.response",
+      "byte_count": 77,
+      "captured_at": "2026-09-14T16:00:00Z",
+      "classification": "PUBLIC_BUSINESS",
+      "content_hash": "sha256:d44c866b9353e7dac49ef82b3cb2333ae2e97cbf2ab738ea2a36d4cee915645c",
+      "content_ref": "fixtures/art.response.json",
+      "independence_group": "art.response",
+      "media_type": "application/json",
+      "origin_namespace": "fixture.model",
+      "origin_record_id": "art.response",
+      "origin_revision": "1",
+      "parent_artifact_id": null,
+      "published_at": null,
+      "resource_uri": "https://fixture.example.test/model/response",
+      "retained_until": "2026-10-01T00:00:00Z",
+      "retention_state": "RETAINED",
+      "scope_id": "scope.model",
+      "source_id": "source.model",
+      "status": "OK",
+      "tenant_id": "tenant.demo",
+      "truncated": false
+    }
+  ],
+  "attempts": [
+    {
+      "adapter_version": "1.0.0",
+      "artifact_ids": [
+        "art.home"
+      ],
+      "attempt_id": "attempt.art.home",
+      "body_limit_bytes": 100000,
+      "cost_minor": 0,
+      "cost_status": "NOT_CHARGED",
+      "currency": null,
+      "execution_mode": "REPLAY_IMPORT",
+      "finished_at": "2026-09-14T16:00:05Z",
+      "intake_id": "intake.fixture",
+      "max_requests": 1,
+      "operation_key": "capture.art.home",
+      "pagination": "NOT_APPLICABLE",
+      "request_hash": "sha256:5ea5a8d03f79db3f5ac86f3b17c516cfce5676a351ffa504fc1c5e72c2801a60",
+      "requests_made": 1,
+      "scope_id": "scope.home",
+      "source_id": "source.web",
+      "source_version": "1.0.0",
+      "started_at": "2026-09-14T15:59:00Z",
+      "status": "SUCCEEDED",
+      "target": {
+        "resource_uri": "https://acme.example.test/",
+        "subject_id": "org.acme"
+      },
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null,
+      "timeout_seconds": 90,
+      "truncated": false
+    },
+    {
+      "adapter_version": "1.0.0",
+      "artifact_ids": [
+        "art.job"
+      ],
+      "attempt_id": "attempt.art.job",
+      "body_limit_bytes": 100000,
+      "cost_minor": 0,
+      "cost_status": "NOT_CHARGED",
+      "currency": null,
+      "execution_mode": "REPLAY_IMPORT",
+      "finished_at": "2026-09-14T16:00:05Z",
+      "intake_id": "intake.fixture",
+      "max_requests": 1,
+      "operation_key": "capture.art.job",
+      "pagination": "NOT_APPLICABLE",
+      "request_hash": "sha256:f337b1365a6c85d68bfa24f2cc72995a5824b09713c43846a75b56e8c6437b07",
+      "requests_made": 1,
+      "scope_id": "scope.job",
+      "source_id": "source.web",
+      "source_version": "1.0.0",
+      "started_at": "2026-09-14T15:59:00Z",
+      "status": "SUCCEEDED",
+      "target": {
+        "resource_uri": "https://acme.example.test/careers/operations",
+        "subject_id": "org.acme"
+      },
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null,
+      "timeout_seconds": 90,
+      "truncated": false
+    },
+    {
+      "adapter_version": "1.0.0",
+      "artifact_ids": [
+        "art.product1"
+      ],
+      "attempt_id": "attempt.art.product1",
+      "body_limit_bytes": 100000,
+      "cost_minor": 0,
+      "cost_status": "NOT_CHARGED",
+      "currency": null,
+      "execution_mode": "REPLAY_IMPORT",
+      "finished_at": "2026-09-14T16:00:05Z",
+      "intake_id": "intake.fixture",
+      "max_requests": 1,
+      "operation_key": "capture.art.product1",
+      "pagination": "NOT_APPLICABLE",
+      "request_hash": "sha256:4f9dd6ead4c43703048274a31cc715859bd7b92a9ba22dbc6045bb406de94574",
+      "requests_made": 1,
+      "scope_id": "scope.product",
+      "source_id": "source.review",
+      "source_version": "1.0.0",
+      "started_at": "2026-09-14T15:59:00Z",
+      "status": "SUCCEEDED",
+      "target": {
+        "resource_uri": "https://reviews.example.test/product/1",
+        "subject_id": "product.calendly"
+      },
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null,
+      "timeout_seconds": 90,
+      "truncated": false
+    },
+    {
+      "adapter_version": "1.0.0",
+      "artifact_ids": [
+        "art.product2"
+      ],
+      "attempt_id": "attempt.art.product2",
+      "body_limit_bytes": 100000,
+      "cost_minor": 0,
+      "cost_status": "NOT_CHARGED",
+      "currency": null,
+      "execution_mode": "REPLAY_IMPORT",
+      "finished_at": "2026-09-14T16:00:05Z",
+      "intake_id": "intake.fixture",
+      "max_requests": 1,
+      "operation_key": "capture.art.product2",
+      "pagination": "NOT_APPLICABLE",
+      "request_hash": "sha256:7f316a024dedf3163261ca61607cbc4efb5f82420ff731945b9150e51b96e3f9",
+      "requests_made": 1,
+      "scope_id": "scope.product",
+      "source_id": "source.review",
+      "source_version": "1.0.0",
+      "started_at": "2026-09-14T15:59:00Z",
+      "status": "SUCCEEDED",
+      "target": {
+        "resource_uri": "https://reviews.example.test/product/2",
+        "subject_id": "product.calendly"
+      },
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null,
+      "timeout_seconds": 90,
+      "truncated": false
+    },
+    {
+      "adapter_version": "1.0.0",
+      "artifact_ids": [
+        "art.product3"
+      ],
+      "attempt_id": "attempt.art.product3",
+      "body_limit_bytes": 100000,
+      "cost_minor": 0,
+      "cost_status": "NOT_CHARGED",
+      "currency": null,
+      "execution_mode": "REPLAY_IMPORT",
+      "finished_at": "2026-09-14T16:00:05Z",
+      "intake_id": "intake.fixture",
+      "max_requests": 1,
+      "operation_key": "capture.art.product3",
+      "pagination": "NOT_APPLICABLE",
+      "request_hash": "sha256:8b67e7405982d5e0a9d32e12757ff3e82f784721f51c0aa2b82a969ec2bea7e5",
+      "requests_made": 1,
+      "scope_id": "scope.product",
+      "source_id": "source.review",
+      "source_version": "1.0.0",
+      "started_at": "2026-09-14T15:59:00Z",
+      "status": "SUCCEEDED",
+      "target": {
+        "resource_uri": "https://reviews.example.test/product/3",
+        "subject_id": "product.calendly"
+      },
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null,
+      "timeout_seconds": 90,
+      "truncated": false
+    },
+    {
+      "adapter_version": "1.0.0",
+      "artifact_ids": [
+        "art.local1"
+      ],
+      "attempt_id": "attempt.art.local1",
+      "body_limit_bytes": 100000,
+      "cost_minor": 0,
+      "cost_status": "NOT_CHARGED",
+      "currency": null,
+      "execution_mode": "REPLAY_IMPORT",
+      "finished_at": "2026-09-14T16:00:05Z",
+      "intake_id": "intake.fixture",
+      "max_requests": 1,
+      "operation_key": "capture.art.local1",
+      "pagination": "NOT_APPLICABLE",
+      "request_hash": "sha256:414a494bb0934889665eceaa4a56d4da0afc8ad5f0dbdc5b24ce6e83217847e3",
+      "requests_made": 1,
+      "scope_id": "scope.local",
+      "source_id": "source.review",
+      "source_version": "1.0.0",
+      "started_at": "2026-09-14T15:59:00Z",
+      "status": "SUCCEEDED",
+      "target": {
+        "resource_uri": "https://reviews.example.test/local/1",
+        "subject_id": "location.acme"
+      },
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null,
+      "timeout_seconds": 90,
+      "truncated": false
+    },
+    {
+      "adapter_version": "1.0.0",
+      "artifact_ids": [
+        "art.local2"
+      ],
+      "attempt_id": "attempt.art.local2",
+      "body_limit_bytes": 100000,
+      "cost_minor": 0,
+      "cost_status": "NOT_CHARGED",
+      "currency": null,
+      "execution_mode": "REPLAY_IMPORT",
+      "finished_at": "2026-09-14T16:00:05Z",
+      "intake_id": "intake.fixture",
+      "max_requests": 1,
+      "operation_key": "capture.art.local2",
+      "pagination": "NOT_APPLICABLE",
+      "request_hash": "sha256:4f9d660727e9b28560d03015db4987f0f230f60adf8f4daf07f59557913a3bb0",
+      "requests_made": 1,
+      "scope_id": "scope.local",
+      "source_id": "source.review",
+      "source_version": "1.0.0",
+      "started_at": "2026-09-14T15:59:00Z",
+      "status": "SUCCEEDED",
+      "target": {
+        "resource_uri": "https://reviews.example.test/local/2",
+        "subject_id": "location.acme"
+      },
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null,
+      "timeout_seconds": 90,
+      "truncated": false
+    },
+    {
+      "adapter_version": "1.0.0",
+      "artifact_ids": [
+        "art.forum1"
+      ],
+      "attempt_id": "attempt.art.forum1",
+      "body_limit_bytes": 100000,
+      "cost_minor": 0,
+      "cost_status": "NOT_CHARGED",
+      "currency": null,
+      "execution_mode": "REPLAY_IMPORT",
+      "finished_at": "2026-09-14T16:00:05Z",
+      "intake_id": "intake.fixture",
+      "max_requests": 1,
+      "operation_key": "capture.art.forum1",
+      "pagination": "NOT_APPLICABLE",
+      "request_hash": "sha256:a64d1b2412559d22c0db25767937592c36bc13efc8b11835d5aeb19b3298f31b",
+      "requests_made": 1,
+      "scope_id": "scope.industry",
+      "source_id": "source.forum",
+      "source_version": "1.0.0",
+      "started_at": "2026-09-14T15:59:00Z",
+      "status": "SUCCEEDED",
+      "target": {
+        "resource_uri": "https://forum.example.test/posts/1",
+        "subject_id": "industry.medical"
+      },
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null,
+      "timeout_seconds": 90,
+      "truncated": false
+    },
+    {
+      "adapter_version": "1.0.0",
+      "artifact_ids": [
+        "art.forum2"
+      ],
+      "attempt_id": "attempt.art.forum2",
+      "body_limit_bytes": 100000,
+      "cost_minor": 0,
+      "cost_status": "NOT_CHARGED",
+      "currency": null,
+      "execution_mode": "REPLAY_IMPORT",
+      "finished_at": "2026-09-14T16:00:05Z",
+      "intake_id": "intake.fixture",
+      "max_requests": 1,
+      "operation_key": "capture.art.forum2",
+      "pagination": "NOT_APPLICABLE",
+      "request_hash": "sha256:747e0d1e120104b66a81b0e226f7cd8083f5e8f34b4d07b413f4ec6b96eeb247",
+      "requests_made": 1,
+      "scope_id": "scope.industry",
+      "source_id": "source.forum",
+      "source_version": "1.0.0",
+      "started_at": "2026-09-14T15:59:00Z",
+      "status": "SUCCEEDED",
+      "target": {
+        "resource_uri": "https://forum.example.test/posts/2",
+        "subject_id": "industry.medical"
+      },
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null,
+      "timeout_seconds": 90,
+      "truncated": false
+    },
+    {
+      "adapter_version": "1.0.0",
+      "artifact_ids": [
+        "art.traffic"
+      ],
+      "attempt_id": "attempt.art.traffic",
+      "body_limit_bytes": 100000,
+      "cost_minor": 0,
+      "cost_status": "NOT_CHARGED",
+      "currency": null,
+      "execution_mode": "REPLAY_IMPORT",
+      "finished_at": "2026-09-14T16:00:05Z",
+      "intake_id": "intake.fixture",
+      "max_requests": 1,
+      "operation_key": "capture.art.traffic",
+      "pagination": "NOT_APPLICABLE",
+      "request_hash": "sha256:8b3bb232d79e987daf627f83811973f22df01a7b9ced794ffadbeb340dcec2af",
+      "requests_made": 1,
+      "scope_id": "scope.traffic",
+      "source_id": "source.estimate",
+      "source_version": "1.0.0",
+      "started_at": "2026-09-14T15:59:00Z",
+      "status": "SUCCEEDED",
+      "target": {
+        "resource_uri": "https://fixture.example.test/traffic",
+        "subject_id": "org.acme"
+      },
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null,
+      "timeout_seconds": 90,
+      "truncated": false
+    },
+    {
+      "adapter_version": "1.0.0",
+      "artifact_ids": [
+        "art.data"
+      ],
+      "attempt_id": "attempt.art.data",
+      "body_limit_bytes": 100000,
+      "cost_minor": 0,
+      "cost_status": "NOT_CHARGED",
+      "currency": null,
+      "execution_mode": "REPLAY_IMPORT",
+      "finished_at": "2026-09-14T16:00:05Z",
+      "intake_id": "intake.fixture",
+      "max_requests": 1,
+      "operation_key": "capture.art.data",
+      "pagination": "NOT_APPLICABLE",
+      "request_hash": "sha256:2ada91438444fc8a6fe58d02741bfe9cd839fa624695216e3825bf2caa2fc91c",
+      "requests_made": 1,
+      "scope_id": "scope.data",
+      "source_id": "source.data",
+      "source_version": "1.0.0",
+      "started_at": "2026-09-14T15:59:00Z",
+      "status": "SUCCEEDED",
+      "target": {
+        "resource_uri": "https://fixture.example.test/data",
+        "subject_id": "org.acme"
+      },
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null,
+      "timeout_seconds": 90,
+      "truncated": false
+    },
+    {
+      "adapter_version": "1.0.0",
+      "artifact_ids": [
+        "art.registry"
+      ],
+      "attempt_id": "attempt.art.registry",
+      "body_limit_bytes": 100000,
+      "cost_minor": 0,
+      "cost_status": "NOT_CHARGED",
+      "currency": null,
+      "execution_mode": "REPLAY_IMPORT",
+      "finished_at": "2026-09-14T16:00:05Z",
+      "intake_id": "intake.fixture",
+      "max_requests": 1,
+      "operation_key": "capture.art.registry",
+      "pagination": "NOT_APPLICABLE",
+      "request_hash": "sha256:4968534b11996d3eabff55af07a992fc6cbcf5b0a65421e624c623216c77e47f",
+      "requests_made": 1,
+      "scope_id": "scope.registry",
+      "source_id": "source.registry",
+      "source_version": "1.0.0",
+      "started_at": "2026-09-14T15:59:00Z",
+      "status": "SUCCEEDED",
+      "target": {
+        "resource_uri": "https://fixture.example.test/registry",
+        "subject_id": "person.provider"
+      },
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null,
+      "timeout_seconds": 90,
+      "truncated": false
+    },
+    {
+      "adapter_version": "1.0.0",
+      "artifact_ids": [
+        "art.private"
+      ],
+      "attempt_id": "attempt.art.private",
+      "body_limit_bytes": 100000,
+      "cost_minor": 0,
+      "cost_status": "NOT_CHARGED",
+      "currency": null,
+      "execution_mode": "REPLAY_IMPORT",
+      "finished_at": "2026-09-14T16:00:05Z",
+      "intake_id": "intake.fixture",
+      "max_requests": 1,
+      "operation_key": "capture.art.private",
+      "pagination": "NOT_APPLICABLE",
+      "request_hash": "sha256:46f741ef8531c9530669208d74afa711da5ec15793009e4293e8185f4a5c4cbc",
+      "requests_made": 1,
+      "scope_id": "scope.private",
+      "source_id": "source.private",
+      "source_version": "1.0.0",
+      "started_at": "2026-09-14T15:59:00Z",
+      "status": "SUCCEEDED",
+      "target": {
+        "resource_uri": "https://fixture.example.test/private",
+        "subject_id": "org.acme"
+      },
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null,
+      "timeout_seconds": 90,
+      "truncated": false
+    },
+    {
+      "adapter_version": "1.0.0",
+      "artifact_ids": [
+        "art.product_docs"
+      ],
+      "attempt_id": "attempt.art.product_docs",
+      "body_limit_bytes": 100000,
+      "cost_minor": 0,
+      "cost_status": "NOT_CHARGED",
+      "currency": null,
+      "execution_mode": "REPLAY_IMPORT",
+      "finished_at": "2026-09-14T16:00:05Z",
+      "intake_id": "intake.fixture",
+      "max_requests": 1,
+      "operation_key": "capture.art.product_docs",
+      "pagination": "NOT_APPLICABLE",
+      "request_hash": "sha256:de926bd15a08f16a587a15266f497b1a1456db7b4f4ef78a12ca5db782fa8a1d",
+      "requests_made": 1,
+      "scope_id": "scope.product_docs",
+      "source_id": "source.web",
+      "source_version": "1.0.0",
+      "started_at": "2026-09-14T15:59:00Z",
+      "status": "SUCCEEDED",
+      "target": {
+        "resource_uri": "https://fixture.example.test/product_docs",
+        "subject_id": "product.calendly"
+      },
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null,
+      "timeout_seconds": 90,
+      "truncated": false
+    },
+    {
+      "adapter_version": "1.0.0",
+      "artifact_ids": [
+        "art.request"
+      ],
+      "attempt_id": "attempt.art.request",
+      "body_limit_bytes": 100000,
+      "cost_minor": 0,
+      "cost_status": "NOT_CHARGED",
+      "currency": null,
+      "execution_mode": "REPLAY_IMPORT",
+      "finished_at": "2026-09-14T16:00:05Z",
+      "intake_id": "intake.fixture",
+      "max_requests": 1,
+      "operation_key": "capture.art.request",
+      "pagination": "NOT_APPLICABLE",
+      "request_hash": "sha256:32ba982e8df4c161233056c1e946be5c3b3e626f4400f2daf52082b068812e40",
+      "requests_made": 1,
+      "scope_id": "scope.model",
+      "source_id": "source.model",
+      "source_version": "1.0.0",
+      "started_at": "2026-09-14T15:59:00Z",
+      "status": "SUCCEEDED",
+      "target": {
+        "resource_uri": "https://fixture.example.test/model/request",
+        "subject_id": "org.acme"
+      },
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null,
+      "timeout_seconds": 90,
+      "truncated": false
+    },
+    {
+      "adapter_version": "1.0.0",
+      "artifact_ids": [
+        "art.response"
+      ],
+      "attempt_id": "attempt.art.response",
+      "body_limit_bytes": 100000,
+      "cost_minor": 0,
+      "cost_status": "NOT_CHARGED",
+      "currency": null,
+      "execution_mode": "REPLAY_IMPORT",
+      "finished_at": "2026-09-14T16:00:05Z",
+      "intake_id": "intake.fixture",
+      "max_requests": 1,
+      "operation_key": "capture.art.response",
+      "pagination": "NOT_APPLICABLE",
+      "request_hash": "sha256:03bb5eff3cb4d2e181079dfd107a7c245f34d4608fa8d5a3ba29aacb52eae0b5",
+      "requests_made": 1,
+      "scope_id": "scope.model",
+      "source_id": "source.model",
+      "source_version": "1.0.0",
+      "started_at": "2026-09-14T15:59:00Z",
+      "status": "SUCCEEDED",
+      "target": {
+        "resource_uri": "https://fixture.example.test/model/response",
+        "subject_id": "org.acme"
+      },
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null,
+      "timeout_seconds": 90,
+      "truncated": false
+    },
+    {
+      "adapter_version": "1.0.0",
+      "artifact_ids": [],
+      "attempt_id": "attempt.denied",
+      "body_limit_bytes": 100000,
+      "cost_minor": 0,
+      "cost_status": "NOT_CHARGED",
+      "currency": null,
+      "execution_mode": "LIVE_CAPTURE",
+      "finished_at": "2026-09-14T16:00:05Z",
+      "intake_id": "intake.fixture",
+      "max_requests": 1,
+      "operation_key": "capture.denied",
+      "pagination": "NOT_APPLICABLE",
+      "request_hash": "sha256:11941691821a450eb5789b79678a4be04bedb9532fdc4e1a101796f28660e6d8",
+      "requests_made": 0,
+      "scope_id": "scope.denied",
+      "source_id": "source.blocked",
+      "source_version": "1.0.0",
+      "started_at": "2026-09-14T15:59:00Z",
+      "status": "POLICY_DENIED",
+      "target": {
+        "resource_uri": "https://fixture.example.test/blocked-careers",
+        "subject_id": "org.other"
+      },
+      "tenant_id": "tenant.demo",
+      "terminal_reason": "POLICY_DENIED",
+      "timeout_seconds": 90,
+      "truncated": false
+    }
+  ],
+  "bindings": [
+    {
+      "artifact_ids": [
+        "art.home"
+      ],
+      "binding_id": "bind.art.home",
+      "decided_at": "2026-09-14T16:00:00Z",
+      "evidence_locator_ids": [
+        "loc.art.home"
+      ],
+      "method": "synthetic_fixture_binding",
+      "role": "FIRST_PARTY",
+      "scope_id": "scope.home",
+      "status": "ACCEPTED",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "artifact_ids": [
+        "art.job"
+      ],
+      "binding_id": "bind.art.job",
+      "decided_at": "2026-09-14T16:00:00Z",
+      "evidence_locator_ids": [
+        "loc.art.job"
+      ],
+      "method": "synthetic_fixture_binding",
+      "role": "FIRST_PARTY",
+      "scope_id": "scope.job",
+      "status": "ACCEPTED",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "artifact_ids": [
+        "art.product1"
+      ],
+      "binding_id": "bind.art.product1",
+      "decided_at": "2026-09-14T16:00:00Z",
+      "evidence_locator_ids": [
+        "loc.art.product1"
+      ],
+      "method": "synthetic_fixture_binding",
+      "role": "RESEARCH_TARGET",
+      "scope_id": "scope.product",
+      "status": "ACCEPTED",
+      "subject_id": "product.calendly",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "artifact_ids": [
+        "art.product2"
+      ],
+      "binding_id": "bind.art.product2",
+      "decided_at": "2026-09-14T16:00:00Z",
+      "evidence_locator_ids": [
+        "loc.art.product2"
+      ],
+      "method": "synthetic_fixture_binding",
+      "role": "RESEARCH_TARGET",
+      "scope_id": "scope.product",
+      "status": "ACCEPTED",
+      "subject_id": "product.calendly",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "artifact_ids": [
+        "art.product3"
+      ],
+      "binding_id": "bind.art.product3",
+      "decided_at": "2026-09-14T16:00:00Z",
+      "evidence_locator_ids": [
+        "loc.art.product3"
+      ],
+      "method": "synthetic_fixture_binding",
+      "role": "RESEARCH_TARGET",
+      "scope_id": "scope.product",
+      "status": "ACCEPTED",
+      "subject_id": "product.calendly",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "artifact_ids": [
+        "art.local1"
+      ],
+      "binding_id": "bind.art.local1",
+      "decided_at": "2026-09-14T16:00:00Z",
+      "evidence_locator_ids": [
+        "loc.art.local1"
+      ],
+      "method": "synthetic_fixture_binding",
+      "role": "REVIEW_TARGET",
+      "scope_id": "scope.local",
+      "status": "ACCEPTED",
+      "subject_id": "location.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "artifact_ids": [
+        "art.local2"
+      ],
+      "binding_id": "bind.art.local2",
+      "decided_at": "2026-09-14T16:00:00Z",
+      "evidence_locator_ids": [
+        "loc.art.local2"
+      ],
+      "method": "synthetic_fixture_binding",
+      "role": "REVIEW_TARGET",
+      "scope_id": "scope.local",
+      "status": "ACCEPTED",
+      "subject_id": "location.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "artifact_ids": [
+        "art.forum1"
+      ],
+      "binding_id": "bind.art.forum1",
+      "decided_at": "2026-09-14T16:00:00Z",
+      "evidence_locator_ids": [
+        "loc.art.forum1"
+      ],
+      "method": "synthetic_fixture_binding",
+      "role": "RESEARCH_TARGET",
+      "scope_id": "scope.industry",
+      "status": "ACCEPTED",
+      "subject_id": "industry.medical",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "artifact_ids": [
+        "art.forum2"
+      ],
+      "binding_id": "bind.art.forum2",
+      "decided_at": "2026-09-14T16:00:00Z",
+      "evidence_locator_ids": [
+        "loc.art.forum2"
+      ],
+      "method": "synthetic_fixture_binding",
+      "role": "RESEARCH_TARGET",
+      "scope_id": "scope.industry",
+      "status": "ACCEPTED",
+      "subject_id": "industry.medical",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "artifact_ids": [
+        "art.traffic"
+      ],
+      "binding_id": "bind.art.traffic",
+      "decided_at": "2026-09-14T16:00:00Z",
+      "evidence_locator_ids": [
+        "loc.art.traffic"
+      ],
+      "method": "synthetic_fixture_binding",
+      "role": "FIRST_PARTY",
+      "scope_id": "scope.traffic",
+      "status": "ACCEPTED",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "artifact_ids": [
+        "art.data"
+      ],
+      "binding_id": "bind.art.data",
+      "decided_at": "2026-09-14T16:00:00Z",
+      "evidence_locator_ids": [
+        "loc.art.data"
+      ],
+      "method": "synthetic_fixture_binding",
+      "role": "FIRST_PARTY",
+      "scope_id": "scope.data",
+      "status": "ACCEPTED",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "artifact_ids": [
+        "art.registry"
+      ],
+      "binding_id": "bind.art.registry",
+      "decided_at": "2026-09-14T16:00:00Z",
+      "evidence_locator_ids": [
+        "loc.art.registry"
+      ],
+      "method": "synthetic_fixture_binding",
+      "role": "REGISTRY_SUBJECT",
+      "scope_id": "scope.registry",
+      "status": "ACCEPTED",
+      "subject_id": "person.provider",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "artifact_ids": [
+        "art.private"
+      ],
+      "binding_id": "bind.art.private",
+      "decided_at": "2026-09-14T16:00:00Z",
+      "evidence_locator_ids": [
+        "loc.art.private"
+      ],
+      "method": "synthetic_fixture_binding",
+      "role": "FIRST_PARTY",
+      "scope_id": "scope.private",
+      "status": "ACCEPTED",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "artifact_ids": [
+        "art.product_docs"
+      ],
+      "binding_id": "bind.art.product_docs",
+      "decided_at": "2026-09-14T16:00:00Z",
+      "evidence_locator_ids": [
+        "loc.art.product_docs"
+      ],
+      "method": "synthetic_fixture_binding",
+      "role": "RESEARCH_TARGET",
+      "scope_id": "scope.product_docs",
+      "status": "ACCEPTED",
+      "subject_id": "product.calendly",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "artifact_ids": [
+        "art.request"
+      ],
+      "binding_id": "bind.art.request",
+      "decided_at": "2026-09-14T16:00:00Z",
+      "evidence_locator_ids": [
+        "loc.art.request"
+      ],
+      "method": "synthetic_fixture_binding",
+      "role": "FIRST_PARTY",
+      "scope_id": "scope.model",
+      "status": "ACCEPTED",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "artifact_ids": [
+        "art.response"
+      ],
+      "binding_id": "bind.art.response",
+      "decided_at": "2026-09-14T16:00:00Z",
+      "evidence_locator_ids": [
+        "loc.art.response"
+      ],
+      "method": "synthetic_fixture_binding",
+      "role": "FIRST_PARTY",
+      "scope_id": "scope.model",
+      "status": "ACCEPTED",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo"
+    }
+  ],
+  "calibrations": [],
+  "candidates": [],
+  "changes": [],
+  "contexts": [
+    {
+      "account_subject_id": "org.acme",
+      "company_claim_allowed": false,
+      "context_fact_ids": [
+        "f.prior.product"
+      ],
+      "context_id": "context.product",
+      "context_subject_id": "product.calendly",
+      "join_rule_id": "join.product_footprint",
+      "link_fact_id": "f.tech",
+      "purpose": "INTERNAL_RESEARCH",
+      "relationship_strength": "FOOTPRINT",
+      "run_id": "run.demo",
+      "status": "ELIGIBLE",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "account_subject_id": "org.acme",
+      "company_claim_allowed": false,
+      "context_fact_ids": [
+        "f.prior.industry"
+      ],
+      "context_id": "context.industry",
+      "context_subject_id": "industry.medical",
+      "join_rule_id": "join.industry_membership",
+      "link_fact_id": "f.industry",
+      "purpose": "INTERNAL_RESEARCH",
+      "relationship_strength": "MEMBERSHIP",
+      "run_id": "run.demo",
+      "status": "ELIGIBLE",
+      "tenant_id": "tenant.demo"
+    }
+  ],
+  "coverage": [
+    {
+      "attempt_ids": [
+        "attempt.art.home"
+      ],
+      "checked": [
+        {
+          "artifact_id": "art.home",
+          "resource": "https://acme.example.test/",
+          "result": "OK"
+        }
+      ],
+      "checked_at": "2026-09-14T16:36:00Z",
+      "coverage_id": "coverage.form",
+      "detector_execution_id": "ex.detect.form",
+      "detector_release": "sha256:009a15ee282d2676a80cc6cdcf71f2b264bf8c5c5df5c9d7e85094c14c1b1717",
+      "planned_resources": [
+        "https://acme.example.test/"
+      ],
+      "predicate_ids": [
+        "form.surface"
+      ],
+      "scope_id": "scope.home",
+      "scope_limitations": "Raw homepage only; not rendered content or private intake systems.",
+      "source_id": "source.web",
+      "status": "COMPLETE",
+      "target": {
+        "form_key": "primary_contact"
+      },
+      "tenant_id": "tenant.demo"
+    }
+  ],
+  "evidence": [
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.tech",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.home"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.vendor1",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.home"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.vendor2",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.home"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.job",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.job"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.salary",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.job"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.job_statement",
+      "execution_id": "ex.job_llm",
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.job"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.capability",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.product_docs"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.product1",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.product1"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.product2",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.product2"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.product3",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.product3"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.local1",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.local1"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.local2",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.local2"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.forum1",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.forum1"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.forum2",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.forum2"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "DERIVED",
+      "evidence_id": "ev.f.classify.product1",
+      "execution_id": "ex.classify.product1",
+      "input_fact_ids": [
+        "f.product1"
+      ],
+      "locator_ids": [],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "DERIVED",
+      "evidence_id": "ev.f.classify.product2",
+      "execution_id": "ex.classify.product2",
+      "input_fact_ids": [
+        "f.product2"
+      ],
+      "locator_ids": [],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "DERIVED",
+      "evidence_id": "ev.f.classify.local1",
+      "execution_id": "ex.classify.local1",
+      "input_fact_ids": [
+        "f.local1"
+      ],
+      "locator_ids": [],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "DERIVED",
+      "evidence_id": "ev.f.classify.forum1",
+      "execution_id": "ex.classify.forum1",
+      "input_fact_ids": [
+        "f.forum1"
+      ],
+      "locator_ids": [],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "DERIVED",
+      "evidence_id": "ev.f.prior.product",
+      "execution_id": "ex.summary.product",
+      "input_fact_ids": [
+        "f.classify.product1",
+        "f.classify.product2"
+      ],
+      "locator_ids": [],
+      "sample_ids": [
+        "sample.product"
+      ],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "DERIVED",
+      "evidence_id": "ev.f.prior.local",
+      "execution_id": "ex.summary.local",
+      "input_fact_ids": [
+        "f.classify.local1"
+      ],
+      "locator_ids": [],
+      "sample_ids": [
+        "sample.local"
+      ],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "DERIVED",
+      "evidence_id": "ev.f.prior.industry",
+      "execution_id": "ex.summary.industry",
+      "input_fact_ids": [
+        "f.classify.forum1"
+      ],
+      "locator_ids": [],
+      "sample_ids": [
+        "sample.industry"
+      ],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.industry",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.home"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.traffic",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.traffic"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.serp",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.data"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.registry",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.registry"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": null,
+      "directness": "RAW",
+      "evidence_id": "ev.f.call",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.private"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": null,
+      "coverage_id": "coverage.form",
+      "directness": "RAW",
+      "evidence_id": "ev.f.no_form",
+      "execution_id": "ex.detect.form",
+      "input_fact_ids": [],
+      "locator_ids": [
+        "loc.art.home"
+      ],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "attempt_id": "attempt.denied",
+      "coverage_id": null,
+      "directness": "DIAGNOSTIC",
+      "evidence_id": "ev.unknown",
+      "execution_id": null,
+      "input_fact_ids": [],
+      "locator_ids": [],
+      "sample_ids": [],
+      "tenant_id": "tenant.demo"
+    }
+  ],
+  "executions": [
+    {
+      "execution_id": "ex.job_llm",
+      "finished_at": "2026-09-14T17:01:00Z",
+      "function_id": "extract.job_quote_v1",
+      "function_version": "1.0.0",
+      "input_artifact_ids": [
+        "art.job"
+      ],
+      "input_fact_ids": [],
+      "input_sample_ids": [],
+      "input_set_hash": "sha256:0746eee671144a4409728198026b2aae1933d85ca804ed501846bde347e9dc3b",
+      "model_call_id": "call.fixture",
+      "output_artifact_ids": [],
+      "output_fact_ids": [
+        "f.job_statement"
+      ],
+      "parameters": {},
+      "run_id": "run.ingest",
+      "sample_set_hash": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "started_at": "2026-09-14T17:00:00Z",
+      "status": "COMPLETE",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null
+    },
+    {
+      "execution_id": "ex.classify.product1",
+      "finished_at": "2026-09-14T17:01:00Z",
+      "function_id": "fixture.theme_v1",
+      "function_version": "1.0.0",
+      "input_artifact_ids": [],
+      "input_fact_ids": [
+        "f.product1"
+      ],
+      "input_sample_ids": [],
+      "input_set_hash": "sha256:612cf591d54e149a92ea8f3d2af782b8dab563ae4c36af62d9359c49cd015f8e",
+      "model_call_id": null,
+      "output_artifact_ids": [],
+      "output_fact_ids": [
+        "f.classify.product1"
+      ],
+      "parameters": {
+        "theme_id": "theme.reporting"
+      },
+      "run_id": "run.ingest",
+      "sample_set_hash": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "started_at": "2026-09-14T17:00:00Z",
+      "status": "COMPLETE",
+      "subject_id": "product.calendly",
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null
+    },
+    {
+      "execution_id": "ex.classify.product2",
+      "finished_at": "2026-09-14T17:01:00Z",
+      "function_id": "fixture.theme_v1",
+      "function_version": "1.0.0",
+      "input_artifact_ids": [],
+      "input_fact_ids": [
+        "f.product2"
+      ],
+      "input_sample_ids": [],
+      "input_set_hash": "sha256:22eced8eec0474fd5f06bbb93f5bb546212ee485d35e2e5b188336e8e14b6317",
+      "model_call_id": null,
+      "output_artifact_ids": [],
+      "output_fact_ids": [
+        "f.classify.product2"
+      ],
+      "parameters": {
+        "theme_id": "theme.reporting"
+      },
+      "run_id": "run.ingest",
+      "sample_set_hash": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "started_at": "2026-09-14T17:00:00Z",
+      "status": "COMPLETE",
+      "subject_id": "product.calendly",
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null
+    },
+    {
+      "execution_id": "ex.classify.local1",
+      "finished_at": "2026-09-14T17:01:00Z",
+      "function_id": "fixture.theme_v1",
+      "function_version": "1.0.0",
+      "input_artifact_ids": [],
+      "input_fact_ids": [
+        "f.local1"
+      ],
+      "input_sample_ids": [],
+      "input_set_hash": "sha256:d4fa9f52358b5c298c38069055016fb45397fea07957981728e921cd113a86c7",
+      "model_call_id": null,
+      "output_artifact_ids": [],
+      "output_fact_ids": [
+        "f.classify.local1"
+      ],
+      "parameters": {
+        "theme_id": "theme.follow_up"
+      },
+      "run_id": "run.ingest",
+      "sample_set_hash": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "started_at": "2026-09-14T17:00:00Z",
+      "status": "COMPLETE",
+      "subject_id": "location.acme",
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null
+    },
+    {
+      "execution_id": "ex.classify.forum1",
+      "finished_at": "2026-09-14T17:01:00Z",
+      "function_id": "fixture.theme_v1",
+      "function_version": "1.0.0",
+      "input_artifact_ids": [],
+      "input_fact_ids": [
+        "f.forum1"
+      ],
+      "input_sample_ids": [],
+      "input_set_hash": "sha256:01212bbc3b8caeab2a26d8919972d5deed562fb28e94d1e5aec5f3abcd258b64",
+      "model_call_id": null,
+      "output_artifact_ids": [],
+      "output_fact_ids": [
+        "f.classify.forum1"
+      ],
+      "parameters": {
+        "theme_id": "theme.spreadsheets"
+      },
+      "run_id": "run.ingest",
+      "sample_set_hash": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "started_at": "2026-09-14T17:00:00Z",
+      "status": "COMPLETE",
+      "subject_id": "industry.medical",
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null
+    },
+    {
+      "execution_id": "ex.summary.product",
+      "finished_at": "2026-09-14T17:03:00Z",
+      "function_id": "sample.theme_summary_v1",
+      "function_version": "1.0.0",
+      "input_artifact_ids": [
+        "art.product1",
+        "art.product2",
+        "art.product3"
+      ],
+      "input_fact_ids": [
+        "f.classify.product1",
+        "f.classify.product2"
+      ],
+      "input_sample_ids": [
+        "sample.product"
+      ],
+      "input_set_hash": "sha256:5fae8e5f7579e692f92ecbf3325bafbe1425970c0faf2cfa890697c32f1e48c6",
+      "model_call_id": null,
+      "output_artifact_ids": [],
+      "output_fact_ids": [
+        "f.prior.product"
+      ],
+      "parameters": {
+        "sample_id": "sample.product",
+        "theme_id": "theme.reporting"
+      },
+      "run_id": "run.demo",
+      "sample_set_hash": "sha256:36ac92b12bea6231cccf7b6735a7940d0978c5af1dda011db10281f07125edc9",
+      "started_at": "2026-09-14T17:02:00Z",
+      "status": "COMPLETE",
+      "subject_id": "product.calendly",
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null
+    },
+    {
+      "execution_id": "ex.summary.local",
+      "finished_at": "2026-09-14T17:03:00Z",
+      "function_id": "sample.theme_summary_v1",
+      "function_version": "1.0.0",
+      "input_artifact_ids": [
+        "art.local1",
+        "art.local2"
+      ],
+      "input_fact_ids": [
+        "f.classify.local1"
+      ],
+      "input_sample_ids": [
+        "sample.local"
+      ],
+      "input_set_hash": "sha256:ca6b7df35746972fe929ca04eeb82e357e3bac2f37cd9327b030ad10488edf40",
+      "model_call_id": null,
+      "output_artifact_ids": [],
+      "output_fact_ids": [
+        "f.prior.local"
+      ],
+      "parameters": {
+        "sample_id": "sample.local",
+        "theme_id": "theme.follow_up"
+      },
+      "run_id": "run.demo",
+      "sample_set_hash": "sha256:fcfff84a8bb84ffdd17b838370be270462ed2b8c31e9dc3e66921338a7083913",
+      "started_at": "2026-09-14T17:02:00Z",
+      "status": "COMPLETE",
+      "subject_id": "location.acme",
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null
+    },
+    {
+      "execution_id": "ex.summary.industry",
+      "finished_at": "2026-09-14T17:03:00Z",
+      "function_id": "sample.theme_summary_v1",
+      "function_version": "1.0.0",
+      "input_artifact_ids": [
+        "art.forum1",
+        "art.forum2"
+      ],
+      "input_fact_ids": [
+        "f.classify.forum1"
+      ],
+      "input_sample_ids": [
+        "sample.industry"
+      ],
+      "input_set_hash": "sha256:1d48deab9edd9d6d92797041db0056d58dcae376bfe58f1ee9d64fb8373b9a01",
+      "model_call_id": null,
+      "output_artifact_ids": [],
+      "output_fact_ids": [
+        "f.prior.industry"
+      ],
+      "parameters": {
+        "sample_id": "sample.industry",
+        "theme_id": "theme.spreadsheets"
+      },
+      "run_id": "run.demo",
+      "sample_set_hash": "sha256:800f1b934c54aec401de35c21da3413588602d6f3f09e63e9c4d0f175b16c32b",
+      "started_at": "2026-09-14T17:02:00Z",
+      "status": "COMPLETE",
+      "subject_id": "industry.medical",
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null
+    },
+    {
+      "execution_id": "ex.detect.form",
+      "finished_at": "2026-09-14T16:36:00Z",
+      "function_id": "detect.raw_form_v1",
+      "function_version": "1.0.0",
+      "input_artifact_ids": [
+        "art.home"
+      ],
+      "input_fact_ids": [],
+      "input_sample_ids": [],
+      "input_set_hash": "sha256:c2dd5081bdd435bfc78aac5e4c91524be4b169cdfd4e449b9cda29d92f3afebc",
+      "model_call_id": null,
+      "output_artifact_ids": [],
+      "output_fact_ids": [
+        "f.no_form"
+      ],
+      "parameters": {
+        "scope_id": "scope.home",
+        "target": {
+          "form_key": "primary_contact"
+        }
+      },
+      "run_id": "run.ingest",
+      "sample_set_hash": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "started_at": "2026-09-14T16:35:00Z",
+      "status": "COMPLETE",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null
+    }
+  ],
+  "exports": [
+    {
+      "actor_id": "actor.fixture",
+      "automatic_sending": false,
+      "completed_at": "2026-09-14T20:00:21Z",
+      "destination_id": "destination.fixture",
+      "export_id": "export.fixture",
+      "external_reference": "fixture://preview/no-external-side-effect",
+      "gate_id": "gate.fixture",
+      "idempotency_key": "fixture-preview-v41",
+      "mapping_version": "1.0.0",
+      "package": {
+        "content_hash": "sha256:08989e446300e46d71bb42c705ef1feb32fb996faed9084880488cb4f528e771",
+        "package_id": "package.product",
+        "revision": 1
+      },
+      "payload_hash": "sha256:ee2e7e8febb62f188efd979d2caeacd5882f47b944d82fffb725345fbdd8c464",
+      "payload_ref": "fixtures/export-preview.json",
+      "recipient_key": null,
+      "requested_at": "2026-09-14T20:00:20Z",
+      "status": "CONFIRMED",
+      "tenant_id": "tenant.demo"
+    }
+  ],
+  "exposures": [],
+  "facts": [
+    {
+      "binding_id": "bind.art.home",
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.tech",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.tech",
+      "nature": "DIRECT_OBSERVATION",
+      "object": {
+        "deployment_claim": "PUBLIC_FOOTPRINT_ONLY",
+        "fingerprint_id": "fp.calendly.script",
+        "matched_value": "assets.calendly.com",
+        "product_id": "product.calendly",
+        "surface": "SCRIPT",
+        "version": null
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "technology.footprint",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.home",
+      "source_id": "source.web",
+      "state": "OBSERVED",
+      "subject_id": "org.acme",
+      "supersedes_fact_id": null,
+      "target": {
+        "product_id": "product.calendly"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": "bind.art.home",
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.vendor1",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.vendor1",
+      "nature": "DIRECT_OBSERVATION",
+      "object": {
+        "class_id": "booking",
+        "entity_id": "product.calendly"
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "vendor.present",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.home",
+      "source_id": "source.web",
+      "state": "OBSERVED",
+      "subject_id": "org.acme",
+      "supersedes_fact_id": null,
+      "target": {
+        "entity_id": "product.calendly"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": "bind.art.home",
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.vendor2",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.vendor2",
+      "nature": "DIRECT_OBSERVATION",
+      "object": {
+        "class_id": "crm",
+        "entity_id": "product.crm"
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "vendor.present",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.home",
+      "source_id": "source.web",
+      "state": "OBSERVED",
+      "subject_id": "org.acme",
+      "supersedes_fact_id": null,
+      "target": {
+        "entity_id": "product.crm"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": "bind.art.job",
+      "confidence": null,
+      "effective_at": "2026-09-01T00:00:00Z",
+      "evidence_id": "ev.f.job",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.job",
+      "nature": "FIRST_PARTY_STATEMENT",
+      "object": {
+        "department": "Operations",
+        "employment_type": "FULL_TIME",
+        "namespace": "ats.fixture",
+        "posting_id": "job-1",
+        "published_at": "2026-09-01T00:00:00Z",
+        "title": "Operations Coordinator",
+        "url": "https://acme.example.test/careers/operations"
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "job.posting",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.job",
+      "source_id": "source.web",
+      "state": "OBSERVED",
+      "subject_id": "org.acme",
+      "supersedes_fact_id": null,
+      "target": {
+        "namespace": "ats.fixture",
+        "posting_id": "job-1"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": "bind.art.job",
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.salary",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.salary",
+      "nature": "FIRST_PARTY_STATEMENT",
+      "object": {
+        "basis": "BASE",
+        "currency": "USD",
+        "maximum_minor": 8500000,
+        "minimum_minor": 6500000,
+        "minor_unit_exponent": 2,
+        "period": "YEAR"
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "job.salary",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.job",
+      "source_id": "source.web",
+      "state": "OBSERVED",
+      "subject_id": "org.acme",
+      "supersedes_fact_id": null,
+      "target": {
+        "component": "base",
+        "namespace": "ats.fixture",
+        "posting_id": "job-1"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": "bind.art.job",
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.job_statement",
+      "execution_id": "ex.job_llm",
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.job_statement",
+      "nature": "FIRST_PARTY_STATEMENT",
+      "object": {
+        "modality": "REQUIREMENT",
+        "statement_id": "st.job1",
+        "text": "Maintain the Excel reconciliation workbook and update CRM records.",
+        "topic_id": "theme.spreadsheets"
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "job.workflow_statement",
+      "reason": null,
+      "recorded_at": "2026-09-14T17:01:00Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.job",
+      "source_id": "source.web",
+      "state": "OBSERVED",
+      "subject_id": "org.acme",
+      "supersedes_fact_id": null,
+      "target": {
+        "statement_id": "st.job1"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": "bind.art.product_docs",
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.capability",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.capability",
+      "nature": "FIRST_PARTY_STATEMENT",
+      "object": {
+        "capability_id": "scheduling",
+        "modality": "DOCUMENTED_FEATURE",
+        "text": "Appointment scheduling"
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "product.capability",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.product_docs",
+      "source_id": "source.web",
+      "state": "OBSERVED",
+      "subject_id": "product.calendly",
+      "supersedes_fact_id": null,
+      "target": {
+        "item_id": "scheduling"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": "bind.art.product1",
+      "confidence": null,
+      "effective_at": "2026-09-01T00:00:00Z",
+      "evidence_id": "ev.f.product1",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.product1",
+      "nature": "THIRD_PARTY_REPORT",
+      "object": {
+        "edited": false,
+        "language": "en",
+        "platform": "fixture_reviews",
+        "published_at": "2026-09-01T00:00:00Z",
+        "rating": 2,
+        "rating_scale_max": 5,
+        "review_key": "product1",
+        "text": "Reporting requires spreadsheet exports."
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "review.record",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.product",
+      "source_id": "source.review",
+      "state": "OBSERVED",
+      "subject_id": "product.calendly",
+      "supersedes_fact_id": null,
+      "target": {
+        "platform": "fixture_reviews",
+        "review_key": "product1"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": "bind.art.product2",
+      "confidence": null,
+      "effective_at": "2026-09-02T00:00:00Z",
+      "evidence_id": "ev.f.product2",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.product2",
+      "nature": "THIRD_PARTY_REPORT",
+      "object": {
+        "edited": false,
+        "language": "en",
+        "platform": "fixture_reviews",
+        "published_at": "2026-09-02T00:00:00Z",
+        "rating": 2,
+        "rating_scale_max": 5,
+        "review_key": "product2",
+        "text": "Reporting requires spreadsheet exports."
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "review.record",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.product",
+      "source_id": "source.review",
+      "state": "OBSERVED",
+      "subject_id": "product.calendly",
+      "supersedes_fact_id": null,
+      "target": {
+        "platform": "fixture_reviews",
+        "review_key": "product2"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": "bind.art.product3",
+      "confidence": null,
+      "effective_at": "2026-09-03T00:00:00Z",
+      "evidence_id": "ev.f.product3",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.product3",
+      "nature": "THIRD_PARTY_REPORT",
+      "object": {
+        "edited": false,
+        "language": "en",
+        "platform": "fixture_reviews",
+        "published_at": "2026-09-03T00:00:00Z",
+        "rating": 5,
+        "rating_scale_max": 5,
+        "review_key": "product3",
+        "text": "Booking works well."
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "review.record",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.product",
+      "source_id": "source.review",
+      "state": "OBSERVED",
+      "subject_id": "product.calendly",
+      "supersedes_fact_id": null,
+      "target": {
+        "platform": "fixture_reviews",
+        "review_key": "product3"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": "bind.art.local1",
+      "confidence": null,
+      "effective_at": "2026-09-01T00:00:00Z",
+      "evidence_id": "ev.f.local1",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.local1",
+      "nature": "THIRD_PARTY_REPORT",
+      "object": {
+        "edited": false,
+        "language": "en",
+        "platform": "fixture_reviews",
+        "published_at": "2026-09-01T00:00:00Z",
+        "rating": 2,
+        "rating_scale_max": 5,
+        "review_key": "local1",
+        "text": "I could not get a callback."
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "review.record",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.local",
+      "source_id": "source.review",
+      "state": "OBSERVED",
+      "subject_id": "location.acme",
+      "supersedes_fact_id": null,
+      "target": {
+        "platform": "fixture_reviews",
+        "review_key": "local1"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": "bind.art.local2",
+      "confidence": null,
+      "effective_at": "2026-09-02T00:00:00Z",
+      "evidence_id": "ev.f.local2",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.local2",
+      "nature": "THIRD_PARTY_REPORT",
+      "object": {
+        "edited": false,
+        "language": "en",
+        "platform": "fixture_reviews",
+        "published_at": "2026-09-02T00:00:00Z",
+        "rating": 2,
+        "rating_scale_max": 5,
+        "review_key": "local2",
+        "text": "The team called me back."
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "review.record",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.local",
+      "source_id": "source.review",
+      "state": "OBSERVED",
+      "subject_id": "location.acme",
+      "supersedes_fact_id": null,
+      "target": {
+        "platform": "fixture_reviews",
+        "review_key": "local2"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": "bind.art.forum1",
+      "confidence": null,
+      "effective_at": "2026-09-01T00:00:00Z",
+      "evidence_id": "ev.f.forum1",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.forum1",
+      "nature": "THIRD_PARTY_REPORT",
+      "object": {
+        "community": "fixture_medical",
+        "language": "en",
+        "post_key": "p1",
+        "published_at": "2026-09-01T00:00:00Z",
+        "role": "POST",
+        "text": "Our practice uses spreadsheets to coordinate referrals.",
+        "thread_key": "thread1"
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "discussion.record",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.industry",
+      "source_id": "source.forum",
+      "state": "OBSERVED",
+      "subject_id": "industry.medical",
+      "supersedes_fact_id": null,
+      "target": {
+        "community": "fixture_medical",
+        "post_key": "p1"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": "bind.art.forum2",
+      "confidence": null,
+      "effective_at": "2026-09-02T00:00:00Z",
+      "evidence_id": "ev.f.forum2",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.forum2",
+      "nature": "THIRD_PARTY_REPORT",
+      "object": {
+        "community": "fixture_medical",
+        "language": "en",
+        "post_key": "p2",
+        "published_at": "2026-09-02T00:00:00Z",
+        "role": "POST",
+        "text": "We use a shared inbox.",
+        "thread_key": "thread2"
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "discussion.record",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.industry",
+      "source_id": "source.forum",
+      "state": "OBSERVED",
+      "subject_id": "industry.medical",
+      "supersedes_fact_id": null,
+      "target": {
+        "community": "fixture_medical",
+        "post_key": "p2"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": null,
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.classify.product1",
+      "execution_id": "ex.classify.product1",
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.classify.product1",
+      "nature": "INFERENCE",
+      "object": {
+        "record_key": "product1",
+        "sentiment": "NEGATIVE",
+        "stance": "EXPERIENCED",
+        "support_locator_ids": [
+          "loc.art.product1"
+        ],
+        "theme_id": "theme.reporting"
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "review.theme_classification",
+      "reason": null,
+      "recorded_at": "2026-09-14T17:01:00Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.product",
+      "source_id": "source.derived",
+      "state": "OBSERVED",
+      "subject_id": "product.calendly",
+      "supersedes_fact_id": null,
+      "target": {
+        "record_key": "product1",
+        "theme_id": "theme.reporting"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": null,
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.classify.product2",
+      "execution_id": "ex.classify.product2",
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.classify.product2",
+      "nature": "INFERENCE",
+      "object": {
+        "record_key": "product2",
+        "sentiment": "NEGATIVE",
+        "stance": "EXPERIENCED",
+        "support_locator_ids": [
+          "loc.art.product2"
+        ],
+        "theme_id": "theme.reporting"
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "review.theme_classification",
+      "reason": null,
+      "recorded_at": "2026-09-14T17:01:00Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.product",
+      "source_id": "source.derived",
+      "state": "OBSERVED",
+      "subject_id": "product.calendly",
+      "supersedes_fact_id": null,
+      "target": {
+        "record_key": "product2",
+        "theme_id": "theme.reporting"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": null,
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.classify.local1",
+      "execution_id": "ex.classify.local1",
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.classify.local1",
+      "nature": "INFERENCE",
+      "object": {
+        "record_key": "local1",
+        "sentiment": "NEGATIVE",
+        "stance": "EXPERIENCED",
+        "support_locator_ids": [
+          "loc.art.local1"
+        ],
+        "theme_id": "theme.follow_up"
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "review.theme_classification",
+      "reason": null,
+      "recorded_at": "2026-09-14T17:01:00Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.local",
+      "source_id": "source.derived",
+      "state": "OBSERVED",
+      "subject_id": "location.acme",
+      "supersedes_fact_id": null,
+      "target": {
+        "record_key": "local1",
+        "theme_id": "theme.follow_up"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": null,
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.classify.forum1",
+      "execution_id": "ex.classify.forum1",
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.classify.forum1",
+      "nature": "INFERENCE",
+      "object": {
+        "record_key": "forum1",
+        "sentiment": "NEUTRAL",
+        "stance": "EXPERIENCED",
+        "support_locator_ids": [
+          "loc.art.forum1"
+        ],
+        "theme_id": "theme.spreadsheets"
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "discussion.theme_classification",
+      "reason": null,
+      "recorded_at": "2026-09-14T17:01:00Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.industry",
+      "source_id": "source.derived",
+      "state": "OBSERVED",
+      "subject_id": "industry.medical",
+      "supersedes_fact_id": null,
+      "target": {
+        "record_key": "forum1",
+        "theme_id": "theme.spreadsheets"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": null,
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.prior.product",
+      "execution_id": "ex.summary.product",
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.prior.product",
+      "nature": "DERIVED_MEASUREMENT",
+      "object": {
+        "classified_eligible_count": 2,
+        "contradicting_fact_ids": [],
+        "denominator_definition": "ELIGIBLE_RETRIEVED_RECORDS_INCLUDING_UNCLASSIFIED",
+        "eligible_count": 3,
+        "population_claim": false,
+        "sample_id": "sample.product",
+        "sample_share": 0.6666666666666666,
+        "support_count": 2,
+        "support_policy_id": "support.negative_experience",
+        "supporting_fact_ids": [
+          "f.classify.product1",
+          "f.classify.product2"
+        ],
+        "theme_id": "theme.reporting",
+        "unclassified_count": 1
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "product.pain_prior",
+      "reason": null,
+      "recorded_at": "2026-09-14T17:03:00Z",
+      "run_id": "run.demo",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.product",
+      "source_id": "source.derived",
+      "state": "OBSERVED",
+      "subject_id": "product.calendly",
+      "supersedes_fact_id": null,
+      "target": {
+        "sample_id": "sample.product",
+        "theme_id": "theme.reporting"
+      },
+      "tenant_id": "tenant.demo",
+      "window": {
+        "end": "2026-09-14T00:00:00Z",
+        "start": "2026-09-01T00:00:00Z"
+      }
+    },
+    {
+      "binding_id": null,
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.prior.local",
+      "execution_id": "ex.summary.local",
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.prior.local",
+      "nature": "DERIVED_MEASUREMENT",
+      "object": {
+        "classified_eligible_count": 1,
+        "contradicting_fact_ids": [],
+        "denominator_definition": "ELIGIBLE_RETRIEVED_RECORDS_INCLUDING_UNCLASSIFIED",
+        "eligible_count": 2,
+        "population_claim": false,
+        "sample_id": "sample.local",
+        "sample_share": 0.5,
+        "support_count": 1,
+        "support_policy_id": "support.negative_experience",
+        "supporting_fact_ids": [
+          "f.classify.local1"
+        ],
+        "theme_id": "theme.follow_up",
+        "unclassified_count": 1
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "review.theme_summary",
+      "reason": null,
+      "recorded_at": "2026-09-14T17:03:00Z",
+      "run_id": "run.demo",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.local",
+      "source_id": "source.derived",
+      "state": "OBSERVED",
+      "subject_id": "location.acme",
+      "supersedes_fact_id": null,
+      "target": {
+        "sample_id": "sample.local",
+        "theme_id": "theme.follow_up"
+      },
+      "tenant_id": "tenant.demo",
+      "window": {
+        "end": "2026-09-14T00:00:00Z",
+        "start": "2026-09-01T00:00:00Z"
+      }
+    },
+    {
+      "binding_id": null,
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.prior.industry",
+      "execution_id": "ex.summary.industry",
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.prior.industry",
+      "nature": "DERIVED_MEASUREMENT",
+      "object": {
+        "classified_eligible_count": 1,
+        "contradicting_fact_ids": [],
+        "denominator_definition": "ELIGIBLE_RETRIEVED_RECORDS_INCLUDING_UNCLASSIFIED",
+        "eligible_count": 2,
+        "population_claim": false,
+        "sample_id": "sample.industry",
+        "sample_share": 0.5,
+        "support_count": 1,
+        "support_policy_id": "support.workflow_mention",
+        "supporting_fact_ids": [
+          "f.classify.forum1"
+        ],
+        "theme_id": "theme.spreadsheets",
+        "unclassified_count": 1
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "industry.pain_prior",
+      "reason": null,
+      "recorded_at": "2026-09-14T17:03:00Z",
+      "run_id": "run.demo",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.industry",
+      "source_id": "source.derived",
+      "state": "OBSERVED",
+      "subject_id": "industry.medical",
+      "supersedes_fact_id": null,
+      "target": {
+        "sample_id": "sample.industry",
+        "theme_id": "theme.spreadsheets"
+      },
+      "tenant_id": "tenant.demo",
+      "window": {
+        "end": "2026-09-14T00:00:00Z",
+        "start": "2026-09-01T00:00:00Z"
+      }
+    },
+    {
+      "binding_id": "bind.art.home",
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.industry",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.industry",
+      "nature": "FIRST_PARTY_STATEMENT",
+      "object": {
+        "basis": "EXPLICIT_SELF_DESCRIPTION",
+        "industry_id": "industry.medical"
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "account.industry_membership",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.home",
+      "source_id": "source.web",
+      "state": "OBSERVED",
+      "subject_id": "org.acme",
+      "supersedes_fact_id": null,
+      "target": {
+        "industry_id": "industry.medical"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": "bind.art.traffic",
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.traffic",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.traffic",
+      "nature": "PROVIDER_ESTIMATE",
+      "object": {
+        "denominator": null,
+        "dimensions": {
+          "country": "US",
+          "device": "ALL",
+          "granularity": "MONTHLY"
+        },
+        "method_version": "fixture-estimator-v1",
+        "metric_id": "traffic.visits",
+        "numerator": null,
+        "reporting_timezone": "UTC",
+        "sample_size": null,
+        "uncertainty": null,
+        "unit": "count",
+        "value": 12000
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "traffic.measurement",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.traffic",
+      "source_id": "source.estimate",
+      "state": "OBSERVED",
+      "subject_id": "org.acme",
+      "supersedes_fact_id": null,
+      "target": {
+        "dimensions": {
+          "country": "US",
+          "device": "ALL",
+          "granularity": "MONTHLY"
+        },
+        "method_version": "fixture-estimator-v1",
+        "metric_id": "traffic.visits",
+        "provider": "Synthetic estimates",
+        "reporting_timezone": "UTC"
+      },
+      "tenant_id": "tenant.demo",
+      "window": {
+        "end": "2026-09-01T00:00:00Z",
+        "start": "2026-08-01T00:00:00Z"
+      }
+    },
+    {
+      "binding_id": "bind.art.data",
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.serp",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.serp",
+      "nature": "THIRD_PARTY_REPORT",
+      "object": {
+        "engine": "fixture-search",
+        "query": "test clinic",
+        "rank": 3,
+        "result_type": "ORGANIC",
+        "title": "Acme Test Practice",
+        "url": "https://acme.example.test/"
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "search.result",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.data",
+      "source_id": "source.data",
+      "state": "OBSERVED",
+      "subject_id": "org.acme",
+      "supersedes_fact_id": null,
+      "target": {
+        "country": "US",
+        "device": "DESKTOP",
+        "engine": "fixture-search",
+        "query": "test clinic",
+        "rank": 3
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": "bind.art.registry",
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.registry",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.registry",
+      "nature": "REGISTRY_RECORD",
+      "object": {
+        "effective_at": null,
+        "filed_at": null,
+        "identifier": "SYNTHETIC-NPI-RECORD",
+        "issuer": "Synthetic Registry",
+        "jurisdiction": "US",
+        "namespace": "fixture.npi",
+        "record_id": "SYNTHETIC-NPI-RECORD",
+        "record_status": "ACTIVE_RECORD",
+        "registration_kind": "NPI"
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "registry.registration",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.registry",
+      "source_id": "source.registry",
+      "state": "OBSERVED",
+      "subject_id": "person.provider",
+      "supersedes_fact_id": null,
+      "target": {
+        "namespace": "fixture.npi",
+        "record_id": "SYNTHETIC-NPI-RECORD"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": "bind.art.private",
+      "confidence": null,
+      "effective_at": "2026-09-14T15:00:00Z",
+      "evidence_id": "ev.f.call",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.call",
+      "nature": "DIRECT_OBSERVATION",
+      "object": {
+        "call_key": "call-1",
+        "callback_of": null,
+        "direction": "INBOUND",
+        "duration_seconds": 0,
+        "started_at": "2026-09-14T15:00:00Z",
+        "status": "MISSED"
+      },
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "phone.call_event",
+      "reason": null,
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.private",
+      "source_id": "source.private",
+      "state": "OBSERVED",
+      "subject_id": "org.acme",
+      "supersedes_fact_id": null,
+      "target": {
+        "call_key": "call-1",
+        "system_id": "fixture.pbx"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": "bind.art.home",
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.f.no_form",
+      "execution_id": "ex.detect.form",
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.no_form",
+      "nature": "DIRECT_OBSERVATION",
+      "object": null,
+      "observed_at": "2026-09-14T16:00:00Z",
+      "predicate_id": "form.surface",
+      "reason": "NOT_DETECTED_IN_SCOPE",
+      "recorded_at": "2026-09-14T16:36:00Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.home",
+      "source_id": "source.web",
+      "state": "NOT_FOUND",
+      "subject_id": "org.acme",
+      "supersedes_fact_id": null,
+      "target": {
+        "form_key": "primary_contact"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    },
+    {
+      "binding_id": null,
+      "confidence": null,
+      "effective_at": null,
+      "evidence_id": "ev.unknown",
+      "execution_id": null,
+      "expires_at": "2026-09-28T16:00:00Z",
+      "fact_id": "f.unknown",
+      "nature": "DIRECT_OBSERVATION",
+      "object": null,
+      "observed_at": "2026-09-14T16:00:05Z",
+      "predicate_id": "technology.footprint",
+      "reason": "POLICY_BLOCKED",
+      "recorded_at": "2026-09-14T16:00:30Z",
+      "run_id": "run.ingest",
+      "schema_version": "4.2.0",
+      "scope_id": "scope.denied",
+      "source_id": "source.blocked",
+      "state": "UNKNOWN",
+      "subject_id": "org.other",
+      "supersedes_fact_id": null,
+      "target": {
+        "product_id": "product.calendly"
+      },
+      "tenant_id": "tenant.demo",
+      "window": null
+    }
+  ],
+  "gates": [
+    {
+      "actor_id": "actor.fixture",
+      "decision": "ALLOW",
+      "destination_id": "destination.fixture",
+      "evaluated_at": "2026-09-14T20:00:10Z",
+      "gate_id": "gate.fixture",
+      "package": {
+        "content_hash": "sha256:08989e446300e46d71bb42c705ef1feb32fb996faed9084880488cb4f528e771",
+        "package_id": "package.product",
+        "revision": 1
+      },
+      "purpose": "PREVIEW_EXPORT",
+      "reasons": [],
+      "recipient_key": null,
+      "review_id": "review.package.product",
+      "tenant_id": "tenant.demo",
+      "valid_until": "2026-09-14T20:05:00Z",
+      "version_vector": "sha256:dba094e63287ab68f9d675d5c381d639a13d81b7003d5ba70be5c057ba3cc415"
+    }
+  ],
+  "intakes": [
+    {
+      "idempotency_key": "intake-fixture-v41",
+      "intake_id": "intake.fixture",
+      "profile_id": "profile.broad_research",
+      "purpose": "REVIEWED_HANDOFF",
+      "received_at": "2026-09-14T14:59:00Z",
+      "request_hash": "sha256:33f756cafcb34b651820e92ff9751dd74163584bff6fc393cac2099b92d4e126",
+      "requester_id": "actor.fixture",
+      "targets": [
+        {
+          "resource_uri": "https://acme.example.test/",
+          "subject_id": "org.acme"
+        },
+        {
+          "resource_uri": "https://acme.example.test/careers/operations",
+          "subject_id": "org.acme"
+        },
+        {
+          "resource_uri": "https://reviews.example.test/product/1",
+          "subject_id": "product.calendly"
+        },
+        {
+          "resource_uri": "https://reviews.example.test/product/2",
+          "subject_id": "product.calendly"
+        },
+        {
+          "resource_uri": "https://reviews.example.test/product/3",
+          "subject_id": "product.calendly"
+        },
+        {
+          "resource_uri": "https://reviews.example.test/local/1",
+          "subject_id": "location.acme"
+        },
+        {
+          "resource_uri": "https://reviews.example.test/local/2",
+          "subject_id": "location.acme"
+        },
+        {
+          "resource_uri": "https://forum.example.test/posts/1",
+          "subject_id": "industry.medical"
+        },
+        {
+          "resource_uri": "https://forum.example.test/posts/2",
+          "subject_id": "industry.medical"
+        },
+        {
+          "resource_uri": "https://fixture.example.test/traffic",
+          "subject_id": "org.acme"
+        },
+        {
+          "resource_uri": "https://fixture.example.test/data",
+          "subject_id": "org.acme"
+        },
+        {
+          "resource_uri": "https://fixture.example.test/registry",
+          "subject_id": "person.provider"
+        },
+        {
+          "resource_uri": "https://fixture.example.test/private",
+          "subject_id": "org.acme"
+        },
+        {
+          "resource_uri": "https://fixture.example.test/product_docs",
+          "subject_id": "product.calendly"
+        },
+        {
+          "resource_uri": "https://fixture.example.test/model/request",
+          "subject_id": "org.acme"
+        },
+        {
+          "resource_uri": "https://fixture.example.test/model/response",
+          "subject_id": "org.acme"
+        },
+        {
+          "resource_uri": "https://fixture.example.test/blocked-careers",
+          "subject_id": "org.other"
+        }
+      ],
+      "tenant_id": "tenant.demo"
+    }
+  ],
+  "locators": [
+    {
+      "artifact_id": "art.home",
+      "end": null,
+      "kind": "WHOLE_ARTIFACT",
+      "locator_id": "loc.art.home",
+      "pointer": null,
+      "quote": null,
+      "start": null
+    },
+    {
+      "artifact_id": "art.job",
+      "end": null,
+      "kind": "WHOLE_ARTIFACT",
+      "locator_id": "loc.art.job",
+      "pointer": null,
+      "quote": null,
+      "start": null
+    },
+    {
+      "artifact_id": "art.product1",
+      "end": null,
+      "kind": "WHOLE_ARTIFACT",
+      "locator_id": "loc.art.product1",
+      "pointer": null,
+      "quote": null,
+      "start": null
+    },
+    {
+      "artifact_id": "art.product2",
+      "end": null,
+      "kind": "WHOLE_ARTIFACT",
+      "locator_id": "loc.art.product2",
+      "pointer": null,
+      "quote": null,
+      "start": null
+    },
+    {
+      "artifact_id": "art.product3",
+      "end": null,
+      "kind": "WHOLE_ARTIFACT",
+      "locator_id": "loc.art.product3",
+      "pointer": null,
+      "quote": null,
+      "start": null
+    },
+    {
+      "artifact_id": "art.local1",
+      "end": null,
+      "kind": "WHOLE_ARTIFACT",
+      "locator_id": "loc.art.local1",
+      "pointer": null,
+      "quote": null,
+      "start": null
+    },
+    {
+      "artifact_id": "art.local2",
+      "end": null,
+      "kind": "WHOLE_ARTIFACT",
+      "locator_id": "loc.art.local2",
+      "pointer": null,
+      "quote": null,
+      "start": null
+    },
+    {
+      "artifact_id": "art.forum1",
+      "end": null,
+      "kind": "WHOLE_ARTIFACT",
+      "locator_id": "loc.art.forum1",
+      "pointer": null,
+      "quote": null,
+      "start": null
+    },
+    {
+      "artifact_id": "art.forum2",
+      "end": null,
+      "kind": "WHOLE_ARTIFACT",
+      "locator_id": "loc.art.forum2",
+      "pointer": null,
+      "quote": null,
+      "start": null
+    },
+    {
+      "artifact_id": "art.traffic",
+      "end": null,
+      "kind": "WHOLE_ARTIFACT",
+      "locator_id": "loc.art.traffic",
+      "pointer": null,
+      "quote": null,
+      "start": null
+    },
+    {
+      "artifact_id": "art.data",
+      "end": null,
+      "kind": "WHOLE_ARTIFACT",
+      "locator_id": "loc.art.data",
+      "pointer": null,
+      "quote": null,
+      "start": null
+    },
+    {
+      "artifact_id": "art.registry",
+      "end": null,
+      "kind": "WHOLE_ARTIFACT",
+      "locator_id": "loc.art.registry",
+      "pointer": null,
+      "quote": null,
+      "start": null
+    },
+    {
+      "artifact_id": "art.private",
+      "end": null,
+      "kind": "WHOLE_ARTIFACT",
+      "locator_id": "loc.art.private",
+      "pointer": null,
+      "quote": null,
+      "start": null
+    },
+    {
+      "artifact_id": "art.product_docs",
+      "end": null,
+      "kind": "WHOLE_ARTIFACT",
+      "locator_id": "loc.art.product_docs",
+      "pointer": null,
+      "quote": null,
+      "start": null
+    },
+    {
+      "artifact_id": "art.request",
+      "end": null,
+      "kind": "WHOLE_ARTIFACT",
+      "locator_id": "loc.art.request",
+      "pointer": null,
+      "quote": null,
+      "start": null
+    },
+    {
+      "artifact_id": "art.response",
+      "end": null,
+      "kind": "WHOLE_ARTIFACT",
+      "locator_id": "loc.art.response",
+      "pointer": null,
+      "quote": null,
+      "start": null
+    }
+  ],
+  "model-calls": [
+    {
+      "call_id": "call.fixture",
+      "input_artifact_ids": [
+        "art.job"
+      ],
+      "max_repair_attempts": 2,
+      "model": "not-a-live-model",
+      "output_schema_id": "QuotedTextResult",
+      "policy_ids": [
+        "policy.fixture"
+      ],
+      "prompt_hash": "sha256:0a98db425d33f1eee6fa26e5a456281d544ca6cf07162b093d5e8a9a398480fd",
+      "provider": "Synthetic model",
+      "request_artifact_id": "art.request",
+      "response_artifact_id": "art.response",
+      "status": "PARSED",
+      "task_version": "1.0.0",
+      "tenant_id": "tenant.demo",
+      "terminal_reason": null
+    }
+  ],
+  "outcomes": [],
+  "packages": [
+    {
+      "approved_at": "2026-09-14T20:00:00Z",
+      "clauses": [
+        {
+          "clause_id": "clause.product",
+          "evidence_roles": [
+            "DIRECT"
+          ],
+          "fact_ids": [
+            "f.tech"
+          ],
+          "template_id": "template.observed_product",
+          "text": "I noticed a Calendly embed on your site."
+        }
+      ],
+      "context_ids": [
+        "context.product"
+      ],
+      "maturity_fact_id": null,
+      "package_id": "package.product",
+      "rendered_text": "I noticed a Calendly embed on your site. How are booked appointments passed into your CRM today?",
+      "review_id": "review.package.product",
+      "revision": 1,
+      "run_id": "run.demo",
+      "send_allowed": false,
+      "signal_ids": [
+        "signal.tech"
+      ],
+      "status": "DESIGN_TEST_APPROVED",
+      "subject_id": "org.acme",
+      "template_id": "template.observed_product",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "approved_at": "2026-09-14T20:00:00Z",
+      "clauses": [
+        {
+          "clause_id": "clause.job",
+          "evidence_roles": [
+            "ATTRIBUTED"
+          ],
+          "fact_ids": [
+            "f.job_statement"
+          ],
+          "template_id": "template.job_question",
+          "text": "Your job posting states: “Maintain the Excel reconciliation workbook and update CRM records.”"
+        }
+      ],
+      "context_ids": [],
+      "maturity_fact_id": null,
+      "package_id": "package.job",
+      "rendered_text": "Your job posting states: “Maintain the Excel reconciliation workbook and update CRM records.” How does your team handle that handoff today?",
+      "review_id": "review.package.job",
+      "revision": 1,
+      "run_id": "run.demo",
+      "send_allowed": false,
+      "signal_ids": [
+        "signal.job"
+      ],
+      "status": "DESIGN_TEST_APPROVED",
+      "subject_id": "org.acme",
+      "template_id": "template.job_question",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "approved_at": "2026-09-14T20:00:00Z",
+      "clauses": [
+        {
+          "clause_id": "clause.absence",
+          "evidence_roles": [
+            "SCOPED_ABSENCE"
+          ],
+          "fact_ids": [
+            "f.no_form"
+          ],
+          "template_id": "template.scoped_absence",
+          "text": "In the captured page sample (homepage raw HTML captured on September 14, 2026), the configured detector did not find the specified form surface."
+        }
+      ],
+      "context_ids": [],
+      "maturity_fact_id": null,
+      "package_id": "package.absence",
+      "rendered_text": "In the captured page sample (homepage raw HTML captured on September 14, 2026), the configured detector did not find the specified form surface. How do new inquiries reach your team?",
+      "review_id": "review.package.absence",
+      "revision": 1,
+      "run_id": "run.demo",
+      "send_allowed": false,
+      "signal_ids": [
+        "signal.form"
+      ],
+      "status": "DESIGN_TEST_APPROVED",
+      "subject_id": "org.acme",
+      "template_id": "template.scoped_absence",
+      "tenant_id": "tenant.demo"
+    }
+  ],
+  "repairs": [],
+  "resolutions": [
+    {
+      "accepted_fact_ids": [
+        "f.forum1"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.forum1"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "discussion.record",
+      "resolution_id": "resolution.run.ingest.0",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.industry",
+      "status": "KNOWN",
+      "subject_id": "industry.medical",
+      "target": {
+        "community": "fixture_medical",
+        "post_key": "p1"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.forum2"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.forum2"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "discussion.record",
+      "resolution_id": "resolution.run.ingest.1",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.industry",
+      "status": "KNOWN",
+      "subject_id": "industry.medical",
+      "target": {
+        "community": "fixture_medical",
+        "post_key": "p2"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.classify.forum1"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.classify.forum1"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "discussion.theme_classification",
+      "resolution_id": "resolution.run.ingest.2",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.industry",
+      "status": "KNOWN",
+      "subject_id": "industry.medical",
+      "target": {
+        "record_key": "forum1",
+        "theme_id": "theme.spreadsheets"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.local1"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.local1"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "review.record",
+      "resolution_id": "resolution.run.ingest.3",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.local",
+      "status": "KNOWN",
+      "subject_id": "location.acme",
+      "target": {
+        "platform": "fixture_reviews",
+        "review_key": "local1"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.local2"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.local2"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "review.record",
+      "resolution_id": "resolution.run.ingest.4",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.local",
+      "status": "KNOWN",
+      "subject_id": "location.acme",
+      "target": {
+        "platform": "fixture_reviews",
+        "review_key": "local2"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.classify.local1"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.classify.local1"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "review.theme_classification",
+      "resolution_id": "resolution.run.ingest.5",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.local",
+      "status": "KNOWN",
+      "subject_id": "location.acme",
+      "target": {
+        "record_key": "local1",
+        "theme_id": "theme.follow_up"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.industry"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.industry"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "account.industry_membership",
+      "resolution_id": "resolution.run.ingest.6",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.home",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "industry_id": "industry.medical"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.no_form"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.no_form"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "form.surface",
+      "resolution_id": "resolution.run.ingest.7",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.home",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "form_key": "primary_contact"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.job"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.job"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "job.posting",
+      "resolution_id": "resolution.run.ingest.8",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.job",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "namespace": "ats.fixture",
+        "posting_id": "job-1"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.salary"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.salary"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "job.salary",
+      "resolution_id": "resolution.run.ingest.9",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.job",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "component": "base",
+        "namespace": "ats.fixture",
+        "posting_id": "job-1"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.job_statement"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.job_statement"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "job.workflow_statement",
+      "resolution_id": "resolution.run.ingest.10",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.job",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "statement_id": "st.job1"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.call"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.call"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "phone.call_event",
+      "resolution_id": "resolution.run.ingest.11",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.private",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "call_key": "call-1",
+        "system_id": "fixture.pbx"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.serp"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.serp"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "search.result",
+      "resolution_id": "resolution.run.ingest.12",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.data",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "country": "US",
+        "device": "DESKTOP",
+        "engine": "fixture-search",
+        "query": "test clinic",
+        "rank": 3
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.tech"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.tech"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "technology.footprint",
+      "resolution_id": "resolution.run.ingest.13",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.home",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "product_id": "product.calendly"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.traffic"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.traffic"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "traffic.measurement",
+      "resolution_id": "resolution.run.ingest.14",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.traffic",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "dimensions": {
+          "country": "US",
+          "device": "ALL",
+          "granularity": "MONTHLY"
+        },
+        "method_version": "fixture-estimator-v1",
+        "metric_id": "traffic.visits",
+        "provider": "Synthetic estimates",
+        "reporting_timezone": "UTC"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.vendor1"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.vendor1"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "vendor.present",
+      "resolution_id": "resolution.run.ingest.15",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.home",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "entity_id": "product.calendly"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.vendor2"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.vendor2"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "vendor.present",
+      "resolution_id": "resolution.run.ingest.16",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.home",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "entity_id": "product.crm"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.unknown"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "technology.footprint",
+      "resolution_id": "resolution.run.ingest.17",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.denied",
+      "status": "UNKNOWN",
+      "subject_id": "org.other",
+      "target": {
+        "product_id": "product.calendly"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.registry"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.registry"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "registry.registration",
+      "resolution_id": "resolution.run.ingest.18",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.registry",
+      "status": "KNOWN",
+      "subject_id": "person.provider",
+      "target": {
+        "namespace": "fixture.npi",
+        "record_id": "SYNTHETIC-NPI-RECORD"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.capability"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.capability"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "product.capability",
+      "resolution_id": "resolution.run.ingest.19",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.product_docs",
+      "status": "KNOWN",
+      "subject_id": "product.calendly",
+      "target": {
+        "item_id": "scheduling"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.product1"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.product1"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "review.record",
+      "resolution_id": "resolution.run.ingest.20",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.product",
+      "status": "KNOWN",
+      "subject_id": "product.calendly",
+      "target": {
+        "platform": "fixture_reviews",
+        "review_key": "product1"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.product2"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.product2"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "review.record",
+      "resolution_id": "resolution.run.ingest.21",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.product",
+      "status": "KNOWN",
+      "subject_id": "product.calendly",
+      "target": {
+        "platform": "fixture_reviews",
+        "review_key": "product2"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.product3"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.product3"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "review.record",
+      "resolution_id": "resolution.run.ingest.22",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.product",
+      "status": "KNOWN",
+      "subject_id": "product.calendly",
+      "target": {
+        "platform": "fixture_reviews",
+        "review_key": "product3"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.classify.product1"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.classify.product1"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "review.theme_classification",
+      "resolution_id": "resolution.run.ingest.23",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.product",
+      "status": "KNOWN",
+      "subject_id": "product.calendly",
+      "target": {
+        "record_key": "product1",
+        "theme_id": "theme.reporting"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.classify.product2"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.classify.product2"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "review.theme_classification",
+      "resolution_id": "resolution.run.ingest.24",
+      "resolved_at": "2026-09-14T17:01:20Z",
+      "run_id": "run.ingest",
+      "scope_id": "scope.product",
+      "status": "KNOWN",
+      "subject_id": "product.calendly",
+      "target": {
+        "record_key": "product2",
+        "theme_id": "theme.reporting"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.forum1"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.forum1"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "discussion.record",
+      "resolution_id": "resolution.run.demo.0",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.industry",
+      "status": "KNOWN",
+      "subject_id": "industry.medical",
+      "target": {
+        "community": "fixture_medical",
+        "post_key": "p1"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.forum2"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.forum2"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "discussion.record",
+      "resolution_id": "resolution.run.demo.1",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.industry",
+      "status": "KNOWN",
+      "subject_id": "industry.medical",
+      "target": {
+        "community": "fixture_medical",
+        "post_key": "p2"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.classify.forum1"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.classify.forum1"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "discussion.theme_classification",
+      "resolution_id": "resolution.run.demo.2",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.industry",
+      "status": "KNOWN",
+      "subject_id": "industry.medical",
+      "target": {
+        "record_key": "forum1",
+        "theme_id": "theme.spreadsheets"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.prior.industry"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.prior.industry"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "industry.pain_prior",
+      "resolution_id": "resolution.run.demo.3",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.industry",
+      "status": "KNOWN",
+      "subject_id": "industry.medical",
+      "target": {
+        "sample_id": "sample.industry",
+        "theme_id": "theme.spreadsheets"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.local1"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.local1"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "review.record",
+      "resolution_id": "resolution.run.demo.4",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.local",
+      "status": "KNOWN",
+      "subject_id": "location.acme",
+      "target": {
+        "platform": "fixture_reviews",
+        "review_key": "local1"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.local2"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.local2"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "review.record",
+      "resolution_id": "resolution.run.demo.5",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.local",
+      "status": "KNOWN",
+      "subject_id": "location.acme",
+      "target": {
+        "platform": "fixture_reviews",
+        "review_key": "local2"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.classify.local1"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.classify.local1"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "review.theme_classification",
+      "resolution_id": "resolution.run.demo.6",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.local",
+      "status": "KNOWN",
+      "subject_id": "location.acme",
+      "target": {
+        "record_key": "local1",
+        "theme_id": "theme.follow_up"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.prior.local"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.prior.local"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "review.theme_summary",
+      "resolution_id": "resolution.run.demo.7",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.local",
+      "status": "KNOWN",
+      "subject_id": "location.acme",
+      "target": {
+        "sample_id": "sample.local",
+        "theme_id": "theme.follow_up"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.industry"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.industry"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "account.industry_membership",
+      "resolution_id": "resolution.run.demo.8",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.home",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "industry_id": "industry.medical"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.no_form"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.no_form"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "form.surface",
+      "resolution_id": "resolution.run.demo.9",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.home",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "form_key": "primary_contact"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.job"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.job"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "job.posting",
+      "resolution_id": "resolution.run.demo.10",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.job",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "namespace": "ats.fixture",
+        "posting_id": "job-1"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.salary"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.salary"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "job.salary",
+      "resolution_id": "resolution.run.demo.11",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.job",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "component": "base",
+        "namespace": "ats.fixture",
+        "posting_id": "job-1"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.job_statement"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.job_statement"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "job.workflow_statement",
+      "resolution_id": "resolution.run.demo.12",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.job",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "statement_id": "st.job1"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.call"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.call"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "phone.call_event",
+      "resolution_id": "resolution.run.demo.13",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.private",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "call_key": "call-1",
+        "system_id": "fixture.pbx"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.serp"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.serp"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "search.result",
+      "resolution_id": "resolution.run.demo.14",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.data",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "country": "US",
+        "device": "DESKTOP",
+        "engine": "fixture-search",
+        "query": "test clinic",
+        "rank": 3
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.tech"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.tech"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "technology.footprint",
+      "resolution_id": "resolution.run.demo.15",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.home",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "product_id": "product.calendly"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.traffic"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.traffic"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "traffic.measurement",
+      "resolution_id": "resolution.run.demo.16",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.traffic",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "dimensions": {
+          "country": "US",
+          "device": "ALL",
+          "granularity": "MONTHLY"
+        },
+        "method_version": "fixture-estimator-v1",
+        "metric_id": "traffic.visits",
+        "provider": "Synthetic estimates",
+        "reporting_timezone": "UTC"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.vendor1"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.vendor1"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "vendor.present",
+      "resolution_id": "resolution.run.demo.17",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.home",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "entity_id": "product.calendly"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.vendor2"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.vendor2"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "vendor.present",
+      "resolution_id": "resolution.run.demo.18",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.home",
+      "status": "KNOWN",
+      "subject_id": "org.acme",
+      "target": {
+        "entity_id": "product.crm"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.unknown"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "technology.footprint",
+      "resolution_id": "resolution.run.demo.19",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.denied",
+      "status": "UNKNOWN",
+      "subject_id": "org.other",
+      "target": {
+        "product_id": "product.calendly"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.registry"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.registry"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "registry.registration",
+      "resolution_id": "resolution.run.demo.20",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.registry",
+      "status": "KNOWN",
+      "subject_id": "person.provider",
+      "target": {
+        "namespace": "fixture.npi",
+        "record_id": "SYNTHETIC-NPI-RECORD"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.capability"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.capability"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "product.capability",
+      "resolution_id": "resolution.run.demo.21",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.product_docs",
+      "status": "KNOWN",
+      "subject_id": "product.calendly",
+      "target": {
+        "item_id": "scheduling"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.prior.product"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.prior.product"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "product.pain_prior",
+      "resolution_id": "resolution.run.demo.22",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.product",
+      "status": "KNOWN",
+      "subject_id": "product.calendly",
+      "target": {
+        "sample_id": "sample.product",
+        "theme_id": "theme.reporting"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.product1"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.product1"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "review.record",
+      "resolution_id": "resolution.run.demo.23",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.product",
+      "status": "KNOWN",
+      "subject_id": "product.calendly",
+      "target": {
+        "platform": "fixture_reviews",
+        "review_key": "product1"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.product2"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.product2"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "review.record",
+      "resolution_id": "resolution.run.demo.24",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.product",
+      "status": "KNOWN",
+      "subject_id": "product.calendly",
+      "target": {
+        "platform": "fixture_reviews",
+        "review_key": "product2"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.product3"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.product3"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "review.record",
+      "resolution_id": "resolution.run.demo.25",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.product",
+      "status": "KNOWN",
+      "subject_id": "product.calendly",
+      "target": {
+        "platform": "fixture_reviews",
+        "review_key": "product3"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.classify.product1"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.classify.product1"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "review.theme_classification",
+      "resolution_id": "resolution.run.demo.26",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.product",
+      "status": "KNOWN",
+      "subject_id": "product.calendly",
+      "target": {
+        "record_key": "product1",
+        "theme_id": "theme.reporting"
+      },
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "accepted_fact_ids": [
+        "f.classify.product2"
+      ],
+      "as_of": "2026-09-14T20:00:00Z",
+      "observation_ids": [
+        "f.classify.product2"
+      ],
+      "policy_version": "1.0.0",
+      "predicate_id": "review.theme_classification",
+      "resolution_id": "resolution.run.demo.27",
+      "resolved_at": "2026-09-14T18:00:00Z",
+      "run_id": "run.demo",
+      "scope_id": "scope.product",
+      "status": "KNOWN",
+      "subject_id": "product.calendly",
+      "target": {
+        "record_key": "product2",
+        "theme_id": "theme.reporting"
+      },
+      "tenant_id": "tenant.demo"
+    }
+  ],
+  "restrictions": [],
+  "reviews": [
+    {
+      "action": "APPROVE",
+      "decided_at": "2026-09-14T20:00:00Z",
+      "package": {
+        "content_hash": "sha256:08989e446300e46d71bb42c705ef1feb32fb996faed9084880488cb4f528e771",
+        "package_id": "package.product",
+        "revision": 1
+      },
+      "policy_version": "4.2.0",
+      "reason": "Synthetic reviewer approval of the exact evidence-bound fixture message.",
+      "review_id": "review.package.product",
+      "reviewer_id": "actor.fixture",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "action": "APPROVE",
+      "decided_at": "2026-09-14T20:00:00Z",
+      "package": {
+        "content_hash": "sha256:314be3d0238065ad011bb0a99495dfd58354c2307f5a08cf7fdb5e63cac78fae",
+        "package_id": "package.job",
+        "revision": 1
+      },
+      "policy_version": "4.2.0",
+      "reason": "Synthetic reviewer approval of the exact evidence-bound fixture message.",
+      "review_id": "review.package.job",
+      "reviewer_id": "actor.fixture",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "action": "APPROVE",
+      "decided_at": "2026-09-14T20:00:00Z",
+      "package": {
+        "content_hash": "sha256:106f98c0c6389a26227e49d17df39c6b0676a3f041b612e01a1bc4a0d44e3aa3",
+        "package_id": "package.absence",
+        "revision": 1
+      },
+      "policy_version": "4.2.0",
+      "reason": "Synthetic reviewer approval of the exact evidence-bound fixture message.",
+      "review_id": "review.package.absence",
+      "reviewer_id": "actor.fixture",
+      "tenant_id": "tenant.demo"
+    }
+  ],
+  "runs": [
+    {
+      "approval_policy_version": "4.2.0",
+      "as_of": "2026-09-14T20:00:00Z",
+      "binding_ids": [
+        "bind.art.home",
+        "bind.art.job",
+        "bind.art.product1",
+        "bind.art.product2",
+        "bind.art.product3",
+        "bind.art.local1",
+        "bind.art.local2",
+        "bind.art.forum1",
+        "bind.art.forum2",
+        "bind.art.traffic",
+        "bind.art.data",
+        "bind.art.registry",
+        "bind.art.private",
+        "bind.art.product_docs",
+        "bind.art.request",
+        "bind.art.response"
+      ],
+      "code_release": "sha256:2b78bb4c671e60e764592424414c8bff320703929a43f47dc88911082b33b2d4",
+      "created_at": "2026-09-14T15:00:00Z",
+      "imported_execution_ids": [],
+      "input_artifact_ids": [
+        "art.home",
+        "art.job",
+        "art.product1",
+        "art.product2",
+        "art.product3",
+        "art.local1",
+        "art.local2",
+        "art.forum1",
+        "art.forum2",
+        "art.traffic",
+        "art.data",
+        "art.registry",
+        "art.private",
+        "art.product_docs",
+        "art.request",
+        "art.response"
+      ],
+      "input_fact_ids": [
+        "f.call",
+        "f.capability",
+        "f.forum1",
+        "f.forum2",
+        "f.industry",
+        "f.job",
+        "f.local1",
+        "f.local2",
+        "f.product1",
+        "f.product2",
+        "f.product3",
+        "f.registry",
+        "f.salary",
+        "f.serp",
+        "f.tech",
+        "f.traffic",
+        "f.unknown",
+        "f.vendor1",
+        "f.vendor2"
+      ],
+      "intake_id": "intake.fixture",
+      "knowledge_cutoff": "2026-09-14T16:30:00Z",
+      "mode": "DESIGN_TEST",
+      "produced_artifact_ids": [],
+      "produced_fact_ids": [
+        "f.classify.forum1",
+        "f.classify.local1",
+        "f.classify.product1",
+        "f.classify.product2",
+        "f.job_statement",
+        "f.no_form"
+      ],
+      "profile_id": "profile.broad_research",
+      "registry_release": "sha256:2825d95fe08a08c9f08e5205378722068355b7cf1617366463e15f2de4bcfdd6",
+      "resolution_ids": [
+        "resolution.run.ingest.0",
+        "resolution.run.ingest.1",
+        "resolution.run.ingest.2",
+        "resolution.run.ingest.3",
+        "resolution.run.ingest.4",
+        "resolution.run.ingest.5",
+        "resolution.run.ingest.6",
+        "resolution.run.ingest.7",
+        "resolution.run.ingest.8",
+        "resolution.run.ingest.9",
+        "resolution.run.ingest.10",
+        "resolution.run.ingest.11",
+        "resolution.run.ingest.12",
+        "resolution.run.ingest.13",
+        "resolution.run.ingest.14",
+        "resolution.run.ingest.15",
+        "resolution.run.ingest.16",
+        "resolution.run.ingest.17",
+        "resolution.run.ingest.18",
+        "resolution.run.ingest.19",
+        "resolution.run.ingest.20",
+        "resolution.run.ingest.21",
+        "resolution.run.ingest.22",
+        "resolution.run.ingest.23",
+        "resolution.run.ingest.24"
+      ],
+      "run_id": "run.ingest",
+      "sample_ids": [],
+      "sealed_at": "2026-09-14T16:30:00Z",
+      "status": "COMPLETE",
+      "target_results": [
+        {
+          "completed_at": "2026-09-14T17:01:10Z",
+          "reason": null,
+          "status": "COMPLETE",
+          "subject_id": "industry.medical"
+        },
+        {
+          "completed_at": "2026-09-14T17:01:10Z",
+          "reason": null,
+          "status": "COMPLETE",
+          "subject_id": "location.acme"
+        },
+        {
+          "completed_at": "2026-09-14T17:01:10Z",
+          "reason": null,
+          "status": "COMPLETE",
+          "subject_id": "org.acme"
+        },
+        {
+          "completed_at": "2026-09-14T17:01:10Z",
+          "reason": "POLICY_DENIED",
+          "status": "ABSTAINED",
+          "subject_id": "org.other"
+        },
+        {
+          "completed_at": "2026-09-14T17:01:10Z",
+          "reason": null,
+          "status": "COMPLETE",
+          "subject_id": "person.provider"
+        },
+        {
+          "completed_at": "2026-09-14T17:01:10Z",
+          "reason": null,
+          "status": "COMPLETE",
+          "subject_id": "product.calendly"
+        }
+      ],
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "approval_policy_version": "4.2.0",
+      "as_of": "2026-09-14T20:00:00Z",
+      "binding_ids": [
+        "bind.art.home",
+        "bind.art.job",
+        "bind.art.product1",
+        "bind.art.product2",
+        "bind.art.product3",
+        "bind.art.local1",
+        "bind.art.local2",
+        "bind.art.forum1",
+        "bind.art.forum2",
+        "bind.art.traffic",
+        "bind.art.data",
+        "bind.art.registry",
+        "bind.art.private",
+        "bind.art.product_docs",
+        "bind.art.request",
+        "bind.art.response"
+      ],
+      "code_release": "sha256:2b78bb4c671e60e764592424414c8bff320703929a43f47dc88911082b33b2d4",
+      "created_at": "2026-09-14T15:00:00Z",
+      "imported_execution_ids": [
+        "ex.job_llm",
+        "ex.classify.product1",
+        "ex.classify.product2",
+        "ex.classify.local1",
+        "ex.classify.forum1",
+        "ex.detect.form"
+      ],
+      "input_artifact_ids": [
+        "art.home",
+        "art.job",
+        "art.product1",
+        "art.product2",
+        "art.product3",
+        "art.local1",
+        "art.local2",
+        "art.forum1",
+        "art.forum2",
+        "art.traffic",
+        "art.data",
+        "art.registry",
+        "art.private",
+        "art.product_docs",
+        "art.request",
+        "art.response"
+      ],
+      "input_fact_ids": [
+        "f.call",
+        "f.capability",
+        "f.classify.forum1",
+        "f.classify.local1",
+        "f.classify.product1",
+        "f.classify.product2",
+        "f.forum1",
+        "f.forum2",
+        "f.industry",
+        "f.job",
+        "f.job_statement",
+        "f.local1",
+        "f.local2",
+        "f.no_form",
+        "f.product1",
+        "f.product2",
+        "f.product3",
+        "f.registry",
+        "f.salary",
+        "f.serp",
+        "f.tech",
+        "f.traffic",
+        "f.unknown",
+        "f.vendor1",
+        "f.vendor2"
+      ],
+      "intake_id": "intake.fixture",
+      "knowledge_cutoff": "2026-09-14T17:01:45Z",
+      "mode": "DESIGN_TEST",
+      "produced_artifact_ids": [],
+      "produced_fact_ids": [
+        "f.prior.industry",
+        "f.prior.local",
+        "f.prior.product"
+      ],
+      "profile_id": "profile.broad_research",
+      "registry_release": "sha256:2825d95fe08a08c9f08e5205378722068355b7cf1617366463e15f2de4bcfdd6",
+      "resolution_ids": [
+        "resolution.run.demo.0",
+        "resolution.run.demo.1",
+        "resolution.run.demo.2",
+        "resolution.run.demo.3",
+        "resolution.run.demo.4",
+        "resolution.run.demo.5",
+        "resolution.run.demo.6",
+        "resolution.run.demo.7",
+        "resolution.run.demo.8",
+        "resolution.run.demo.9",
+        "resolution.run.demo.10",
+        "resolution.run.demo.11",
+        "resolution.run.demo.12",
+        "resolution.run.demo.13",
+        "resolution.run.demo.14",
+        "resolution.run.demo.15",
+        "resolution.run.demo.16",
+        "resolution.run.demo.17",
+        "resolution.run.demo.18",
+        "resolution.run.demo.19",
+        "resolution.run.demo.20",
+        "resolution.run.demo.21",
+        "resolution.run.demo.22",
+        "resolution.run.demo.23",
+        "resolution.run.demo.24",
+        "resolution.run.demo.25",
+        "resolution.run.demo.26",
+        "resolution.run.demo.27"
+      ],
+      "run_id": "run.demo",
+      "sample_ids": [
+        "sample.product",
+        "sample.local",
+        "sample.industry"
+      ],
+      "sealed_at": "2026-09-14T17:02:00Z",
+      "status": "COMPLETE",
+      "target_results": [
+        {
+          "completed_at": "2026-09-14T19:00:00Z",
+          "reason": null,
+          "status": "COMPLETE",
+          "subject_id": "industry.medical"
+        },
+        {
+          "completed_at": "2026-09-14T19:00:00Z",
+          "reason": null,
+          "status": "COMPLETE",
+          "subject_id": "location.acme"
+        },
+        {
+          "completed_at": "2026-09-14T19:00:00Z",
+          "reason": null,
+          "status": "COMPLETE",
+          "subject_id": "org.acme"
+        },
+        {
+          "completed_at": "2026-09-14T19:00:00Z",
+          "reason": "POLICY_DENIED",
+          "status": "ABSTAINED",
+          "subject_id": "org.other"
+        },
+        {
+          "completed_at": "2026-09-14T19:00:00Z",
+          "reason": null,
+          "status": "COMPLETE",
+          "subject_id": "person.provider"
+        },
+        {
+          "completed_at": "2026-09-14T19:00:00Z",
+          "reason": null,
+          "status": "COMPLETE",
+          "subject_id": "product.calendly"
+        }
+      ],
+      "tenant_id": "tenant.demo"
+    }
+  ],
+  "samples": [
+    {
+      "complete_population": false,
+      "created_at": "2026-09-14T17:01:30Z",
+      "dedupe_policy_version": "1.0.0",
+      "eligible_artifact_ids": [
+        "art.product1",
+        "art.product2",
+        "art.product3"
+      ],
+      "excluded_artifact_ids": [],
+      "limitations": [
+        "Synthetic only; small selected sample, no population inference."
+      ],
+      "policy_ids": [
+        "policy.fixture"
+      ],
+      "population_size": null,
+      "record_decisions": [
+        {
+          "artifact_id": "art.product1",
+          "classification_fact_ids": [
+            "f.classify.product1"
+          ],
+          "reason": null,
+          "status": "SUPPORT"
+        },
+        {
+          "artifact_id": "art.product2",
+          "classification_fact_ids": [
+            "f.classify.product2"
+          ],
+          "reason": null,
+          "status": "SUPPORT"
+        },
+        {
+          "artifact_id": "art.product3",
+          "classification_fact_ids": [],
+          "reason": "Not theme-classified; retained in the retrieved-record denominator.",
+          "status": "UNCLASSIFIED"
+        }
+      ],
+      "retrieved_artifact_ids": [
+        "art.product1",
+        "art.product2",
+        "art.product3"
+      ],
+      "sample_id": "sample.product",
+      "sampling_frame": "Synthetic bounded sample; not representative of all users.",
+      "scope_id": "scope.product",
+      "selection_method": "CURATED_SAMPLE",
+      "subject_id": "product.calendly",
+      "support_policy_id": "support.negative_experience",
+      "tenant_id": "tenant.demo",
+      "theme_id": "theme.reporting",
+      "window": {
+        "end": "2026-09-14T00:00:00Z",
+        "start": "2026-09-01T00:00:00Z"
+      }
+    },
+    {
+      "complete_population": false,
+      "created_at": "2026-09-14T17:01:30Z",
+      "dedupe_policy_version": "1.0.0",
+      "eligible_artifact_ids": [
+        "art.local1",
+        "art.local2"
+      ],
+      "excluded_artifact_ids": [],
+      "limitations": [
+        "Synthetic only; small selected sample, no population inference."
+      ],
+      "policy_ids": [
+        "policy.fixture"
+      ],
+      "population_size": null,
+      "record_decisions": [
+        {
+          "artifact_id": "art.local1",
+          "classification_fact_ids": [
+            "f.classify.local1"
+          ],
+          "reason": null,
+          "status": "SUPPORT"
+        },
+        {
+          "artifact_id": "art.local2",
+          "classification_fact_ids": [],
+          "reason": "Not theme-classified; retained in the retrieved-record denominator.",
+          "status": "UNCLASSIFIED"
+        }
+      ],
+      "retrieved_artifact_ids": [
+        "art.local1",
+        "art.local2"
+      ],
+      "sample_id": "sample.local",
+      "sampling_frame": "Synthetic bounded sample; not representative of all users.",
+      "scope_id": "scope.local",
+      "selection_method": "CURATED_SAMPLE",
+      "subject_id": "location.acme",
+      "support_policy_id": "support.negative_experience",
+      "tenant_id": "tenant.demo",
+      "theme_id": "theme.follow_up",
+      "window": {
+        "end": "2026-09-14T00:00:00Z",
+        "start": "2026-09-01T00:00:00Z"
+      }
+    },
+    {
+      "complete_population": false,
+      "created_at": "2026-09-14T17:01:30Z",
+      "dedupe_policy_version": "1.0.0",
+      "eligible_artifact_ids": [
+        "art.forum1",
+        "art.forum2"
+      ],
+      "excluded_artifact_ids": [],
+      "limitations": [
+        "Synthetic only; small selected sample, no population inference."
+      ],
+      "policy_ids": [
+        "policy.fixture"
+      ],
+      "population_size": null,
+      "record_decisions": [
+        {
+          "artifact_id": "art.forum1",
+          "classification_fact_ids": [
+            "f.classify.forum1"
+          ],
+          "reason": null,
+          "status": "SUPPORT"
+        },
+        {
+          "artifact_id": "art.forum2",
+          "classification_fact_ids": [],
+          "reason": "Not theme-classified; retained in the retrieved-record denominator.",
+          "status": "UNCLASSIFIED"
+        }
+      ],
+      "retrieved_artifact_ids": [
+        "art.forum1",
+        "art.forum2"
+      ],
+      "sample_id": "sample.industry",
+      "sampling_frame": "Synthetic bounded sample; not representative of all users.",
+      "scope_id": "scope.industry",
+      "selection_method": "CURATED_SAMPLE",
+      "subject_id": "industry.medical",
+      "support_policy_id": "support.workflow_mention",
+      "tenant_id": "tenant.demo",
+      "theme_id": "theme.spreadsheets",
+      "window": {
+        "end": "2026-09-14T00:00:00Z",
+        "start": "2026-09-01T00:00:00Z"
+      }
+    }
+  ],
+  "scopes": [
+    {
+      "capture_mode": "RAW_HTML",
+      "kind": "PAGE",
+      "population_description": "homepage raw HTML captured on September 14, 2026",
+      "resources": [
+        "https://acme.example.test/"
+      ],
+      "scope_id": "scope.home",
+      "stable_scope_key": "scope.home",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "capture_mode": "API_BODY",
+      "kind": "PROVIDER_QUERY",
+      "population_description": "bounded synthetic test sample",
+      "resources": [
+        "https://acme.example.test/careers/operations"
+      ],
+      "scope_id": "scope.job",
+      "stable_scope_key": "scope.job",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "capture_mode": "API_BODY",
+      "kind": "RESEARCH_SAMPLE",
+      "population_description": "bounded synthetic test sample",
+      "resources": [
+        "https://reviews.example.test/product/1",
+        "https://reviews.example.test/product/2",
+        "https://reviews.example.test/product/3"
+      ],
+      "scope_id": "scope.product",
+      "stable_scope_key": "scope.product",
+      "subject_id": "product.calendly",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "capture_mode": "API_BODY",
+      "kind": "RESEARCH_SAMPLE",
+      "population_description": "bounded synthetic test sample",
+      "resources": [
+        "https://reviews.example.test/local/1",
+        "https://reviews.example.test/local/2"
+      ],
+      "scope_id": "scope.local",
+      "stable_scope_key": "scope.local",
+      "subject_id": "location.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "capture_mode": "API_BODY",
+      "kind": "RESEARCH_SAMPLE",
+      "population_description": "bounded synthetic test sample",
+      "resources": [
+        "https://forum.example.test/posts/1",
+        "https://forum.example.test/posts/2"
+      ],
+      "scope_id": "scope.industry",
+      "stable_scope_key": "scope.industry",
+      "subject_id": "industry.medical",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "capture_mode": "API_BODY",
+      "kind": "PROVIDER_QUERY",
+      "population_description": "bounded synthetic test sample",
+      "resources": [
+        "https://fixture.example.test/traffic"
+      ],
+      "scope_id": "scope.traffic",
+      "stable_scope_key": "scope.traffic",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "capture_mode": "API_BODY",
+      "kind": "PROVIDER_QUERY",
+      "population_description": "bounded synthetic test sample",
+      "resources": [
+        "https://fixture.example.test/data"
+      ],
+      "scope_id": "scope.data",
+      "stable_scope_key": "scope.data",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "capture_mode": "API_BODY",
+      "kind": "PROVIDER_QUERY",
+      "population_description": "bounded synthetic test sample",
+      "resources": [
+        "https://fixture.example.test/registry"
+      ],
+      "scope_id": "scope.registry",
+      "stable_scope_key": "scope.registry",
+      "subject_id": "person.provider",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "capture_mode": "API_BODY",
+      "kind": "AUTHORIZED_SYSTEM",
+      "population_description": "bounded synthetic test sample",
+      "resources": [
+        "https://fixture.example.test/private"
+      ],
+      "scope_id": "scope.private",
+      "stable_scope_key": "scope.private",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "capture_mode": "API_BODY",
+      "kind": "PROVIDER_QUERY",
+      "population_description": "bounded synthetic test sample",
+      "resources": [
+        "https://fixture.example.test/model/request",
+        "https://fixture.example.test/model/response"
+      ],
+      "scope_id": "scope.model",
+      "stable_scope_key": "scope.model",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "capture_mode": "API_BODY",
+      "kind": "PROVIDER_QUERY",
+      "population_description": "bounded synthetic test sample",
+      "resources": [
+        "https://fixture.example.test/product_docs"
+      ],
+      "scope_id": "scope.product_docs",
+      "stable_scope_key": "scope.product_docs",
+      "subject_id": "product.calendly",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "capture_mode": "RAW_HTML",
+      "kind": "PAGE",
+      "population_description": "A policy-blocked request; not checked.",
+      "resources": [
+        "https://fixture.example.test/blocked-careers"
+      ],
+      "scope_id": "scope.denied",
+      "stable_scope_key": "blocked-page",
+      "subject_id": "org.other",
+      "tenant_id": "tenant.demo"
+    }
+  ],
+  "signals": [
+    {
+      "context_ids": [
+        "context.product"
+      ],
+      "evaluated_at": "2026-09-14T19:30:00Z",
+      "input_fact_ids": [
+        "f.tech"
+      ],
+      "reason": null,
+      "run_id": "run.demo",
+      "signal_id": "signal.tech",
+      "signal_type_id": "TECHNOLOGY_FOOTPRINT",
+      "status": "RESOLVED",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "context_ids": [],
+      "evaluated_at": "2026-09-14T19:30:00Z",
+      "input_fact_ids": [
+        "f.job_statement"
+      ],
+      "reason": null,
+      "run_id": "run.demo",
+      "signal_id": "signal.job",
+      "signal_type_id": "JOB_WORKFLOW_STATEMENT",
+      "status": "RESOLVED",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "context_ids": [],
+      "evaluated_at": "2026-09-14T19:30:00Z",
+      "input_fact_ids": [
+        "f.no_form"
+      ],
+      "reason": null,
+      "run_id": "run.demo",
+      "signal_id": "signal.form",
+      "signal_type_id": "SCOPED_FORM_NONDETECTION",
+      "status": "RESOLVED",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo"
+    }
+  ],
+  "subjects": [
+    {
+      "display_name": "Acme Test Practice",
+      "external_ids": [],
+      "kind": "ORG",
+      "subject_id": "org.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "display_name": "Other Test Company",
+      "external_ids": [],
+      "kind": "ORG",
+      "subject_id": "org.other",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "display_name": "Acme Test Location",
+      "external_ids": [],
+      "kind": "LOCATION",
+      "subject_id": "location.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "display_name": "Calendly",
+      "external_ids": [],
+      "kind": "SOFTWARE_PRODUCT",
+      "subject_id": "product.calendly",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "display_name": "ExampleCRM",
+      "external_ids": [],
+      "kind": "SOFTWARE_PRODUCT",
+      "subject_id": "product.crm",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "display_name": "Medical practices",
+      "external_ids": [],
+      "kind": "INDUSTRY",
+      "subject_id": "industry.medical",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "display_name": "Synthetic Business Professional",
+      "external_ids": [],
+      "kind": "PERSON",
+      "subject_id": "person.provider",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "display_name": "Test App",
+      "external_ids": [],
+      "kind": "APPLICATION",
+      "subject_id": "app.acme",
+      "tenant_id": "tenant.demo"
+    },
+    {
+      "display_name": "Test Listing",
+      "external_ids": [],
+      "kind": "LISTING",
+      "subject_id": "listing.acme",
+      "tenant_id": "tenant.demo"
+    }
+  ]
+}

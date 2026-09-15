@@ -1,0 +1,10 @@
+WARNING: The directory '/home/oai/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Processing ./collector
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: keensight-scrapling-ingestion
+  Building wheel for keensight-scrapling-ingestion (pyproject.toml): started
+  Building wheel for keensight-scrapling-ingestion (pyproject.toml): finished with status 'done'
+  Created wheel for keensight-scrapling-ingestion: filename=keensight_scrapling_ingestion-0.2.0-py3-none-any.whl size=45100 sha256=11b033cfd5d549c51c754026da5e58202c92f47d6079f913e607a5bc1c27f96f
+  Stored in directory: /tmp/pip-ephem-wheel-cache-ltsbkhur/wheels/b4/6d/ce/6d0274b419e8ca2003fb44eb517b13f8ef56c78d168d29158e
+Successfully built keensight-scrapling-ingestion

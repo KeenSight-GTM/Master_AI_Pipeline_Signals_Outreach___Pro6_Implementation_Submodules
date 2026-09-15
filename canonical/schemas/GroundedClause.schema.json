@@ -1,0 +1,49 @@
+{
+  "$id": "https://keensight.local/v4.2/GroundedClause.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "clause_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "evidence_roles": {
+      "items": {
+        "enum": [
+          "DIRECT",
+          "ATTRIBUTED",
+          "SCOPED_ABSENCE"
+        ]
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "fact_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "template_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "text": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "clause_id",
+    "fact_ids",
+    "template_id",
+    "text",
+    "evidence_roles"
+  ],
+  "title": "GroundedClause",
+  "type": "object"
+}

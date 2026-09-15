@@ -1,0 +1,307 @@
+{
+  "$id": "https://keensight.local/v4.2/Fact.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "const": "OBSERVED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "object": {
+            "not": {
+              "type": "null"
+            }
+          },
+          "reason": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "const": "NOT_FOUND"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "object": {
+            "type": "null"
+          },
+          "reason": {
+            "const": "NOT_DETECTED_IN_SCOPE"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "const": "UNKNOWN"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "object": {
+            "type": "null"
+          },
+          "reason": {
+            "enum": [
+              "NOT_CHECKED",
+              "FETCH_FAILED",
+              "POLICY_BLOCKED",
+              "INSUFFICIENT_EVIDENCE",
+              "CONFLICT",
+              "AMBIGUOUS_ATTRIBUTION",
+              "EXTRACTION_FAILED"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "binding_id": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "confidence": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "calibration_id": {
+              "anyOf": [
+                {
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "meaning": {
+              "enum": [
+                "UNCALIBRATED_MODEL_SCORE",
+                "CALIBRATED_PRECISION",
+                "DETERMINISTIC_MATCH"
+              ]
+            },
+            "value": {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "value",
+            "meaning",
+            "calibration_id"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "effective_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "pattern": "Z$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "evidence_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "execution_id": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "expires_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "fact_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "nature": {
+      "enum": [
+        "DIRECT_OBSERVATION",
+        "FIRST_PARTY_STATEMENT",
+        "THIRD_PARTY_REPORT",
+        "PROVIDER_ESTIMATE",
+        "REGISTRY_RECORD",
+        "INFERENCE",
+        "DERIVED_MEASUREMENT"
+      ]
+    },
+    "object": {},
+    "observed_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "predicate_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "enum": [
+            "NOT_DETECTED_IN_SCOPE",
+            "NOT_CHECKED",
+            "FETCH_FAILED",
+            "POLICY_BLOCKED",
+            "INSUFFICIENT_EVIDENCE",
+            "CONFLICT",
+            "AMBIGUOUS_ATTRIBUTION",
+            "EXTRACTION_FAILED"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "recorded_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "run_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "4.2.0"
+    },
+    "scope_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "source_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "OBSERVED",
+        "NOT_FOUND",
+        "UNKNOWN"
+      ]
+    },
+    "subject_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "supersedes_fact_id": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "target": {
+      "type": "object"
+    },
+    "tenant_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "window": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "end": {
+              "format": "date-time",
+              "pattern": "Z$",
+              "type": "string"
+            },
+            "start": {
+              "format": "date-time",
+              "pattern": "Z$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "start",
+            "end"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "fact_id",
+    "tenant_id",
+    "subject_id",
+    "predicate_id",
+    "target",
+    "scope_id",
+    "state",
+    "object",
+    "nature",
+    "source_id",
+    "binding_id",
+    "evidence_id",
+    "execution_id",
+    "run_id",
+    "observed_at",
+    "recorded_at",
+    "effective_at",
+    "window",
+    "reason",
+    "expires_at",
+    "confidence",
+    "supersedes_fact_id"
+  ],
+  "title": "Fact",
+  "type": "object"
+}

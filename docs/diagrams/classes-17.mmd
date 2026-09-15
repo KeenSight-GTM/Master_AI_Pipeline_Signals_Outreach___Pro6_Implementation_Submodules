@@ -1,0 +1,63 @@
+classDiagram
+    class FollowUpTask {
+        task_id
+        conversation_ref
+        assigned_owner
+        task_kind
+        due_at
+        source_event_ref
+        state
+        authorization_requirements
+    }
+    class SalesHandoff {
+        handoff_id
+        account_ref
+        contact_ref
+        conversation_ref
+        exposure_refs
+        qualification_notes_refs
+        intended_owner
+        meeting_or_next_action
+        created_at
+    }
+    class CRMMapping {
+        mapping_id
+        provider
+        schema_version
+        field_ownership
+        inbound_outbound_transforms
+        idempotency_policy
+        suppression_rules
+        loop_prevention
+    }
+    class CRMAccountView {
+        view_id
+        account_ref
+        external_record_links
+        owner
+        lifecycle_stage
+        customer_or_open_deal_state
+        restriction_observations
+        provider_version
+        fetched_at
+    }
+    class CRMSyncIntent {
+        sync_id
+        tenant_id
+        mapping_ref
+        entity_link
+        desired_fields
+        source_record_refs
+        expected_remote_version
+        idempotency_key
+    }
+    class CRMSyncReceipt {
+        receipt_id
+        sync_intent_ref
+        external_record_ref
+        payload_hash
+        status
+        provider_version
+        confirmed_at
+        reconciliation_ref
+    }

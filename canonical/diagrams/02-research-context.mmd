@@ -1,0 +1,24 @@
+flowchart TB
+  A["Account: eligible product footprint and binding"]
+  B["Canonical software product subject"]
+  C["Permitted review or discussion records"]
+  D["Exact quoted classifications with stance and sentiment"]
+  E["ResearchSample: all retrieved eligible, excluded and unclassified records"]
+  P["Versioned support policy: pain versus workflow mention"]
+  F["Prior: scoped numerator and full denominator"]
+  G["Pinned matching context join: USABLE required"]
+  H["Internal investigation or neutral question selection"]
+  I["Separate account evidence for outward claims"]
+  X["No transfer of reported product pain into company fact"]
+  V["Deletion, expiry or rights change to any denominator input blocks current use"]
+  A -->|"explicit relationship"| B
+  C --> D
+  D -->|"one decision per retrieved record"| E
+  P -->|"stance and sentiment semantics"| F
+  E -->|"deduplicated record denominator"| F
+  B --> G
+  F --> G
+  G -->|"no ABSTAINED context"| H
+  H -->|"investigate; do not assert pain"| I
+  G -->|"hard boundary"| X
+  E -->|"all dependencies retained"| V

@@ -1,0 +1,103 @@
+{
+  "$id": "urn:keensight:module-protocol:1.0.0-draft.1:ModuleRequest",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "attempt": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "budget_reservation_ref": {
+      "anyOf": [
+        {
+          "$ref": "urn:keensight:module-protocol:1.0.0-draft.1:Common#/definitions/RecordRef"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "context": {
+      "$ref": "urn:keensight:module-protocol:1.0.0-draft.1:Common#/definitions/Context"
+    },
+    "deadline_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "execution_id": {
+      "maxLength": 240,
+      "minLength": 1,
+      "type": "string"
+    },
+    "idempotency_key": {
+      "maxLength": 240,
+      "minLength": 1,
+      "type": "string"
+    },
+    "input_refs": {
+      "items": {
+        "$ref": "urn:keensight:module-protocol:1.0.0-draft.1:Common#/definitions/RecordRef"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "module_id": {
+      "pattern": "^[A-Z]{2,5}-[0-9]{2}$",
+      "type": "string"
+    },
+    "operation": {
+      "pattern": "^[a-z][a-z0-9_.]*$",
+      "type": "string"
+    },
+    "parameters_ref": {
+      "anyOf": [
+        {
+          "$ref": "urn:keensight:module-protocol:1.0.0-draft.1:Common#/definitions/RecordRef"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "protocol_version": {
+      "const": "1.0.0-draft.1"
+    },
+    "release_lock_ref": {
+      "anyOf": [
+        {
+          "$ref": "urn:keensight:module-protocol:1.0.0-draft.1:Common#/definitions/RecordRef"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "request_id": {
+      "maxLength": 240,
+      "minLength": 1,
+      "type": "string"
+    },
+    "trace": {
+      "$ref": "urn:keensight:module-protocol:1.0.0-draft.1:Common#/definitions/Trace"
+    }
+  },
+  "required": [
+    "protocol_version",
+    "request_id",
+    "execution_id",
+    "attempt",
+    "module_id",
+    "operation",
+    "context",
+    "trace",
+    "release_lock_ref",
+    "parameters_ref",
+    "input_refs",
+    "budget_reservation_ref",
+    "deadline_at",
+    "idempotency_key"
+  ],
+  "type": "object"
+}

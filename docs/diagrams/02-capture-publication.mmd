@@ -1,0 +1,19 @@
+flowchart TD
+    r["Bounded request + attempt"]
+    c["Trusted Capture metadata<br/>+ original blob"]
+    x["17 extractor results<br/>complete / partial / failed"]
+    m["All rule matches<br/>semantic rule digest"]
+    o["Observation + support<br/>one captured claim/value"]
+    v["Validate full bundle<br/>rederive surfaces / reports / score"]
+    t["One SQLite transaction<br/>evaluation + findings + selection"]
+    f["Failure diagnostics<br/>no supported publication"]
+    re["Replay selected original captures"]
+    r -->|"bytes or no-byte failure"| c
+    c -->|"verified read"| x
+    x -->|"required capabilities"| m
+    m -->|"preserve every support"| o
+    o -->|"draft outputs"| v
+    v -->|"success"| t
+    v -->|"reject"| f
+    t -->|"recorded selection"| re
+    re -->|"new execution; original observation time"| x

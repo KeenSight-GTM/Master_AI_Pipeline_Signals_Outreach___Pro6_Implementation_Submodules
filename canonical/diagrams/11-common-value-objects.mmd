@@ -1,0 +1,42 @@
+classDiagram
+direction LR
+class TimeWindow {
+  +string start
+  +string end
+}
+class ExternalIdentifier {
+  +string namespace
+  +string value
+}
+class ConfidenceAssessment {
+  +number value
+  +enum meaning
+  +Optional~string~ calibration_id
+}
+class ObjectReferenceRule {
+  +enum container
+  +string path
+  +List~enum~ subject_kinds
+  +enum target_type
+}
+class CoverageCheck {
+  +string resource
+  +Optional~string~ artifact_id
+  +enum result
+}
+class FactRequirement {
+  +string predicate_id
+  +List~enum~ allowed_natures
+  +enum state
+  +int minimum
+  +string counting_unit
+}
+class PackageReference {
+  +string package_id
+  +int revision
+  +string content_hash
+}
+class IntakeTarget {
+  +string resource_uri
+  +Optional~string~ subject_id
+}

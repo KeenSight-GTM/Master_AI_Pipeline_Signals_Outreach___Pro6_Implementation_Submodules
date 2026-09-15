@@ -1,0 +1,65 @@
+{
+  "$id": "https://keensight.local/v4.2/CandidateRecord.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "attempt_id": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "candidate_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "production_eligible": {
+      "const": false
+    },
+    "proposed_predicate_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "proposed_value": {},
+    "reason": {
+      "enum": [
+        "UNREGISTERED_TYPE",
+        "INVALID_VALUE",
+        "UNRESOLVED_BINDING",
+        "UNKNOWN_TAXONOMY"
+      ]
+    },
+    "tenant_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "tenant_id",
+    "artifact_id",
+    "proposed_predicate_id",
+    "proposed_value",
+    "reason",
+    "production_eligible",
+    "attempt_id"
+  ],
+  "title": "CandidateRecord",
+  "type": "object"
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "allowed_sentiments": [
+      "NEGATIVE",
+      "MIXED"
+    ],
+    "allowed_stances": [
+      "EXPERIENCED"
+    ],
+    "counting_unit": "DISTINCT_ORIGIN",
+    "denominator_rule": "ELIGIBLE_RETRIEVED_RECORDS",
+    "meaning": "REPORTED_NEGATIVE_EXPERIENCE",
+    "support_policy_id": "support.negative_experience",
+    "unclassified_policy": "RETAIN_AS_UNMEASURED_NOT_NEGATIVE",
+    "version": "1.0.0"
+  },
+  {
+    "allowed_sentiments": [
+      "NEGATIVE",
+      "MIXED",
+      "NEUTRAL",
+      "POSITIVE"
+    ],
+    "allowed_stances": [
+      "EXPERIENCED"
+    ],
+    "counting_unit": "DISTINCT_ORIGIN",
+    "denominator_rule": "ELIGIBLE_RETRIEVED_RECORDS",
+    "meaning": "WORKFLOW_MENTION",
+    "support_policy_id": "support.workflow_mention",
+    "unclassified_policy": "RETAIN_AS_UNMEASURED_NOT_NEGATIVE",
+    "version": "1.0.0"
+  }
+]

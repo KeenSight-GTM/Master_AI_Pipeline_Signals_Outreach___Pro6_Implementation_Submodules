@@ -1,0 +1,59 @@
+[
+  {
+    "context_allowed": true,
+    "description": "Public product footprint only; not verified deployment.",
+    "function_id": "signal.required_facts_v1",
+    "required_facts": [
+      {
+        "allowed_natures": [
+          "DIRECT_OBSERVATION"
+        ],
+        "counting_unit": "DISTINCT_ORIGIN",
+        "minimum": 1,
+        "predicate_id": "technology.footprint",
+        "state": "OBSERVED"
+      }
+    ],
+    "signal_type_id": "TECHNOLOGY_FOOTPRINT",
+    "status": "REFERENCE_IMPLEMENTED",
+    "version": "1.0.0"
+  },
+  {
+    "context_allowed": true,
+    "description": "Attributed job language; not proven inefficiency.",
+    "function_id": "signal.required_facts_v1",
+    "required_facts": [
+      {
+        "allowed_natures": [
+          "FIRST_PARTY_STATEMENT"
+        ],
+        "counting_unit": "DISTINCT_ORIGIN",
+        "minimum": 1,
+        "predicate_id": "job.workflow_statement",
+        "state": "OBSERVED"
+      }
+    ],
+    "signal_type_id": "JOB_WORKFLOW_STATEMENT",
+    "status": "REFERENCE_IMPLEMENTED",
+    "version": "1.0.0"
+  },
+  {
+    "context_allowed": true,
+    "description": "No configured form found in the completed page sample only.",
+    "function_id": "signal.required_facts_v1",
+    "required_facts": [
+      {
+        "allowed_natures": [
+          "DIRECT_OBSERVATION"
+        ],
+        "counting_unit": "DISTINCT_ORIGIN",
+        "minimum": 1,
+        "predicate_id": "form.surface",
+        "state": "NOT_FOUND"
+      }
+    ],
+    "signal_type_id": "SCOPED_FORM_NONDETECTION",
+    "status": "REFERENCE_IMPLEMENTED",
+    "version": "1.0.0"
+  }
+]

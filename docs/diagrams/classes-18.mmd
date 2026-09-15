@@ -1,0 +1,51 @@
+classDiagram
+    class ExperimentDefinition {
+        experiment_id
+        hypothesis
+        eligible_population
+        randomization_or_observational_design
+        treatment_refs
+        holdout_policy
+        outcome_definition
+        maturity_window
+        stopping_rule
+    }
+    class ExperimentAssignment {
+        assignment_id
+        experiment_ref
+        unit_ref
+        assigned_variant
+        assignment_rule_version
+        assigned_at
+        exposure_links
+    }
+    class QualityAssessment {
+        assessment_id
+        evaluated_release_refs
+        gold_set_ref
+        eligible_sample
+        observed_metrics
+        errors
+        uncertainty
+        limitations
+    }
+    class PromotionProposal {
+        proposal_id
+        target_definition_ref
+        assessed_release_ref
+        quality_assessment_refs
+        intended_change
+        reasons
+        review_requirements
+    }
+    class WorkspaceView {
+        view_id
+        tenant_id
+        view_kind
+        permitted_record_refs
+        as_of
+        redaction_policy_ref
+        completeness_notes
+    }
+    class Common {
+    }

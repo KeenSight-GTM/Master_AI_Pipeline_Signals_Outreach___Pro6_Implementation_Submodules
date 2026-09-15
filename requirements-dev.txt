@@ -1,0 +1,5 @@
+# Core/reference tests; does not install the optional live Scrapling SDK.
+-r canonical/requirements.txt
+lxml>=5.3,<7
+regex>=2024.11
+defusedxml==0.7.1

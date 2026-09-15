@@ -1,0 +1,138 @@
+classDiagram
+direction LR
+class BatchRunner {
+  <<Interface>>
+  +RegistryLinker registry
+  +FactRepository facts
+  +run(intake_id) BatchRun
+}
+class RegistryLinker {
+  <<Interface>>
+  +load_release(release_id) void
+  +validate_closure(profile) void
+  +execution_order(profile) List~FunctionDefinition~
+}
+class SourceAdapter {
+  <<Interface>>
+  +capture(target, scope) AcquisitionAttempt
+}
+class AcquisitionService {
+  <<Interface>>
+  +SourceAdapter adapter
+  +RightsGate rights
+  +ContentRepository content
+  +collect(intake, scope) AcquisitionAttempt
+}
+class RightsGate {
+  <<Interface>>
+  +assert_use(policy_ids, purpose, as_of) void
+  +retention_deadline(policy_ids) datetime
+}
+class ContentRepository {
+  <<Interface>>
+  +put_immutable(bytes, policy) Artifact
+  +read_verified(artifact_id) bytes
+  +delete(artifact_id) ChangeRecord
+}
+class SubjectResolver {
+  <<Interface>>
+  +bind(artifact, subject, locators) SubjectBinding
+}
+class ExtractionService {
+  <<Interface>>
+  +BoundedModelGateway model
+  +extract(artifact, definition) List~CandidateRecord~
+}
+class BoundedModelGateway {
+  <<Interface>>
+  +call(task, artifacts) ModelCall
+  +repair_or_abstain(call) QuotedTextResult
+}
+class FactAdmission {
+  <<Interface>>
+  +RightsGate rights
+  +RegistryLinker registry
+  +validate(candidate, evidence, binding) Fact
+  +quarantine(candidate, reason) CandidateRecord
+}
+class FactRepository {
+  <<Interface>>
+  +append_idempotent(fact) Fact
+  +select_inputs(subject, as_of) List~Fact~
+  +record_change(change) void
+}
+class AccountInputSelector {
+  <<Interface>>
+  +FactRepository facts
+  +freeze_account_inputs(subject, as_of) BatchRun
+}
+class DerivationRunner {
+  <<Interface>>
+  +evaluate(function, inputs, parameters) ExecutionRecord
+}
+class ContextJoiner {
+  <<Interface>>
+  +join(rule, account_facts, context_facts) ContextAssessment
+}
+class SignalEngine {
+  <<Interface>>
+  +evaluate(definition, facts, contexts) SignalEvaluation
+}
+class TemplateRenderer {
+  <<Interface>>
+  +render(template, eligible_facts) List~GroundedClause~
+}
+class PackageValidator {
+  <<Interface>>
+  +RightsGate rights
+  +approve_preview(package, as_of) OutreachPackage
+  +revalidate_for_export(package, as_of) void
+}
+class RetentionService {
+  <<Interface>>
+  +ContentRepository content
+  +FactRepository facts
+  +apply_policy(policy, as_of) List~ChangeRecord~
+}
+class UnitOfWork {
+  <<Interface>>
+  +begin() void
+  +commit_account_result() void
+  +rollback() void
+}
+class ReviewService {
+  <<Interface>>
+  +review(exact_package_revision, principal) ReviewDecision
+}
+class UseGate {
+  <<Interface>>
+  +evaluate(package, destination, principal, current_time) UseGateDecision
+}
+class LocalPreviewExporter {
+  <<Interface>>
+  +export(gate_id, principal_id, at, idempotency_key) LocalExportResult
+}
+BatchRunner ..> ReviewService : review_exact_revision
+BatchRunner ..> UseGate : current_permission
+UseGate ..> LocalPreviewExporter : allow_local_export_only
+BatchRunner ..> RegistryLinker : uses
+BatchRunner ..> AcquisitionService : optional_capture
+BatchRunner ..> AccountInputSelector : pins_inputs
+BatchRunner ..> DerivationRunner : sequential_plan
+BatchRunner ..> ContextJoiner : context_join
+BatchRunner ..> SignalEngine : evaluate
+BatchRunner ..> TemplateRenderer : compose
+BatchRunner ..> PackageValidator : approve_preview
+BatchRunner ..> UnitOfWork : publish_atomically_per_account
+AcquisitionService ..> SourceAdapter : port
+AcquisitionService ..> ContentRepository : persist
+AcquisitionService ..> RightsGate : before_capture
+ExtractionService ..> SubjectResolver : attribution
+ExtractionService ..> BoundedModelGateway : optional
+ExtractionService ..> FactAdmission : no_direct_promotion
+FactAdmission ..> FactRepository : append
+FactAdmission ..> RightsGate : permitted_derivation
+AccountInputSelector ..> FactRepository : select
+PackageValidator ..> RightsGate : current_use_check
+RetentionService ..> ContentRepository : delete_or_expire
+RetentionService ..> FactRepository : record_changes

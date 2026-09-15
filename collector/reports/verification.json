@@ -1,0 +1,67 @@
+{
+  "release": "0.1.0",
+  "verified_at_utc": "2026-09-15T01:30:21.462253+00:00",
+  "python": "3.13.5",
+  "source_tests": {
+    "tests": 156,
+    "passed": 155,
+    "skipped": 1,
+    "failures": 0,
+    "errors": 0
+  },
+  "installed_wheel_tests": {
+    "tests": 156,
+    "passed": 155,
+    "skipped": 1,
+    "failures": 0,
+    "errors": 0
+  },
+  "wheel_install_mode": "offline --no-deps in separate venv, existing environment dependency directory supplied by .pth; not a clean network dependency installation",
+  "sdk_integration": "SKIPPED: scrapling is not installed; dependency download unavailable",
+  "native_browser": "NOT_IMPLEMENTED; default disabled extension point",
+  "compileall": "PASS",
+  "demo_bundle_validation": "PASS",
+  "demo_original_bytes_checked": true,
+  "demo": {
+    "audited_matches": 7,
+    "capture_observations": 2,
+    "claim_rows": 1,
+    "eligible_fixture_matches": 5,
+    "candidate_matches": 2,
+    "eligible_evidence_points": 3,
+    "source_origin_groups": 1,
+    "confidence": null,
+    "fixture_only": true,
+    "network_requests": 0
+  },
+  "replay_original_observations_identical": true,
+  "source_dependencies": {
+    "lxml": "6.1.1",
+    "regex": "2026.5.9",
+    "defusedxml": "0.7.1",
+    "jsonschema": "4.26.0",
+    "pytest": "9.0.2"
+  },
+  "input_provenance": [
+    {
+      "file": "Scrapling_Fingerprint_Command_Suite(2).xlsx",
+      "sha256": "285558c8e4b40007c956cd5557f88f053f978702e86c6facdc430f26e9e1d807"
+    },
+    {
+      "file": "KeenSight_Scrapling_First_Implementation_Handoff.zip",
+      "sha256": "12cd9c044373a26660667f55d940d80ec88a491eca1ddf77ead538c0e2820e5b"
+    },
+    {
+      "file": "keensight-architecture-v4.1.zip",
+      "sha256": "2aa572cbbf9d102578dc07731c5acb3ad3f4c8d4445d53110be54308d24a0cbb"
+    }
+  ],
+  "scope_limits": [
+    "No production authentication or canonical FactService admission",
+    "No complete donor corpus or promotion workflow",
+    "No real network/SDK run verified",
+    "No native bounded browser",
+    "No sending",
+    "No multi-account distributed scheduler"
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "$id": "https://keensight.local/v4.2/MeasurementValue.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "denominator": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "dimensions": {
+      "type": "object"
+    },
+    "method_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "metric_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "numerator": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "reporting_timezone": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "sample_size": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "uncertainty": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "lower": {
+              "type": "number"
+            },
+            "method": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "upper": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "lower",
+            "upper",
+            "method"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "unit": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "value": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "metric_id",
+    "value",
+    "unit",
+    "dimensions",
+    "method_version",
+    "reporting_timezone",
+    "numerator",
+    "denominator",
+    "sample_size",
+    "uncertainty"
+  ],
+  "title": "MeasurementValue",
+  "type": "object"
+}

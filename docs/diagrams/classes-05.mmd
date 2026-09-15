@@ -1,0 +1,86 @@
+classDiagram
+    class ExecutionRecord {
+        execution_id
+        finished_at
+        function_id
+        function_version
+        input_artifact_ids
+        input_fact_ids
+        input_sample_ids
+        input_set_hash
+        model_call_id
+        output_artifact_ids
+        output_fact_ids
+        parameters
+        run_id
+        sample_set_hash
+        started_at
+        status
+        subject_id
+        tenant_id
+        terminal_reason
+    }
+    class ExportReceipt {
+        actor_id
+        automatic_sending
+        completed_at
+        destination_id
+        export_id
+        external_reference
+        gate_id
+        idempotency_key
+        mapping_version
+        package
+        payload_hash
+        payload_ref
+        recipient_key
+        requested_at
+        status
+        tenant_id
+    }
+    class Exposure {
+        accepted_at
+        business_send_key
+        exposure_id
+        package_id
+        provider_message_id
+        recipient_key
+        status
+        tenant_id
+    }
+    class ExternalIdentifier {
+        namespace
+        value
+    }
+    class Fact {
+        binding_id
+        confidence
+        effective_at
+        evidence_id
+        execution_id
+        expires_at
+        fact_id
+        nature
+        object
+        observed_at
+        predicate_id
+        reason
+        recorded_at
+        run_id
+        schema_version
+        scope_id
+        source_id
+        state
+        subject_id
+        supersedes_fact_id
+        target
+        tenant_id
+        window
+    }
+    class FactRequirement {
+        allowed_natures
+        counting_unit
+        minimum
+        predicate_id
+        state
+    }

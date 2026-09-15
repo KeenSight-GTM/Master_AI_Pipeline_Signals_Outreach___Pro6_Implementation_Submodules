@@ -1,0 +1,77 @@
+{
+  "$id": "https://keensight.local/v4.2/ProviderBlueprint.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "adapter_implemented": {
+      "const": false
+    },
+    "approval_required": {
+      "const": true
+    },
+    "blueprint_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "families": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "methods": {
+      "items": {
+        "enum": [
+          "HTTP_CAPTURE",
+          "API",
+          "DNS",
+          "CERTIFICATE_LOG",
+          "AUTHORIZED_EXPORT",
+          "HUMAN_UPLOAD",
+          "DERIVATION"
+        ]
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "notes": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "provider": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "section_ids": {
+      "items": {
+        "maximum": 11,
+        "minimum": 1,
+        "type": "integer"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "terms_url": {
+      "format": "uri",
+      "type": "string"
+    }
+  },
+  "required": [
+    "blueprint_id",
+    "provider",
+    "section_ids",
+    "families",
+    "methods",
+    "terms_url",
+    "approval_required",
+    "adapter_implemented",
+    "notes"
+  ],
+  "title": "ProviderBlueprint",
+  "type": "object"
+}

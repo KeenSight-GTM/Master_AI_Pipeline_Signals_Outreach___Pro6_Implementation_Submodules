@@ -1,0 +1,67 @@
+classDiagram
+    class AccountSeed {
+        seed_id
+        tenant_id
+        program_id
+        discovery_source_ref
+        original_record_ref
+        resource_uri
+        provisional_external_ids
+        discovered_at
+        normalization_decision
+    }
+    class LeadSelection {
+        selection_id
+        program_id
+        account_ref
+        input_snapshot_ref
+        fit_decision
+        reasons
+        exclusion_state_refs
+        selected_at
+    }
+    class ResearchPlan {
+        plan_id
+        account_ref
+        intended_predicates
+        existing_coverage_refs
+        permitted_source_refs
+        acquisition_limits
+        priority_reasons
+        stopping_rules
+    }
+    class ContactProfile {
+        contact_profile_id
+        tenant_id
+        person_subject_ref
+        account_relationship_ref
+        endpoint_refs
+        source_evidence_refs
+        role_effective_window
+        verified_at
+        retention_policy_ref
+    }
+    class ContactAssessment {
+        assessment_id
+        contact_profile_ref
+        opportunity_ref
+        role_fit
+        employer_binding_status
+        endpoint_verification
+        source_use_state
+        restrictions_refs
+        checked_at
+        reasons
+    }
+    class MessageArtifact {
+        message_id
+        revision
+        package_ref
+        channel
+        subject_or_title
+        body_ref
+        required_footer_ref
+        rendered_content_digest
+        renderer_version
+        permitted_transformations
+    }

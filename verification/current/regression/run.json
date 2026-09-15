@@ -1,0 +1,155 @@
+{
+  "source_root": "/mnt/data/keensight-ai-pipeline",
+  "steps": [
+    {
+      "name": "canonical-generation",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "generate.py",
+        "--check"
+      ],
+      "cwd": "/mnt/data/keensight-ai-pipeline/canonical",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "passed": true,
+      "elapsed_seconds": 1.683,
+      "stdout_file": "01-canonical-generation.stdout.txt",
+      "stderr_file": "01-canonical-generation.stderr.txt"
+    },
+    {
+      "name": "canonical-validation",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "validate.py"
+      ],
+      "cwd": "/mnt/data/keensight-ai-pipeline/canonical",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "passed": true,
+      "elapsed_seconds": 2.151,
+      "stdout_file": "02-canonical-validation.stdout.txt",
+      "stderr_file": "02-canonical-validation.stderr.txt"
+    },
+    {
+      "name": "protocol-validation",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "validate_protocol.py"
+      ],
+      "cwd": "/mnt/data/keensight-ai-pipeline/protocol",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "passed": true,
+      "elapsed_seconds": 1.627,
+      "stdout_file": "03-protocol-validation.stdout.txt",
+      "stderr_file": "03-protocol-validation.stderr.txt"
+    },
+    {
+      "name": "product-design",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "validate_design.py"
+      ],
+      "cwd": "/mnt/data/keensight-ai-pipeline/product-design",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "passed": true,
+      "elapsed_seconds": 0.683,
+      "stdout_file": "04-product-design.stdout.txt",
+      "stderr_file": "04-product-design.stderr.txt"
+    },
+    {
+      "name": "implementation-plan",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "validate_plan.py"
+      ],
+      "cwd": "/mnt/data/keensight-ai-pipeline/implementation",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "passed": true,
+      "elapsed_seconds": 0.66,
+      "stdout_file": "05-implementation-plan.stdout.txt",
+      "stderr_file": "05-implementation-plan.stderr.txt"
+    },
+    {
+      "name": "collector-tests",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/mnt/data/_assembly/release-verify/steps/collector.xml"
+      ],
+      "cwd": "/mnt/data/keensight-ai-pipeline/collector",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "passed": true,
+      "elapsed_seconds": 11.728,
+      "stdout_file": "06-collector-tests.stdout.txt",
+      "stderr_file": "06-collector-tests.stderr.txt"
+    },
+    {
+      "name": "canonical-tests",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/mnt/data/_assembly/release-verify/steps/canonical.xml"
+      ],
+      "cwd": "/mnt/data/keensight-ai-pipeline/canonical",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "passed": true,
+      "elapsed_seconds": 25.517,
+      "stdout_file": "07-canonical-tests.stdout.txt",
+      "stderr_file": "07-canonical-tests.stderr.txt"
+    },
+    {
+      "name": "protocol-tests",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--junitxml=/mnt/data/_assembly/release-verify/steps/protocol.xml"
+      ],
+      "cwd": "/mnt/data/keensight-ai-pipeline/protocol",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "passed": true,
+      "elapsed_seconds": 4.045,
+      "stdout_file": "08-protocol-tests.stdout.txt",
+      "stderr_file": "08-protocol-tests.stderr.txt"
+    },
+    {
+      "name": "workspace-tests",
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/workspace",
+        "--junitxml=/mnt/data/_assembly/release-verify/steps/workspace.xml"
+      ],
+      "cwd": "/mnt/data/keensight-ai-pipeline",
+      "returncode": 0,
+      "expected_returncode": 0,
+      "passed": true,
+      "elapsed_seconds": 3.56,
+      "stdout_file": "09-workspace-tests.stdout.txt",
+      "stderr_file": "09-workspace-tests.stderr.txt"
+    }
+  ],
+  "all_expected_exit_codes": true,
+  "scope": "LOCAL_WORKSPACE_COMMANDS_NOT_PRODUCTION_E2E"
+}

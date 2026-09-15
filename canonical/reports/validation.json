@@ -1,0 +1,11 @@
+{
+  "counts": {
+    "schema_instances": 962,
+    "semantic_facts": 27
+  },
+  "metrics": 89,
+  "predicates": 197,
+  "records": 144,
+  "schemas": 58,
+  "status": "PASS"
+}

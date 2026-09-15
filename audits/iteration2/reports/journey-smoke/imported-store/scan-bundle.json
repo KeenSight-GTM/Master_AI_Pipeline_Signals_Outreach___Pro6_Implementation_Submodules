@@ -1,0 +1,1231 @@
+{
+  "as_of": "2026-09-14T12:00:00Z",
+  "captures": [
+    {
+      "body_path": "blobs/tenant_410f56ffc397313bc96deb8d6ac150e99a6d2bfadcc832a6c2b1d4fbd4f96545/d7/d7dfe7decb437ca705e915c53b9f18edb772fa6d6e9868f1f9f5d0c32fde4013",
+      "body_sha256": "d7dfe7decb437ca705e915c53b9f18edb772fa6d6e9868f1f9f5d0c32fde4013",
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "complete": true,
+      "headers": {
+        "content-type": "text/html"
+      },
+      "limitations": [],
+      "mode": "RAW_HTML",
+      "observed_at": "2026-09-14T12:00:00Z",
+      "run_id": "retained-example-01",
+      "source_id": "source:user-provided-snapshot",
+      "source_ttl_seconds": 2592000,
+      "status_code": 200,
+      "subject_id": "account:example",
+      "tenant_id": "local",
+      "url": "https://example.test/"
+    }
+  ],
+  "claims": [
+    {
+      "capture_count": 1,
+      "claim_key": "claim_4571a95ed7676b8a25ceedc974d10c88843c9d4e4e30cdc2db048755f9f0a0df",
+      "confidence": null,
+      "confidence_policy": "NOT_COMBINED",
+      "eligible_match_ids": [
+        "match_0c78e805700d8f488558296cf916f0b9874b3557d255bdde247d7bd67afebea7",
+        "match_376766d4e3dde294f91c7d6a06b75e155fd02d411ac26e57a6149752b634a428",
+        "match_ebc10ba77d78b6bc27d3c6a5ecf159e820a63c264af03b6c5395aeba35b9bace"
+      ],
+      "evidence_count": 2,
+      "object_value": true,
+      "observation_ids": [
+        "observation_a2d5633a5dc6dea008f3f77830cd348d89c2fa4c5eecc25643fac86171fc8e38"
+      ],
+      "predicate": "vendor.present",
+      "rule_ids": [
+        "calendly-iframe",
+        "calendly-script-candidate",
+        "calendly-script-exact",
+        "calendly-script-suffix"
+      ],
+      "source_group_count": 1,
+      "status": "SUPPORTED",
+      "supporting_match_ids": [
+        "match_0c78e805700d8f488558296cf916f0b9874b3557d255bdde247d7bd67afebea7",
+        "match_376766d4e3dde294f91c7d6a06b75e155fd02d411ac26e57a6149752b634a428",
+        "match_ba3e484cc5b16355c2fe71bb8e147160857325aa87f1a1027aedbc8cc67c3b60",
+        "match_ebc10ba77d78b6bc27d3c6a5ecf159e820a63c264af03b6c5395aeba35b9bace"
+      ],
+      "target": {
+        "product_id": "product:calendly"
+      }
+    }
+  ],
+  "commands": [
+    {
+      "command_id": "EXTRACT_RAW_HTML",
+      "details": {
+        "original_body_sha256": "d7dfe7decb437ca705e915c53b9f18edb772fa6d6e9868f1f9f5d0c32fde4013",
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_22504581ed442bf3c0f0734382841fc5c804fba9fb342a94327e5799fa4dd9b3"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_SCRIPT_SRC",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_3146ea780c449847cbb07613667ae77a4fc13ebef3681970ece2c1f7caca9f7e"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_SCRIPT_INLINE",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_471350aec2fccd79add8a7e0330c85d955e1cfdd84bd524f7b48da6152233e16"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_IFRAME_SRC",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_2389e4217c656bd708e816c1783e3008cdad58a84522575a63abc7bda5638851"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_FORM_ACTION",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_ecd6f5bed53d3d84a5df5db6a5815d5f756a241d42fc29a73706f35c664e41c8"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_ANCHORS",
+      "details": {
+        "surface_count": 4
+      },
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_820502759baf411b88b01bd2d14d236d6af0ad702cb8837ddf9ac7d0c75ecc79",
+        "surface_d5375ba6caac8b55a9797ba0723d641a23a2fcbbaf286aae3eb30719c145fad2",
+        "surface_35333d0aa94b41d24da189176c6bada8594ff9ae85ac5cdc7a110d46016ecc5e",
+        "surface_8cfae865991f6ab0fc9fc449dc8837b4ca97ace60b985fa3f03bf6719755e5be"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_IMAGES",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_deda51fc264490127ef024a01c89efbe1cf3796f15c70a957446458269a8663b"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_LINKS_META",
+      "details": {
+        "surface_count": 3
+      },
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_db401b0a1ee3fd2a6345fcd858ca15d86b2804e40001a70d10906e181274dc87",
+        "surface_dfd7ab11a67a99d2d6e0d4c584e11662cba8471cd69b2531550f805a825ed6d3",
+        "surface_5e6e6782f88f9cd91443bef5e302da653b8513716f79ebf28cea2028a71ed4de"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_JSONLD",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_c338d2d456dc70ee53447253f107fdcf580595acbcaf67511eebc0474d90bbec"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_MICRODATA",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_9f40d621edde9aeacb53e9a34a7e9e88ad6dd09627f57a87ea3faa08c2db3c83"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_FOOTER",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_fba6df36949405615e446485319f4e86618a5d21bd5caf45d13b8de175bac4de"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_HEADER_NAV",
+      "details": {
+        "surface_count": 2
+      },
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_fd537d00e28fb5d59108399cdf2b268e472460a9d2de175430daff801ab7e93b",
+        "surface_874bbed3f9fdff11c7c5c63af735ba1701a3027e79f33a42ebc549163d085a99"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_DATA_ATTRS",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_3fa55ecee9111b4dcfa91fbe1b222124cbd8da7e97b5ac7104d0398faf4b2335"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_NOSCRIPT",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_3280eaae05dc6b17ea17a01efc2260e972e51e294bbcddea279f1bbacde64f2f"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_VISIBLE_TEXT",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [
+        "CSS_VISIBILITY_NOT_EVALUATED"
+      ],
+      "output_ids": [
+        "surface_e8eef1952752b02a911b0fd6722a5c8b522528cef88516a376ac6f314f42e6fd"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_URL_FEATURES",
+      "details": {
+        "surface_count": 10
+      },
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_4718eb6a2ecac7c0cd216f34ecdf125eed3b0455ad3f3f1fb986dbd79e6ae290",
+        "surface_f29189d4948c7f176026768d1fe347a1c1cb6796dad32b4f430aabf683a0ef96",
+        "surface_e8422de30bea0026ce6d0f8f97edef544d9ea6379139a09ea7308805df9ac651",
+        "surface_8d36e9478db3c535665ddd4f94c4d2aa89e4032718214ba41582bac95ff7b5d3",
+        "surface_c10e495d9a10595a4c226037c101f755450c53bee6fee2ba4f9290e7e42ca3ac",
+        "surface_37ae9f6c05faddee1d7993d4b16f687f58b2b2033e948cd2bdb3adc36e7792f1",
+        "surface_f6cc384c61539848a03c5ce6d9a26e2069486877c932584839268758fef5b5c0",
+        "surface_110b906103f626c5432e6a31dc4e120e3aa2c44b9f6f6fdf85141b7d12f13e08",
+        "surface_6399c3daa4ecf1f77dbfbcebd5d31e4df53dd4a36f31e45e275814ab01c3c79c",
+        "surface_30a7cbad1c6f81c2baaf4ca9bd728095e4ca8b44ddca1f32ba933c28bceec921"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EXTRACT_HEADERS",
+      "details": {
+        "surface_count": 1
+      },
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "surface_88c7b4b1998ccab3d71bcc69eacfb723aca206e7951358afb4c52b7005d91a8a"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "MATCH_HOST_SUFFIX",
+      "details": {},
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "match_376766d4e3dde294f91c7d6a06b75e155fd02d411ac26e57a6149752b634a428",
+        "match_ba3e484cc5b16355c2fe71bb8e147160857325aa87f1a1027aedbc8cc67c3b60",
+        "match_ebc10ba77d78b6bc27d3c6a5ecf159e820a63c264af03b6c5395aeba35b9bace"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "MATCH_HOST_SUFFIX",
+      "details": {},
+      "input_ids": [
+        "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+      ],
+      "limitations": [],
+      "output_ids": [
+        "match_0c78e805700d8f488558296cf916f0b9874b3557d255bdde247d7bd67afebea7"
+      ],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "DISCOVER_CANONICAL",
+      "details": {
+        "claims": [
+          {
+            "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+            "same_origin": false,
+            "subject_rebound": false,
+            "url": "https://demo.example.test/"
+          }
+        ]
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "ROLLUP_HOST",
+      "details": {
+        "captures": 1,
+        "scope": "exact tenant/subject/origin; modes remain separate claim scopes"
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "GATE_AND",
+      "details": {
+        "qualifications": {
+          "calendly-iframe": "QUALIFIED",
+          "calendly-script-candidate": "QUALIFIED",
+          "calendly-script-exact": "QUALIFIED",
+          "calendly-script-suffix": "QUALIFIED"
+        }
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "GATE_SCHEMA",
+      "details": {
+        "meaning": "supporting type only; JSONLD subject identity is not assumed"
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "GATE_NEGATIVE",
+      "details": {
+        "deprioritize": false,
+        "facts_deleted": false,
+        "terms": []
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "SCORE_HOST",
+      "details": {
+        "calibrated": false,
+        "is_probability": false,
+        "policy": "prototype-unique-supported-presence-v1",
+        "score": 10
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "EMIT",
+      "details": {
+        "canonical_fact_admission": "NOT_PERFORMED",
+        "kind": "ScanBundle"
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "COMPLETE"
+    },
+    {
+      "command_id": "CATALOG_LOAD",
+      "details": {
+        "reason": "Not selected for this capture/evaluation profile"
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "command_id": "NORM_URL",
+      "details": {
+        "reason": "Not selected for this capture/evaluation profile"
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "command_id": "FETCH_STATIC",
+      "details": {
+        "reason": "Not selected for this capture/evaluation profile"
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "command_id": "FETCH_STEALTH",
+      "details": {
+        "reason": "Not selected for this capture/evaluation profile"
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "command_id": "FETCH_SITEMAP",
+      "details": {
+        "reason": "Not selected for this capture/evaluation profile"
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "command_id": "FETCH_ROBOTS",
+      "details": {
+        "reason": "Not selected for this capture/evaluation profile"
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "command_id": "FETCH_WELL_KNOWN",
+      "details": {
+        "reason": "Not selected for this capture/evaluation profile"
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "command_id": "DISCOVER_TEMPLATES",
+      "details": {
+        "reason": "Not selected for this capture/evaluation profile"
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "command_id": "MATCH_SUBSTRING",
+      "details": {
+        "reason": "Not selected for this capture/evaluation profile"
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "command_id": "MATCH_OR_GROUP",
+      "details": {
+        "reason": "Not selected for this capture/evaluation profile"
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "command_id": "MATCH_REGEX",
+      "details": {
+        "reason": "Not selected for this capture/evaluation profile"
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "command_id": "MATCH_FOOTER_LITERAL",
+      "details": {
+        "reason": "Not selected for this capture/evaluation profile"
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "command_id": "MATCH_IMG_ALT",
+      "details": {
+        "reason": "Not selected for this capture/evaluation profile"
+      },
+      "input_ids": [],
+      "limitations": [],
+      "output_ids": [],
+      "status": "NOT_APPLICABLE"
+    }
+  ],
+  "evaluated_capture_ids": [
+    "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b"
+  ],
+  "evaluation_id": "retained-example-01",
+  "fixture_only": true,
+  "handoff": {
+    "absence_facts_emitted": false,
+    "requires_fact_service_admission": true,
+    "type": "COLLECTOR_OBSERVATIONS"
+  },
+  "matches": [
+    {
+      "authored_confidence": 0.99,
+      "authority": "APPROVED",
+      "branch": "calendly.com",
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "evidence_key": "evidence_aa1219c27b4efab4148c8b01ba02f06c1a8c2577005ae218da5f41cbf5379609",
+      "match_id": "match_0c78e805700d8f488558296cf916f0b9874b3557d255bdde247d7bd67afebea7",
+      "object_value": true,
+      "predicate": "vendor.present",
+      "product_id": "product:calendly",
+      "release_digest": "release_ac1b18410583af42064839f63c4e0f8d86faf48dd7d26210d4ba8c3001787845",
+      "rule_digest": "rule-semantic-v2_746c737303e7355d8467daeb7896e8f32fdbe7510e095faf8ab02aab213cc363",
+      "rule_evidence_key": "rule_evidence_72140471f0e51d0ffd142e0e62103e785efdcf2e860bd54d114ba0710217d1ab",
+      "rule_id": "calendly-script-suffix",
+      "surface_id": "surface_3146ea780c449847cbb07613667ae77a4fc13ebef3681970ece2c1f7caca9f7e"
+    },
+    {
+      "authored_confidence": 0.98,
+      "authority": "APPROVED",
+      "branch": "assets.calendly.com",
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "evidence_key": "evidence_aa1219c27b4efab4148c8b01ba02f06c1a8c2577005ae218da5f41cbf5379609",
+      "match_id": "match_376766d4e3dde294f91c7d6a06b75e155fd02d411ac26e57a6149752b634a428",
+      "object_value": true,
+      "predicate": "vendor.present",
+      "product_id": "product:calendly",
+      "release_digest": "release_ac1b18410583af42064839f63c4e0f8d86faf48dd7d26210d4ba8c3001787845",
+      "rule_digest": "rule-semantic-v2_c80b3e87f23c979caafacce1c735a9a66e939229bd2fc8916a9a6aad0ebe26f5",
+      "rule_evidence_key": "rule_evidence_3671ef87d8be5e341659ca6941ea78c4ca1c2e314dae3f9375346d8d5e4de007",
+      "rule_id": "calendly-script-exact",
+      "surface_id": "surface_3146ea780c449847cbb07613667ae77a4fc13ebef3681970ece2c1f7caca9f7e"
+    },
+    {
+      "authored_confidence": 1.0,
+      "authority": "CANDIDATE",
+      "branch": "assets.calendly.com",
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "evidence_key": "evidence_aa1219c27b4efab4148c8b01ba02f06c1a8c2577005ae218da5f41cbf5379609",
+      "match_id": "match_ba3e484cc5b16355c2fe71bb8e147160857325aa87f1a1027aedbc8cc67c3b60",
+      "object_value": true,
+      "predicate": "vendor.present",
+      "product_id": "product:calendly",
+      "release_digest": "release_ac1b18410583af42064839f63c4e0f8d86faf48dd7d26210d4ba8c3001787845",
+      "rule_digest": "rule-semantic-v2_a2c1db0ed08a2df5db3deba35b250e2b1caa798290596053daf3f7c2c5e5abad",
+      "rule_evidence_key": "rule_evidence_955b71cf07fa476b1a4d6ab25b2afec20e35e692ada6b2d018eb3f4d93c134ab",
+      "rule_id": "calendly-script-candidate",
+      "surface_id": "surface_3146ea780c449847cbb07613667ae77a4fc13ebef3681970ece2c1f7caca9f7e"
+    },
+    {
+      "authored_confidence": 0.97,
+      "authority": "APPROVED",
+      "branch": "calendly.com",
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "evidence_key": "evidence_57a2408613ed6f608636c79b1f598b095996ab563bba4f1977400214f0557777",
+      "match_id": "match_ebc10ba77d78b6bc27d3c6a5ecf159e820a63c264af03b6c5395aeba35b9bace",
+      "object_value": true,
+      "predicate": "vendor.present",
+      "product_id": "product:calendly",
+      "release_digest": "release_ac1b18410583af42064839f63c4e0f8d86faf48dd7d26210d4ba8c3001787845",
+      "rule_digest": "rule-semantic-v2_84fd8f68803218653723c8e77c1581b4696487fc78e5fba036c5d30d3e70c050",
+      "rule_evidence_key": "rule_evidence_a3a71ab23e8f5ca98978843b5e1d1302aef5bd72c8a865a3d1907cadec1eaf2d",
+      "rule_id": "calendly-iframe",
+      "surface_id": "surface_2389e4217c656bd708e816c1783e3008cdad58a84522575a63abc7bda5638851"
+    }
+  ],
+  "observations": [
+    {
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "claim_key": "claim_4571a95ed7676b8a25ceedc974d10c88843c9d4e4e30cdc2db048755f9f0a0df",
+      "expires_at": "2026-10-14T12:00:00Z",
+      "nature": "DIRECT_OBSERVATION",
+      "object_value": true,
+      "observation_id": "observation_a2d5633a5dc6dea008f3f77830cd348d89c2fa4c5eecc25643fac86171fc8e38",
+      "observed_at": "2026-09-14T12:00:00Z",
+      "predicate": "vendor.present",
+      "scope_id": "scope_a76be7753efc0b38fe06a3d37c283d712058b9b622e49900dab1cc3f18b7f141",
+      "source_group": "sourcegroup_0648593dad4b115d9ae1560963081d529926953a2b4f79d2d45d1f0d61c5b509",
+      "source_id": "source:user-provided-snapshot",
+      "state": "OBSERVED",
+      "subject_id": "account:example",
+      "target": {
+        "product_id": "product:calendly"
+      },
+      "tenant_id": "local"
+    }
+  ],
+  "priority_score": 10,
+  "producer": "keensight-scrapling-ingestion/0.2.0",
+  "release_digest": "release_ac1b18410583af42064839f63c4e0f8d86faf48dd7d26210d4ba8c3001787845",
+  "resource_dispositions": [],
+  "rule_evaluations": [
+    {
+      "absence_fact_emitted": false,
+      "errors": [],
+      "incomplete_capture_ids": [],
+      "match_ids": [
+        "match_ebc10ba77d78b6bc27d3c6a5ecf159e820a63c264af03b6c5395aeba35b9bace"
+      ],
+      "qualification": "QUALIFIED",
+      "rule_id": "calendly-iframe",
+      "status": "MATCH"
+    },
+    {
+      "absence_fact_emitted": false,
+      "errors": [],
+      "incomplete_capture_ids": [],
+      "match_ids": [
+        "match_ba3e484cc5b16355c2fe71bb8e147160857325aa87f1a1027aedbc8cc67c3b60"
+      ],
+      "qualification": "QUALIFIED",
+      "rule_id": "calendly-script-candidate",
+      "status": "MATCH"
+    },
+    {
+      "absence_fact_emitted": false,
+      "errors": [],
+      "incomplete_capture_ids": [],
+      "match_ids": [
+        "match_376766d4e3dde294f91c7d6a06b75e155fd02d411ac26e57a6149752b634a428"
+      ],
+      "qualification": "QUALIFIED",
+      "rule_id": "calendly-script-exact",
+      "status": "MATCH"
+    },
+    {
+      "absence_fact_emitted": false,
+      "errors": [],
+      "incomplete_capture_ids": [],
+      "match_ids": [
+        "match_0c78e805700d8f488558296cf916f0b9874b3557d255bdde247d7bd67afebea7"
+      ],
+      "qualification": "QUALIFIED",
+      "rule_id": "calendly-script-suffix",
+      "status": "MATCH"
+    }
+  ],
+  "rule_pack": {
+    "aliases": {
+      "product:calendly-widget": "product:calendly"
+    },
+    "fixture_only": true,
+    "negative_terms": [
+      "marketing agency"
+    ],
+    "release_id": "synthetic-demo-v1",
+    "rules": [
+      {
+        "confidence": 0.97,
+        "id": "calendly-iframe",
+        "kinds": [
+          "iframe_url"
+        ],
+        "operator": "host_equals",
+        "patterns": [
+          "calendly.com"
+        ],
+        "predicate": "vendor.present",
+        "product_id": "product:calendly",
+        "review": {
+          "fixture_report_hash": "afe875746012a6a07bfbc9ffd06f8be36b4aae263fe5baef5bb461ecf75e54b6",
+          "reviewer": "SYNTHETIC_TEST_FIXTURE_ONLY"
+        },
+        "status": "APPROVED"
+      },
+      {
+        "confidence": 1.0,
+        "id": "calendly-script-candidate",
+        "kinds": [
+          "script_url"
+        ],
+        "operator": "host_equals",
+        "patterns": [
+          "assets.calendly.com"
+        ],
+        "predicate": "vendor.present",
+        "product_id": "product:calendly",
+        "status": "CANDIDATE"
+      },
+      {
+        "confidence": 0.98,
+        "id": "calendly-script-exact",
+        "kinds": [
+          "script_url"
+        ],
+        "operator": "host_equals",
+        "patterns": [
+          "assets.calendly.com"
+        ],
+        "predicate": "vendor.present",
+        "product_id": "product:calendly",
+        "review": {
+          "fixture_report_hash": "afe875746012a6a07bfbc9ffd06f8be36b4aae263fe5baef5bb461ecf75e54b6",
+          "reviewer": "SYNTHETIC_TEST_FIXTURE_ONLY"
+        },
+        "status": "APPROVED"
+      },
+      {
+        "confidence": 0.99,
+        "id": "calendly-script-suffix",
+        "kinds": [
+          "script_url"
+        ],
+        "operator": "host_suffix",
+        "patterns": [
+          "calendly.com"
+        ],
+        "predicate": "vendor.present",
+        "product_id": "product:calendly-widget",
+        "review": {
+          "fixture_report_hash": "afe875746012a6a07bfbc9ffd06f8be36b4aae263fe5baef5bb461ecf75e54b6",
+          "reviewer": "SYNTHETIC_TEST_FIXTURE_ONLY"
+        },
+        "status": "APPROVED"
+      }
+    ],
+    "schema_version": "1.0"
+  },
+  "schema_version": "1.1",
+  "send_allowed": false,
+  "support_links": [
+    {
+      "match_id": "match_0c78e805700d8f488558296cf916f0b9874b3557d255bdde247d7bd67afebea7",
+      "observation_id": "observation_a2d5633a5dc6dea008f3f77830cd348d89c2fa4c5eecc25643fac86171fc8e38"
+    },
+    {
+      "match_id": "match_376766d4e3dde294f91c7d6a06b75e155fd02d411ac26e57a6149752b634a428",
+      "observation_id": "observation_a2d5633a5dc6dea008f3f77830cd348d89c2fa4c5eecc25643fac86171fc8e38"
+    },
+    {
+      "match_id": "match_ba3e484cc5b16355c2fe71bb8e147160857325aa87f1a1027aedbc8cc67c3b60",
+      "observation_id": "observation_a2d5633a5dc6dea008f3f77830cd348d89c2fa4c5eecc25643fac86171fc8e38"
+    },
+    {
+      "match_id": "match_ebc10ba77d78b6bc27d3c6a5ecf159e820a63c264af03b6c5395aeba35b9bace",
+      "observation_id": "observation_a2d5633a5dc6dea008f3f77830cd348d89c2fa4c5eecc25643fac86171fc8e38"
+    }
+  ],
+  "surfaces": [
+    {
+      "attributes": {
+        "encoding": "utf-8",
+        "encoding_source": "fallback"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_RAW_HTML",
+      "context": "PAGE",
+      "kind": "raw_html",
+      "locator": "retained-body:decoded",
+      "surface_id": "surface_22504581ed442bf3c0f0734382841fc5c804fba9fb342a94327e5799fa4dd9b3",
+      "value": "<!doctype html><html><head><title>Acme Example Practice</title>\n<meta name=\"generator\" content=\"AcmeCMS\"><link rel=\"canonical\" href=\"https://demo.example.test/\">\n<link rel=\"stylesheet\" href=\"/style.css\"><script src=\"https://assets.calendly.com/widget.js\"></script>\n<script>window.exampleAnalytics = true;</script>\n<script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"LocalBusiness\",\"@id\":\"https://demo.example.test/#organization\",\"name\":\"Acme\"}</script>\n</head><body><header><nav><a href=\"/contact\">Contact</a></nav></header>\n<main itemscope itemtype=\"https://schema.org/LocalBusiness\" data-office = \"main\"><h1>Appointments with Acme</h1>\n<p>We provide scheduled consultations for our customers.</p>\n<iframe src=\"//calendly.com/acme-demo\"></iframe>\n<form action=\"/request\" method=\"post\"><input name=\"message\"></form>\n<img src=\"/badge.png\" alt=\"Example Member Badge\"><a href=\"https://calendly.com/help\">Scheduling guide</a>\n<noscript><a href=\"/fallback\">Fallback</a></noscript></main>\n<footer>Website by Example Agency. <a href=\"https://agency.example/book\">Book our agency</a></footer>\n</body></html>"
+    },
+    {
+      "attributes": {
+        "name": "generator"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_LINKS_META",
+      "context": "PAGE",
+      "kind": "meta",
+      "locator": "/html/head/meta",
+      "surface_id": "surface_db401b0a1ee3fd2a6345fcd858ca15d86b2804e40001a70d10906e181274dc87",
+      "value": "AcmeCMS"
+    },
+    {
+      "attributes": {
+        "rel": "canonical"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_LINKS_META",
+      "context": "PAGE",
+      "kind": "link_url",
+      "locator": "/html/head/link[1]",
+      "surface_id": "surface_dfd7ab11a67a99d2d6e0d4c584e11662cba8471cd69b2531550f805a825ed6d3",
+      "value": "https://demo.example.test/"
+    },
+    {
+      "attributes": {
+        "rel": "stylesheet"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_LINKS_META",
+      "context": "PAGE",
+      "kind": "link_url",
+      "locator": "/html/head/link[2]",
+      "surface_id": "surface_5e6e6782f88f9cd91443bef5e302da653b8513716f79ebf28cea2028a71ed4de",
+      "value": "https://example.test/style.css"
+    },
+    {
+      "attributes": {
+        "type": ""
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_SCRIPT_SRC",
+      "context": "PAGE",
+      "kind": "script_url",
+      "locator": "/html/head/script[1]/@src",
+      "surface_id": "surface_3146ea780c449847cbb07613667ae77a4fc13ebef3681970ece2c1f7caca9f7e",
+      "value": "https://assets.calendly.com/widget.js"
+    },
+    {
+      "attributes": {
+        "type": ""
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_SCRIPT_INLINE",
+      "context": "PAGE",
+      "kind": "inline_script",
+      "locator": "/html/head/script[2]",
+      "surface_id": "surface_471350aec2fccd79add8a7e0330c85d955e1cfdd84bd524f7b48da6152233e16",
+      "value": "window.exampleAnalytics = true;"
+    },
+    {
+      "attributes": {
+        "parse_error": null,
+        "parsed": {
+          "@context": "https://schema.org",
+          "@id": "https://demo.example.test/#organization",
+          "@type": "LocalBusiness",
+          "name": "Acme"
+        },
+        "types": [
+          "LocalBusiness"
+        ]
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_JSONLD",
+      "context": "INERT_SCRIPT",
+      "kind": "jsonld",
+      "locator": "/html/head/script[3]",
+      "surface_id": "surface_c338d2d456dc70ee53447253f107fdcf580595acbcaf67511eebc0474d90bbec",
+      "value": "{\"@context\":\"https://schema.org\",\"@type\":\"LocalBusiness\",\"@id\":\"https://demo.example.test/#organization\",\"name\":\"Acme\"}"
+    },
+    {
+      "attributes": {},
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_HEADER_NAV",
+      "context": "HEADER_NAV",
+      "kind": "header_nav",
+      "locator": "/html/body/header",
+      "surface_id": "surface_fd537d00e28fb5d59108399cdf2b268e472460a9d2de175430daff801ab7e93b",
+      "value": "Contact"
+    },
+    {
+      "attributes": {},
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_HEADER_NAV",
+      "context": "HEADER_NAV",
+      "kind": "header_nav",
+      "locator": "/html/body/header/nav",
+      "surface_id": "surface_874bbed3f9fdff11c7c5c63af735ba1701a3027e79f33a42ebc549163d085a99",
+      "value": "Contact"
+    },
+    {
+      "attributes": {
+        "text": "Contact"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_ANCHORS",
+      "context": "HEADER_NAV",
+      "kind": "anchor_url",
+      "locator": "/html/body/header/nav/a/@href",
+      "surface_id": "surface_820502759baf411b88b01bd2d14d236d6af0ad702cb8837ddf9ac7d0c75ecc79",
+      "value": "https://example.test/contact"
+    },
+    {
+      "attributes": {
+        "itemscope": "",
+        "itemtype": "https://schema.org/LocalBusiness"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_MICRODATA",
+      "context": "PAGE",
+      "kind": "microdata",
+      "locator": "/html/body/main",
+      "surface_id": "surface_9f40d621edde9aeacb53e9a34a7e9e88ad6dd09627f57a87ea3faa08c2db3c83",
+      "value": "https://schema.org/LocalBusiness"
+    },
+    {
+      "attributes": {
+        "name": "data-office"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_DATA_ATTRS",
+      "context": "PAGE",
+      "kind": "attribute",
+      "locator": "/html/body/main/@data-office",
+      "surface_id": "surface_3fa55ecee9111b4dcfa91fbe1b222124cbd8da7e97b5ac7104d0398faf4b2335",
+      "value": "main"
+    },
+    {
+      "attributes": {
+        "tag": "iframe"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_IFRAME_SRC",
+      "context": "PAGE",
+      "kind": "iframe_url",
+      "locator": "/html/body/main/iframe/@src",
+      "surface_id": "surface_2389e4217c656bd708e816c1783e3008cdad58a84522575a63abc7bda5638851",
+      "value": "https://calendly.com/acme-demo"
+    },
+    {
+      "attributes": {
+        "method": "POST"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_FORM_ACTION",
+      "context": "PAGE",
+      "kind": "form_url",
+      "locator": "/html/body/main/form/@action",
+      "surface_id": "surface_ecd6f5bed53d3d84a5df5db6a5815d5f756a241d42fc29a73706f35c664e41c8",
+      "value": "https://example.test/request"
+    },
+    {
+      "attributes": {
+        "alt": "Example Member Badge",
+        "title": ""
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_IMAGES",
+      "context": "PAGE",
+      "kind": "image",
+      "locator": "/html/body/main/img",
+      "surface_id": "surface_deda51fc264490127ef024a01c89efbe1cf3796f15c70a957446458269a8663b",
+      "value": "https://example.test/badge.png"
+    },
+    {
+      "attributes": {
+        "text": "Scheduling guide"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_ANCHORS",
+      "context": "PAGE",
+      "kind": "anchor_url",
+      "locator": "/html/body/main/a/@href",
+      "surface_id": "surface_d5375ba6caac8b55a9797ba0723d641a23a2fcbbaf286aae3eb30719c145fad2",
+      "value": "https://calendly.com/help"
+    },
+    {
+      "attributes": {},
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_NOSCRIPT",
+      "context": "NOSCRIPT",
+      "kind": "noscript",
+      "locator": "/html/body/main/noscript",
+      "surface_id": "surface_3280eaae05dc6b17ea17a01efc2260e972e51e294bbcddea279f1bbacde64f2f",
+      "value": "<noscript><a href=\"/fallback\">Fallback</a></noscript>"
+    },
+    {
+      "attributes": {
+        "text": "Fallback"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_ANCHORS",
+      "context": "NOSCRIPT",
+      "kind": "anchor_url",
+      "locator": "/html/body/main/noscript/a/@href",
+      "surface_id": "surface_35333d0aa94b41d24da189176c6bada8594ff9ae85ac5cdc7a110d46016ecc5e",
+      "value": "https://example.test/fallback"
+    },
+    {
+      "attributes": {},
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_FOOTER",
+      "context": "FOOTER",
+      "kind": "footer",
+      "locator": "/html/body/footer",
+      "surface_id": "surface_fba6df36949405615e446485319f4e86618a5d21bd5caf45d13b8de175bac4de",
+      "value": "Website by Example Agency. Book our agency"
+    },
+    {
+      "attributes": {
+        "text": "Book our agency"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_ANCHORS",
+      "context": "FOOTER",
+      "kind": "anchor_url",
+      "locator": "/html/body/footer/a/@href",
+      "surface_id": "surface_8cfae865991f6ab0fc9fc449dc8837b4ca97ace60b985fa3f03bf6719755e5be",
+      "value": "https://agency.example/book"
+    },
+    {
+      "attributes": {
+        "visibility": "STATIC_PROSE_NOT_COMPUTED_VISIBILITY"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_VISIBLE_TEXT",
+      "context": "PAGE",
+      "kind": "prose",
+      "locator": "document:non-script-text",
+      "surface_id": "surface_e8eef1952752b02a911b0fd6722a5c8b522528cef88516a376ac6f314f42e6fd",
+      "value": "Acme Example Practice Contact Appointments with Acme We provide scheduled consultations for our customers. Scheduling guide Website by Example Agency. Book our agency"
+    },
+    {
+      "attributes": {
+        "host": "demo.example.test",
+        "path": "/",
+        "query_keys": [],
+        "source_surface_id": "surface_dfd7ab11a67a99d2d6e0d4c584e11662cba8471cd69b2531550f805a825ed6d3"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "PAGE",
+      "kind": "url_features",
+      "locator": "/html/head/link[1]",
+      "surface_id": "surface_4718eb6a2ecac7c0cd216f34ecdf125eed3b0455ad3f3f1fb986dbd79e6ae290",
+      "value": "https://demo.example.test/"
+    },
+    {
+      "attributes": {
+        "host": "example.test",
+        "path": "/style.css",
+        "query_keys": [],
+        "source_surface_id": "surface_5e6e6782f88f9cd91443bef5e302da653b8513716f79ebf28cea2028a71ed4de"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "PAGE",
+      "kind": "url_features",
+      "locator": "/html/head/link[2]",
+      "surface_id": "surface_f29189d4948c7f176026768d1fe347a1c1cb6796dad32b4f430aabf683a0ef96",
+      "value": "https://example.test/style.css"
+    },
+    {
+      "attributes": {
+        "host": "assets.calendly.com",
+        "path": "/widget.js",
+        "query_keys": [],
+        "source_surface_id": "surface_3146ea780c449847cbb07613667ae77a4fc13ebef3681970ece2c1f7caca9f7e"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "PAGE",
+      "kind": "url_features",
+      "locator": "/html/head/script[1]/@src",
+      "surface_id": "surface_e8422de30bea0026ce6d0f8f97edef544d9ea6379139a09ea7308805df9ac651",
+      "value": "https://assets.calendly.com/widget.js"
+    },
+    {
+      "attributes": {
+        "host": "example.test",
+        "path": "/contact",
+        "query_keys": [],
+        "source_surface_id": "surface_820502759baf411b88b01bd2d14d236d6af0ad702cb8837ddf9ac7d0c75ecc79"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "HEADER_NAV",
+      "kind": "url_features",
+      "locator": "/html/body/header/nav/a/@href",
+      "surface_id": "surface_8d36e9478db3c535665ddd4f94c4d2aa89e4032718214ba41582bac95ff7b5d3",
+      "value": "https://example.test/contact"
+    },
+    {
+      "attributes": {
+        "host": "calendly.com",
+        "path": "/acme-demo",
+        "query_keys": [],
+        "source_surface_id": "surface_2389e4217c656bd708e816c1783e3008cdad58a84522575a63abc7bda5638851"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "PAGE",
+      "kind": "url_features",
+      "locator": "/html/body/main/iframe/@src",
+      "surface_id": "surface_c10e495d9a10595a4c226037c101f755450c53bee6fee2ba4f9290e7e42ca3ac",
+      "value": "https://calendly.com/acme-demo"
+    },
+    {
+      "attributes": {
+        "host": "example.test",
+        "path": "/request",
+        "query_keys": [],
+        "source_surface_id": "surface_ecd6f5bed53d3d84a5df5db6a5815d5f756a241d42fc29a73706f35c664e41c8"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "PAGE",
+      "kind": "url_features",
+      "locator": "/html/body/main/form/@action",
+      "surface_id": "surface_37ae9f6c05faddee1d7993d4b16f687f58b2b2033e948cd2bdb3adc36e7792f1",
+      "value": "https://example.test/request"
+    },
+    {
+      "attributes": {
+        "host": "example.test",
+        "path": "/badge.png",
+        "query_keys": [],
+        "source_surface_id": "surface_deda51fc264490127ef024a01c89efbe1cf3796f15c70a957446458269a8663b"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "PAGE",
+      "kind": "url_features",
+      "locator": "/html/body/main/img",
+      "surface_id": "surface_f6cc384c61539848a03c5ce6d9a26e2069486877c932584839268758fef5b5c0",
+      "value": "https://example.test/badge.png"
+    },
+    {
+      "attributes": {
+        "host": "calendly.com",
+        "path": "/help",
+        "query_keys": [],
+        "source_surface_id": "surface_d5375ba6caac8b55a9797ba0723d641a23a2fcbbaf286aae3eb30719c145fad2"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "PAGE",
+      "kind": "url_features",
+      "locator": "/html/body/main/a/@href",
+      "surface_id": "surface_110b906103f626c5432e6a31dc4e120e3aa2c44b9f6f6fdf85141b7d12f13e08",
+      "value": "https://calendly.com/help"
+    },
+    {
+      "attributes": {
+        "host": "example.test",
+        "path": "/fallback",
+        "query_keys": [],
+        "source_surface_id": "surface_35333d0aa94b41d24da189176c6bada8594ff9ae85ac5cdc7a110d46016ecc5e"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "NOSCRIPT",
+      "kind": "url_features",
+      "locator": "/html/body/main/noscript/a/@href",
+      "surface_id": "surface_6399c3daa4ecf1f77dbfbcebd5d31e4df53dd4a36f31e45e275814ab01c3c79c",
+      "value": "https://example.test/fallback"
+    },
+    {
+      "attributes": {
+        "host": "agency.example",
+        "path": "/book",
+        "query_keys": [],
+        "source_surface_id": "surface_8cfae865991f6ab0fc9fc449dc8837b4ca97ace60b985fa3f03bf6719755e5be"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_URL_FEATURES",
+      "context": "FOOTER",
+      "kind": "url_features",
+      "locator": "/html/body/footer/a/@href",
+      "surface_id": "surface_30a7cbad1c6f81c2baaf4ca9bd728095e4ca8b44ddca1f32ba933c28bceec921",
+      "value": "https://agency.example/book"
+    },
+    {
+      "attributes": {
+        "name": "content-type"
+      },
+      "capture_id": "capture_6ba44f9b421ee9dbe970631955be0fd1fa0dae8283fa0defeb9375675a41506b",
+      "command_id": "EXTRACT_HEADERS",
+      "context": "PAGE",
+      "kind": "header",
+      "locator": "response/header/content-type",
+      "surface_id": "surface_88c7b4b1998ccab3d71bcc69eacfb723aca206e7951358afb4c52b7005d91a8a",
+      "value": "text/html"
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+[
+  {
+    "contract_status": "SCHEMA_DEFINED",
+    "live_adapter_status": "NOT_IMPLEMENTED",
+    "metric_ids": [
+      "hiring.open_postings",
+      "hiring.new_postings",
+      "hiring.closed_postings",
+      "hiring.workflow_mention_count",
+      "hiring.spreadsheet_mention_count",
+      "hiring.document_mention_count"
+    ],
+    "predicate_ids": [
+      "careers.page",
+      "careers.ats",
+      "job.posting",
+      "job.status",
+      "job.salary",
+      "job.work_arrangement",
+      "job.workflow_statement",
+      "job.spreadsheet_statement",
+      "job.crm_statement",
+      "job.document_statement",
+      "job.handoff_statement",
+      "hiring.change_event",
+      "hiring.measurement"
+    ],
+    "section": 1,
+    "title": "Careers / ATS and job-description workflow mining"
+  },
+  {
+    "contract_status": "SCHEMA_DEFINED",
+    "live_adapter_status": "NOT_IMPLEMENTED",
+    "metric_ids": [
+      "technology.products_detected",
+      "technology.domains_observed",
+      "technology.cooccurrence_support"
+    ],
+    "predicate_ids": [
+      "technology.footprint",
+      "technology.provider_report",
+      "technology.script",
+      "technology.form_action",
+      "technology.network_request",
+      "technology.csp",
+      "technology.cookie",
+      "technology.header",
+      "technology.subdomain",
+      "dns.mx.provider",
+      "dns.cname.service",
+      "technology.account_identifier",
+      "technology.cooccurrence",
+      "technology.measurement"
+    ],
+    "section": 2,
+    "title": "SaaS signatures and technographics"
+  },
+  {
+    "contract_status": "SCHEMA_DEFINED",
+    "live_adapter_status": "NOT_IMPLEMENTED",
+    "metric_ids": [],
+    "predicate_ids": [
+      "technology.footprint",
+      "product.vertical",
+      "product.category",
+      "product.capability",
+      "portal.observed",
+      "integration.public_marker",
+      "integration.connection.verified"
+    ],
+    "section": 3,
+    "title": "Vertical SaaS"
+  },
+  {
+    "contract_status": "SCHEMA_DEFINED",
+    "live_adapter_status": "NOT_IMPLEMENTED",
+    "metric_ids": [
+      "review.count",
+      "review.new_reviews",
+      "review.owner_responses",
+      "review.negative_reviews",
+      "review.theme_support_count",
+      "review.rating",
+      "review.response_ratio",
+      "review.negative_share",
+      "review.theme_share",
+      "research.theme_share"
+    ],
+    "predicate_ids": [
+      "review.record",
+      "review.statement",
+      "review.theme_classification",
+      "review.measurement",
+      "product.pain_prior"
+    ],
+    "section": 4,
+    "title": "Product-review pain priors"
+  },
+  {
+    "contract_status": "SCHEMA_DEFINED",
+    "live_adapter_status": "NOT_IMPLEMENTED",
+    "metric_ids": [
+      "review.count",
+      "review.new_reviews",
+      "review.owner_responses",
+      "review.negative_reviews",
+      "review.theme_support_count",
+      "review.rating",
+      "review.response_ratio",
+      "review.negative_share",
+      "review.theme_share"
+    ],
+    "predicate_ids": [
+      "review.record",
+      "review.owner_response",
+      "review.statement",
+      "review.theme_classification",
+      "review.theme_summary",
+      "review.measurement"
+    ],
+    "section": 5,
+    "title": "Local review and operational pain reports"
+  },
+  {
+    "contract_status": "SCHEMA_DEFINED",
+    "live_adapter_status": "NOT_IMPLEMENTED",
+    "metric_ids": [
+      "research.theme_share"
+    ],
+    "predicate_ids": [
+      "discussion.record",
+      "discussion.statement",
+      "discussion.theme_classification",
+      "product.pain_prior",
+      "industry.pain_prior",
+      "research.measurement"
+    ],
+    "section": 6,
+    "title": "Forums and industry/vendor communities"
+  },
+  {
+    "contract_status": "SCHEMA_DEFINED",
+    "live_adapter_status": "NOT_IMPLEMENTED",
+    "metric_ids": [
+      "traffic.visits",
+      "traffic.unique_visitors",
+      "traffic.pageviews",
+      "traffic.pages_per_visit",
+      "traffic.visit_duration",
+      "traffic.bounce_rate",
+      "traffic.growth",
+      "traffic.global_rank",
+      "traffic.country_rank",
+      "traffic.category_rank",
+      "traffic.channel_share",
+      "traffic.geography_share",
+      "traffic.popular_page_share",
+      "traffic.referral_share",
+      "traffic.outgoing_share",
+      "traffic.paid_referral_concentration",
+      "traffic.audience_overlap",
+      "traffic.social_source_share",
+      "traffic.device_share",
+      "traffic.organic_visits",
+      "traffic.paid_visits",
+      "traffic.referral_visits",
+      "traffic.social_visits",
+      "traffic.direct_visits",
+      "traffic.search_visits"
+    ],
+    "predicate_ids": [
+      "traffic.measurement"
+    ],
+    "section": 7,
+    "title": "Traffic and acquisition estimates"
+  },
+  {
+    "contract_status": "SCHEMA_DEFINED",
+    "live_adapter_status": "NOT_IMPLEMENTED",
+    "metric_ids": [
+      "review.count",
+      "review.new_reviews",
+      "review.owner_responses",
+      "review.negative_reviews",
+      "review.theme_support_count",
+      "review.rating",
+      "review.response_ratio",
+      "review.negative_share",
+      "review.theme_share",
+      "seo.keyword_count",
+      "seo.indexed_pages",
+      "seo.backlinks",
+      "seo.referring_domains",
+      "seo.mentions",
+      "seo.broken_links",
+      "seo.pages_crawled",
+      "seo.local_results_count",
+      "seo.organic_rank",
+      "seo.paid_rank",
+      "seo.local_rank",
+      "seo.shopping_rank",
+      "seo.lcp",
+      "seo.inp",
+      "seo.cls",
+      "seo.authority",
+      "seo.search_volume",
+      "seo.keyword_difficulty",
+      "seo.estimated_organic_traffic",
+      "seo.estimated_paid_traffic",
+      "seo.cpc",
+      "seo.ai_citation_share",
+      "app.reviews",
+      "app.ratings",
+      "app.downloads_reported",
+      "shopping.listings",
+      "shopping.offers",
+      "shopping.sellers",
+      "ads.active_ads",
+      "ads.creatives"
+    ],
+    "predicate_ids": [
+      "search.result",
+      "business.profile_attribute",
+      "technology.provider_report",
+      "backlink.record",
+      "web.mention",
+      "web.mention_sentiment",
+      "app.listing",
+      "shopping.listing",
+      "advertisement.record",
+      "seo.measurement",
+      "app.measurement",
+      "shopping.measurement",
+      "ads.measurement",
+      "review.measurement"
+    ],
+    "section": 8,
+    "title": "Commodity provider data"
+  },
+  {
+    "contract_status": "SCHEMA_DEFINED",
+    "live_adapter_status": "NOT_IMPLEMENTED",
+    "metric_ids": [
+      "registry.providers",
+      "registry.advisers",
+      "registry.locations",
+      "registry.licenses",
+      "registry.permits",
+      "registry.aum"
+    ],
+    "predicate_ids": [
+      "registry.registration",
+      "registry.license",
+      "registry.permit",
+      "registry.specialty",
+      "registry.filing",
+      "registry.affiliation",
+      "registry.measurement"
+    ],
+    "section": 9,
+    "title": "Vertical public registries"
+  },
+  {
+    "contract_status": "SCHEMA_DEFINED",
+    "live_adapter_status": "NOT_IMPLEMENTED",
+    "metric_ids": [
+      "phone.inbound_calls",
+      "phone.answered_calls",
+      "phone.missed_calls",
+      "phone.callbacks",
+      "phone.voicemail_calls",
+      "phone.missed_call_rate",
+      "phone.callback_rate",
+      "phone.booking_conversion_rate",
+      "phone.callback_delay"
+    ],
+    "predicate_ids": [
+      "technology.footprint",
+      "phone.cta",
+      "phone.routing_observed",
+      "phone.routing_verified",
+      "phone.recording_verified",
+      "phone.call_event",
+      "phone.measurement",
+      "phone.economics_hypothesis",
+      "review.statement"
+    ],
+    "section": 10,
+    "title": "Phone and inbound economics"
+  },
+  {
+    "contract_status": "SCHEMA_DEFINED",
+    "live_adapter_status": "NOT_IMPLEMENTED",
+    "metric_ids": [],
+    "predicate_ids": [
+      "company.self_claim",
+      "website.business_model_statement",
+      "website.customer_type_statement",
+      "website.lead_channel_statement",
+      "website.document_type_statement",
+      "website.handoff_statement",
+      "website.intent_statement",
+      "website.manual_process_statement",
+      "website.knowledge_source_statement",
+      "document.surface",
+      "form.surface",
+      "workflow.hypothesis",
+      "knowledge_complexity.hypothesis"
+    ],
+    "section": 11,
+    "title": "Website / workflow extraction and inference"
+  }
+]

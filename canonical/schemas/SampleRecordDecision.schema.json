@@ -1,0 +1,48 @@
+{
+  "$id": "https://keensight.local/v4.2/SampleRecordDecision.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "classification_fact_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "SUPPORT",
+        "CONTRADICT",
+        "NO_THEME",
+        "UNCLASSIFIED",
+        "EXCLUDED"
+      ]
+    }
+  },
+  "required": [
+    "artifact_id",
+    "status",
+    "classification_fact_ids",
+    "reason"
+  ],
+  "title": "SampleRecordDecision",
+  "type": "object"
+}

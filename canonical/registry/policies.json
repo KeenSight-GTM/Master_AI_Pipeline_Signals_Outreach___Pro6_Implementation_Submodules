@@ -1,0 +1,54 @@
+[
+  {
+    "allow_personal_data": false,
+    "allow_sensitive_data": false,
+    "approval_ref": "SYNTHETIC_TEST_ONLY",
+    "attribution_text": null,
+    "deletion_cascades": true,
+    "fixture_only": true,
+    "max_derived_retention_seconds": 7776000,
+    "max_raw_retention_seconds": 5184000,
+    "policy_id": "policy.fixture",
+    "purposes": [
+      "CAPTURE",
+      "RETAIN",
+      "DERIVE",
+      "LLM_PROCESS",
+      "INTERNAL_RESEARCH",
+      "OUTREACH",
+      "EXPORT"
+    ],
+    "review_status": "APPROVED",
+    "reviewed_at": "2026-09-01T00:00:00Z",
+    "tenant_ids": [
+      "tenant.demo"
+    ],
+    "terms_ref": "https://example.test/fixture-policy",
+    "valid_until": "2027-01-01T00:00:00Z",
+    "version": "1.0.0"
+  },
+  {
+    "allow_personal_data": false,
+    "allow_sensitive_data": false,
+    "approval_ref": "SYNTHETIC_TEST_ONLY",
+    "attribution_text": null,
+    "deletion_cascades": true,
+    "fixture_only": true,
+    "max_derived_retention_seconds": 7776000,
+    "max_raw_retention_seconds": 5184000,
+    "policy_id": "policy.blocked",
+    "purposes": [
+      "DERIVE",
+      "RETAIN",
+      "INTERNAL_RESEARCH"
+    ],
+    "review_status": "APPROVED",
+    "reviewed_at": "2026-09-01T00:00:00Z",
+    "tenant_ids": [
+      "tenant.demo"
+    ],
+    "terms_ref": "https://example.test/fixture-policy",
+    "valid_until": "2027-01-01T00:00:00Z",
+    "version": "1.0.0"
+  }
+]

@@ -1,0 +1,68 @@
+classDiagram
+  class ProgramDefinition
+  class AudienceDefinition
+  class OfferDefinition
+  class AccountSeed
+  class Subject
+  class SubjectBinding
+  class Fact
+  class ClaimResolution
+  class InputSnapshot
+  class ContextAssessment
+  class SignalEvaluation
+  class OpportunitySelection
+  class ContactProfile
+  class ContactAssessment
+  class OutreachPackage
+  class MessageArtifact
+  class ReviewDecision
+  class CampaignDefinition
+  class CampaignApproval
+  class Enrollment
+  class DeliveryIntent
+  class SendGateDecision
+  class DeliveryAttempt
+  class Exposure
+  class OutcomeEvent
+  class Conversation
+  class ReplyAssessment
+  class SalesHandoff
+  class CRMSyncReceipt
+  class QualityAssessment
+  class PromotionProposal
+  ProgramDefinition --> AudienceDefinition : selects
+  ProgramDefinition --> OfferDefinition : offers
+  AudienceDefinition --> AccountSeed : discovery policy
+  AccountSeed --> Subject : accepted resolution
+  SubjectBinding --> Subject : binds with evidence
+  Fact --> Subject : concerns
+  ClaimResolution --> Fact : complete evidence group
+  InputSnapshot --> ClaimResolution : pins
+  ContextAssessment --> InputSnapshot : explicit allowed join
+  SignalEvaluation --> InputSnapshot : evaluates
+  SignalEvaluation --> ContextAssessment : internal context
+  OpportunitySelection --> SignalEvaluation : considers
+  OpportunitySelection --> OfferDefinition : compatible offer
+  ContactProfile --> SubjectBinding : person account link
+  ContactAssessment --> ContactProfile : separately assesses
+  OutreachPackage --> OpportunitySelection : supported path
+  OutreachPackage --> MessageArtifact : exact visible revision
+  ReviewDecision --> OutreachPackage : binds revision hash
+  CampaignDefinition --> ProgramDefinition : program
+  CampaignApproval --> CampaignDefinition : approves exact policy
+  Enrollment --> CampaignDefinition : one schedule owner
+  Enrollment --> ContactAssessment : audience eligibility
+  DeliveryIntent --> Enrollment : one step
+  DeliveryIntent --> MessageArtifact : approved payload
+  SendGateDecision --> DeliveryIntent : current permission
+  SendGateDecision --> ReviewDecision : exact review
+  SendGateDecision --> CampaignApproval : campaign authority
+  DeliveryAttempt --> DeliveryIntent : stable effect identity
+  Exposure --> DeliveryAttempt : accepted or reconciled effect
+  OutcomeEvent --> Exposure : nullable until attributed
+  Conversation --> OutcomeEvent : verified inbound
+  ReplyAssessment --> Conversation : assessment not observed truth
+  SalesHandoff --> Conversation : qualified handoff
+  CRMSyncReceipt --> SalesHandoff : external sync result
+  QualityAssessment --> OutcomeEvent : eligible measurement
+  PromotionProposal --> QualityAssessment : later authorized release

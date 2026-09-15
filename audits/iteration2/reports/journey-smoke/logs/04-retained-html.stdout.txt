@@ -1,0 +1,6 @@
+{
+  "bundle": "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/imported-store/scan-bundle.json",
+  "claims": 1,
+  "network_requests": 0,
+  "timestamp_is_user_supplied": true
+}

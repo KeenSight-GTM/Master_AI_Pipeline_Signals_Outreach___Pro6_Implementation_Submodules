@@ -1,0 +1,6 @@
+{
+  "input_rows": 2,
+  "imported_candidates": 1,
+  "quarantined_rows": 1,
+  "automatic_approvals": 0
+}

@@ -1,0 +1,161 @@
+{
+  "diagrams": [
+    {
+      "id": "01-product-lifecycle",
+      "title": "Entire product lifecycle and valid terminal products",
+      "kind": "flowchart"
+    },
+    {
+      "id": "02-capture-publication",
+      "title": "Capture, surface completeness, deduplication and atomic publication",
+      "kind": "flowchart"
+    },
+    {
+      "id": "03-knowledge-context",
+      "title": "Account proof versus product/industry context",
+      "kind": "flowchart"
+    },
+    {
+      "id": "04-model-execution",
+      "title": "Model call: sealed external inputs and run-produced I/O (proposed live path)",
+      "kind": "sequenceDiagram"
+    },
+    {
+      "id": "05-review-export",
+      "title": "Historical evaluation, exact review and current-use export",
+      "kind": "sequenceDiagram"
+    },
+    {
+      "id": "06-send-reply-crm",
+      "title": "Proposed send, uncertain acceptance, reply stop and CRM retry",
+      "kind": "sequenceDiagram"
+    },
+    {
+      "id": "07-execution-state",
+      "title": "Execution and publication state machine",
+      "kind": "flowchart"
+    },
+    {
+      "id": "08-delivery-state",
+      "title": "Proposed delivery state machine: uncertainty is not retry permission",
+      "kind": "flowchart"
+    },
+    {
+      "id": "09-service-deployment",
+      "title": "Proposed deployment groups (logical until extracted)",
+      "kind": "flowchart"
+    },
+    {
+      "id": "classes-01",
+      "title": "Full class partition 01: AcquisitionAttempt, ActorGrant, Artifact, AttributedStatementValue, BatchRun, CalibrationRecord",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-02",
+      "title": "Full class partition 02: CallEventValue, CandidateRecord, CapabilityProfile, CaseStudyOutcomeValue, ChangeRecord, ClaimResolution",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-03",
+      "title": "Full class partition 03: ConfidenceAssessment, ContextAssessment, ContextJoinRule, CoverageCheck, CoverageFamilyPlan, CoverageRecord",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-04",
+      "title": "Full class partition 04: DataAccessPolicy, DestinationDefinition, DiscussionRecordValue, EconomicHypothesisValue, EvidenceLocator, EvidenceSet",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-05",
+      "title": "Full class partition 05: ExecutionRecord, ExportReceipt, Exposure, ExternalIdentifier, Fact, FactRequirement",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-06",
+      "title": "Full class partition 06: FingerprintDefinition, FunctionDefinition, GroundedClause, HypothesisValue, IntakeRequest, IntakeTarget",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-07",
+      "title": "Full class partition 07: JobPostingValue, LookalikeMatch, MeasurementValue, MetricDefinition, ModelCall, ObjectReferenceRule",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-08",
+      "title": "Full class partition 08: OutcomeEvent, OutreachPackage, PackageReference, PredicateDefinition, ProviderBlueprint, PublishedRecordValue",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-09",
+      "title": "Full class partition 09: QuotedTextResult, RegistryRecordValue, RepairAttempt, ResearchPriorValue, ResearchSample, ResearchSupportPolicy",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-10",
+      "title": "Full class partition 10: ReviewDecision, ReviewRecordValue, SalaryValue, SampleRecordDecision, ScenarioEstimate, Scope",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-11",
+      "title": "Full class partition 11: SignalDefinition, SignalEvaluation, SourceDefinition, Subject, SubjectBinding, SurfaceObservationValue",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-12",
+      "title": "Full class partition 12: TargetResult, TaxonomyTerm, TechnologyReportValue, TechnologyValue, TemplateDefinition, ThemeClassificationValue",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-13",
+      "title": "Full class partition 13: TimeWindow, UseGateDecision, UseRestriction, ProgramDefinition, AudienceDefinition, OfferDefinition",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-14",
+      "title": "Full class partition 14: AccountSeed, LeadSelection, ResearchPlan, ContactProfile, ContactAssessment, MessageArtifact",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-15",
+      "title": "Full class partition 15: CampaignDefinition, CampaignApproval, CampaignReadiness, Enrollment, StepEligibility, DeliveryIntent",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-16",
+      "title": "Full class partition 16: SendGateDecision, SenderCapabilitySnapshot, DeliveryAttempt, Conversation, ReplyAssessment, EnrollmentControl",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-17",
+      "title": "Full class partition 17: FollowUpTask, SalesHandoff, CRMMapping, CRMAccountView, CRMSyncIntent, CRMSyncReceipt",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-18",
+      "title": "Full class partition 18: ExperimentDefinition, ExperimentAssignment, QualityAssessment, PromotionProposal, WorkspaceView, Common",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-19",
+      "title": "Full class partition 19: Diagnostic, ModuleRequest, ModuleResult, CollectorCapture, CollectorSurface, CollectorCommandResult",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "classes-20",
+      "title": "Full class partition 20: CollectorPageEvidence, CollectorMatch, CollectorObservation, CollectorSupportLink, CollectorClaimView",
+      "kind": "classDiagram"
+    },
+    {
+      "id": "10-core-associations",
+      "title": "UML association overview (identifiers resolve through explicit owners)",
+      "kind": "flowchart"
+    },
+    {
+      "id": "11-implemented-software",
+      "title": "Implemented software classes and callable boundaries",
+      "kind": "flowchart"
+    }
+  ],
+  "class_count": 119,
+  "rendered_count": 31
+}

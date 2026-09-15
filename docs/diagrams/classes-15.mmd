@@ -1,0 +1,72 @@
+classDiagram
+    class CampaignDefinition {
+        campaign_id
+        revision
+        program_ref
+        route_ref
+        ordered_step_definitions
+        template_refs
+        schedule_owner
+        send_window_policy
+        timezone_policy
+        sender_constraints
+        stop_policy
+        frequency_caps
+    }
+    class CampaignApproval {
+        approval_id
+        campaign_id
+        revision
+        definition_hash
+        authorized_actor
+        allowed_mode
+        approved_at
+        policy_ref
+    }
+    class CampaignReadiness {
+        readiness_id
+        campaign_ref
+        sender_snapshot_refs
+        provider_state_refs
+        compatibility_checks
+        checked_at
+        decision
+        reasons
+    }
+    class Enrollment {
+        enrollment_id
+        tenant_id
+        campaign_ref
+        account_ref
+        contact_ref
+        enrollment_policy_ref
+        state
+        next_step_id
+        state_revision
+        enrolled_at
+        last_event_ref
+    }
+    class StepEligibility {
+        eligibility_id
+        enrollment_ref
+        step_id
+        due_at
+        timezone_basis
+        package_ref
+        contact_assessment_ref
+        cap_reservation_ref
+        state_revision
+        decision
+        reasons
+    }
+    class DeliveryIntent {
+        intent_id
+        tenant_id
+        enrollment_ref
+        step_id
+        recipient_binding_ref
+        channel
+        reviewed_message_ref
+        logical_effect_key
+        execution_owner
+    }

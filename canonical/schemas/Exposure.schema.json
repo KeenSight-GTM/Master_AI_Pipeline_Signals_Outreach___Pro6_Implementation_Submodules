@@ -1,0 +1,70 @@
+{
+  "$id": "https://keensight.local/v4.2/Exposure.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "pattern": "Z$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "business_send_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "exposure_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "package_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "provider_message_id": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "recipient_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "PROVIDER_ACCEPTED",
+        "UNKNOWN_DELIVERY",
+        "FAILED",
+        "BOUNCED"
+      ]
+    },
+    "tenant_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "exposure_id",
+    "tenant_id",
+    "package_id",
+    "business_send_key",
+    "provider_message_id",
+    "recipient_key",
+    "accepted_at",
+    "status"
+  ],
+  "title": "Exposure",
+  "type": "object"
+}

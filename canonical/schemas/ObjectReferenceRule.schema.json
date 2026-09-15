@@ -1,0 +1,53 @@
+{
+  "$id": "https://keensight.local/v4.2/ObjectReferenceRule.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "container": {
+      "enum": [
+        "target",
+        "object"
+      ]
+    },
+    "path": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "subject_kinds": {
+      "items": {
+        "enum": [
+          "ORG",
+          "LOCATION",
+          "PERSON",
+          "BRAND",
+          "WEBSITE",
+          "SOFTWARE_PRODUCT",
+          "INDUSTRY",
+          "JOB_POSTING",
+          "APPLICATION",
+          "LISTING",
+          "COHORT",
+          "ANGLE"
+        ]
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "target_type": {
+      "enum": [
+        "SUBJECT",
+        "FACT",
+        "ARTIFACT",
+        "LOCATOR"
+      ]
+    }
+  },
+  "required": [
+    "container",
+    "path",
+    "subject_kinds"
+  ],
+  "title": "ObjectReferenceRule",
+  "type": "object"
+}

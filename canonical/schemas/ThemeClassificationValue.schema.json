@@ -1,0 +1,50 @@
+{
+  "$id": "https://keensight.local/v4.2/ThemeClassificationValue.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "record_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "sentiment": {
+      "enum": [
+        "POSITIVE",
+        "NEGATIVE",
+        "NEUTRAL",
+        "MIXED"
+      ]
+    },
+    "stance": {
+      "enum": [
+        "EXPERIENCED",
+        "ASKED",
+        "NEGATED",
+        "QUOTED",
+        "UNCERTAIN"
+      ]
+    },
+    "support_locator_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "theme_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "theme_id",
+    "record_key",
+    "sentiment",
+    "stance",
+    "support_locator_ids"
+  ],
+  "title": "ThemeClassificationValue",
+  "type": "object"
+}

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "scope": "Planning traceability only; not proposed runtime behavior",
+  "workbook_sheets": 11,
+  "original_commands": 38,
+  "extraction_commands": 17,
+  "all_commands_assigned_to_collector": true,
+  "command_completion_gate": "P2",
+  "phases": 10,
+  "phase_dependency_graph": "ACYCLIC",
+  "modules": 36,
+  "work_items": 61,
+  "preserved_ledger_ids": 52,
+  "baseline_reference_tests": "588 passed (see baseline-check.txt)",
+  "donor_repository_tests_run_here": false,
+  "new_crawler_implemented_here": false,
+  "github_mutations": false
+}

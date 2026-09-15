@@ -1,0 +1,6 @@
+........................................................................ [ 46%]
+......s................................................................. [ 92%]
+............                                                             [100%]
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_live_integration.py:14: could not import 'scrapling.fetchers': No module named 'scrapling'
+155 passed, 1 skipped in 1.70s

@@ -1,0 +1,36 @@
+{
+  "capture:demo": {
+    "body": {
+      "body_digest": "illustrative-original-snapshot",
+      "observed_at": "2026-09-14T12:00:00Z"
+    },
+    "fixture_only": true,
+    "type": "CaptureInput"
+  },
+  "matchset:demo": {
+    "body": {
+      "evidence_points": 1,
+      "matches": 2,
+      "verdict": "MATCH"
+    },
+    "fixture_only": true,
+    "type": "MatchEvaluation"
+  },
+  "params:demo": {
+    "body": {
+      "allow_network": false,
+      "policy": "approved-only"
+    },
+    "fixture_only": true,
+    "type": "FingerprintParameters"
+  },
+  "release:demo": {
+    "body": {
+      "collector": "0.1.0",
+      "domain_contracts": "4.1.0",
+      "rule_release": "synthetic"
+    },
+    "fixture_only": true,
+    "type": "ReleaseLock"
+  }
+}

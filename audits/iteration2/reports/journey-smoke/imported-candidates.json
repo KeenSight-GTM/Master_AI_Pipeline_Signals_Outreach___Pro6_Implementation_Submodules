@@ -1,0 +1,51 @@
+{
+  "aliases": {},
+  "fixture_only": false,
+  "release_id": "donor-candidates-v1",
+  "rules": [
+    {
+      "confidence": 0.99,
+      "field": "value",
+      "id": "same-tool-script",
+      "kinds": [
+        "script_url"
+      ],
+      "operator": "host_equals",
+      "patterns": [
+        "assets.calendly.com"
+      ],
+      "predicate": "vendor.mentioned",
+      "product_id": "product:calendly",
+      "source": {
+        "emission_policy": "candidate vendor.mentioned; reviewed narrow rule needed for presence",
+        "legacy_id": "same-tool-script",
+        "legacy_status": "active_candidate",
+        "original": {
+          "id": "same-tool-script",
+          "signal": {
+            "category": "technology",
+            "confidence": 0.99,
+            "key": "technology",
+            "metadata": {
+              "detector_status": "active_candidate",
+              "match": {
+                "min_matches": 1,
+                "operator": "host_equals",
+                "patterns": [
+                  "assets.calendly.com"
+                ],
+                "scope": [
+                  "scripts"
+                ]
+              }
+            },
+            "value": "calendly"
+          }
+        },
+        "raw_sha256": "legacy_77f1edeebdffbfd755511fb0a115e86816cb3623da4cb5c948d75ad9ec8d7672"
+      },
+      "status": "CANDIDATE"
+    }
+  ],
+  "schema_version": "1.0"
+}

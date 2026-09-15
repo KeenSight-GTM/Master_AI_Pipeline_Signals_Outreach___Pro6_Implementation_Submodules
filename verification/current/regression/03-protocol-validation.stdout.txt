@@ -1,0 +1,9 @@
+{
+  "proposal_version": "1.0.0-draft.1",
+  "module_definitions": 30,
+  "command_bindings": 38,
+  "common_schema_documents": 4,
+  "example_pairs": 1,
+  "example_reference_hashes": "PASS",
+  "scope": "Design-pack consistency and common-envelope fixtures only; no runtime modules were integrated."
+}

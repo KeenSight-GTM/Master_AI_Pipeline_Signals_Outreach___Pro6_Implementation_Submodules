@@ -1,0 +1,11 @@
+[
+  {
+    "automatic_sending": false,
+    "destination_id": "destination.fixture",
+    "enabled": true,
+    "fixture_only": true,
+    "kind": "LOCAL_PREVIEW",
+    "mapping_version": "1.0.0",
+    "tenant_id": "tenant.demo"
+  }
+]

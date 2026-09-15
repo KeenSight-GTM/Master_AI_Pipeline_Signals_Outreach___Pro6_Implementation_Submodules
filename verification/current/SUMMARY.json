@@ -1,0 +1,55 @@
+{
+  "snapshot": "2026-09-15-local-assembly.1",
+  "scope": "SOURCE_ASSEMBLY_AND_LOCAL_FIXTURE_VERIFICATION",
+  "regression_suites": {
+    "collector": {
+      "tests": 184,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1
+    },
+    "canonical": {
+      "tests": 609,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "protocol": {
+      "tests": 42,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "workspace": {
+      "tests": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "existing_component_passed": 834,
+  "workspace_passed": 14,
+  "known_issue_acceptance": {
+    "poc": {
+      "tests": 14,
+      "failures": 9,
+      "errors": 0,
+      "skipped": 0
+    },
+    "iteration2": {
+      "tests": 22,
+      "failures": 16,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "journeys": 8,
+  "journey_subprocesses": 20,
+  "component_sources_preserved": 311,
+  "generated_canonical_files_match": 116,
+  "live_sdk_verified": false,
+  "browser_enabled": false,
+  "github_push": false,
+  "runtime_behavior_patched_in_this_assembly": false,
+  "poc_ready": false
+}

@@ -1,0 +1,88 @@
+{
+  "$id": "https://keensight.local/v4.2/SignalEvaluation.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "context_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "evaluated_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "input_fact_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "enum": [
+            "THIN_DATA",
+            "CONFLICT",
+            "POLICY",
+            "DNC",
+            "CANDIDATE_SOURCE"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "run_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "signal_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "signal_type_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "RESOLVED",
+        "UNRESOLVED",
+        "SUPPRESSED",
+        "CANDIDATE"
+      ]
+    },
+    "subject_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "tenant_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "signal_id",
+    "run_id",
+    "tenant_id",
+    "subject_id",
+    "signal_type_id",
+    "input_fact_ids",
+    "context_ids",
+    "status",
+    "reason",
+    "evaluated_at"
+  ],
+  "title": "SignalEvaluation",
+  "type": "object"
+}

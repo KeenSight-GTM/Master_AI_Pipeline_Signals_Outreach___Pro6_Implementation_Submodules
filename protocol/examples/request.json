@@ -1,0 +1,51 @@
+{
+  "attempt": 1,
+  "budget_reservation_ref": null,
+  "context": {
+    "as_of": "2026-09-14T12:01:00Z",
+    "knowledge_cutoff": "2026-09-14T12:01:00Z",
+    "mode": "EVALUATE",
+    "purpose": "KNOWLEDGE",
+    "run_id": "run:demo",
+    "security_context_id": "trusted-context:demo",
+    "subject_ref": null,
+    "target_key": "account:demo",
+    "tenant_id": "tenant:demo"
+  },
+  "deadline_at": "2026-09-14T12:02:00Z",
+  "execution_id": "execution:demo:match:1",
+  "idempotency_key": "semantic-operation:demo:match",
+  "input_refs": [
+    {
+      "content_digest": "sha256:f48beeeda23b79cf22455e4f4bc63cd66e713df3bf0f7a77ecc21a009dcc257d",
+      "record_id": "capture:demo",
+      "schema_id": "urn:keensight:protocol-fixture:CaptureInput",
+      "schema_version": "example-only",
+      "tenant_id": "tenant:demo"
+    }
+  ],
+  "module_id": "FP-01",
+  "operation": "match",
+  "parameters_ref": {
+    "content_digest": "sha256:83e18a9cfedd455319578ce125091a0baa040323fbd6b352e27e5b1d0022b12c",
+    "record_id": "params:demo",
+    "schema_id": "urn:keensight:protocol-fixture:FingerprintParameters",
+    "schema_version": "example-only",
+    "tenant_id": "tenant:demo"
+  },
+  "protocol_version": "1.0.0-draft.1",
+  "release_lock_ref": {
+    "content_digest": "sha256:8e1fe00de629a846fcdab84eeae0f191bde45bd4f64e94d436b7327afcf66c63",
+    "record_id": "release:demo",
+    "schema_id": "urn:keensight:protocol-fixture:ReleaseLock",
+    "schema_version": "example-only",
+    "tenant_id": "tenant:demo"
+  },
+  "request_id": "request:demo:match",
+  "trace": {
+    "linked_execution_ids": [],
+    "parent_span_id": null,
+    "span_id": "00f067aa0ba902b7",
+    "trace_id": "4bf92f3577b34da6a3ce929d0e0e4736"
+  }
+}

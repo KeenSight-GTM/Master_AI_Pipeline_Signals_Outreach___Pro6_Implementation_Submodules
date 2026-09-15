@@ -1,0 +1,1 @@
+ContractError: Capture metadata differs from its authoritative stored record

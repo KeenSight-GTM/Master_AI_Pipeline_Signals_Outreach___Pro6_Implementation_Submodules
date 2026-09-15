@@ -1,0 +1,223 @@
+[
+  {
+    "adapter_implemented": false,
+    "approval_required": true,
+    "blueprint_id": "provider.website",
+    "families": [
+      "hiring",
+      "technology",
+      "website_analysis"
+    ],
+    "methods": [
+      "HTTP_CAPTURE"
+    ],
+    "notes": "Per-site capture policy; deterministic capture plus optional bounded extraction.",
+    "provider": "Website and ATS",
+    "section_ids": [
+      1,
+      2,
+      3,
+      10,
+      11
+    ],
+    "terms_url": "https://example.test/terms"
+  },
+  {
+    "adapter_implemented": false,
+    "approval_required": true,
+    "blueprint_id": "provider.g2",
+    "families": [
+      "reviews",
+      "research"
+    ],
+    "methods": [
+      "API"
+    ],
+    "notes": "No authorization asserted. Product-level context only.",
+    "provider": "G2",
+    "section_ids": [
+      4
+    ],
+    "terms_url": "https://www.g2.com/static/terms"
+  },
+  {
+    "adapter_implemented": false,
+    "approval_required": true,
+    "blueprint_id": "provider.capterra",
+    "families": [
+      "reviews",
+      "research"
+    ],
+    "methods": [
+      "API"
+    ],
+    "notes": "No authorization asserted. Product-level context only.",
+    "provider": "Capterra",
+    "section_ids": [
+      4
+    ],
+    "terms_url": "https://www.capterra.com/legal/terms-of-use"
+  },
+  {
+    "adapter_implemented": false,
+    "approval_required": true,
+    "blueprint_id": "provider.google",
+    "families": [
+      "reviews",
+      "commodity_data"
+    ],
+    "methods": [
+      "API"
+    ],
+    "notes": "Retention and attribution restrictions must be reviewed for the specific endpoint/use.",
+    "provider": "Google Places",
+    "section_ids": [
+      5,
+      8
+    ],
+    "terms_url": "https://developers.google.com/maps/documentation/places/web-service/policies"
+  },
+  {
+    "adapter_implemented": false,
+    "approval_required": true,
+    "blueprint_id": "provider.reddit",
+    "families": [
+      "community",
+      "research"
+    ],
+    "methods": [
+      "API"
+    ],
+    "notes": "Commercial agreement and approved purpose required; no user reidentification or sensitive inference.",
+    "provider": "Reddit and approved communities",
+    "section_ids": [
+      6
+    ],
+    "terms_url": "https://redditinc.com/policies/data-api-terms"
+  },
+  {
+    "adapter_implemented": false,
+    "approval_required": true,
+    "blueprint_id": "provider.similarweb",
+    "families": [
+      "measurement"
+    ],
+    "methods": [
+      "API"
+    ],
+    "notes": "Provider estimates, dimensions, period and method retained.",
+    "provider": "Similarweb",
+    "section_ids": [
+      7
+    ],
+    "terms_url": "https://developers.similarweb.com/reference/visits"
+  },
+  {
+    "adapter_implemented": false,
+    "approval_required": true,
+    "blueprint_id": "provider.dataforseo",
+    "families": [
+      "commodity_data",
+      "measurement",
+      "technology"
+    ],
+    "methods": [
+      "API"
+    ],
+    "notes": "Each endpoint mapped separately; provider access does not erase origin/rights restrictions.",
+    "provider": "DataForSEO",
+    "section_ids": [
+      2,
+      5,
+      7,
+      8
+    ],
+    "terms_url": "https://docs.dataforseo.com/v3/business_data-overview/"
+  },
+  {
+    "adapter_implemented": false,
+    "approval_required": true,
+    "blueprint_id": "provider.nppes",
+    "families": [
+      "public_registry"
+    ],
+    "methods": [
+      "API"
+    ],
+    "notes": "NPI enumeration is not licensure or credentialing.",
+    "provider": "CMS / NPPES",
+    "section_ids": [
+      9
+    ],
+    "terms_url": "https://npiregistry.cms.hhs.gov/"
+  },
+  {
+    "adapter_implemented": false,
+    "approval_required": true,
+    "blueprint_id": "provider.iapd",
+    "families": [
+      "public_registry"
+    ],
+    "methods": [
+      "API"
+    ],
+    "notes": "Firm and representative identities separated; preserve filing and effective dates.",
+    "provider": "SEC / IAPD",
+    "section_ids": [
+      9
+    ],
+    "terms_url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/investment-adviser-public-disclosure-iapd"
+  },
+  {
+    "adapter_implemented": false,
+    "approval_required": true,
+    "blueprint_id": "provider.local_registry",
+    "families": [
+      "public_registry"
+    ],
+    "methods": [
+      "API",
+      "HTTP_CAPTURE"
+    ],
+    "notes": "Authority/jurisdiction-specific mappings required.",
+    "provider": "Licensing and permits",
+    "section_ids": [
+      9
+    ],
+    "terms_url": "https://example.test/authority-terms"
+  },
+  {
+    "adapter_implemented": false,
+    "approval_required": true,
+    "blueprint_id": "provider.call_system",
+    "families": [
+      "phone"
+    ],
+    "methods": [
+      "AUTHORIZED_EXPORT"
+    ],
+    "notes": "No raw recording or personal call content without appropriate authority; aggregate operations preferred.",
+    "provider": "Authorized call systems",
+    "section_ids": [
+      10
+    ],
+    "terms_url": "https://example.test/call-data-agreement"
+  },
+  {
+    "adapter_implemented": false,
+    "approval_required": true,
+    "blueprint_id": "provider.llm",
+    "families": [
+      "website_analysis"
+    ],
+    "methods": [
+      "API"
+    ],
+    "notes": "Raw model I/O, task/prompt version, processing rights and bounded repair required.",
+    "provider": "Approved model processor",
+    "section_ids": [
+      11
+    ],
+    "terms_url": "https://example.test/processor-agreement"
+  }
+]

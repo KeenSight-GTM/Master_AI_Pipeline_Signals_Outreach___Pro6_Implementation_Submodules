@@ -1,0 +1,31 @@
+classDiagram
+    class Scanner {
+        +scan(url, config) ScanBundle
+        +evaluate(pages, evaluation_id, as_of) ScanBundle
+        +replay(tenant, capture_run_id, evaluation_id, as_of) ScanBundle
+    }
+    class Store {
+        +body(capture) bytes
+        +publish_evaluation(data, pages, matches, observations, links)
+        +stored_claims(tenant, as_of) ClaimView[]
+        +replay_eligible(capture) bool
+    }
+    class RulePack {
+        +compile(data) RulePack
+        +load(path) RulePack
+    }
+    class Transport {
+        <<interface>>
+        +get(url) FetchResult
+    }
+    class ScraplingTransport {
+        +get(url) FetchResult
+    }
+    class FixtureTransport {
+        +get(url) FetchResult
+    }
+    Scanner --> Store : reads and publishes
+    Scanner --> RulePack : pins
+    Scanner --> Transport : invokes
+    ScraplingTransport ..|> Transport
+    FixtureTransport ..|> Transport

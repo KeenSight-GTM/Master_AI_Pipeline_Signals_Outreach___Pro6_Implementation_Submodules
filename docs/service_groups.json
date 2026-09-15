@@ -1,0 +1,57 @@
+{
+  "S0 Control and programs": [
+    "GTM-01",
+    "GTM-02",
+    "CTL-01",
+    "CTL-02",
+    "CTL-03"
+  ],
+  "S1 Capture and fingerprints": [
+    "ING-02",
+    "ING-03",
+    "ING-04",
+    "ING-05",
+    "FP-01",
+    "FP-02",
+    "FP-03"
+  ],
+  "S2 Canonical knowledge": [
+    "KN-01",
+    "KN-02",
+    "KN-03",
+    "KN-04",
+    "PLAT-01",
+    "PLAT-02"
+  ],
+  "S3 Enrichment and model tasks": [
+    "ING-01",
+    "AI-01"
+  ],
+  "S4 Research and intelligence": [
+    "RE-01",
+    "RE-02",
+    "RE-03",
+    "RE-04",
+    "RE-05",
+    "COM-01",
+    "QA-01"
+  ],
+  "S5 Audience and reviewed content": [
+    "AUD-01",
+    "COM-02",
+    "COM-03",
+    "COM-04"
+  ],
+  "S6 Engagement and sales handoff": [
+    "CAM-01",
+    "CAM-02",
+    "COM-05",
+    "COM-06",
+    "ENG-01",
+    "CRM-01"
+  ],
+  "S7 Operator workspace": [
+    "UX-01",
+    "PLAT-03"
+  ]
+}

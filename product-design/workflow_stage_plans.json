@@ -1,0 +1,338 @@
+{
+  "workflows": [
+    {
+      "workflow_id": "knowledge",
+      "stages": [
+        {
+          "stage_id": "configure",
+          "module_id": "GTM-01",
+          "depends_on": []
+        },
+        {
+          "stage_id": "discover",
+          "module_id": "GTM-02",
+          "depends_on": [
+            "configure"
+          ]
+        },
+        {
+          "stage_id": "resolve_target",
+          "module_id": "KN-01",
+          "depends_on": [
+            "discover"
+          ]
+        },
+        {
+          "stage_id": "plan",
+          "module_id": "CTL-02",
+          "depends_on": [
+            "resolve_target"
+          ]
+        },
+        {
+          "stage_id": "authorize",
+          "module_id": "CTL-03",
+          "depends_on": [
+            "plan"
+          ]
+        },
+        {
+          "stage_id": "capture",
+          "module_id": "ING-03",
+          "depends_on": [
+            "authorize"
+          ]
+        },
+        {
+          "stage_id": "extract",
+          "module_id": "ING-04",
+          "depends_on": [
+            "capture"
+          ]
+        },
+        {
+          "stage_id": "match",
+          "module_id": "FP-01",
+          "depends_on": [
+            "extract"
+          ]
+        },
+        {
+          "stage_id": "bundle",
+          "module_id": "FP-02",
+          "depends_on": [
+            "match"
+          ]
+        },
+        {
+          "stage_id": "bind_evidence",
+          "module_id": "KN-01",
+          "depends_on": [
+            "bundle"
+          ]
+        },
+        {
+          "stage_id": "admit",
+          "module_id": "KN-02",
+          "depends_on": [
+            "bind_evidence"
+          ]
+        },
+        {
+          "stage_id": "resolve_claims",
+          "module_id": "KN-03",
+          "depends_on": [
+            "admit"
+          ]
+        },
+        {
+          "stage_id": "query",
+          "module_id": "KN-04",
+          "depends_on": [
+            "resolve_claims"
+          ]
+        }
+      ],
+      "status": "PROPOSED_STAGE_PLAN_NOT_IMPLEMENTED",
+      "notes": "Illustrative selected capabilities. Optional stages require explicit skip/abstention semantics. Modules may recur with distinct invocation IDs; next-run feedback is not a same-run edge."
+    },
+    {
+      "workflow_id": "reviewed_handoff",
+      "stages": [
+        {
+          "stage_id": "snapshot",
+          "module_id": "KN-04",
+          "depends_on": []
+        },
+        {
+          "stage_id": "derive",
+          "module_id": "RE-01",
+          "depends_on": [
+            "snapshot"
+          ]
+        },
+        {
+          "stage_id": "admit_derived",
+          "module_id": "KN-02",
+          "depends_on": [
+            "derive"
+          ]
+        },
+        {
+          "stage_id": "resolve_derived",
+          "module_id": "KN-03",
+          "depends_on": [
+            "admit_derived"
+          ]
+        },
+        {
+          "stage_id": "research",
+          "module_id": "RE-02",
+          "depends_on": [
+            "snapshot"
+          ]
+        },
+        {
+          "stage_id": "admit_prior",
+          "module_id": "KN-02",
+          "depends_on": [
+            "research"
+          ]
+        },
+        {
+          "stage_id": "resolve_prior",
+          "module_id": "KN-03",
+          "depends_on": [
+            "admit_prior"
+          ]
+        },
+        {
+          "stage_id": "join_context",
+          "module_id": "RE-03",
+          "depends_on": [
+            "resolve_prior",
+            "resolve_derived"
+          ]
+        },
+        {
+          "stage_id": "signals",
+          "module_id": "RE-05",
+          "depends_on": [
+            "join_context"
+          ]
+        },
+        {
+          "stage_id": "select_offer",
+          "module_id": "COM-01",
+          "depends_on": [
+            "signals"
+          ]
+        },
+        {
+          "stage_id": "contacts",
+          "module_id": "AUD-01",
+          "depends_on": [
+            "select_offer"
+          ]
+        },
+        {
+          "stage_id": "compose",
+          "module_id": "COM-02",
+          "depends_on": [
+            "contacts"
+          ]
+        },
+        {
+          "stage_id": "review",
+          "module_id": "COM-03",
+          "depends_on": [
+            "compose"
+          ]
+        },
+        {
+          "stage_id": "gate_export",
+          "module_id": "COM-04",
+          "depends_on": [
+            "review"
+          ]
+        }
+      ],
+      "status": "PROPOSED_STAGE_PLAN_NOT_IMPLEMENTED",
+      "notes": "Illustrative selected capabilities. Optional stages require explicit skip/abstention semantics. Modules may recur with distinct invocation IDs; next-run feedback is not a same-run edge."
+    },
+    {
+      "workflow_id": "outbound_one_step",
+      "stages": [
+        {
+          "stage_id": "campaign",
+          "module_id": "CAM-01",
+          "depends_on": []
+        },
+        {
+          "stage_id": "crm_check",
+          "module_id": "CRM-01",
+          "depends_on": []
+        },
+        {
+          "stage_id": "enrollment",
+          "module_id": "CAM-02",
+          "depends_on": [
+            "campaign",
+            "crm_check"
+          ]
+        },
+        {
+          "stage_id": "fresh_send_gate",
+          "module_id": "COM-04",
+          "depends_on": [
+            "enrollment"
+          ]
+        },
+        {
+          "stage_id": "dispatch_reconcile",
+          "module_id": "COM-05",
+          "depends_on": [
+            "fresh_send_gate"
+          ]
+        }
+      ],
+      "status": "PROPOSED_STAGE_PLAN_NOT_IMPLEMENTED",
+      "notes": "Illustrative selected capabilities. Optional stages require explicit skip/abstention semantics. Modules may recur with distinct invocation IDs; next-run feedback is not a same-run edge."
+    },
+    {
+      "workflow_id": "incoming_reply",
+      "stages": [
+        {
+          "stage_id": "verify_ingress",
+          "module_id": "COM-06",
+          "depends_on": []
+        },
+        {
+          "stage_id": "route_and_stop_request",
+          "module_id": "ENG-01",
+          "depends_on": [
+            "verify_ingress"
+          ]
+        },
+        {
+          "stage_id": "write_restriction_if_required",
+          "module_id": "PLAT-02",
+          "depends_on": [
+            "route_and_stop_request"
+          ]
+        },
+        {
+          "stage_id": "apply_enrollment_control",
+          "module_id": "CAM-02",
+          "depends_on": [
+            "route_and_stop_request",
+            "write_restriction_if_required"
+          ]
+        },
+        {
+          "stage_id": "classify_reply",
+          "module_id": "AI-01",
+          "depends_on": [
+            "apply_enrollment_control"
+          ]
+        },
+        {
+          "stage_id": "qualify_handoff",
+          "module_id": "ENG-01",
+          "depends_on": [
+            "classify_reply"
+          ]
+        },
+        {
+          "stage_id": "crm_sync",
+          "module_id": "CRM-01",
+          "depends_on": [
+            "qualify_handoff"
+          ]
+        },
+        {
+          "stage_id": "measure_when_mature",
+          "module_id": "COM-06",
+          "depends_on": [
+            "crm_sync"
+          ]
+        }
+      ],
+      "status": "PROPOSED_STAGE_PLAN_NOT_IMPLEMENTED",
+      "notes": "Illustrative selected capabilities. Optional stages require explicit skip/abstention semantics. Modules may recur with distinct invocation IDs; next-run feedback is not a same-run edge."
+    },
+    {
+      "workflow_id": "fingerprint_promotion",
+      "stages": [
+        {
+          "stage_id": "proposal",
+          "module_id": "FP-03",
+          "depends_on": []
+        },
+        {
+          "stage_id": "assess",
+          "module_id": "QA-01",
+          "depends_on": [
+            "proposal"
+          ]
+        },
+        {
+          "stage_id": "authorize",
+          "module_id": "PLAT-02",
+          "depends_on": [
+            "assess"
+          ]
+        },
+        {
+          "stage_id": "compile_release",
+          "module_id": "CTL-01",
+          "depends_on": [
+            "authorize"
+          ]
+        }
+      ],
+      "status": "PROPOSED_STAGE_PLAN_NOT_IMPLEMENTED",
+      "notes": "Illustrative selected capabilities. Optional stages require explicit skip/abstention semantics. Modules may recur with distinct invocation IDs; next-run feedback is not a same-run edge."
+    }
+  ]
+}

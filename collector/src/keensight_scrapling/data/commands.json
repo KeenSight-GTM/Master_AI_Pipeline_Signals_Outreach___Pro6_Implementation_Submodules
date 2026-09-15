@@ -1,0 +1,230 @@
+[
+  {
+    "command_id": "CATALOG_LOAD",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 2,
+    "source_name": "Load fingerprint catalog"
+  },
+  {
+    "command_id": "NORM_URL",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 3,
+    "source_name": "Normalize input URL"
+  },
+  {
+    "command_id": "FETCH_STATIC",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 4,
+    "source_name": "HTTP GET static HTML"
+  },
+  {
+    "command_id": "FETCH_STEALTH",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 5,
+    "source_name": "Blocked-host fallback"
+  },
+  {
+    "command_id": "FETCH_SITEMAP",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 6,
+    "source_name": "GET /sitemap.xml"
+  },
+  {
+    "command_id": "FETCH_ROBOTS",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 7,
+    "source_name": "GET /robots.txt"
+  },
+  {
+    "command_id": "FETCH_WELL_KNOWN",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 8,
+    "source_name": "Probe known paths"
+  },
+  {
+    "command_id": "DISCOVER_TEMPLATES",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 9,
+    "source_name": "Collect same-host follow URLs"
+  },
+  {
+    "command_id": "DISCOVER_CANONICAL",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 10,
+    "source_name": "Canonical + redirect host"
+  },
+  {
+    "command_id": "EXTRACT_RAW_HTML",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 11,
+    "source_name": "Full source haystack"
+  },
+  {
+    "command_id": "EXTRACT_SCRIPT_SRC",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 12,
+    "source_name": "External script hosts"
+  },
+  {
+    "command_id": "EXTRACT_SCRIPT_INLINE",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 13,
+    "source_name": "Inline script text"
+  },
+  {
+    "command_id": "EXTRACT_IFRAME_SRC",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 14,
+    "source_name": "Iframes / embeds"
+  },
+  {
+    "command_id": "EXTRACT_FORM_ACTION",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 15,
+    "source_name": "Form endpoints"
+  },
+  {
+    "command_id": "EXTRACT_ANCHORS",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 16,
+    "source_name": "Outbound + internal links"
+  },
+  {
+    "command_id": "EXTRACT_IMAGES",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 17,
+    "source_name": "Badge images + alt text"
+  },
+  {
+    "command_id": "EXTRACT_LINKS_META",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 18,
+    "source_name": "link + meta tags"
+  },
+  {
+    "command_id": "EXTRACT_JSONLD",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 19,
+    "source_name": "JSON-LD blocks"
+  },
+  {
+    "command_id": "EXTRACT_MICRODATA",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 20,
+    "source_name": "Microdata itemtype"
+  },
+  {
+    "command_id": "EXTRACT_FOOTER",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 21,
+    "source_name": "Footer credit strip"
+  },
+  {
+    "command_id": "EXTRACT_HEADER_NAV",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 22,
+    "source_name": "Header + nav CTAs"
+  },
+  {
+    "command_id": "EXTRACT_DATA_ATTRS",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 23,
+    "source_name": "data-* vendor markers"
+  },
+  {
+    "command_id": "EXTRACT_NOSCRIPT",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 24,
+    "source_name": "noscript fallback HTML"
+  },
+  {
+    "command_id": "EXTRACT_VISIBLE_TEXT",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 25,
+    "source_name": "Prose haystack (secondary)"
+  },
+  {
+    "command_id": "EXTRACT_URL_FEATURES",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 26,
+    "source_name": "Path + query features"
+  },
+  {
+    "command_id": "EXTRACT_HEADERS",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 27,
+    "source_name": "HTTP headers + cookies"
+  },
+  {
+    "command_id": "MATCH_SUBSTRING",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 28,
+    "source_name": "Case-insensitive contains"
+  },
+  {
+    "command_id": "MATCH_OR_GROUP",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 29,
+    "source_name": "Any token of an OR row"
+  },
+  {
+    "command_id": "MATCH_REGEX",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 30,
+    "source_name": "Structured regex"
+  },
+  {
+    "command_id": "MATCH_HOST_SUFFIX",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 31,
+    "source_name": "URL host equals vendor"
+  },
+  {
+    "command_id": "MATCH_FOOTER_LITERAL",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 32,
+    "source_name": "Footer phrase"
+  },
+  {
+    "command_id": "MATCH_IMG_ALT",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 33,
+    "source_name": "Badge alt / nearby text"
+  },
+  {
+    "command_id": "GATE_AND",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 34,
+    "source_name": "False-positive AND-term"
+  },
+  {
+    "command_id": "GATE_SCHEMA",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 35,
+    "source_name": "Vertical schema confirm"
+  },
+  {
+    "command_id": "GATE_NEGATIVE",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 36,
+    "source_name": "Deprioritize filters"
+  },
+  {
+    "command_id": "ROLLUP_HOST",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 37,
+    "source_name": "Union page bags"
+  },
+  {
+    "command_id": "SCORE_HOST",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 38,
+    "source_name": "Priority score"
+  },
+  {
+    "command_id": "EMIT",
+    "workbook_sheet": "02_COMMAND_CATALOG",
+    "workbook_row": 39,
+    "source_name": "Write result"
+  }
+]

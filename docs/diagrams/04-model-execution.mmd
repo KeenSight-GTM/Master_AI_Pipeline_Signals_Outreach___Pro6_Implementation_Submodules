@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant r as Runner
+    participant s as Record store
+    participant g as Model gateway
+    participant p as Provider
+    participant a as Fact admission
+    r->>s: 1. Seal external artifact/fact manifest
+    r->>g: 2. Task + exact input refs + budget
+    g->>s: 3. Retain request under producing execution
+    g->>p: 4. Authorized bounded invocation
+    p->>g: 5. Response or failure
+    g->>s: 6. Retain raw response before parse
+    g->>g: 7. Validate; bounded repair or terminal abstention
+    g->>s: 8. Commit producer status + produced-artifact refs
+    g->>a: 9. Typed output with substantive source locators
+    a->>s: 10. Admit only successful eligible output
+    r->>s: 11. Resolve generated output after producer completion

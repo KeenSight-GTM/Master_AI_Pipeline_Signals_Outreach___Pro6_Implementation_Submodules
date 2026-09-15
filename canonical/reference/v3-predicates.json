@@ -1,0 +1,3951 @@
+[
+  {
+    "absence_allowed": true,
+    "allowed_tiers": [
+      "FINGERPRINT"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Vendor/SaaS detected (class + canonical entity)",
+    "domain": "technology",
+    "identity_paths": [
+      "/entity_id"
+    ],
+    "predicate": "vendor.present",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN",
+      "NOT_FOUND"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "class_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "entity_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity_id",
+        "class_id"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "FINGERPRINT",
+      "LLM"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Vendor referenced in prose (article, blog, footer text)",
+    "domain": "technology",
+    "identity_paths": [
+      "/entity_id"
+    ],
+    "predicate": "vendor.mentioned",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "class_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "entity_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity_id",
+        "class_id"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": true,
+    "allowed_tiers": [
+      "FINGERPRINT"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Online scheduling system present",
+    "domain": "technology",
+    "identity_paths": [
+      "/entity_id"
+    ],
+    "predicate": "booking.present",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN",
+      "NOT_FOUND"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "class_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "entity_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity_id",
+        "class_id"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": true,
+    "allowed_tiers": [
+      "FINGERPRINT"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "CRM detected",
+    "domain": "technology",
+    "identity_paths": [
+      "/entity_id"
+    ],
+    "predicate": "crm.present",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN",
+      "NOT_FOUND"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "class_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "entity_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity_id",
+        "class_id"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": true,
+    "allowed_tiers": [
+      "FINGERPRINT"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Email marketing platform detected",
+    "domain": "technology",
+    "identity_paths": [
+      "/entity_id"
+    ],
+    "predicate": "esp.present",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN",
+      "NOT_FOUND"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "class_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "entity_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity_id",
+        "class_id"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": true,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Live-chat / chatbot widget",
+    "domain": "technology",
+    "identity_paths": [
+      "/entity_id"
+    ],
+    "predicate": "chat.widget.present",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN",
+      "NOT_FOUND"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "class_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "entity_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity_id",
+        "class_id"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": true,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Payment stack",
+    "domain": "technology",
+    "identity_paths": [
+      "/entity_id"
+    ],
+    "predicate": "payment.processor.present",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN",
+      "NOT_FOUND"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "class_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "entity_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity_id",
+        "class_id"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": true,
+    "allowed_tiers": [
+      "FINGERPRINT"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Make / Zapier / n8n presence",
+    "domain": "technology",
+    "identity_paths": [
+      "/entity_id"
+    ],
+    "predicate": "automation.platform.present",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN",
+      "NOT_FOUND"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "class_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "entity_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity_id",
+        "class_id"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": true,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Public integration marker detected or absent only in the declared public capture scope. Not a statement of private connectivity.",
+    "domain": "technology",
+    "identity_paths": [
+      "/from_entity",
+      "/to_entity"
+    ],
+    "predicate": "integration.present",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN",
+      "NOT_FOUND"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "from_entity": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        },
+        "public_marker": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "to_entity": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "from_entity",
+        "to_entity",
+        "public_marker"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "FINGERPRINT"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "CMS / site-builder",
+    "domain": "technology",
+    "identity_paths": [
+      "/entity_id"
+    ],
+    "predicate": "website.platform",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "class_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "entity_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity_id",
+        "class_id"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Partner / certification tier badges",
+    "domain": "technology",
+    "identity_paths": [],
+    "predicate": "vendor.certification_badge",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "badge": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "entity_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity_id",
+        "badge"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Email hosting provider (Google / Microsoft)",
+    "domain": "infrastructure",
+    "identity_paths": [
+      "/mx_host"
+    ],
+    "predicate": "dns.mx.provider",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "mx_host": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "provider": {
+          "enum": [
+            "google",
+            "microsoft",
+            "other"
+          ]
+        }
+      },
+      "required": [
+        "provider",
+        "mx_host"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": true,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "DMARC policy (none / quarantine / reject)",
+    "domain": "infrastructure",
+    "identity_paths": [],
+    "predicate": "dns.dmarc.policy",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN",
+      "NOT_FOUND"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "none",
+        "quarantine",
+        "reject"
+      ]
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "SPF include tokens",
+    "domain": "infrastructure",
+    "identity_paths": [
+      "/domain"
+    ],
+    "predicate": "dns.spf.includes",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "domain": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "domain"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Vendor verification TXT tokens",
+    "domain": "infrastructure",
+    "identity_paths": [
+      "/token_hash"
+    ],
+    "predicate": "dns.txt.verification",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "provider": {
+          "enum": [
+            "google",
+            "microsoft",
+            "other"
+          ]
+        },
+        "token_hash": {
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "provider",
+        "token_hash"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Service subdomain CNAME mappings",
+    "domain": "infrastructure",
+    "identity_paths": [
+      "/hostname"
+    ],
+    "predicate": "dns.cname.service",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "entity_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        },
+        "hostname": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "target": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "hostname",
+        "target",
+        "entity_id"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "New subdomain certificates (temporal)",
+    "domain": "infrastructure",
+    "identity_paths": [],
+    "predicate": "cert.new_subdomain",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "certificate_hash": {
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "hostname": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "issued_at": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "hostname",
+        "certificate_hash",
+        "issued_at"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": true,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Public API surface (docs / OpenAPI)",
+    "domain": "infrastructure",
+    "identity_paths": [],
+    "predicate": "api.public.present",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN",
+      "NOT_FOUND"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "surface": {
+          "enum": [
+            "docs",
+            "openapi",
+            "endpoint"
+          ]
+        },
+        "url": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "surface"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": true,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Mobile app presence + changelog cadence",
+    "domain": "infrastructure",
+    "identity_paths": [],
+    "predicate": "app.mobile.present",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN",
+      "NOT_FOUND"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "app_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "store": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "app_id",
+        "store"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Public status page",
+    "domain": "infrastructure",
+    "identity_paths": [],
+    "predicate": "status.page.present",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "url"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": true,
+    "allowed_tiers": [
+      "FINGERPRINT"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "JSON-LD blocks on homepage",
+    "domain": "content/seo",
+    "identity_paths": [],
+    "predicate": "schema.jsonld.present",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN",
+      "NOT_FOUND"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "block_count": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "block_count"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "FINGERPRINT"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "@type values found",
+    "domain": "content/seo",
+    "identity_paths": [],
+    "predicate": "schema.jsonld.types",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "FINGERPRINT"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "JSON-LD org node bound to the account's business",
+    "domain": "content/seo",
+    "identity_paths": [],
+    "predicate": "schema.subject_binding",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "enum": [
+            "DIRECT",
+            "INFERRED",
+            "UNBOUND"
+          ]
+        },
+        "target_subject_id": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "binding",
+        "target_subject_id"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Sitemap URL taxonomy (page count, sections)",
+    "domain": "content/seo",
+    "identity_paths": [],
+    "predicate": "content.page_inventory",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "complete": {
+          "type": "boolean"
+        },
+        "pages": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "content_hash": {
+                "pattern": "^sha256:[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "last_modified": {
+                "anyOf": [
+                  {
+                    "format": "date-time",
+                    "pattern": "Z$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "url",
+              "content_hash",
+              "last_modified"
+            ],
+            "type": "object"
+          },
+          "minItems": 0,
+          "type": "array"
+        }
+      },
+      "required": [
+        "pages",
+        "complete"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.content-velocity-band@2.0.0"
+    ],
+    "description": "New/changed pages per window",
+    "domain": "content/seo",
+    "identity_paths": [],
+    "predicate": "content.velocity_band",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "dormant",
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": true,
+    "allowed_tiers": [
+      "FINGERPRINT"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Blog / FAQ / pricing / booking pages present",
+    "domain": "content/seo",
+    "identity_paths": [
+      "/type"
+    ],
+    "predicate": "content.type.present",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN",
+      "NOT_FOUND"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "enum": [
+            "blog",
+            "faq",
+            "pricing",
+            "booking",
+            "contact",
+            "manual_intake"
+          ]
+        },
+        "url": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "url"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Core Web Vitals (real-user field data)",
+    "domain": "content/seo",
+    "identity_paths": [],
+    "predicate": "seo.cwv.field",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "cls": {
+          "type": "number"
+        },
+        "form_factor": {
+          "enum": [
+            "mobile",
+            "desktop"
+          ]
+        },
+        "inp_ms": {
+          "type": "number"
+        },
+        "lcp_ms": {
+          "type": "number"
+        },
+        "period": {
+          "additionalProperties": false,
+          "properties": {
+            "end": {
+              "format": "date-time",
+              "pattern": "Z$",
+              "type": "string"
+            },
+            "start": {
+              "format": "date-time",
+              "pattern": "Z$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "start",
+            "end"
+          ],
+          "type": "object"
+        },
+        "sufficient_sample": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "lcp_ms",
+        "inp_ms",
+        "cls",
+        "form_factor",
+        "period",
+        "sufficient_sample"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Indexed page footprint",
+    "domain": "content/seo",
+    "identity_paths": [],
+    "predicate": "seo.indexation",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "indexed_pages": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "sampled_pages": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "indexed_pages",
+        "sampled_pages"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Ranking keyword set",
+    "domain": "content/seo",
+    "identity_paths": [],
+    "predicate": "seo.keyword.footprint",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "keywords": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "provider": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "keywords",
+        "provider"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Domain rating / authority",
+    "domain": "content/seo",
+    "identity_paths": [],
+    "predicate": "seo.authority",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "provider": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "scale_maximum": {
+          "type": "number"
+        },
+        "score": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "score",
+        "provider",
+        "scale_maximum"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Local pack presence / GBP linkage",
+    "domain": "content/seo",
+    "identity_paths": [],
+    "predicate": "seo.local.presence",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "profile_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "query": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "rank": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "profile_id",
+        "rank",
+        "query"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "LLM"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Completed individual AI-search probe measurement. OBSERVED with cited=false is a valid negative result; failed/unexecuted probes are UNKNOWN.",
+    "domain": "content/seo",
+    "identity_paths": [
+      "/probe_set_id",
+      "/engine",
+      "/prompt_hash"
+    ],
+    "predicate": "seo.ai_visibility.cited_in",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "cited": {
+          "type": "boolean"
+        },
+        "engine": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "probe_set_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        },
+        "prompt_hash": {
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "response_snapshot_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "probe_set_id",
+        "engine",
+        "prompt_hash",
+        "cited",
+        "response_snapshot_id"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT",
+      "LLM"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Two-level taxonomy: vertical -> subvertical",
+    "domain": "identity",
+    "identity_paths": [],
+    "predicate": "industry.vertical",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "dental",
+        "legal",
+        "medspa",
+        "hvac",
+        "roofing",
+        "electrical",
+        "accounting",
+        "veterinary",
+        "it_services",
+        "real_estate",
+        "other"
+      ]
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT",
+      "LLM"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Subvertical within taxonomy",
+    "domain": "identity",
+    "identity_paths": [],
+    "predicate": "industry.subvertical",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "subvertical": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "vertical": {
+          "enum": [
+            "dental",
+            "legal",
+            "medspa",
+            "hvac",
+            "roofing",
+            "electrical",
+            "accounting",
+            "veterinary",
+            "it_services",
+            "real_estate",
+            "other"
+          ]
+        }
+      },
+      "required": [
+        "vertical",
+        "subvertical"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT",
+      "LLM"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Positioning / service claims in own words",
+    "domain": "identity",
+    "identity_paths": [],
+    "predicate": "company.self_claim",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "claim": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "url": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "claim",
+        "url"
+      ],
+      "type": "object"
+    },
+    "visibility": "ATTRIBUTED_REPORT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Location list / count",
+    "domain": "identity",
+    "identity_paths": [],
+    "predicate": "company.locations",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "country": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "location_id": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+            "type": "string"
+          },
+          "region": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "location_id",
+          "country",
+          "region"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Metro / region",
+    "domain": "identity",
+    "identity_paths": [],
+    "predicate": "company.geo",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "metro": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "region": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "region",
+        "metro"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Domain / company age band",
+    "domain": "identity",
+    "identity_paths": [],
+    "predicate": "company.age_band",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "basis": {
+          "enum": [
+            "company",
+            "domain"
+          ]
+        },
+        "maximum_years": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "minimum_years": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "minimum_years",
+        "maximum_years",
+        "basis"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Site <-> account binding evidence",
+    "domain": "identity",
+    "identity_paths": [],
+    "predicate": "identity.binding_evidence",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "enum": [
+            "registry",
+            "address",
+            "human_confirmed"
+          ]
+        },
+        "site_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        },
+        "subject_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "site_id",
+        "subject_id",
+        "method"
+      ],
+      "type": "object"
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Employee count band",
+    "domain": "firmographics",
+    "identity_paths": [],
+    "predicate": "firmo.employee_band",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "maximum": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "minimum": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "minimum",
+        "maximum"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Revenue band",
+    "domain": "firmographics",
+    "identity_paths": [],
+    "predicate": "firmo.revenue_band",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "maximum": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "minimum": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "currency",
+        "minimum",
+        "maximum"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "HUMAN"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Independent / PE-owned / franchisee / subsidiary",
+    "domain": "firmographics",
+    "identity_paths": [],
+    "predicate": "firmo.ownership",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "independent",
+        "pe_owned",
+        "franchisee",
+        "subsidiary"
+      ]
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Funding events",
+    "domain": "firmographics",
+    "identity_paths": [
+      "/event_id"
+    ],
+    "predicate": "firmo.funding",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "currency": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "date": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "type": "string"
+        },
+        "event_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "amount",
+        "currency",
+        "date"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "HUMAN"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Contact: name, role, email, LinkedIn",
+    "domain": "firmographics",
+    "identity_paths": [],
+    "predicate": "person.contact",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND",
+      "PERSON"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "anyOf": [
+            {
+              "format": "email",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "profile_url": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "role": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "role",
+        "email",
+        "profile_url"
+      ],
+      "type": "object"
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Review count / average rating",
+    "domain": "reputation",
+    "identity_paths": [
+      "/profile_id"
+    ],
+    "predicate": "review.metrics",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "mean_rating": {
+          "maximum": 5,
+          "minimum": 0,
+          "type": "number"
+        },
+        "monthly_counts": {
+          "items": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "profile_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "profile_id",
+        "count",
+        "mean_rating",
+        "monthly_counts"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Share of reviews the business responds to",
+    "domain": "reputation",
+    "identity_paths": [
+      "/profile_id"
+    ],
+    "predicate": "review.response_ratio",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "eligible_reviews": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "profile_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        },
+        "ratio": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "responses": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "profile_id",
+        "eligible_reviews",
+        "responses",
+        "ratio"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Which vendors peers/competitors run",
+    "domain": "reputation",
+    "identity_paths": [],
+    "predicate": "competitor.presence",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "entity_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        },
+        "peer_subject_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "peer_subject_id",
+        "entity_id"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "HUMAN"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Open roles (title, dept, stack requirements)",
+    "domain": "growth",
+    "identity_paths": [
+      "/posting_id"
+    ],
+    "predicate": "hiring.role",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "department": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "posted_at": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "type": "string"
+        },
+        "posting_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        },
+        "stack": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "title": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "posting_id",
+        "title",
+        "department",
+        "posted_at",
+        "stack"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.hiring-velocity@2.0.0"
+    ],
+    "description": "Roles posted per quarter",
+    "domain": "growth",
+    "identity_paths": [],
+    "predicate": "hiring.velocity",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "current_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "direction": {
+          "enum": [
+            -1,
+            0,
+            1
+          ]
+        },
+        "previous_count": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "previous_count",
+        "current_count",
+        "direction"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": true,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Active advertising windows + landing pages",
+    "domain": "growth",
+    "identity_paths": [],
+    "predicate": "ads.activity",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN",
+      "NOT_FOUND"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "active_ads": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "monthly_counts": {
+          "items": {
+            "anyOf": [
+              {
+                "minimum": 0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "platform": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "active_ads",
+        "platform",
+        "monthly_counts"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Press / announcements",
+    "domain": "growth",
+    "identity_paths": [
+      "/event_id"
+    ],
+    "predicate": "news.events",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "event_date": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "type": "string"
+        },
+        "event_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        },
+        "title": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "url": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "title",
+        "url",
+        "event_date"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Employee band over time",
+    "domain": "growth",
+    "identity_paths": [],
+    "predicate": "headcount.history",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "observed_at": {
+            "format": "date-time",
+            "pattern": "Z$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "observed_at",
+          "count"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "FINGERPRINT"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Pages appeared / removed since last capture",
+    "domain": "change",
+    "identity_paths": [],
+    "predicate": "change.page.delta",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_pages": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "changed_urls": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "comparable": {
+          "type": "boolean"
+        },
+        "current_snapshot_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        },
+        "elapsed_days": {
+          "type": "number"
+        },
+        "previous_snapshot_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "previous_snapshot_id",
+        "current_snapshot_id",
+        "changed_urls",
+        "baseline_pages",
+        "elapsed_days",
+        "comparable"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "set",
+    "derived_by": [
+      "deriv.tech-rollback@2.0.0"
+    ],
+    "description": "Vendor present in earlier capture, absent now",
+    "domain": "change",
+    "identity_paths": [
+      "/entity_id"
+    ],
+    "predicate": "tech.rollback",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "entity_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        },
+        "public_marker_removed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "entity_id",
+        "public_marker_removed"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.change-velocity@2.0.0"
+    ],
+    "description": "Site change rate",
+    "domain": "change",
+    "identity_paths": [],
+    "predicate": "change.velocity",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "HUMAN"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "Sent / replied / meeting / bounced / unsubscribed",
+    "domain": "operational",
+    "identity_paths": [
+      "/provider_event_id"
+    ],
+    "predicate": "outreach.outcome",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "exposure_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "DELIVERED",
+            "BOUNCED",
+            "REPLIED",
+            "MEETING",
+            "UNSUBSCRIBED"
+          ]
+        },
+        "occurred_at": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "type": "string"
+        },
+        "provider_event_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "exposure_id",
+        "provider_event_id",
+        "kind",
+        "occurred_at"
+      ],
+      "type": "object"
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "HUMAN"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Conversation facts from calls/replies",
+    "domain": "operational",
+    "identity_paths": [],
+    "predicate": "crm.note",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "note_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        },
+        "reported_at": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "type": "string"
+        },
+        "summary_ref": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "note_id",
+        "summary_ref",
+        "reported_at"
+      ],
+      "type": "object"
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "HUMAN"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Pipeline stage",
+    "domain": "operational",
+    "identity_paths": [],
+    "predicate": "account.stage",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "prospect",
+        "contacted",
+        "qualified",
+        "customer",
+        "closed_lost"
+      ]
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "HUMAN"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "Do-not-contact / prior rejection / recent outreach",
+    "domain": "operational",
+    "identity_paths": [],
+    "predicate": "suppression.dnc",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "active": {
+          "type": "boolean"
+        },
+        "reason": {
+          "enum": [
+            "DNC",
+            "PRIOR_REJECTION",
+            "RECENT_OUTREACH",
+            "STAGE"
+          ]
+        }
+      },
+      "required": [
+        "active",
+        "reason"
+      ],
+      "type": "object"
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.automation-maturity@2.0.0"
+    ],
+    "description": "Ladder rung L0-L3",
+    "domain": "derived_tags",
+    "identity_paths": [],
+    "predicate": "tag.automation_maturity",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "L0",
+        "L1",
+        "L2",
+        "L3"
+      ]
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.marketing-maturity@2.0.0"
+    ],
+    "description": "NONE / BASIC / ACTIVE / SOPHISTICATED",
+    "domain": "derived_tags",
+    "identity_paths": [],
+    "predicate": "tag.marketing_maturity",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "NONE",
+        "BASIC",
+        "ACTIVE",
+        "SOPHISTICATED"
+      ]
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.growth-posture@2.0.0"
+    ],
+    "description": "GROWING / STABLE / CONTRACTING / UNKNOWN",
+    "domain": "derived_tags",
+    "identity_paths": [],
+    "predicate": "tag.growth_posture",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "GROWING",
+        "STABLE",
+        "CONTRACTING"
+      ]
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.platform-camp@2.0.0"
+    ],
+    "description": "google_stack / microsoft_stack / mixed",
+    "domain": "derived_tags",
+    "identity_paths": [],
+    "predicate": "tag.platform_camp",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "google_stack",
+        "microsoft_stack",
+        "mixed"
+      ]
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.regulated-vertical@2.0.0"
+    ],
+    "description": "HIPAA / legal / finance regimes",
+    "domain": "derived_tags",
+    "identity_paths": [],
+    "predicate": "tag.regulated_vertical",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "healthcare_review",
+        "legal_review",
+        "financial_review",
+        "none"
+      ]
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.size-class@2.0.0"
+    ],
+    "description": "Banded size",
+    "domain": "derived_tags",
+    "identity_paths": [],
+    "predicate": "tag.size_class",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "micro_1_9",
+        "sme_10_49",
+        "mid_50_199",
+        "upper_200_plus"
+      ]
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.location-model@2.0.0"
+    ],
+    "description": "single / chain / franchise / national",
+    "domain": "derived_tags",
+    "identity_paths": [],
+    "predicate": "tag.location_model",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "single_location",
+        "regional_chain",
+        "franchise",
+        "national"
+      ]
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.business-type@2.0.0"
+    ],
+    "description": "Preset industry enum (cohort dimension)",
+    "domain": "derived_tags",
+    "identity_paths": [],
+    "predicate": "tag.industry",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "dental",
+        "legal",
+        "medspa",
+        "hvac",
+        "roofing",
+        "electrical",
+        "accounting",
+        "veterinary",
+        "it_services",
+        "real_estate",
+        "other"
+      ]
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.business-type@2.0.0"
+    ],
+    "description": "Preset business-type enum",
+    "domain": "derived_tags",
+    "identity_paths": [],
+    "predicate": "tag.business_type",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "local_service",
+        "mobile_service",
+        "ecommerce",
+        "saas",
+        "agency",
+        "professional_services",
+        "restaurant",
+        "healthcare_practice",
+        "retail",
+        "franchise_unit",
+        "manufacturing",
+        "nonprofit"
+      ]
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.ai-surface-readiness@2.0.0"
+    ],
+    "description": "Data/API readiness for agentic systems",
+    "domain": "derived_tags",
+    "identity_paths": [],
+    "predicate": "tag.ai_surface_readiness",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "not_ready",
+        "partial",
+        "ready"
+      ]
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.stack-complexity@2.0.0"
+    ],
+    "description": "unified_suite / light_stack / assembled_stack",
+    "domain": "derived_tags",
+    "identity_paths": [],
+    "predicate": "tag.stack_complexity",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "unified_suite",
+        "light_stack",
+        "assembled_stack"
+      ]
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.sales-maturity@2.0.0"
+    ],
+    "description": "manual / assisted / automated",
+    "domain": "derived_tags",
+    "identity_paths": [],
+    "predicate": "tag.sales_maturity",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "manual",
+        "assisted",
+        "automated"
+      ]
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.seasonality@2.0.0"
+    ],
+    "description": "seasonal / steady",
+    "domain": "derived_tags",
+    "identity_paths": [],
+    "predicate": "tag.seasonality",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "seasonal",
+        "steady"
+      ]
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.icp-fit@2.0.0"
+    ],
+    "description": "ICP fit tier",
+    "domain": "derived_tags",
+    "identity_paths": [],
+    "predicate": "tag.icp_fit",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.data-quality@2.0.0"
+    ],
+    "description": "Scan coverage depth / freshness band",
+    "domain": "derived_tags",
+    "identity_paths": [],
+    "predicate": "tag.data_quality",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "shallow",
+        "standard",
+        "deep"
+      ]
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "COHORT"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.baseline@2.0.0"
+    ],
+    "description": "Share of peers with predicate X",
+    "domain": "cohort",
+    "identity_paths": [],
+    "predicate": "cohort.baseline",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "COHORT"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "ci_high": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "ci_low": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "n_eligible": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "n_excluded": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "n_members": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "share": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "successes": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "n_members",
+        "n_eligible",
+        "n_excluded",
+        "successes",
+        "share",
+        "ci_low",
+        "ci_high"
+      ],
+      "type": "object"
+    },
+    "visibility": "COHORT_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "COHORT"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.percentile@2.0.0"
+    ],
+    "description": "Account rank vs peers on a metric",
+    "domain": "cohort",
+    "identity_paths": [],
+    "predicate": "cohort.percentile",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "n_eligible": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "n_excluded": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "n_members": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "quality_percentile": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        },
+        "raw_percentile": {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "n_members",
+        "n_eligible",
+        "n_excluded",
+        "raw_percentile",
+        "quality_percentile"
+      ],
+      "type": "object"
+    },
+    "visibility": "COHORT_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "COHORT"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.trend@2.0.0"
+    ],
+    "description": "Adoption wave within cohort",
+    "domain": "cohort",
+    "identity_paths": [],
+    "predicate": "cohort.trend",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "COHORT"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "n_eligible": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "panel": {
+          "enum": [
+            "balanced"
+          ]
+        },
+        "slope_per_window": {
+          "type": "number"
+        },
+        "window_count": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "slope_per_window",
+        "window_count",
+        "n_eligible",
+        "panel"
+      ],
+      "type": "object"
+    },
+    "visibility": "COHORT_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "COHORT"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.outlier@2.0.0"
+    ],
+    "description": "Account deviates from cohort norm",
+    "domain": "cohort",
+    "identity_paths": [],
+    "predicate": "cohort.outlier",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "direction": {
+          "enum": [
+            "high",
+            "low",
+            "typical"
+          ]
+        },
+        "is_outlier": {
+          "type": "boolean"
+        },
+        "n_eligible": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "n_excluded": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "n_members": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "z": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "n_members",
+        "n_eligible",
+        "n_excluded",
+        "z",
+        "is_outlier",
+        "direction"
+      ],
+      "type": "object"
+    },
+    "visibility": "COHORT_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "DERIVED"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [
+      "deriv.performance@2.0.0"
+    ],
+    "description": "Derived fact type registered via DerivationFlow (see registry/derivations.json).",
+    "domain": "derived",
+    "identity_paths": [],
+    "predicate": "angle.performance",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ANGLE"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "bounce_rate": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "causal": {
+          "enum": [
+            false
+          ]
+        },
+        "meeting_rate": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "n_accepted": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "n_bounced": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "n_contaminated": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "n_eligible": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "n_mature": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "n_pending": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "n_raw_exposures": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "reply_ci_high": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "reply_ci_low": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "reply_rate": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "unsubscribe_rate": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "n_eligible",
+        "n_accepted",
+        "n_mature",
+        "reply_rate",
+        "meeting_rate",
+        "reply_ci_low",
+        "reply_ci_high",
+        "bounce_rate",
+        "unsubscribe_rate",
+        "causal",
+        "n_raw_exposures",
+        "n_pending",
+        "n_bounced",
+        "n_contaminated"
+      ],
+      "type": "object"
+    },
+    "visibility": "COHORT_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "HUMAN"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "integration connection verified",
+    "domain": "operational",
+    "identity_paths": [
+      "/from_entity",
+      "/to_entity"
+    ],
+    "predicate": "integration.connection.verified",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "connected": {
+          "type": "boolean"
+        },
+        "from_entity": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        },
+        "to_entity": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        },
+        "verification_method": {
+          "enum": [
+            "authorized_api",
+            "human_confirmed"
+          ]
+        }
+      },
+      "required": [
+        "from_entity",
+        "to_entity",
+        "connected",
+        "verification_method"
+      ],
+      "type": "object"
+    },
+    "visibility": "ATTRIBUTED_REPORT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "HUMAN"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "ops automation verified",
+    "domain": "operational",
+    "identity_paths": [],
+    "predicate": "ops.automation.verified",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "agents_live": {
+          "type": "boolean"
+        },
+        "custom_integrations_live": {
+          "type": "boolean"
+        },
+        "lowcode_in_use": {
+          "type": "boolean"
+        },
+        "manual_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "manual_only",
+        "lowcode_in_use",
+        "custom_integrations_live",
+        "agents_live"
+      ],
+      "type": "object"
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API",
+      "HUMAN"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "ops sales verified",
+    "domain": "operational",
+    "identity_paths": [],
+    "predicate": "ops.sales.verified",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "booking": {
+          "type": "boolean"
+        },
+        "connected": {
+          "type": "boolean"
+        },
+        "crm": {
+          "type": "boolean"
+        },
+        "manual_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "booking",
+        "crm",
+        "connected",
+        "manual_only"
+      ],
+      "type": "object"
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "HUMAN"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "company business_model",
+    "domain": "operational",
+    "identity_paths": [],
+    "predicate": "company.business_model",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "enum": [
+        "local_service",
+        "mobile_service",
+        "ecommerce",
+        "saas",
+        "agency",
+        "professional_services",
+        "restaurant",
+        "healthcare_practice",
+        "retail",
+        "franchise_unit",
+        "manufacturing",
+        "nonprofit"
+      ]
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "acquisition coverage",
+    "domain": "operational",
+    "identity_paths": [],
+    "predicate": "acquisition.coverage",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "complete": {
+          "type": "boolean"
+        },
+        "fresh_ratio": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "rendered": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "complete",
+        "rendered",
+        "fresh_ratio"
+      ],
+      "type": "object"
+    },
+    "visibility": "INTERNAL_ONLY"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "change template stable",
+    "domain": "operational",
+    "identity_paths": [],
+    "predicate": "change.template.stable",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "type": "boolean"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "singleton",
+    "derived_by": [],
+    "description": "location data consistency",
+    "domain": "operational",
+    "identity_paths": [],
+    "predicate": "location.data.consistency",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "checked_location_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+            "type": "string"
+          },
+          "minItems": 2,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "consistent": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "consistent",
+        "checked_location_ids"
+      ],
+      "type": "object"
+    },
+    "visibility": "PUBLIC_MEASUREMENT"
+  },
+  {
+    "absence_allowed": false,
+    "allowed_tiers": [
+      "API"
+    ],
+    "cardinality": "set",
+    "derived_by": [],
+    "description": "outreach exposure",
+    "domain": "operational",
+    "identity_paths": [
+      "/exposure_id"
+    ],
+    "predicate": "outreach.exposure",
+    "states": [
+      "OBSERVED",
+      "UNKNOWN"
+    ],
+    "subject_kinds": [
+      "ORG",
+      "LOCATION",
+      "BRAND"
+    ],
+    "value_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_at": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "type": "string"
+        },
+        "angle_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        },
+        "exposure_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        },
+        "unit_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/-]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "exposure_id",
+        "unit_id",
+        "angle_id",
+        "accepted_at"
+      ],
+      "type": "object"
+    },
+    "visibility": "INTERNAL_ONLY"
+  }
+]

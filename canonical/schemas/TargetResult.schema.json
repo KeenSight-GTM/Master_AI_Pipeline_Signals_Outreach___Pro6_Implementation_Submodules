@@ -1,0 +1,42 @@
+{
+  "$id": "https://keensight.local/v4.2/TargetResult.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "completed_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "COMPLETE",
+        "FAILED",
+        "ABSTAINED"
+      ]
+    },
+    "subject_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "subject_id",
+    "status",
+    "completed_at",
+    "reason"
+  ],
+  "title": "TargetResult",
+  "type": "object"
+}

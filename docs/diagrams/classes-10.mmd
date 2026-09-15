@@ -1,0 +1,60 @@
+classDiagram
+    class ReviewDecision {
+        action
+        decided_at
+        package
+        policy_version
+        reason
+        review_id
+        reviewer_id
+        tenant_id
+    }
+    class ReviewRecordValue {
+        edited
+        language
+        platform
+        published_at
+        rating
+        rating_scale_max
+        review_key
+        text
+    }
+    class SalaryValue {
+        basis
+        currency
+        maximum_minor
+        minimum_minor
+        minor_unit_exponent
+        period
+    }
+    class SampleRecordDecision {
+        artifact_id
+        classification_fact_ids
+        reason
+        status
+    }
+    class ScenarioEstimate {
+        assumptions
+        currency
+        formula_version
+        implementation_status
+        limitations
+        lower_minor
+        observed_input_fact_ids
+        scenario_id
+        subject_id
+        tenant_id
+        time_period
+        upper_minor
+        verified_loss
+    }
+    class Scope {
+        capture_mode
+        kind
+        population_description
+        resources
+        scope_id
+        stable_scope_key
+        subject_id
+        tenant_id
+    }

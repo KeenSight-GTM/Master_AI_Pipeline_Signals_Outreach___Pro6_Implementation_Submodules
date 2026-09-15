@@ -1,0 +1,27 @@
+digraph G {
+rankdir=TB; graph [fontname="Helvetica", labelloc=t, label="Research context is not account-specific proof"];
+node [shape=box, style=rounded, fontname="Helvetica", margin="0.2,0.15"]; edge [fontname="Helvetica", fontsize=10];
+A [label="Account: eligible product footprint and binding"];
+B [label="Canonical software product subject"];
+C [label="Permitted review or discussion records"];
+D [label="Exact quoted classifications with stance and sentiment"];
+E [label="ResearchSample: all retrieved eligible, excluded and unclassified records"];
+P [label="Versioned support policy: pain versus workflow mention"];
+F [label="Prior: scoped numerator and full denominator"];
+G [label="Pinned matching context join: USABLE required"];
+H [label="Internal investigation or neutral question selection"];
+I [label="Separate account evidence for outward claims"];
+X [label="No transfer of reported product pain into company fact"];
+V [label="Deletion, expiry or rights change to any denominator input blocks current use"];
+A -> B [label="explicit relationship"];
+C -> D;
+D -> E [label="one decision per retrieved record"];
+P -> F [label="stance and sentiment semantics"];
+E -> F [label="deduplicated record denominator"];
+B -> G;
+F -> G;
+G -> H [label="no ABSTAINED context"];
+H -> I [label="investigate; do not assert pain"];
+G -> X [label="hard boundary"];
+E -> V [label="all dependencies retained"];
+}

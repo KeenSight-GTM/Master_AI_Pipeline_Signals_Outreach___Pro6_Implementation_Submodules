@@ -1,0 +1,7 @@
+{
+  "journeys": 1,
+  "subprocesses": 3,
+  "status": "PASS",
+  "report": "/mnt/data/keensight-poc-readiness-review/reports/preview-smoke/invocation-results.json",
+  "no_live_sources_or_sender_tested": true
+}

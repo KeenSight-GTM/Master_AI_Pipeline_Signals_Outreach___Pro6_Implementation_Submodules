@@ -1,0 +1,4 @@
+{
+  "bundle": "/mnt/data/_assembly/journeys-current/journeys/replay.json",
+  "claims": 1
+}

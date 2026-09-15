@@ -1,0 +1,122 @@
+{
+  "canonical_admission": false,
+  "input_capture_ids": [
+    "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be"
+  ],
+  "kind": "StandaloneMatchResult",
+  "matches": [
+    {
+      "authored_confidence": 1.0,
+      "authority": "CANDIDATE",
+      "branch": "assets.calendly.com",
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "evidence_key": "evidence_ae3b44e7e8731d7d1d1a0f0ca479db0a6ba71d47cd0cadd9c6c6bd9d0d42aaf3",
+      "match_id": "match_28cefa965b9f2aec60f65ea4d0a9baacfe5e9fea3bf5a1b3add0429f2cd1074a",
+      "object_value": true,
+      "predicate": "vendor.present",
+      "product_id": "product:calendly",
+      "release_digest": "release_ac1b18410583af42064839f63c4e0f8d86faf48dd7d26210d4ba8c3001787845",
+      "rule_digest": "rule-semantic-v2_a2c1db0ed08a2df5db3deba35b250e2b1caa798290596053daf3f7c2c5e5abad",
+      "rule_evidence_key": "rule_evidence_2df7e9ffbde333dbe6faa4cc135da976221b540261116cf9cf5b871b457d55ef",
+      "rule_id": "calendly-script-candidate",
+      "surface_id": "surface_e159b8da9d55a0f5a3fc39f299ada29bcdf2118698af5a0e31eca069f0876ad1"
+    },
+    {
+      "authored_confidence": 0.99,
+      "authority": "APPROVED",
+      "branch": "calendly.com",
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "evidence_key": "evidence_ae3b44e7e8731d7d1d1a0f0ca479db0a6ba71d47cd0cadd9c6c6bd9d0d42aaf3",
+      "match_id": "match_29d5d38a5b7d91dbefefaca5b49dc24225289d5cf98a924fc0f1bbf9da095ab8",
+      "object_value": true,
+      "predicate": "vendor.present",
+      "product_id": "product:calendly",
+      "release_digest": "release_ac1b18410583af42064839f63c4e0f8d86faf48dd7d26210d4ba8c3001787845",
+      "rule_digest": "rule-semantic-v2_746c737303e7355d8467daeb7896e8f32fdbe7510e095faf8ab02aab213cc363",
+      "rule_evidence_key": "rule_evidence_53a53ed221ade1b3a8b02d05179972abd268502cfd8233e793888276990594c5",
+      "rule_id": "calendly-script-suffix",
+      "surface_id": "surface_e159b8da9d55a0f5a3fc39f299ada29bcdf2118698af5a0e31eca069f0876ad1"
+    },
+    {
+      "authored_confidence": 0.97,
+      "authority": "APPROVED",
+      "branch": "calendly.com",
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "evidence_key": "evidence_889c91483842a4a5cb40b022e04fa1e86e2ab66cc011a667fc784e796a8c3b3a",
+      "match_id": "match_54d59aa6f7352a9a2c586de54bf5d14de16f364b7ffaa15a63a12590758f9e7b",
+      "object_value": true,
+      "predicate": "vendor.present",
+      "product_id": "product:calendly",
+      "release_digest": "release_ac1b18410583af42064839f63c4e0f8d86faf48dd7d26210d4ba8c3001787845",
+      "rule_digest": "rule-semantic-v2_84fd8f68803218653723c8e77c1581b4696487fc78e5fba036c5d30d3e70c050",
+      "rule_evidence_key": "rule_evidence_cc9edb59573d35bded7d64a48be4c6fa33432a61812ceff476a347f9d4815489",
+      "rule_id": "calendly-iframe",
+      "surface_id": "surface_d9fe85b05f9e83be6da1f77ca9221a96094e05d7d087b4a1a854da43bef5658e"
+    },
+    {
+      "authored_confidence": 0.98,
+      "authority": "APPROVED",
+      "branch": "assets.calendly.com",
+      "capture_id": "capture_19c95102155aac6c08b8cf3df0ec968a39b1254db8c40410315394d6121903be",
+      "evidence_key": "evidence_ae3b44e7e8731d7d1d1a0f0ca479db0a6ba71d47cd0cadd9c6c6bd9d0d42aaf3",
+      "match_id": "match_bdc42a8e155afcc9487b485dc432829a7707cc37cea7f44dec653b76010bf37a",
+      "object_value": true,
+      "predicate": "vendor.present",
+      "product_id": "product:calendly",
+      "release_digest": "release_ac1b18410583af42064839f63c4e0f8d86faf48dd7d26210d4ba8c3001787845",
+      "rule_digest": "rule-semantic-v2_c80b3e87f23c979caafacce1c735a9a66e939229bd2fc8916a9a6aad0ebe26f5",
+      "rule_evidence_key": "rule_evidence_39332692c3a2152e5d5ef63fae66de2b8d078851235a3933257d566962d69ccc",
+      "rule_id": "calendly-script-exact",
+      "surface_id": "surface_e159b8da9d55a0f5a3fc39f299ada29bcdf2118698af5a0e31eca069f0876ad1"
+    }
+  ],
+  "release_digest": "release_ac1b18410583af42064839f63c4e0f8d86faf48dd7d26210d4ba8c3001787845",
+  "rule_evaluations": [
+    {
+      "absence_fact_emitted": false,
+      "errors": [],
+      "incomplete_capture_ids": [],
+      "match_ids": [
+        "match_54d59aa6f7352a9a2c586de54bf5d14de16f364b7ffaa15a63a12590758f9e7b"
+      ],
+      "qualification": "QUALIFIED",
+      "rule_id": "calendly-iframe",
+      "status": "MATCH"
+    },
+    {
+      "absence_fact_emitted": false,
+      "errors": [],
+      "incomplete_capture_ids": [],
+      "match_ids": [
+        "match_28cefa965b9f2aec60f65ea4d0a9baacfe5e9fea3bf5a1b3add0429f2cd1074a"
+      ],
+      "qualification": "QUALIFIED",
+      "rule_id": "calendly-script-candidate",
+      "status": "MATCH"
+    },
+    {
+      "absence_fact_emitted": false,
+      "errors": [],
+      "incomplete_capture_ids": [],
+      "match_ids": [
+        "match_bdc42a8e155afcc9487b485dc432829a7707cc37cea7f44dec653b76010bf37a"
+      ],
+      "qualification": "QUALIFIED",
+      "rule_id": "calendly-script-exact",
+      "status": "MATCH"
+    },
+    {
+      "absence_fact_emitted": false,
+      "errors": [],
+      "incomplete_capture_ids": [],
+      "match_ids": [
+        "match_29d5d38a5b7d91dbefefaca5b49dc24225289d5cf98a924fc0f1bbf9da095ab8"
+      ],
+      "qualification": "QUALIFIED",
+      "rule_id": "calendly-script-suffix",
+      "status": "MATCH"
+    }
+  ],
+  "schema_version": "1.0",
+  "send_allowed": false
+}

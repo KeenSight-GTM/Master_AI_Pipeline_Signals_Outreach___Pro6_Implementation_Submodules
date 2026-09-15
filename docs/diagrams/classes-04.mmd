@@ -1,0 +1,63 @@
+classDiagram
+    class DataAccessPolicy {
+        allow_personal_data
+        allow_sensitive_data
+        approval_ref
+        attribution_text
+        deletion_cascades
+        fixture_only
+        max_derived_retention_seconds
+        max_raw_retention_seconds
+        policy_id
+        purposes
+        review_status
+        reviewed_at
+        tenant_ids
+        terms_ref
+        valid_until
+        version
+    }
+    class DestinationDefinition {
+        automatic_sending
+        destination_id
+        enabled
+        fixture_only
+        kind
+        mapping_version
+        tenant_id
+    }
+    class DiscussionRecordValue {
+        community
+        language
+        post_key
+        published_at
+        role
+        text
+        thread_key
+    }
+    class EconomicHypothesisValue {
+        assumptions
+        currency
+        estimated_amount_minor
+        limitations
+    }
+    class EvidenceLocator {
+        artifact_id
+        end
+        kind
+        locator_id
+        pointer
+        quote
+        start
+    }
+    class EvidenceSet {
+        attempt_id
+        coverage_id
+        directness
+        evidence_id
+        execution_id
+        input_fact_ids
+        locator_ids
+        sample_ids
+        tenant_id
+    }

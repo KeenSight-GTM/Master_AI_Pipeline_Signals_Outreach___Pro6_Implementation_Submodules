@@ -1,0 +1,19 @@
+flowchart LR
+    n["NEW"]
+    v["VALIDATING"]
+    r["RUNNING"]
+    s["STAGED"]
+    c["COMMITTED"]
+    f["FAILED"]
+    x["CANCELLED"]
+    k["SKIPPED"]
+    n -->|"validate inputs / signature"| v
+    v -->|"allowed + dependencies"| r
+    v -->|"not enabled / not applicable"| k
+    v -->|"bad contract"| f
+    r -->|"draft outputs"| s
+    s -->|"validate + atomic publish"| c
+    s -->|"rollback"| f
+    r -->|"error / timeout"| f
+    r -->|"cancel before commit"| x
+    c -->|"idempotent same-request reuse"| c

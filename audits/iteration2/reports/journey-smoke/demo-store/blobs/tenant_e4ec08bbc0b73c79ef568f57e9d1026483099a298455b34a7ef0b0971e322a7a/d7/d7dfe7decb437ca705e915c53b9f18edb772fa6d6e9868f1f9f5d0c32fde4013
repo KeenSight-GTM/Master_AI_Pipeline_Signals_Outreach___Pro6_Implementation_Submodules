@@ -1,0 +1,14 @@
+<!doctype html><html><head><title>Acme Example Practice</title>
+<meta name="generator" content="AcmeCMS"><link rel="canonical" href="https://demo.example.test/">
+<link rel="stylesheet" href="/style.css"><script src="https://assets.calendly.com/widget.js"></script>
+<script>window.exampleAnalytics = true;</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://demo.example.test/#organization","name":"Acme"}</script>
+</head><body><header><nav><a href="/contact">Contact</a></nav></header>
+<main itemscope itemtype="https://schema.org/LocalBusiness" data-office = "main"><h1>Appointments with Acme</h1>
+<p>We provide scheduled consultations for our customers.</p>
+<iframe src="//calendly.com/acme-demo"></iframe>
+<form action="/request" method="post"><input name="message"></form>
+<img src="/badge.png" alt="Example Member Badge"><a href="https://calendly.com/help">Scheduling guide</a>
+<noscript><a href="/fallback">Fallback</a></noscript></main>
+<footer>Website by Example Agency. <a href="https://agency.example/book">Book our agency</a></footer>
+</body></html>

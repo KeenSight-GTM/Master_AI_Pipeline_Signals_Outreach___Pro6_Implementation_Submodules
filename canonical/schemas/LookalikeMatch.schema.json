@@ -1,0 +1,95 @@
+{
+  "$id": "https://keensight.local/v4.2/LookalikeMatch.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "comparison_subject_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "corpus_release": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "differences": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "implementation_status": {
+      "const": "DESIGN_ONLY"
+    },
+    "index_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "input_fact_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "match_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "missing_features": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "outcome_transfer_allowed": {
+      "const": false
+    },
+    "representation_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "run_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "similarity_score": {
+      "type": "number"
+    },
+    "target_subject_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "tenant_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "use": {
+      "const": "INTERNAL_RANKING"
+    }
+  },
+  "required": [
+    "match_id",
+    "run_id",
+    "tenant_id",
+    "target_subject_id",
+    "comparison_subject_id",
+    "input_fact_ids",
+    "corpus_release",
+    "representation_version",
+    "index_version",
+    "similarity_score",
+    "missing_features",
+    "differences",
+    "outcome_transfer_allowed",
+    "use",
+    "implementation_status"
+  ],
+  "title": "LookalikeMatch",
+  "type": "object"
+}

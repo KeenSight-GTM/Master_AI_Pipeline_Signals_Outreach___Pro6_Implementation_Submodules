@@ -1,0 +1,27 @@
+name: collector-tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.11', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -e ".[live,test]"
+      - name: Require actual pinned SDK, do not silently skip integration
+        run: python -c "from scrapling.fetchers import FetcherSession; from importlib.metadata import version; assert version('scrapling') == '0.4.15'"
+      - run: python -m compileall -q src tests
+      - run: python -m pytest -q --junitxml=reports/pytest-ci.xml
+      - run: ks-scan demo --output ./ci-demo
+      - run: ks-scan check ./ci-demo/scan-bundle.json --store ./ci-demo
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: collector-test-report-${{ matrix.python }}
+          path: reports/pytest-ci.xml

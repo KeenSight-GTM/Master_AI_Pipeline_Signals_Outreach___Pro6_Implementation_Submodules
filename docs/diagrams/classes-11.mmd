@@ -1,0 +1,59 @@
+classDiagram
+    class SignalDefinition {
+        context_allowed
+        description
+        function_id
+        required_facts
+        signal_type_id
+        status
+        version
+    }
+    class SignalEvaluation {
+        context_ids
+        evaluated_at
+        input_fact_ids
+        reason
+        run_id
+        signal_id
+        signal_type_id
+        status
+        subject_id
+        tenant_id
+    }
+    class SourceDefinition {
+        acquisition_method
+        adapter_status
+        allowed_natures
+        authority
+        emits
+        fixture_only
+        freshness_seconds
+        policy_id
+        provider
+        source_id
+        upstream_namespace
+        version
+    }
+    class Subject {
+        display_name
+        external_ids
+        kind
+        subject_id
+        tenant_id
+    }
+    class SubjectBinding {
+        artifact_ids
+        binding_id
+        decided_at
+        evidence_locator_ids
+        method
+        role
+        scope_id
+        status
+        subject_id
+        tenant_id
+    }
+    class SurfaceObservationValue {
+        observed_value
+        surface_key
+    }

@@ -1,0 +1,26 @@
+{
+  "$id": "https://keensight.local/v4.2/PackageReference.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "content_hash": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "package_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "revision": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "package_id",
+    "revision",
+    "content_hash"
+  ],
+  "title": "PackageReference",
+  "type": "object"
+}

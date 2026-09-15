@@ -1,0 +1,318 @@
+{
+  "baseline": "/mnt/data/keensight-iteration-2-review/baseline",
+  "probes": [
+    {
+      "id": "R2-C01",
+      "probe": "failed_attempt_loses_request_manifest",
+      "violation_present": true,
+      "terminal_payload": {
+        "finished_at": "2026-09-14T12:00:00Z",
+        "message": "fixture",
+        "reason": "TimeoutError",
+        "url": "https://example.test/robots.txt"
+      },
+      "bundle_top_keys": [
+        "as_of",
+        "captures",
+        "claims",
+        "commands",
+        "evaluated_capture_ids",
+        "evaluation_id",
+        "fixture_only",
+        "handoff",
+        "matches",
+        "observations",
+        "priority_score",
+        "producer",
+        "release_digest",
+        "resource_dispositions",
+        "rule_evaluations",
+        "rule_pack",
+        "schema_version",
+        "send_allowed",
+        "support_links",
+        "surfaces"
+      ],
+      "persisted_evaluations": 0
+    },
+    {
+      "id": "CTRL-REPLAY",
+      "probe": "fresh_rule_replay_cannot_extend_existing_matches",
+      "violation_present": false,
+      "replay_error": null,
+      "old_matches": 3
+    },
+    {
+      "id": "R2-C04",
+      "probe": "revoked_evidence_remains_research_candidate",
+      "violation_present": true,
+      "candidates_before": [
+        {
+          "feature_id": "feature_2415204b2e3d2cd4ce15fba870c31106fce4a4d17ee12cafbbc50aebdec9ead5",
+          "value": "{\"kind\":\"script_url:host\",\"value\":\"unknown-vendor.test\"}",
+          "observed_origin_count": 1,
+          "capture_count": 1
+        }
+      ],
+      "candidates_after": [
+        {
+          "feature_id": "feature_2415204b2e3d2cd4ce15fba870c31106fce4a4d17ee12cafbbc50aebdec9ead5",
+          "value": "{\"kind\":\"script_url:host\",\"value\":\"unknown-vendor.test\"}",
+          "observed_origin_count": 1,
+          "capture_count": 1
+        }
+      ]
+    },
+    {
+      "id": "R2-C05",
+      "probe": "parser_recovery_silently_drops_deep_evidence",
+      "violation_present": true,
+      "original_contains_marker": true,
+      "extraction": {
+        "command_id": "EXTRACT_SCRIPT_SRC",
+        "details": {
+          "surface_count": 0
+        },
+        "input_ids": [
+          "capture_2031a66fd7efe62482922c53e11f4d36defc75823f5e8b62a9bc326e26e03498"
+        ],
+        "limitations": [],
+        "output_ids": [],
+        "status": "COMPLETE"
+      },
+      "reports": [
+        {
+          "absence_fact_emitted": false,
+          "errors": [],
+          "incomplete_capture_ids": [],
+          "match_ids": [],
+          "qualification": "QUALIFIED",
+          "rule_id": "calendly-script-candidate",
+          "status": "NO_MATCH"
+        },
+        {
+          "absence_fact_emitted": false,
+          "errors": [],
+          "incomplete_capture_ids": [],
+          "match_ids": [],
+          "qualification": "QUALIFIED",
+          "rule_id": "calendly-script-exact",
+          "status": "NO_MATCH"
+        },
+        {
+          "absence_fact_emitted": false,
+          "errors": [],
+          "incomplete_capture_ids": [],
+          "match_ids": [],
+          "qualification": "QUALIFIED",
+          "rule_id": "calendly-script-suffix",
+          "status": "NO_MATCH"
+        }
+      ]
+    },
+    {
+      "id": "R2-C06",
+      "probe": "validated_manifest_can_diverge_from_committed_findings",
+      "violation_present": true,
+      "manifest_observations": 1,
+      "published_observations": 0,
+      "boundary": "Store.publish_evaluation public local-owner API"
+    },
+    {
+      "id": "R2-C07",
+      "probe": "input_subject_can_change_inside_analyze_file_run",
+      "violation_present": true,
+      "commands": [
+        {
+          "subject": "account:a",
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "subject": "account:b",
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "replay_error": "Cross-subject/tenant/origin host rollup forbidden",
+      "subjects": [
+        "account:a",
+        "account:b"
+      ]
+    },
+    {
+      "id": "R2-C08",
+      "probe": "canonical_reference_and_collector_disagree_on_aside",
+      "violation_present": true,
+      "collector_supported": true,
+      "canonical_hosts": []
+    },
+    {
+      "id": "R2-C09",
+      "probe": "result_completeness_overreports_failed_acquisition",
+      "violation_present": true,
+      "identity_fields_present": [],
+      "evaluation_id": "no-bytes",
+      "capture_count": 0,
+      "evaluation_records": 0
+    },
+    {
+      "id": "R2-C10",
+      "probe": "command_contradictory_duplicate_is_accepted",
+      "violation_present": true,
+      "error": null,
+      "command_outcomes": [
+        "COMPLETE",
+        "COMPLETE",
+        "FAILED"
+      ]
+    },
+    {
+      "id": "CTRL-CAPTURE",
+      "probe": "changed_metadata_rejected",
+      "violation_present": false,
+      "control_passed": true
+    },
+    {
+      "id": "CTRL-PUBLICATION",
+      "probe": "duplicate_input_rejected_without_writes",
+      "violation_present": false,
+      "control_passed": true,
+      "observations": 0
+    },
+    {
+      "id": "R2-A01",
+      "probe": "binding_evidence_not_in_fact_lineage",
+      "violation_present": true,
+      "binding_uses_deleted_artifact": true,
+      "binding_artifact_in_fact_roots": false,
+      "current_eligible": true,
+      "full_validation": {
+        "passed": true,
+        "value": {
+          "status": "PASS",
+          "schemas": 75,
+          "predicates": 213,
+          "metrics": 89,
+          "records": 226,
+          "counts": {
+            "schema_instances": 1122,
+            "semantic_facts": 28
+          }
+        }
+      }
+    },
+    {
+      "id": "R2-A02",
+      "probe": "template_demotion_does_not_block_export_gate",
+      "violation_present": true,
+      "template_authority": "CANDIDATE",
+      "exported": true,
+      "error": null,
+      "full_validation": {
+        "passed": false,
+        "error": "ContractError: MISSING_APPROVAL"
+      },
+      "boundary": "Current-use gate and local exporter, not full bundle admission"
+    },
+    {
+      "id": "R2-A03",
+      "probe": "produced_artifact_rejected_by_second_layer",
+      "violation_present": true,
+      "completion_layer_passed": true,
+      "completion_error": null,
+      "full_validation": {
+        "passed": false,
+        "error": "ContractError: ARTIFACT_OUTSIDE_RUN"
+      }
+    },
+    {
+      "id": "R2-A04",
+      "probe": "supersession_cycle_raises_uncontrolled_recursion",
+      "violation_present": true,
+      "full_validation": {
+        "passed": false,
+        "error": "RecursionError: maximum recursion depth exceeded"
+      }
+    },
+    {
+      "id": "R2-A05",
+      "probe": "effective_date_has_no_current_use_effect",
+      "violation_present": true,
+      "effective_at": "2026-10-14T12:00:00Z",
+      "gate_time": "2026-09-14T20:00:10Z",
+      "current_eligible": true,
+      "full_validation": {
+        "passed": true,
+        "value": {
+          "status": "PASS",
+          "schemas": 75,
+          "predicates": 213,
+          "metrics": 89,
+          "records": 224,
+          "counts": {
+            "schema_instances": 1120,
+            "semantic_facts": 28
+          }
+        }
+      },
+      "classification": "Temporal semantics gap: declared effective time is ignored"
+    },
+    {
+      "id": "R2-A06",
+      "probe": "historical_result_changes_under_later_supersession",
+      "violation_present": true,
+      "old_fact_pinned": true,
+      "replacement_pinned": false,
+      "replacement_recorded_at": "2026-09-14T19:30:00Z",
+      "old_cutoff": "2026-09-14T17:01:45Z",
+      "historical_resolution": {
+        "status": "UNKNOWN",
+        "accepted_fact_ids": []
+      }
+    },
+    {
+      "id": "CTRL-BINDING",
+      "probe": "successor_can_inherit_retracted_ancestor",
+      "violation_present": false,
+      "control_passed": true
+    },
+    {
+      "id": "R2-A08",
+      "probe": "conflicting_minimum_semantics",
+      "violation_present": true,
+      "helper_verdict": "RESOLVED",
+      "distinct_substantive_origins": 1,
+      "full_validator_rule": "Counts distinct substantive artifact origins, not fact rows"
+    },
+    {
+      "id": "CTRL-AUTH",
+      "probe": "foreign_change_rejected",
+      "violation_present": false,
+      "control_passed": true
+    },
+    {
+      "id": "R2-P01",
+      "probe": "late_timeout_result_is_rejected",
+      "violation_present": true,
+      "checker_error": "Operation finished beyond deadline",
+      "result_status": "FAILED",
+      "finished_at": "2026-09-14T12:02:01Z",
+      "deadline_at": "2026-09-14T12:02:00Z"
+    },
+    {
+      "id": "R2-P02",
+      "probe": "mode_and_usage_not_constrained_by_operation",
+      "violation_present": true,
+      "checker_error": null,
+      "mode": "CAPTURE",
+      "reported_network_attempts": 5
+    },
+    {
+      "id": "CTRL-PROTOCOL",
+      "probe": "unpinned_record_is_rejected",
+      "violation_present": false,
+      "control_passed": true
+    }
+  ]
+}

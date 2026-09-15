@@ -1,0 +1,86 @@
+classDiagram
+direction LR
+class TechnologyValue {
+  +string product_id
+  +Optional~string~ version
+  +enum surface
+  +string matched_value
+  +string fingerprint_id
+  +string deployment_claim
+}
+class TechnologyReportValue {
+  +string product_id
+  +string provider
+  +Optional~string~ provider_detected_at
+  +Optional~string~ reported_version
+}
+class JobPostingValue {
+  +string posting_id
+  +string namespace
+  +string url
+  +string title
+  +Optional~string~ department
+  +Optional~string~ published_at
+  +Optional~enum~ employment_type
+}
+class SalaryValue {
+  +Optional~int~ minimum_minor
+  +Optional~int~ maximum_minor
+  +string currency
+  +int minor_unit_exponent
+  +enum period
+  +enum basis
+}
+class AttributedStatementValue {
+  +string statement_id
+  +string text
+  +string topic_id
+  +enum modality
+}
+class SurfaceObservationValue {
+  +string surface_key
+  +string observed_value
+}
+class HypothesisValue {
+  +string hypothesis_id
+  +string conclusion
+  +List~string~ alternatives
+  +List~string~ limitations
+  +string verification_question
+}
+class QuotedTextResult {
+  +string text
+}
+class PublishedRecordValue {
+  +string namespace
+  +string record_id
+  +string url
+  +string publisher
+  +Optional~string~ published_at
+  +string record_type
+  +string title
+  +string text
+}
+class CaseStudyOutcomeValue {
+  +string case_id
+  +string outcome_id
+  +string publisher
+  +string source_url
+  +string reported_quote
+  +string metric_name
+  +number reported_value
+  +string unit
+  +Optional~number~ baseline_value
+  +enum comparison_kind
+  +Optional~Object~ measurement_window
+  +Optional~int~ sample_size
+  +Optional~string~ method_description
+  +string attribution
+  +bool transfer_to_target_allowed
+}
+JobPostingValue "1" ..> "0..*" SalaryValue : separate_fact_by_posting_key
+JobPostingValue "1" ..> "0..*" AttributedStatementValue : may_support_extracted_statements
+QuotedTextResult "1" ..> "0..1" AttributedStatementValue : requires_quote_and_binding_checks
+AttributedStatementValue "*" ..> "0..*" HypothesisValue : inputs_not_proof_of_conclusion
+SurfaceObservationValue "*" ..> "0..*" TechnologyValue : detector_evidence
+TechnologyReportValue "*" ..> "*" TechnologyValue : distinct_epistemic_channels

@@ -1,0 +1,62 @@
+{
+  "automatic_approvals": 0,
+  "dispositions": [
+    {
+      "legacy_id": "same-tool-script",
+      "raw": {
+        "id": "same-tool-script",
+        "signal": {
+          "category": "technology",
+          "confidence": 0.99,
+          "key": "technology",
+          "metadata": {
+            "detector_status": "active_candidate",
+            "match": {
+              "min_matches": 1,
+              "operator": "host_equals",
+              "patterns": [
+                "assets.calendly.com"
+              ],
+              "scope": [
+                "scripts"
+              ]
+            }
+          },
+          "value": "calendly"
+        }
+      },
+      "reason": null,
+      "row_index": 0,
+      "status": "IMPORTED_CANDIDATE"
+    },
+    {
+      "legacy_id": "unsupported-composite",
+      "raw": {
+        "id": "unsupported-composite",
+        "signal": {
+          "metadata": {
+            "detector_status": "composite_candidate",
+            "match": {
+              "min_matches": 2,
+              "operator": "composite_any_2",
+              "patterns": [
+                "calendly",
+                "booking"
+              ],
+              "scope": [
+                "scripts"
+              ]
+            }
+          },
+          "value": "calendly"
+        }
+      },
+      "reason": "UNSUPPORTED_OPERATOR",
+      "row_index": 1,
+      "status": "QUARANTINED"
+    }
+  ],
+  "imported_candidates": 1,
+  "input_rows": 2,
+  "quarantined_rows": 1
+}

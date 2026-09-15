@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "files": 116,
+  "comparison": "byte-identical after deletion and regeneration",
+  "stdout": "116 deterministic files generated\n"
+}

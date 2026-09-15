@@ -1,0 +1,80 @@
+{
+  "$id": "https://keensight.local/v4.2/ResearchPriorValue.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "classified_eligible_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "contradicting_fact_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "denominator_definition": {
+      "const": "ELIGIBLE_RETRIEVED_RECORDS_INCLUDING_UNCLASSIFIED"
+    },
+    "eligible_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "population_claim": {
+      "const": false
+    },
+    "sample_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "sample_share": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "support_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "support_policy_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "supporting_fact_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "theme_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "unclassified_count": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "sample_id",
+    "theme_id",
+    "supporting_fact_ids",
+    "contradicting_fact_ids",
+    "support_count",
+    "eligible_count",
+    "sample_share",
+    "population_claim",
+    "support_policy_id",
+    "classified_eligible_count",
+    "unclassified_count",
+    "denominator_definition"
+  ],
+  "title": "ResearchPriorValue",
+  "type": "object"
+}

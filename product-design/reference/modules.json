@@ -1,0 +1,846 @@
+{
+  "design_version": "1.0.0-draft.1",
+  "inputs_outputs_semantics": "Each list is the vocabulary across the module operations, not a requirement to provide every type at once. Before activation each operation requires an exact closed payload schema and cardinality signature in FunctionDefinition/implementation registry. This high-level catalog is not an executable routing schema.",
+  "module_count": 30,
+  "modules": [
+    {
+      "boundary_invariant": "Reject unknown implementations and incompatible exact schema versions before execution.",
+      "current_status": "v4.1 validation and collector rule loaders exist separately; unified release compiler proposed.",
+      "external_side_effect": "NONE",
+      "first_phase": "P0",
+      "input_contracts": [
+        "CapabilityProfile",
+        "VersionedDefinitions",
+        "ImplementationManifest"
+      ],
+      "module_id": "CTL-01",
+      "name": "Contracts and release compiler",
+      "output_contracts": [
+        "ReleaseLock",
+        "ValidationReport"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "knowledge-contracts",
+      "submodules": [
+        "schema registry",
+        "domain catalogs",
+        "38-command registry",
+        "function allowlist",
+        "release compatibility"
+      ]
+    },
+    {
+      "boundary_invariant": "A completed target is published only after its required outputs commit. Partial batches retain independent target results.",
+      "current_status": "Collector batch orchestration exists; canonical application coordinator remains to implement.",
+      "external_side_effect": "NONE",
+      "first_phase": "P0",
+      "input_contracts": [
+        "IntakeRequest",
+        "ReleaseLock"
+      ],
+      "module_id": "CTL-02",
+      "name": "Intake and batch coordination",
+      "output_contracts": [
+        "BatchRun",
+        "ModuleRequest",
+        "TargetResult",
+        "RunReport"
+      ],
+      "replay_policy": "ORCHESTRATES_EXPLICIT_MODE",
+      "repository": "signals-platform",
+      "submodules": [
+        "target intake",
+        "operation identity",
+        "dependency order",
+        "per-target completion",
+        "checkpoint and resume"
+      ]
+    },
+    {
+      "boundary_invariant": "Tenant and authority come from trusted authentication; child calls share parent budget and cannot reset it.",
+      "current_status": "Collector has local policy/budget controls; hosted authorization/shared accounting proposed.",
+      "external_side_effect": "NONE",
+      "first_phase": "P0",
+      "input_contracts": [
+        "TrustedPrincipal",
+        "DataAccessPolicy",
+        "CapabilityProfile",
+        "BudgetAccount"
+      ],
+      "module_id": "CTL-03",
+      "name": "Access, source policy and budget admission",
+      "output_contracts": [
+        "AuthorizedContext",
+        "AccessDecision",
+        "BudgetReservation"
+      ],
+      "replay_policy": "CURRENT_CHECK_OR_RECORDED_HISTORICAL_DECISION",
+      "repository": "ports in knowledge-contracts; trusted controls injected into both applications",
+      "submodules": [
+        "trusted authentication context",
+        "tenant authorization",
+        "source rights",
+        "purpose restrictions",
+        "budget allocation"
+      ]
+    },
+    {
+      "boundary_invariant": "Every connector returns the same evidence/attempt boundary; APIs do not bypass admission or labeling.",
+      "current_status": "Domain contracts exist; broad live adapters not delivered.",
+      "external_side_effect": "APPROVED_READ_OR_PAID_QUERY",
+      "first_phase": "P5",
+      "input_contracts": [
+        "SourceDefinition",
+        "AcquisitionSpec",
+        "AuthorizedContext"
+      ],
+      "module_id": "ING-01",
+      "name": "Source connector dispatcher",
+      "output_contracts": [
+        "AcquisitionAttempt",
+        "Artifact",
+        "SourceRecord"
+      ],
+      "replay_policy": "STORED_RESPONSES_ONLY",
+      "repository": "signals-platform",
+      "submodules": [
+        "ATS/jobs",
+        "reviews/forums",
+        "traffic and SEO",
+        "registries/filings",
+        "publications/case studies",
+        "authorized operations"
+      ]
+    },
+    {
+      "boundary_invariant": "Discovery does not silently expand origin permission; every retry/probe/redirect consumes the declared budget.",
+      "current_status": "urls.py, discovery.py and pipeline.py implement local paths; standard facade proposed.",
+      "external_side_effect": "NONE",
+      "first_phase": "P1",
+      "input_contracts": [
+        "IntakeTarget",
+        "ReleaseLock",
+        "Capture",
+        "Surface"
+      ],
+      "module_id": "ING-02",
+      "name": "Scrapling discovery and capture planner",
+      "output_contracts": [
+        "ScanPlan",
+        "AcquisitionSpec",
+        "DiscoveryDecision"
+      ],
+      "replay_policy": "STORED_DISCOVERY_ONLY",
+      "repository": "scrapling-ingestion",
+      "submodules": [
+        "normalization",
+        "robots policy integration",
+        "sitemaps",
+        "well-known paths",
+        "template discovery",
+        "follow-up queue"
+      ]
+    },
+    {
+      "boundary_invariant": "No bytes is a legitimate failure; partial/truncated capture cannot claim complete coverage.",
+      "current_status": "Static adapter exists but actual SDK test is skipped here; native browser disabled.",
+      "external_side_effect": "APPROVED_NETWORK_READ",
+      "first_phase": "P1",
+      "input_contracts": [
+        "AcquisitionSpec",
+        "BudgetReservation",
+        "AuthorizedContext"
+      ],
+      "module_id": "ING-03",
+      "name": "Scrapling transport and evidence capture",
+      "output_contracts": [
+        "AcquisitionAttempt",
+        "Capture",
+        "Artifact",
+        "CaptureCapabilities"
+      ],
+      "replay_policy": "NO_NETWORK_IN_REPLAY",
+      "repository": "scrapling-ingestion",
+      "submodules": [
+        "static HTTP",
+        "bounded browser",
+        "headers/cookies",
+        "original bytes",
+        "rendered DOM",
+        "network events",
+        "timeouts"
+      ]
+    },
+    {
+      "boundary_invariant": "Exact artifact/node provenance and per-surface limits survive; absent output after a failed parser is not absence.",
+      "current_status": "17 parsing functions exist in extraction.py.",
+      "external_side_effect": "NONE",
+      "first_phase": "P2",
+      "input_contracts": [
+        "Capture",
+        "Artifact",
+        "ParserRelease"
+      ],
+      "module_id": "ING-04",
+      "name": "Surface extraction",
+      "output_contracts": [
+        "Surface",
+        "PageEvidence",
+        "ExtractionReport"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "scrapling-ingestion",
+      "submodules": [
+        "17 EXTRACT commands",
+        "DOM/node locators",
+        "full JSON-LD",
+        "prose",
+        "surface completeness"
+      ]
+    },
+    {
+      "boundary_invariant": "Keep every matching rule and evidence point; NO_MATCH is not a canonical NOT_FOUND fact.",
+      "current_status": "rules.py implements a subset; complete donor coverage and production calibration pending.",
+      "external_side_effect": "NONE",
+      "first_phase": "P2",
+      "input_contracts": [
+        "ReleaseLock",
+        "PageEvidence",
+        "HostEvidenceIndex"
+      ],
+      "module_id": "FP-01",
+      "name": "Fingerprint rule execution",
+      "output_contracts": [
+        "Match",
+        "MatchEvaluation"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "scrapling-ingestion",
+      "submodules": [
+        "closed rule compiler",
+        "literal/alternative/regex/host/image matching",
+        "page/host correlation"
+      ]
+    },
+    {
+      "boundary_invariant": "Deduplicate observations and claim views, not evidence. Priority cannot alter source authority.",
+      "current_status": "claims.py, storage.py and pipeline.py implement local behavior; canonical admission still mandatory.",
+      "external_side_effect": "NONE",
+      "first_phase": "P2",
+      "input_contracts": [
+        "Capture",
+        "Surface",
+        "Match",
+        "ReleaseLock"
+      ],
+      "module_id": "FP-02",
+      "name": "Collector observations and scan assembly",
+      "output_contracts": [
+        "Observation",
+        "SupportLink",
+        "ClaimView",
+        "QualificationAssessment",
+        "PriorityAssessment",
+        "ScanBundle"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "scrapling-ingestion",
+      "submodules": [
+        "observation identity",
+        "support links",
+        "claim projection",
+        "vertical qualification",
+        "priority",
+        "bundle output"
+      ]
+    },
+    {
+      "boundary_invariant": "Candidates never become approved through count or model confidence; release promotion is authorized and between runs.",
+      "current_status": "Candidate index and conservative import exist; full review/promotion lifecycle to implement.",
+      "external_side_effect": "AUTHORIZED_RULE_RELEASE_ONLY",
+      "first_phase": "P3",
+      "input_contracts": [
+        "Surface",
+        "FingerprintCandidate",
+        "RuleReview",
+        "FixtureReport"
+      ],
+      "module_id": "FP-03",
+      "name": "Fingerprint discovery and promotion",
+      "output_contracts": [
+        "CandidateRecord",
+        "ImportReport",
+        "RuleReleaseProposal"
+      ],
+      "replay_policy": "ANALYSIS_REPLAY_ONLY_NO_PROMOTION",
+      "repository": "scrapling-ingestion",
+      "submodules": [
+        "unknown normalization",
+        "prevalence",
+        "bounded samples",
+        "donor import",
+        "quarantine",
+        "review",
+        "fixture and calibration gates"
+      ]
+    },
+    {
+      "boundary_invariant": "No network during replay, no TTL refresh, no fabricated unavailable browser/DNS modalities.",
+      "current_status": "pipeline.py replay and validation implemented for collector.",
+      "external_side_effect": "NONE",
+      "first_phase": "P3",
+      "input_contracts": [
+        "ReplayRequest",
+        "ScanBundle",
+        "ReleaseLock"
+      ],
+      "module_id": "ING-05",
+      "name": "Stored-evidence replay and comparison",
+      "output_contracts": [
+        "ScanBundle",
+        "ReplayReport",
+        "DiffReport",
+        "RecaptureRequest"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "scrapling-ingestion",
+      "submodules": [
+        "capability checks",
+        "byte verification",
+        "re-extraction",
+        "rematching",
+        "diffs",
+        "recapture requests"
+      ]
+    },
+    {
+      "boundary_invariant": "Model outputs remain untrusted extraction/classification/proposal results; successful raw persistence precedes parse and admission.",
+      "current_status": "v4.1 model/repair contracts and reference checks exist; live gateway to integrate.",
+      "external_side_effect": "APPROVED_PAID_MODEL_CALL",
+      "first_phase": "P5",
+      "input_contracts": [
+        "ModelTask",
+        "Artifact",
+        "EvidenceSet",
+        "BudgetReservation"
+      ],
+      "module_id": "AI-01",
+      "name": "Bounded model gateway",
+      "output_contracts": [
+        "ModelCall",
+        "RepairAttempt",
+        "TypedModelResult"
+      ],
+      "replay_policy": "RECORDED_MODEL_OUTPUTS_ONLY",
+      "repository": "signals-platform",
+      "submodules": [
+        "task/prompt registry",
+        "approved providers",
+        "raw I/O",
+        "structured parsing",
+        "bounded repair",
+        "cost and terminal state"
+      ]
+    },
+    {
+      "boundary_invariant": "A provided subject name, redirect or canonical tag does not itself establish ownership; ambiguous bindings abstain.",
+      "current_status": "Schemas/reference checks exist; production resolver and authenticated change path pending.",
+      "external_side_effect": "NONE",
+      "first_phase": "P4",
+      "input_contracts": [
+        "IntakeTarget",
+        "SourceRecord",
+        "BindingEvidence",
+        "Subject"
+      ],
+      "module_id": "KN-01",
+      "name": "Identity and subject binding",
+      "output_contracts": [
+        "Subject",
+        "SubjectBinding",
+        "BindingDecision"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "signals-platform",
+      "submodules": [
+        "organization/person/location/product/industry resolution",
+        "external IDs",
+        "domain ownership",
+        "aliases",
+        "merge/split review"
+      ]
+    },
+    {
+      "boundary_invariant": "One admitted observation per source identity and mapping version, retaining all eligible support; never insert one fact per overlapping rule.",
+      "current_status": "v4.1 validators exist; collector-to-canonical runtime adapter not implemented.",
+      "external_side_effect": "NONE",
+      "first_phase": "P4",
+      "input_contracts": [
+        "Observation",
+        "SupportLink",
+        "SourceRecord",
+        "TypedModelResult",
+        "SubjectBinding",
+        "AcquisitionAttempt"
+      ],
+      "module_id": "KN-02",
+      "name": "Canonical fact admission",
+      "output_contracts": [
+        "Fact",
+        "EvidenceSet",
+        "EvidenceLocator",
+        "ExecutionRecord",
+        "AdmissionReport",
+        "CandidateRecord"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "signals-platform",
+      "submodules": [
+        "collector bridge",
+        "predicate-specific validation",
+        "source mapping",
+        "producer and lineage closure",
+        "coverage",
+        "idempotent insert"
+      ]
+    },
+    {
+      "boundary_invariant": "Resolve the complete pinned group, not just favorable rows; UNKNOWN never erases a still-valid known observation.",
+      "current_status": "v4.1 reference resolver exists; persistent integration proposed.",
+      "external_side_effect": "NONE",
+      "first_phase": "P4",
+      "input_contracts": [
+        "Fact",
+        "EvidenceSet",
+        "SubjectBinding",
+        "ChangeRecord",
+        "ResolutionPolicy"
+      ],
+      "module_id": "KN-03",
+      "name": "Canonical claim resolution",
+      "output_contracts": [
+        "ClaimResolution"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "signals-platform",
+      "submodules": [
+        "complete claim grouping",
+        "scope/cardinality",
+        "freshness/authority",
+        "conflict policy",
+        "corrections"
+      ]
+    },
+    {
+      "boundary_invariant": "Persist actual membership and versions of consumed facts/bindings/samples, not only query text.",
+      "current_status": "Domain inventory exists; repository/query facade remains to implement.",
+      "external_side_effect": "NONE",
+      "first_phase": "P4",
+      "input_contracts": [
+        "KnowledgeQuery",
+        "BatchRun",
+        "Fact",
+        "ClaimResolution"
+      ],
+      "module_id": "KN-04",
+      "name": "Knowledge queries and evaluation input selection",
+      "output_contracts": [
+        "KnowledgeView",
+        "InputSnapshot",
+        "QueryReport"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "signals-platform",
+      "submodules": [
+        "typed filters",
+        "knowledge-only results",
+        "as-of/known-at reads",
+        "exact input manifests",
+        "upstream closure"
+      ]
+    },
+    {
+      "boundary_invariant": "Derived drafts return through admission; time, eligibility, denominator, algorithm and missingness are explicit.",
+      "current_status": "Prior numerical reference kernels exist; enabled runtime materializers incomplete.",
+      "external_side_effect": "NONE",
+      "first_phase": "P6",
+      "input_contracts": [
+        "InputSnapshot",
+        "FunctionDefinition",
+        "TypedParameters"
+      ],
+      "module_id": "RE-01",
+      "name": "Deterministic derivations and temporal/cohort calculations",
+      "output_contracts": [
+        "DerivedFactDraft",
+        "ExecutionRecord",
+        "DerivationReport"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "signals-platform",
+      "submodules": [
+        "input selectors",
+        "descriptors",
+        "history comparisons",
+        "membership aggregation",
+        "baselines/percentiles"
+      ]
+    },
+    {
+      "boundary_invariant": "Every denominator and exclusion dependency is pinned; negative pain and neutral workflow mentions do not share implicit meaning.",
+      "current_status": "v4.1 reference statistics/lineage validation exist; full runtime proposed.",
+      "external_side_effect": "NONE",
+      "first_phase": "P6",
+      "input_contracts": [
+        "InputSnapshot",
+        "ResearchSample",
+        "ResearchSupportPolicy",
+        "SampleRecordDecision"
+      ],
+      "module_id": "RE-02",
+      "name": "Research samples and priors",
+      "output_contracts": [
+        "ResearchPriorDraft",
+        "ExecutionRecord",
+        "ResearchReport"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "signals-platform",
+      "submodules": [
+        "sample selection",
+        "deduplication",
+        "classifications",
+        "support policy",
+        "denominators/exclusions",
+        "priors"
+      ]
+    },
+    {
+      "boundary_invariant": "Context remains internal; company_claim_allowed=false; ABSTAINED context never qualifies a positive decision.",
+      "current_status": "v4.1 contracts and reference checks exist.",
+      "external_side_effect": "NONE",
+      "first_phase": "P6",
+      "input_contracts": [
+        "ClaimResolution",
+        "ContextJoinRule",
+        "ResearchPriorFact"
+      ],
+      "module_id": "RE-03",
+      "name": "Account-to-research context joins",
+      "output_contracts": [
+        "ContextAssessment"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "signals-platform",
+      "submodules": [
+        "product relationships",
+        "industry membership",
+        "allowlisted cross-subject joins"
+      ]
+    },
+    {
+      "boundary_invariant": "Similarity and a publisher-reported result do not prove a prospect outcome or transferable causality.",
+      "current_status": "Case-study fact families exist; LookalikeMatch is design-only.",
+      "external_side_effect": "NONE",
+      "first_phase": "P6",
+      "input_contracts": [
+        "InputSnapshot",
+        "CaseStudyFacts",
+        "ComparisonPolicy"
+      ],
+      "module_id": "RE-04",
+      "name": "Case-study and lookalike analysis",
+      "output_contracts": [
+        "LookalikeMatch",
+        "ComparisonReport"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "signals-platform",
+      "submodules": [
+        "reported case-study extraction",
+        "quality assessment",
+        "feature versions",
+        "optional similarity",
+        "differences"
+      ]
+    },
+    {
+      "boundary_invariant": "Business truth and operational permission stay separate; context or score cannot promote weak evidence.",
+      "current_status": "v4.1 uses RESOLVED/UNRESOLVED/SUPPRESSED/CANDIDATE; richer SignalDecision is proposed, not present.",
+      "external_side_effect": "NONE",
+      "first_phase": "P6",
+      "input_contracts": [
+        "InputSnapshot",
+        "ClaimResolution",
+        "ContextAssessment",
+        "SignalDefinition"
+      ],
+      "module_id": "RE-05",
+      "name": "Signals and adjudication",
+      "output_contracts": [
+        "SignalEvaluation",
+        "SignalDecision",
+        "AdjudicationReport",
+        "VerificationRequest"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "signals-platform",
+      "submodules": [
+        "condition functions",
+        "confounds",
+        "explicit negative/unknown/error reasons",
+        "verification requests"
+      ]
+    },
+    {
+      "boundary_invariant": "Ranking selects eligible opportunities but cannot strengthen evidence or infer company pain.",
+      "current_status": "Concepts in architecture/ledger; broad runtime mappings to implement.",
+      "external_side_effect": "NONE",
+      "first_phase": "P7",
+      "input_contracts": [
+        "SignalEvaluation",
+        "ContextAssessment",
+        "ComparisonReport",
+        "OfferPolicy"
+      ],
+      "module_id": "COM-01",
+      "name": "Opportunity and playbook selection",
+      "output_contracts": [
+        "OpportunitySelection"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "signals-platform",
+      "submodules": [
+        "service-line mapping",
+        "audience/offer fit",
+        "priority",
+        "template eligibility",
+        "playbooks"
+      ]
+    },
+    {
+      "boundary_invariant": "Only eligible account proof supports account assertions; neutral templates do not require a maturity claim.",
+      "current_status": "Narrow v4.1 renderers/checks exist; arbitrary prose and new renderer families disabled.",
+      "external_side_effect": "NONE",
+      "first_phase": "P7",
+      "input_contracts": [
+        "OpportunitySelection",
+        "InputSnapshot",
+        "TemplateDefinition",
+        "ClaimResolution"
+      ],
+      "module_id": "COM-02",
+      "name": "Grounded clauses and packages",
+      "output_contracts": [
+        "GroundedClause",
+        "OutreachPackage",
+        "PackageValidationReport"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "signals-platform",
+      "submodules": [
+        "approved renderers",
+        "whole-clause checks",
+        "quote context",
+        "assumption-labeled scenarios",
+        "package revisions"
+      ]
+    },
+    {
+      "boundary_invariant": "Review binds exact revision and content hash and cannot override hard policy/identity/evidence failure.",
+      "current_status": "Synthetic actor/review reference behavior; production authentication/UI pending.",
+      "external_side_effect": "AUTHORIZED_REVIEW_WRITE",
+      "first_phase": "P7",
+      "input_contracts": [
+        "OutreachPackage",
+        "PackageValidationReport",
+        "TrustedPrincipal"
+      ],
+      "module_id": "COM-03",
+      "name": "Authorized review",
+      "output_contracts": [
+        "ReviewDecision"
+      ],
+      "replay_policy": "HISTORICAL_READ_ONLY_NEW_REVIEW_IS_NEW_ACTION",
+      "repository": "signals-platform",
+      "submodules": [
+        "evidence viewer",
+        "revision comparison",
+        "reviewer permissions",
+        "approval/rejection"
+      ]
+    },
+    {
+      "boundary_invariant": "Gate uses current trusted state; exact revision/payload/destination and business-effect identity are preserved across retries.",
+      "current_status": "v4.1 local preview exporter exists; remote export and production authorization pending.",
+      "external_side_effect": "LOCAL_OR_REMOTE_EXPORT",
+      "first_phase": "P7",
+      "input_contracts": [
+        "OutreachPackage",
+        "ReviewDecision",
+        "DestinationDefinition",
+        "CurrentRestrictionSnapshot"
+      ],
+      "module_id": "COM-04",
+      "name": "Current-use gate and controlled export",
+      "output_contracts": [
+        "UseGateDecision",
+        "ExportReceipt"
+      ],
+      "replay_policy": "NEVER_EXPORT_DURING_REPLAY",
+      "repository": "signals-platform",
+      "submodules": [
+        "freshness/rights/restrictions",
+        "purpose/destination",
+        "mapping",
+        "local/CRM export",
+        "receipts"
+      ]
+    },
+    {
+      "boundary_invariant": "No blind retry after uncertain acceptance; existing no-send profiles cannot reach a sender.",
+      "current_status": "Reserved contracts/plans only; no sender implemented.",
+      "external_side_effect": "EXPLICITLY_AUTHORIZED_SEND",
+      "first_phase": "P8",
+      "input_contracts": [
+        "DeliveryIntent",
+        "UseGateDecision",
+        "OutreachPackage",
+        "TrustedRecipientBinding"
+      ],
+      "module_id": "COM-05",
+      "name": "Delivery and reconciliation",
+      "output_contracts": [
+        "DeliveryAttempt",
+        "Exposure",
+        "ReconciliationRecord"
+      ],
+      "replay_policy": "SIMULATION_OR_RECORDED_RECEIPTS_ONLY",
+      "repository": "signals-platform",
+      "submodules": [
+        "recipient resolution",
+        "send permissions",
+        "outbox",
+        "provider dispatch",
+        "unknown acceptance",
+        "unsubscribe"
+      ]
+    },
+    {
+      "boundary_invariant": "Unmatched events are quarantined; reply denominators exclude immature/uncertain cases by declared policy; results remain non-causal.",
+      "current_status": "Domain contracts/plans exist; live outcomes/performance integration pending.",
+      "external_side_effect": "NONE",
+      "first_phase": "P9",
+      "input_contracts": [
+        "OutcomeEvent",
+        "Exposure",
+        "AttributionPolicy",
+        "MeasurementWindow"
+      ],
+      "module_id": "COM-06",
+      "name": "Outcomes and descriptive performance",
+      "output_contracts": [
+        "AttributedOutcome",
+        "MeasurementFactDraft",
+        "OutcomeReport"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "signals-platform",
+      "submodules": [
+        "webhook verification",
+        "event deduplication",
+        "exposure joins",
+        "mature windows",
+        "measurement"
+      ]
+    },
+    {
+      "boundary_invariant": "One canonical fact writer; content finalized before reference commit; identical keys with different bytes fail.",
+      "current_status": "Collector local blob/SQLite store exists; shared platform repository adapters pending.",
+      "external_side_effect": "NONE",
+      "first_phase": "P1",
+      "input_contracts": [
+        "ValidatedRecord",
+        "ArtifactBytes",
+        "WriteTransaction"
+      ],
+      "module_id": "PLAT-01",
+      "name": "Records, blobs and transactions",
+      "output_contracts": [
+        "RecordRef",
+        "CommitReceipt"
+      ],
+      "replay_policy": "READ_ONLY_IN_REPLAY",
+      "repository": "ports in knowledge-contracts; adapters in scrapling-ingestion and signals-platform",
+      "submodules": [
+        "immutable references",
+        "content hashes",
+        "record manifests",
+        "SQLite/local backend",
+        "atomic commit",
+        "checkpoints"
+      ]
+    },
+    {
+      "boundary_invariant": "F is still a blocker: foreign-tenant or unauthorized changes must be rejected before hosted production use.",
+      "current_status": "Collector local revoke exists; v4.1 global ChangeRecord F remains unclosed.",
+      "external_side_effect": "AUTHORIZED_DATA_OR_POLICY_CHANGE",
+      "first_phase": "P4",
+      "input_contracts": [
+        "AuthorizedChangeRequest",
+        "DataAccessPolicy",
+        "RecordRef",
+        "TrustedPrincipal"
+      ],
+      "module_id": "PLAT-02",
+      "name": "Governance, corrections and retention",
+      "output_contracts": [
+        "ChangeRecord",
+        "RevocationRecord",
+        "RetentionAction",
+        "RestoreReport"
+      ],
+      "replay_policy": "HISTORICAL_READ_ONLY_NO_DELETION_REPLAY",
+      "repository": "signals-platform",
+      "submodules": [
+        "authorized change records",
+        "rule/source revocation",
+        "deletion/tombstones",
+        "backup/restore",
+        "current-use invalidation"
+      ]
+    },
+    {
+      "boundary_invariant": "Trace is not evidence or authority; audit manifests are retained under policy even if routine telemetry is sampled.",
+      "current_status": "Collector command diagnostics exist; standardized traces and operator views proposed.",
+      "external_side_effect": "NONE",
+      "first_phase": "P1",
+      "input_contracts": [
+        "ModuleRequest",
+        "ModuleResult",
+        "RecordRef",
+        "Diagnostic"
+      ],
+      "module_id": "PLAT-03",
+      "name": "Diagnostics and operator interface",
+      "output_contracts": [
+        "ExecutionTimeline",
+        "ExplanationReport",
+        "DebugBundle",
+        "RunReport"
+      ],
+      "replay_policy": "PURE_OR_STORED_INPUTS",
+      "repository": "signals-platform",
+      "submodules": [
+        "execution index",
+        "structured logs",
+        "why/why-not",
+        "trace/diff",
+        "offline replay UI",
+        "safe debug bundles",
+        "metrics"
+      ]
+    }
+  ],
+  "status": "PROPOSED_INTERFACE_DESIGN_NOT_RUNTIME_INTEGRATION"
+}

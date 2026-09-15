@@ -1,0 +1,95 @@
+{
+  "$id": "https://keensight.local/v4.2/CapabilityProfile.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "capture_source_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "delivery_enabled": {
+      "const": false
+    },
+    "execute_function_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "export_enabled": {
+      "type": "boolean"
+    },
+    "fact_predicate_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "product_boundary": {
+      "enum": [
+        "KNOWLEDGE",
+        "PREVIEW",
+        "REVIEWED_HANDOFF"
+      ]
+    },
+    "production_enabled": {
+      "type": "boolean"
+    },
+    "profile_id": {
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+      "type": "string"
+    },
+    "research_context_enabled": {
+      "type": "boolean"
+    },
+    "signal_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "template_ids": {
+      "items": {
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:@/\\-]*$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "profile_id",
+    "version",
+    "production_enabled",
+    "capture_source_ids",
+    "fact_predicate_ids",
+    "execute_function_ids",
+    "signal_ids",
+    "template_ids",
+    "research_context_enabled",
+    "delivery_enabled",
+    "product_boundary",
+    "export_enabled"
+  ],
+  "title": "CapabilityProfile",
+  "type": "object"
+}

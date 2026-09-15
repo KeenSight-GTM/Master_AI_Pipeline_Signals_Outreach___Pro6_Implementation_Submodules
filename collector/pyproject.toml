@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "keensight-scrapling-ingestion"
+version = "0.2.0"
+description = "Evidence-preserving Scrapling collector and fingerprint claim deduplication"
+requires-python = ">=3.11"
+dependencies = ["lxml>=5.3,<7", "regex>=2024.11", "defusedxml==0.7.1", "jsonschema>=4.23,<5"]
+
+[project.optional-dependencies]
+live = ["scrapling[fetchers]==0.4.15"]
+test = ["pytest>=8,<10"]
+
+[project.scripts]
+ks-scan = "keensight_scrapling.cli:main"
+ks-module = "keensight_scrapling.standalone:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+keensight_scrapling = ["data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+markers = ["live: opt-in Scrapling integration", "browser: opt-in browser integration"]

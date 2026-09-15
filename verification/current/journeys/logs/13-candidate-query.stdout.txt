@@ -1,0 +1,8 @@
+[
+  {
+    "feature_id": "feature_2429593510d9894b9c613c78520a93d998b555c78e25a270fc626dd3de5cabcd",
+    "value": "{\"kind\":\"link_url:host\",\"value\":\"demo.example.test\"}",
+    "observed_origin_count": 1,
+    "capture_count": 1
+  }
+]

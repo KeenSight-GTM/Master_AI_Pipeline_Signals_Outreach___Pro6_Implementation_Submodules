@@ -1,0 +1,31 @@
+{
+  "https://demo.example.test/robots.txt": {
+    "status": 200,
+    "body": "User-agent: *\nDisallow: /private\nSitemap: https://demo.example.test/sitemap.xml\n",
+    "headers": {
+      "content-type": "text/plain"
+    }
+  },
+  "https://demo.example.test/": {
+    "status": 200,
+    "body": "<!doctype html><html><head><title>Acme Example Practice</title>\n<meta name=\"generator\" content=\"AcmeCMS\"><link rel=\"canonical\" href=\"https://demo.example.test/\">\n<link rel=\"stylesheet\" href=\"/style.css\"><script src=\"https://assets.calendly.com/widget.js\"></script>\n<script>window.exampleAnalytics = true;</script>\n<script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"LocalBusiness\",\"@id\":\"https://demo.example.test/#organization\",\"name\":\"Acme\"}</script>\n</head><body><header><nav><a href=\"/contact\">Contact</a></nav></header>\n<main itemscope itemtype=\"https://schema.org/LocalBusiness\" data-office = \"main\"><h1>Appointments with Acme</h1>\n<p>We provide scheduled consultations for our customers.</p>\n<iframe src=\"//calendly.com/acme-demo\"></iframe>\n<form action=\"/request\" method=\"post\"><input name=\"message\"></form>\n<img src=\"/badge.png\" alt=\"Example Member Badge\"><a href=\"https://calendly.com/help\">Scheduling guide</a>\n<noscript><a href=\"/fallback\">Fallback</a></noscript></main>\n<footer>Website by Example Agency. <a href=\"https://agency.example/book\">Book our agency</a></footer>\n</body></html>",
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "server": "demo"
+    }
+  },
+  "https://demo.example.test/contact": {
+    "status": 200,
+    "body": "<html><head><title>Contact Acme</title><script src=\"https://assets.calendly.com/widget.js\"></script></head><body><h1>Contact our team</h1><p>Ask about an appointment with our office.</p></body></html>",
+    "headers": {
+      "content-type": "text/html"
+    }
+  },
+  "https://demo.example.test/sitemap.xml": {
+    "status": 200,
+    "body": "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>https://demo.example.test/contact</loc></url></urlset>",
+    "headers": {
+      "content-type": "application/xml"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "bundle": "/mnt/data/keensight-iteration-2-review/reports/journey-smoke/replay.json",
+  "claims": 1
+}

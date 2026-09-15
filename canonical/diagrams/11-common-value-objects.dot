@@ -1,0 +1,13 @@
+digraph G {
+graph [rankdir=LR, nodesep=0.5, ranksep=1.2, splines=polyline, fontname="Helvetica", labelloc=t, label="Shared value objects and requirement records"];
+node [shape=plain, fontname="Helvetica"];
+edge [fontname="Helvetica", fontsize=10, arrowsize=0.7];
+TimeWindow [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD><B>TimeWindow</B></TD></TR><TR><TD ALIGN="LEFT">+ string start</TD></TR><TR><TD ALIGN="LEFT">+ string end</TD></TR></TABLE>>];
+ExternalIdentifier [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD><B>ExternalIdentifier</B></TD></TR><TR><TD ALIGN="LEFT">+ string namespace</TD></TR><TR><TD ALIGN="LEFT">+ string value</TD></TR></TABLE>>];
+ConfidenceAssessment [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD><B>ConfidenceAssessment</B></TD></TR><TR><TD ALIGN="LEFT">+ number value</TD></TR><TR><TD ALIGN="LEFT">+ enum meaning</TD></TR><TR><TD ALIGN="LEFT">+ Optional string  calibration_id</TD></TR></TABLE>>];
+ObjectReferenceRule [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD><B>ObjectReferenceRule</B></TD></TR><TR><TD ALIGN="LEFT">+ enum container</TD></TR><TR><TD ALIGN="LEFT">+ string path</TD></TR><TR><TD ALIGN="LEFT">+ List enum  subject_kinds</TD></TR><TR><TD ALIGN="LEFT">+ enum target_type</TD></TR></TABLE>>];
+CoverageCheck [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD><B>CoverageCheck</B></TD></TR><TR><TD ALIGN="LEFT">+ string resource</TD></TR><TR><TD ALIGN="LEFT">+ Optional string  artifact_id</TD></TR><TR><TD ALIGN="LEFT">+ enum result</TD></TR></TABLE>>];
+FactRequirement [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD><B>FactRequirement</B></TD></TR><TR><TD ALIGN="LEFT">+ string predicate_id</TD></TR><TR><TD ALIGN="LEFT">+ List enum  allowed_natures</TD></TR><TR><TD ALIGN="LEFT">+ enum state</TD></TR><TR><TD ALIGN="LEFT">+ int minimum</TD></TR><TR><TD ALIGN="LEFT">+ string counting_unit</TD></TR></TABLE>>];
+PackageReference [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD><B>PackageReference</B></TD></TR><TR><TD ALIGN="LEFT">+ string package_id</TD></TR><TR><TD ALIGN="LEFT">+ int revision</TD></TR><TR><TD ALIGN="LEFT">+ string content_hash</TD></TR></TABLE>>];
+IntakeTarget [label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5"><TR><TD><B>IntakeTarget</B></TD></TR><TR><TD ALIGN="LEFT">+ string resource_uri</TD></TR><TR><TD ALIGN="LEFT">+ Optional string  subject_id</TD></TR></TABLE>>];
+}

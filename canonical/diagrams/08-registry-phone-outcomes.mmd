@@ -1,0 +1,49 @@
+classDiagram
+direction LR
+class RegistryRecordValue {
+  +string namespace
+  +string record_id
+  +string issuer
+  +string jurisdiction
+  +Optional~string~ effective_at
+  +Optional~string~ filed_at
+  +string record_status
+}
+class CallEventValue {
+  +string call_key
+  +string started_at
+  +enum direction
+  +enum status
+  +Optional~number~ duration_seconds
+  +Optional~string~ callback_of
+}
+class EconomicHypothesisValue {
+  +string currency
+  +int estimated_amount_minor
+  +List~string~ assumptions
+  +List~string~ limitations
+}
+class Exposure {
+  +string exposure_id
+  +string tenant_id
+  +string package_id
+  +string business_send_key
+  +Optional~string~ provider_message_id
+  +string recipient_key
+  +Optional~string~ accepted_at
+  +enum status
+}
+class OutcomeEvent {
+  +string event_id
+  +string tenant_id
+  +string provider
+  +string provider_event_id
+  +Optional~string~ exposure_id
+  +string occurred_at
+  +string received_at
+  +enum kind
+  +enum attribution_status
+  +string evidence_id
+}
+CallEventValue "*" ..> "0..*" EconomicHypothesisValue : inputs_plus_explicit_assumptions
+OutcomeEvent "*" --> "0..1" Exposure : matched_or_quarantined

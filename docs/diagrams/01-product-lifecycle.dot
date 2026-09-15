@@ -1,0 +1,36 @@
+digraph G {
+rankdir=TB;
+graph [fontname="DejaVu Sans",nodesep=0.35,ranksep=0.75,bgcolor="white"];
+node [shape=box,fontname="DejaVu Sans",fontsize=12,margin="0.14,0.09"];
+edge [fontname="DejaVu Sans",fontsize=10];
+"p" [label="Program / offer\nGTM-01"];
+"s" [label="Account sourcing\nGTM-02"];
+"i" [label="Subject / scope\nKN-01"];
+"a" [label="Acquisition\nING / FP / AI"];
+"k" [label="Admitted facts + claims\nKN-02 / KN-03"];
+"r" [label="Research / signals\nRE"];
+"o" [label="Opportunity + contacts\nCOM-01 / AUD-01"];
+"m" [label="Grounded content + review\nCOM-02 / COM-03"];
+"c" [label="Campaign / enrollment\nCAM"];
+"g" [label="Current-use / send gates\nCOM-04"];
+"d" [label="Dispatch / reconciliation\nCOM-05"];
+"e" [label="Replies / CRM\nENG-01 / CRM-01"];
+"q" [label="Measured outcomes / quality\nCOM-06 / QA-01"];
+"knowledge" [label="Knowledge + diagnostics\nvalid terminal output"];
+"preview" [label="Reviewed no-send export\nvalid terminal output"];
+"p" -> "s" [label="approved program"];
+"s" -> "i" [label="seeds"];
+"i" -> "a" [label="bounded targets"];
+"a" -> "k" [label="evidence-backed candidates"];
+"k" -> "knowledge" [label="no opportunity required"];
+"k" -> "r" [label="pinned resolved inputs"];
+"r" -> "o" [label="signals + internal context"];
+"o" -> "m" [label="eligible proof"];
+"m" -> "preview" [label="export gate"];
+"m" -> "c" [label="separate campaign approval"];
+"c" -> "g" [label="due step"];
+"g" -> "d" [label="fresh permission"];
+"d" -> "e" [label="verified reply"];
+"e" -> "q" [label="attributed outcomes"];
+"q" -> "p" [label="reviewed future revision"];
+}

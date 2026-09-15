@@ -1,0 +1,564 @@
+[
+  {
+    "condition": {
+      "args": [
+        {
+          "comparison": "exists",
+          "kind": "fact",
+          "path": "/",
+          "predicate": "booking.present",
+          "scope_kind": "any",
+          "state": "OBSERVED",
+          "value": null
+        },
+        {
+          "comparison": "exists",
+          "kind": "fact",
+          "path": "/",
+          "predicate": "crm.present",
+          "scope_kind": "any",
+          "state": "OBSERVED",
+          "value": null
+        },
+        {
+          "comparison": "eq",
+          "kind": "fact",
+          "path": "/connected",
+          "predicate": "integration.connection.verified",
+          "scope_kind": "authorized_system",
+          "state": "OBSERVED",
+          "value": false
+        }
+      ],
+      "kind": "all"
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "ATTRIBUTED_REPORT",
+    "meaning": "Attributable authorized evidence confirms the specific scheduler/CRM connection is missing; public absence alone cannot satisfy this signal.",
+    "pack": "pack.workflow-gaps@3.0.0",
+    "phase": 4,
+    "requires_coverage": false,
+    "service_lines": [
+      "ai_workflow",
+      "lowcode"
+    ],
+    "signal_type": "BOOKING_CRM_DISCONNECT"
+  },
+  {
+    "condition": {
+      "args": [
+        {
+          "comparison": "in",
+          "kind": "fact",
+          "path": "/",
+          "predicate": "industry.vertical",
+          "scope_kind": "any",
+          "state": "OBSERVED",
+          "value": [
+            "dental",
+            "legal",
+            "medspa",
+            "hvac",
+            "veterinary"
+          ]
+        },
+        {
+          "comparison": "exists",
+          "kind": "fact",
+          "path": "/",
+          "predicate": "booking.present",
+          "scope_kind": "site",
+          "state": "NOT_FOUND",
+          "value": null
+        }
+      ],
+      "kind": "all"
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "QUESTION_ONLY",
+    "meaning": "No booking marker in the explicitly covered public site scope; internal booking capability remains unknown.",
+    "pack": "pack.workflow-gaps@3.0.0",
+    "phase": 4,
+    "requires_coverage": true,
+    "service_lines": [
+      "ai_workflow",
+      "lowcode"
+    ],
+    "signal_type": "NO_BOOKING_AUTOMATION"
+  },
+  {
+    "condition": {
+      "comparison": "eq",
+      "kind": "fact",
+      "path": "/manual_only",
+      "predicate": "ops.automation.verified",
+      "scope_kind": "authorized_system",
+      "state": "OBSERVED",
+      "value": true
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "QUESTION_ONLY",
+    "meaning": "Scoped internal opportunity signal: manual-intake evidence (contact-form-only, PDF quotes) ∧ automation.platform.present = NOT_FOUND",
+    "pack": "pack.workflow-gaps@3.0.0",
+    "phase": 4,
+    "requires_coverage": false,
+    "service_lines": [
+      "lowcode"
+    ],
+    "signal_type": "AUTOMATION_IMMATURE"
+  },
+  {
+    "condition": {
+      "comparison": "exists",
+      "kind": "fact",
+      "path": "/",
+      "predicate": "automation.platform.present",
+      "scope_kind": "any",
+      "state": "OBSERVED",
+      "value": null
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "QUESTION_ONLY",
+    "meaning": "Public low-code footprint observed; no inference about subscription payment, actual internal usage or operational maturity.",
+    "pack": "pack.workflow-gaps@3.0.0",
+    "phase": 4,
+    "requires_coverage": false,
+    "service_lines": [
+      "lowcode",
+      "agentic"
+    ],
+    "signal_type": "LOWCODE_ACTIVE"
+  },
+  {
+    "condition": {
+      "args": [
+        {
+          "comparison": "exists",
+          "kind": "fact",
+          "path": "/",
+          "predicate": "automation.platform.present",
+          "scope_kind": "any",
+          "state": "OBSERVED",
+          "value": null
+        },
+        {
+          "args": [
+            {
+              "comparison": "exists",
+              "kind": "fact",
+              "path": "/",
+              "predicate": "crm.present",
+              "scope_kind": "any",
+              "state": "OBSERVED",
+              "value": null
+            },
+            {
+              "comparison": "exists",
+              "kind": "fact",
+              "path": "/",
+              "predicate": "esp.present",
+              "scope_kind": "any",
+              "state": "OBSERVED",
+              "value": null
+            }
+          ],
+          "kind": "any"
+        },
+        {
+          "comparison": "eq",
+          "kind": "fact",
+          "path": "/connected",
+          "predicate": "integration.connection.verified",
+          "scope_kind": "authorized_system",
+          "state": "OBSERVED",
+          "value": false
+        }
+      ],
+      "kind": "all"
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "ATTRIBUTED_REPORT",
+    "meaning": "Verified missing connection involving an observed low-code surface; not a claim about paid capacity.",
+    "pack": "pack.workflow-gaps@3.0.0",
+    "phase": 4,
+    "requires_coverage": false,
+    "service_lines": [
+      "lowcode"
+    ],
+    "signal_type": "LOWCODE_UNUSED_CAPACITY"
+  },
+  {
+    "condition": {
+      "comparison": "eq",
+      "kind": "fact",
+      "path": "/custom_integrations_live",
+      "predicate": "ops.automation.verified",
+      "scope_kind": "authorized_system",
+      "state": "OBSERVED",
+      "value": true
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "QUESTION_ONLY",
+    "meaning": "Scoped internal opportunity signal: api.public.present ∨ hiring.stack_requirement(dev roles) ∨ custom-integration evidence",
+    "pack": "pack.workflow-gaps@3.0.0",
+    "phase": 4,
+    "requires_coverage": false,
+    "service_lines": [
+      "ai_workflow",
+      "agentic"
+    ],
+    "signal_type": "CUSTOM_DEV_PRESENT"
+  },
+  {
+    "condition": {
+      "args": [
+        {
+          "args": [
+            {
+              "kind": "signal",
+              "signal_type": "LOWCODE_ACTIVE",
+              "status": "RESOLVED"
+            },
+            {
+              "kind": "signal",
+              "signal_type": "CUSTOM_DEV_PRESENT",
+              "status": "RESOLVED"
+            }
+          ],
+          "kind": "any"
+        },
+        {
+          "comparison": "eq",
+          "kind": "fact",
+          "path": "/",
+          "predicate": "tag.ai_surface_readiness",
+          "scope_kind": "any",
+          "state": "OBSERVED",
+          "value": "ready"
+        },
+        {
+          "comparison": "gte",
+          "kind": "fact",
+          "path": "/count",
+          "predicate": "review.metrics",
+          "scope_kind": "any",
+          "state": "OBSERVED",
+          "value": 30
+        }
+      ],
+      "kind": "all"
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "QUESTION_ONLY",
+    "meaning": "Exploratory opportunity based on documented surfaces and volume, never proof of deployed agents or L3 maturity.",
+    "pack": "pack.agentic-ready@3.0.0",
+    "phase": 4,
+    "requires_coverage": false,
+    "service_lines": [
+      "agentic"
+    ],
+    "signal_type": "AGENTIC_READY"
+  },
+  {
+    "condition": {
+      "args": [
+        {
+          "comparison": "gte",
+          "kind": "fact",
+          "path": "/eligible_reviews",
+          "predicate": "review.response_ratio",
+          "scope_kind": "any",
+          "state": "OBSERVED",
+          "value": 30
+        },
+        {
+          "comparison": "lt",
+          "kind": "fact",
+          "path": "/ratio",
+          "predicate": "review.response_ratio",
+          "scope_kind": "any",
+          "state": "OBSERVED",
+          "value": 0.25
+        }
+      ],
+      "kind": "all"
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "QUESTION_ONLY",
+    "meaning": "Measured public response share in a scoped review sample; no promise of 100% future response.",
+    "pack": "pack.agentic-ready@3.0.0",
+    "phase": 4,
+    "requires_coverage": false,
+    "service_lines": [
+      "agentic"
+    ],
+    "signal_type": "REVIEW_RESPONSE_GAP"
+  },
+  {
+    "condition": {
+      "comparison": "exists",
+      "kind": "fact",
+      "path": "/",
+      "predicate": "schema.jsonld.present",
+      "scope_kind": "page",
+      "state": "NOT_FOUND",
+      "value": null
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "QUESTION_ONLY",
+    "meaning": "No JSON-LD detected in this specific homepage capture mode. Raw HTML absence says nothing about rendered injection.",
+    "pack": "pack.ai-seo@3.0.0",
+    "phase": 4,
+    "requires_coverage": true,
+    "service_lines": [
+      "ai_seo"
+    ],
+    "signal_type": "SEO_SCHEMA_ABSENT"
+  },
+  {
+    "condition": {
+      "comparison": "eq",
+      "kind": "fact",
+      "path": "/binding",
+      "predicate": "schema.subject_binding",
+      "scope_kind": "any",
+      "state": "OBSERVED",
+      "value": "UNBOUND"
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "QUESTION_ONLY",
+    "meaning": "Scoped internal opportunity signal: schema.jsonld.present ∧ schema.subject_binding = UNBOUND/INFERRED-weak",
+    "pack": "pack.ai-seo@3.0.0",
+    "phase": 4,
+    "requires_coverage": false,
+    "service_lines": [
+      "ai_seo"
+    ],
+    "signal_type": "SEO_SCHEMA_UNBOUND"
+  },
+  {
+    "condition": {
+      "args": [
+        {
+          "comparison": "eq",
+          "kind": "fact",
+          "path": "/sufficient_sample",
+          "predicate": "seo.cwv.field",
+          "scope_kind": "any",
+          "state": "OBSERVED",
+          "value": true
+        },
+        {
+          "comparison": "lt",
+          "kind": "fact",
+          "path": "/quality_percentile",
+          "predicate": "cohort.percentile",
+          "scope_kind": "any",
+          "state": "OBSERVED",
+          "value": 25
+        }
+      ],
+      "kind": "all"
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "QUESTION_ONLY",
+    "meaning": "Scoped internal opportunity signal: seo.cwv.field below threshold ∧ cohort.percentile < 25",
+    "pack": "pack.ai-seo@3.0.0",
+    "phase": 4,
+    "requires_coverage": false,
+    "service_lines": [
+      "ai_seo"
+    ],
+    "signal_type": "SEO_CWV_LAG"
+  },
+  {
+    "condition": {
+      "comparison": "eq",
+      "kind": "fact",
+      "path": "/cited",
+      "predicate": "seo.ai_visibility.cited_in",
+      "scope_kind": "probe_set",
+      "state": "OBSERVED",
+      "value": false
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "QUESTION_ONLY",
+    "meaning": "At least one completed probe did not cite the account. The legacy identifier is retained as an internal key only; no universal invisibility or full-probe-set aggregate is claimed.",
+    "pack": "pack.ai-seo@3.0.0",
+    "phase": 4,
+    "requires_coverage": true,
+    "service_lines": [
+      "ai_seo"
+    ],
+    "signal_type": "SEO_AI_INVISIBLE"
+  },
+  {
+    "condition": {
+      "comparison": "eq",
+      "kind": "fact",
+      "path": "/",
+      "predicate": "content.velocity_band",
+      "scope_kind": "any",
+      "state": "OBSERVED",
+      "value": "dormant"
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "QUESTION_ONLY",
+    "meaning": "Scoped internal opportunity signal: content.velocity_band = dormant",
+    "pack": "pack.ai-seo@3.0.0",
+    "phase": 4,
+    "requires_coverage": false,
+    "service_lines": [
+      "ai_seo"
+    ],
+    "signal_type": "CONTENT_STAGNANT"
+  },
+  {
+    "condition": {
+      "args": [
+        {
+          "comparison": "gte",
+          "kind": "fact",
+          "path": "/share",
+          "predicate": "cohort.baseline",
+          "scope_kind": "cohort",
+          "state": "OBSERVED",
+          "value": 0.6
+        },
+        {
+          "comparison": "exists",
+          "kind": "fact",
+          "path": "/",
+          "predicate": "booking.present",
+          "scope_kind": "site",
+          "state": "NOT_FOUND",
+          "value": null
+        }
+      ],
+      "kind": "all"
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "QUESTION_ONLY",
+    "meaning": "Scoped internal opportunity signal: cohort.baseline(X) ≥ 0.6 ∧ X = NOT_FOUND for account",
+    "pack": "pack.peer-gaps@3.0.0",
+    "phase": 4,
+    "requires_coverage": true,
+    "service_lines": [
+      "ai_workflow",
+      "lowcode",
+      "agentic",
+      "ai_seo"
+    ],
+    "signal_type": "PEER_BASELINE_GAP"
+  },
+  {
+    "condition": {
+      "args": [
+        {
+          "comparison": "eq",
+          "kind": "fact",
+          "path": "/",
+          "predicate": "tag.growth_posture",
+          "scope_kind": "any",
+          "state": "OBSERVED",
+          "value": "GROWING"
+        },
+        {
+          "kind": "signal",
+          "signal_type": "AUTOMATION_IMMATURE",
+          "status": "RESOLVED"
+        }
+      ],
+      "kind": "all"
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "QUESTION_ONLY",
+    "meaning": "Scoped internal opportunity signal: tag.growth_posture = GROWING ∧ manual-ops signals",
+    "pack": "pack.workflow-gaps@3.0.0",
+    "phase": 4,
+    "requires_coverage": false,
+    "service_lines": [
+      "ai_workflow",
+      "agentic"
+    ],
+    "signal_type": "GROWING_PAIN"
+  },
+  {
+    "condition": {
+      "comparison": "eq",
+      "kind": "fact",
+      "path": "/public_marker_removed",
+      "predicate": "tech.rollback",
+      "scope_kind": "any",
+      "state": "OBSERVED",
+      "value": true
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "QUESTION_ONLY",
+    "meaning": "A public marker disappeared under comparable capture conditions; no vendor cancellation inferred.",
+    "pack": "pack.workflow-gaps@3.0.0",
+    "phase": 4,
+    "requires_coverage": false,
+    "service_lines": [
+      "ai_workflow"
+    ],
+    "signal_type": "TECH_DRIFT_SIGNAL"
+  },
+  {
+    "condition": {
+      "args": [
+        {
+          "comparison": "eq",
+          "kind": "fact",
+          "path": "/",
+          "predicate": "dns.dmarc.policy",
+          "scope_kind": "any",
+          "state": "OBSERVED",
+          "value": "none"
+        },
+        {
+          "comparison": "exists",
+          "kind": "fact",
+          "path": "/",
+          "predicate": "dns.dmarc.policy",
+          "scope_kind": "any",
+          "state": "NOT_FOUND",
+          "value": null
+        }
+      ],
+      "kind": "any"
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "QUESTION_ONLY",
+    "meaning": "Scoped internal opportunity signal: dns.dmarc.policy = none/absent",
+    "pack": "pack.workflow-gaps@3.0.0",
+    "phase": 4,
+    "requires_coverage": true,
+    "service_lines": [
+      "ai_workflow",
+      "lowcode"
+    ],
+    "signal_type": "EMAIL_INFRA_GAP"
+  },
+  {
+    "condition": {
+      "comparison": "eq",
+      "kind": "fact",
+      "path": "/consistent",
+      "predicate": "location.data.consistency",
+      "scope_kind": "any",
+      "state": "OBSERVED",
+      "value": false
+    },
+    "confound_policy": "Unresolved conflict or confound -> UNRESOLVED; operational DNC/stage/cooldown -> SUPPRESSED. No free-text confound execution. See DESIGN_DECISIONS.md.",
+    "copy_policy": "QUESTION_ONLY",
+    "meaning": "Scoped internal opportunity signal: company.locations ≥ 2 ∧ (location data inconsistent ∨ no central intake evidence)",
+    "pack": "pack.workflow-gaps@3.0.0",
+    "phase": 4,
+    "requires_coverage": false,
+    "service_lines": [
+      "ai_workflow"
+    ],
+    "signal_type": "MULTI_LOCATION_GAP"
+  }
+]

@@ -1,0 +1,116 @@
+F.FFFFFFF..FFFFF.F.FF.                                                   [100%]
+=================================== FAILURES ===================================
+____________________ test_required_safety_behaviour[R2-C01] ____________________
+tests/test_required_behaviour.py:15: in test_required_safety_behaviour
+    assert not got['violation_present'], f'{probe_id}: {got}'
+E   AssertionError: R2-C01: {'violation_present': True, 'terminal_payload': {'finished_at': '2026-09-14T12:00:00Z', 'message': 'fixture', 'reason': 'TimeoutError', 'url': 'https://example.test/robots.txt'}, 'bundle_top_keys': ['as_of', 'captures', 'claims', 'commands', 'evaluated_capture_ids', 'evaluation_id', 'fixture_only', 'handoff', 'matches', 'observations', 'priority_score', 'producer', 'release_digest', 'resource_dispositions', 'rule_evaluations', 'rule_pack', 'schema_version', 'send_allowed', 'support_links', 'surfaces'], 'persisted_evaluations': 0}
+E   assert not True
+____________________ test_required_safety_behaviour[R2-C04] ____________________
+tests/test_required_behaviour.py:15: in test_required_safety_behaviour
+    assert not got['violation_present'], f'{probe_id}: {got}'
+E   AssertionError: R2-C04: {'violation_present': True, 'candidates_before': [{'feature_id': 'feature_2415204b2e3d2cd4ce15fba870c31106fce4a4d17ee12cafbbc50aebdec9ead5', 'value': '{"kind":"script_url:host","value":"unknown-vendor.test"}', 'observed_origin_count': 1, 'capture_count': 1}], 'candidates_after': [{'feature_id': 'feature_2415204b2e3d2cd4ce15fba870c31106fce4a4d17ee12cafbbc50aebdec9ead5', 'value': '{"kind":"script_url:host","value":"unknown-vendor.test"}', 'observed_origin_count': 1, 'capture_count': 1}]}
+E   assert not True
+____________________ test_required_safety_behaviour[R2-C05] ____________________
+tests/test_required_behaviour.py:15: in test_required_safety_behaviour
+    assert not got['violation_present'], f'{probe_id}: {got}'
+E   AssertionError: R2-C05: {'violation_present': True, 'original_contains_marker': True, 'extraction': {'command_id': 'EXTRACT_SCRIPT_SRC', 'details': {'surface_count': 0}, 'input_ids': ['capture_2031a66fd7efe62482922c53e11f4d36defc75823f5e8b62a9bc326e26e03498'], 'limitations': [], 'output_ids': [], 'status': 'COMPLETE'}, 'reports': [{'absence_fact_emitted': False, 'errors': [], 'incomplete_capture_ids': [], 'match_ids': [], 'qualification': 'QUALIFIED', 'rule_id': 'calendly-script-candidate', 'status': 'NO_MATCH'}, {'absence_fact_emitted': False, 'errors': [], 'incomplete_capture_ids': [], 'match_ids': [], 'qualification': 'QUALIFIED', 'rule_id': 'calendly-script-exact', 'status': 'NO_MATCH'}, {'absence_fact_emitted': False, 'errors': [], 'incomplete_capture_ids': [], 'match_ids': [], 'qualification': 'QUALIFIED', 'rule_id': 'calendly-script-suffix', 'status': 'NO_MATCH'}]}
+E   assert not True
+____________________ test_required_safety_behaviour[R2-C06] ____________________
+tests/test_required_behaviour.py:15: in test_required_safety_behaviour
+    assert not got['violation_present'], f'{probe_id}: {got}'
+E   AssertionError: R2-C06: {'violation_present': True, 'manifest_observations': 1, 'published_observations': 0, 'boundary': 'Store.publish_evaluation public local-owner API'}
+E   assert not True
+____________________ test_required_safety_behaviour[R2-C07] ____________________
+tests/test_required_behaviour.py:15: in test_required_safety_behaviour
+    assert not got['violation_present'], f'{probe_id}: {got}'
+E   AssertionError: R2-C07: {'violation_present': True, 'commands': [{'subject': 'account:a', 'returncode': 0, 'stderr': ''}, {'subject': 'account:b', 'returncode': 0, 'stderr': ''}], 'replay_error': 'Cross-subject/tenant/origin host rollup forbidden', 'subjects': ['account:a', 'account:b']}
+E   assert not True
+____________________ test_required_safety_behaviour[R2-C08] ____________________
+tests/test_required_behaviour.py:15: in test_required_safety_behaviour
+    assert not got['violation_present'], f'{probe_id}: {got}'
+E   AssertionError: R2-C08: {'violation_present': True, 'collector_supported': True, 'canonical_hosts': []}
+E   assert not True
+____________________ test_required_safety_behaviour[R2-C09] ____________________
+tests/test_required_behaviour.py:15: in test_required_safety_behaviour
+    assert not got['violation_present'], f'{probe_id}: {got}'
+E   AssertionError: R2-C09: {'violation_present': True, 'identity_fields_present': [], 'evaluation_id': 'no-bytes', 'capture_count': 0, 'evaluation_records': 0}
+E   assert not True
+____________________ test_required_safety_behaviour[R2-C10] ____________________
+tests/test_required_behaviour.py:15: in test_required_safety_behaviour
+    assert not got['violation_present'], f'{probe_id}: {got}'
+E   AssertionError: R2-C10: {'violation_present': True, 'error': None, 'command_outcomes': ['COMPLETE', 'COMPLETE', 'FAILED']}
+E   assert not True
+____________________ test_required_safety_behaviour[R2-A01] ____________________
+tests/test_required_behaviour.py:15: in test_required_safety_behaviour
+    assert not got['violation_present'], f'{probe_id}: {got}'
+E   AssertionError: R2-A01: {'violation_present': True, 'binding_uses_deleted_artifact': True, 'binding_artifact_in_fact_roots': False, 'current_eligible': True, 'full_validation': {'passed': True, 'value': {'status': 'PASS', 'schemas': 75, 'predicates': 213, 'metrics': 89, 'records': 226, 'counts': {'schema_instances': 1122, 'semantic_facts': 28}}}}
+E   assert not True
+____________________ test_required_safety_behaviour[R2-A02] ____________________
+tests/test_required_behaviour.py:15: in test_required_safety_behaviour
+    assert not got['violation_present'], f'{probe_id}: {got}'
+E   AssertionError: R2-A02: {'violation_present': True, 'template_authority': 'CANDIDATE', 'exported': True, 'error': None, 'full_validation': {'passed': False, 'error': 'ContractError: MISSING_APPROVAL'}, 'boundary': 'Current-use gate and local exporter, not full bundle admission'}
+E   assert not True
+____________________ test_required_safety_behaviour[R2-A03] ____________________
+tests/test_required_behaviour.py:15: in test_required_safety_behaviour
+    assert not got['violation_present'], f'{probe_id}: {got}'
+E   AssertionError: R2-A03: {'violation_present': True, 'completion_layer_passed': True, 'completion_error': None, 'full_validation': {'passed': False, 'error': 'ContractError: ARTIFACT_OUTSIDE_RUN'}}
+E   assert not True
+____________________ test_required_safety_behaviour[R2-A04] ____________________
+tests/test_required_behaviour.py:15: in test_required_safety_behaviour
+    assert not got['violation_present'], f'{probe_id}: {got}'
+E   AssertionError: R2-A04: {'violation_present': True, 'full_validation': {'passed': False, 'error': 'RecursionError: maximum recursion depth exceeded'}}
+E   assert not True
+____________________ test_required_safety_behaviour[R2-A06] ____________________
+tests/test_required_behaviour.py:15: in test_required_safety_behaviour
+    assert not got['violation_present'], f'{probe_id}: {got}'
+E   AssertionError: R2-A06: {'violation_present': True, 'old_fact_pinned': True, 'replacement_pinned': False, 'replacement_recorded_at': '2026-09-14T19:30:00Z', 'old_cutoff': '2026-09-14T17:01:45Z', 'historical_resolution': {'status': 'UNKNOWN', 'accepted_fact_ids': []}}
+E   assert not True
+____________________ test_required_safety_behaviour[R2-A08] ____________________
+tests/test_required_behaviour.py:15: in test_required_safety_behaviour
+    assert not got['violation_present'], f'{probe_id}: {got}'
+E   AssertionError: R2-A08: {'violation_present': True, 'helper_verdict': 'RESOLVED', 'distinct_substantive_origins': 1, 'full_validator_rule': 'Counts distinct substantive artifact origins, not fact rows'}
+E   assert not True
+____________________ test_required_safety_behaviour[R2-P01] ____________________
+tests/test_required_behaviour.py:15: in test_required_safety_behaviour
+    assert not got['violation_present'], f'{probe_id}: {got}'
+E   AssertionError: R2-P01: {'violation_present': True, 'checker_error': 'Operation finished beyond deadline', 'result_status': 'FAILED', 'finished_at': '2026-09-14T12:02:01Z', 'deadline_at': '2026-09-14T12:02:00Z'}
+E   assert not True
+____________________ test_required_safety_behaviour[R2-P02] ____________________
+tests/test_required_behaviour.py:15: in test_required_safety_behaviour
+    assert not got['violation_present'], f'{probe_id}: {got}'
+E   AssertionError: R2-P02: {'violation_present': True, 'checker_error': None, 'mode': 'CAPTURE', 'reported_network_attempts': 5}
+E   assert not True
+=========================== short test summary info ============================
+FAILED tests/test_required_behaviour.py::test_required_safety_behaviour[R2-C01] - AssertionError: R2-C01: {'violation_present': True, 'terminal_payload': {'finished_at': '2026-09-14T12:00:00Z', 'message': 'fixture', 'reason': 'TimeoutError', 'url': 'https://example.test/robots.txt'}, 'bundle_top_keys': ['as_of', 'captures', 'claims', 'commands', 'evaluated_capture_ids', 'evaluation_id', 'fixture_only', 'handoff', 'matches', 'observations', 'priority_score', 'producer', 'release_digest', 'resource_dispositions', 'rule_evaluations', 'rule_pack', 'schema_version', 'send_allowed', 'support_links', 'surfaces'], 'persisted_evaluations': 0}
+assert not True
+FAILED tests/test_required_behaviour.py::test_required_safety_behaviour[R2-C04] - AssertionError: R2-C04: {'violation_present': True, 'candidates_before': [{'feature_id': 'feature_2415204b2e3d2cd4ce15fba870c31106fce4a4d17ee12cafbbc50aebdec9ead5', 'value': '{"kind":"script_url:host","value":"unknown-vendor.test"}', 'observed_origin_count': 1, 'capture_count': 1}], 'candidates_after': [{'feature_id': 'feature_2415204b2e3d2cd4ce15fba870c31106fce4a4d17ee12cafbbc50aebdec9ead5', 'value': '{"kind":"script_url:host","value":"unknown-vendor.test"}', 'observed_origin_count': 1, 'capture_count': 1}]}
+assert not True
+FAILED tests/test_required_behaviour.py::test_required_safety_behaviour[R2-C05] - AssertionError: R2-C05: {'violation_present': True, 'original_contains_marker': True, 'extraction': {'command_id': 'EXTRACT_SCRIPT_SRC', 'details': {'surface_count': 0}, 'input_ids': ['capture_2031a66fd7efe62482922c53e11f4d36defc75823f5e8b62a9bc326e26e03498'], 'limitations': [], 'output_ids': [], 'status': 'COMPLETE'}, 'reports': [{'absence_fact_emitted': False, 'errors': [], 'incomplete_capture_ids': [], 'match_ids': [], 'qualification': 'QUALIFIED', 'rule_id': 'calendly-script-candidate', 'status': 'NO_MATCH'}, {'absence_fact_emitted': False, 'errors': [], 'incomplete_capture_ids': [], 'match_ids': [], 'qualification': 'QUALIFIED', 'rule_id': 'calendly-script-exact', 'status': 'NO_MATCH'}, {'absence_fact_emitted': False, 'errors': [], 'incomplete_capture_ids': [], 'match_ids': [], 'qualification': 'QUALIFIED', 'rule_id': 'calendly-script-suffix', 'status': 'NO_MATCH'}]}
+assert not True
+FAILED tests/test_required_behaviour.py::test_required_safety_behaviour[R2-C06] - AssertionError: R2-C06: {'violation_present': True, 'manifest_observations': 1, 'published_observations': 0, 'boundary': 'Store.publish_evaluation public local-owner API'}
+assert not True
+FAILED tests/test_required_behaviour.py::test_required_safety_behaviour[R2-C07] - AssertionError: R2-C07: {'violation_present': True, 'commands': [{'subject': 'account:a', 'returncode': 0, 'stderr': ''}, {'subject': 'account:b', 'returncode': 0, 'stderr': ''}], 'replay_error': 'Cross-subject/tenant/origin host rollup forbidden', 'subjects': ['account:a', 'account:b']}
+assert not True
+FAILED tests/test_required_behaviour.py::test_required_safety_behaviour[R2-C08] - AssertionError: R2-C08: {'violation_present': True, 'collector_supported': True, 'canonical_hosts': []}
+assert not True
+FAILED tests/test_required_behaviour.py::test_required_safety_behaviour[R2-C09] - AssertionError: R2-C09: {'violation_present': True, 'identity_fields_present': [], 'evaluation_id': 'no-bytes', 'capture_count': 0, 'evaluation_records': 0}
+assert not True
+FAILED tests/test_required_behaviour.py::test_required_safety_behaviour[R2-C10] - AssertionError: R2-C10: {'violation_present': True, 'error': None, 'command_outcomes': ['COMPLETE', 'COMPLETE', 'FAILED']}
+assert not True
+FAILED tests/test_required_behaviour.py::test_required_safety_behaviour[R2-A01] - AssertionError: R2-A01: {'violation_present': True, 'binding_uses_deleted_artifact': True, 'binding_artifact_in_fact_roots': False, 'current_eligible': True, 'full_validation': {'passed': True, 'value': {'status': 'PASS', 'schemas': 75, 'predicates': 213, 'metrics': 89, 'records': 226, 'counts': {'schema_instances': 1122, 'semantic_facts': 28}}}}
+assert not True
+FAILED tests/test_required_behaviour.py::test_required_safety_behaviour[R2-A02] - AssertionError: R2-A02: {'violation_present': True, 'template_authority': 'CANDIDATE', 'exported': True, 'error': None, 'full_validation': {'passed': False, 'error': 'ContractError: MISSING_APPROVAL'}, 'boundary': 'Current-use gate and local exporter, not full bundle admission'}
+assert not True
+FAILED tests/test_required_behaviour.py::test_required_safety_behaviour[R2-A03] - AssertionError: R2-A03: {'violation_present': True, 'completion_layer_passed': True, 'completion_error': None, 'full_validation': {'passed': False, 'error': 'ContractError: ARTIFACT_OUTSIDE_RUN'}}
+assert not True
+FAILED tests/test_required_behaviour.py::test_required_safety_behaviour[R2-A04] - AssertionError: R2-A04: {'violation_present': True, 'full_validation': {'passed': False, 'error': 'RecursionError: maximum recursion depth exceeded'}}
+assert not True
+FAILED tests/test_required_behaviour.py::test_required_safety_behaviour[R2-A06] - AssertionError: R2-A06: {'violation_present': True, 'old_fact_pinned': True, 'replacement_pinned': False, 'replacement_recorded_at': '2026-09-14T19:30:00Z', 'old_cutoff': '2026-09-14T17:01:45Z', 'historical_resolution': {'status': 'UNKNOWN', 'accepted_fact_ids': []}}
+assert not True
+FAILED tests/test_required_behaviour.py::test_required_safety_behaviour[R2-A08] - AssertionError: R2-A08: {'violation_present': True, 'helper_verdict': 'RESOLVED', 'distinct_substantive_origins': 1, 'full_validator_rule': 'Counts distinct substantive artifact origins, not fact rows'}
+assert not True
+FAILED tests/test_required_behaviour.py::test_required_safety_behaviour[R2-P01] - AssertionError: R2-P01: {'violation_present': True, 'checker_error': 'Operation finished beyond deadline', 'result_status': 'FAILED', 'finished_at': '2026-09-14T12:02:01Z', 'deadline_at': '2026-09-14T12:02:00Z'}
+assert not True
+FAILED tests/test_required_behaviour.py::test_required_safety_behaviour[R2-P02] - AssertionError: R2-P02: {'violation_present': True, 'checker_error': None, 'mode': 'CAPTURE', 'reported_network_attempts': 5}
+assert not True
+16 failed, 6 passed in 6.67s
