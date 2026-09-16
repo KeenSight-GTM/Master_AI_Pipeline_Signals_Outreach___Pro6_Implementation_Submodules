@@ -14,12 +14,10 @@ jobs:
           python-version: '3.11'
       - name: Install deterministic core and reference test dependencies
         run: python -m pip install -r requirements-dev.txt
-      - name: Validate contracts and run existing component tests
+      - name: Validate contracts, components, and both audit regression suites
         run: python tools/workspace.py verify --output ../ci-verification
       - name: Run eight offline journeys
         run: python tools/workspace.py journeys --output ../ci-journeys
-      - name: Explain audit boundary
-        run: echo 'Green fixture CI does not mean POC-ready. The unresolved requirements in audits/ run separately and are not xfailed or hidden.'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -27,3 +25,21 @@ jobs:
           path: |
             ../ci-verification
             ../ci-journeys
+
+  sdk-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned Scrapling HTTP SDK
+        run: python -m pip install -e './collector[live,test]'
+      - name: Require actual SDK and run loopback HTTP fixture
+        run: python tools/workspace.py live-check --output ../ci-sdk
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sdk-verification
+          path: ../ci-sdk

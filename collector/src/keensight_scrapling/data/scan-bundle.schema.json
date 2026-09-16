@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "schema_version": {
-      "const": "1.1"
+      "const": "1.2"
     },
     "producer": {
       "type": "string"
@@ -182,7 +182,8 @@
               "HEADER_NAV",
               "NOSCRIPT",
               "INERT_TEMPLATE",
-              "INERT_SCRIPT"
+              "INERT_SCRIPT",
+              "ANCILLARY"
             ]
           },
           "attributes": {
@@ -468,6 +469,39 @@
             "enum": [
               "NOT_COMBINED"
             ]
+          },
+          "tenant_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subject_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scope_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "origins": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "observed_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "expires_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
           }
         },
         "required": [
@@ -484,7 +518,13 @@
           "source_group_count",
           "evidence_count",
           "confidence",
-          "confidence_policy"
+          "confidence_policy",
+          "tenant_id",
+          "subject_id",
+          "scope_id",
+          "origins",
+          "observed_at",
+          "expires_at"
         ],
         "additionalProperties": false
       }
@@ -565,6 +605,14 @@
           },
           "details": {
             "type": "object"
+          },
+          "execution_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "attempt": {
+            "type": "integer",
+            "minimum": 1
           }
         },
         "required": [
@@ -573,7 +621,9 @@
           "input_ids",
           "output_ids",
           "limitations",
-          "details"
+          "details",
+          "execution_id",
+          "attempt"
         ],
         "additionalProperties": false
       }
@@ -616,6 +666,18 @@
       "items": {
         "type": "string"
       }
+    },
+    "tenant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subject_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "capture_run_id": {
+      "type": "string",
+      "minLength": 1
     }
   },
   "required": [
@@ -638,7 +700,10 @@
     "resource_dispositions",
     "priority_score",
     "handoff",
-    "evaluated_capture_ids"
+    "evaluated_capture_ids",
+    "tenant_id",
+    "subject_id",
+    "capture_run_id"
   ],
   "additionalProperties": false
 }

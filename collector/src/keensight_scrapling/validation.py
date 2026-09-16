@@ -13,6 +13,9 @@ def validate_bundle(data: dict) -> None:
         jsonschema.Draft7Validator(schema,format_checker=jsonschema.FormatChecker()).validate(data)
     except jsonschema.ValidationError as exc:
         raise ContractError('ScanBundle schema: '+exc.message) from exc
+    execution_ids=[c['execution_id'] for c in data['commands']]
+    if len(execution_ids)!=len(set(execution_ids)):
+        raise ContractError('Duplicate command invocation terminal outcome')
     from .rules import RulePack,match_pages
     pack=RulePack.compile(data['rule_pack'])
     if pack.digest!=data['release_digest'] or pack.fixture_only!=data['fixture_only']:
@@ -23,6 +26,8 @@ def validate_bundle(data: dict) -> None:
     caps={c['capture_id']:Capture(**c) for c in data['captures']}
     surfaces={s['surface_id']:s for s in data['surfaces']}
     for cap in caps.values():
+        if (cap.tenant_id,cap.subject_id,cap.run_id)!=(data['tenant_id'],data['subject_id'],data['capture_run_id']):
+            raise ContractError('Capture differs from evaluation identity')
         if instant(cap.observed_at)>instant(data['as_of']): raise ContractError('Future capture input')
     for s in surfaces.values():
         if s['capture_id'] not in caps: raise ContractError('Surface capture is missing')
@@ -60,11 +65,11 @@ def validate_bundle(data: dict) -> None:
     from .rules import MATCH_COMMAND
     for operator in {r.operator for r in pack.rules}:
         cid=MATCH_COMMAND[operator]
-        command_rows=[c for c in data['commands'] if c['command_id']==cid]
+        command_rows=[c for c in data['commands'] if c['command_id']==cid and c['details'].get('operator')==operator]
         reports=[r for r in expected_reports if next(x for x in pack.rules if x.rule_id==r['rule_id']).operator==operator]
         expected_status='FAILED' if any(r['status']=='ERROR' for r in reports) else 'PARTIAL' if any(r['status']=='PARTIAL' for r in reports) else 'SKIPPED' if not pages else 'COMPLETE'
         mids=sorted(m.match_id for m in matches if next(r for r in pack.rules if r.rule_id==m.rule_id).operator==operator)
-        if not any(c['status']==expected_status and sorted(c['output_ids'])==mids and sorted(c['input_ids'])==sorted(selected) for c in command_rows):
+        if len(command_rows)!=1 or not any(c['status']==expected_status and sorted(c['output_ids'])==mids and sorted(c['input_ids'])==sorted(selected) for c in command_rows):
             raise ContractError('Matcher command contradicts executable result')
     obs=[Observation(**o) for o in data['observations']]
     expected,links=observation_candidates(caps.values(),matches)

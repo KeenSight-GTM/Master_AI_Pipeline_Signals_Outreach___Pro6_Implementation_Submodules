@@ -11,6 +11,7 @@ import json
 from datetime import datetime
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlsplit
 
 from jsonschema import Draft7Validator, FormatChecker
 from referencing import Registry, Resource
@@ -18,6 +19,20 @@ from referencing import Registry, Resource
 ROOT = Path(__file__).resolve().parent
 VERSION = "1.0.0-draft.1"
 BASE = f"urn:keensight:module-protocol:{VERSION}:"
+
+STRICT_FORMATS=FormatChecker()
+
+@STRICT_FORMATS.checks("date-time", raises=(ValueError, TypeError))
+def _strict_datetime(value):
+    if not isinstance(value,str): return True
+    parsed=datetime.fromisoformat(value[:-1]+"+00:00" if value.endswith("Z") else value)
+    return parsed.tzinfo is not None
+
+@STRICT_FORMATS.checks("uri", raises=(ValueError, TypeError))
+def _strict_uri(value):
+    if not isinstance(value,str): return True
+    if any(ch.isspace() for ch in value): return False
+    return bool(urlsplit(value).scheme)
 
 
 def load(path: Path) -> Any:
@@ -50,7 +65,7 @@ def validators() -> dict[str, Draft7Validator]:
         registry = registry.with_resource(schema["$id"], Resource.from_contents(schema))
     return {
         s["$id"].rsplit(":", 1)[-1]: Draft7Validator(s, registry=registry,
-                                                    format_checker=FormatChecker())
+                                                    format_checker=STRICT_FORMATS)
         for s in schemas
     }
 
@@ -65,6 +80,7 @@ OPERATION_SIGNATURES = {
         'release': ('urn:keensight:protocol-fixture:ReleaseLock','example-only'),
         'outputs': {('urn:keensight:protocol-fixture:MatchEvaluation','example-only')},
         'min_inputs': 1,'min_outputs': 1,
+        'modes': {'EVALUATE','REPLAY'},'max_network_attempts': 0,
     }
 }
 
@@ -96,7 +112,7 @@ def validate_payload_pair(request, result, resolve):
         }
         if expected not in bodies:raise ValueError('No installed domain payload validator')
         body_schema={'type':'object','properties':bodies[expected],'required':list(bodies[expected]),'additionalProperties':False}
-        Draft7Validator(body_schema,format_checker=FormatChecker()).validate(payload['body'])
+        Draft7Validator(body_schema,format_checker=STRICT_FORMATS).validate(payload['body'])
     return True
 
 def validate_pair(request: dict[str, Any], result: dict[str, Any]) -> None:
@@ -119,6 +135,10 @@ def validate_pair(request: dict[str, Any], result: dict[str, Any]) -> None:
         raise ValueError("Unregistered module")
     signature=OPERATION_SIGNATURES.get((request['module_id'],request['operation']))
     if signature is None:raise ValueError('Unregistered operation implementation/signature')
+    if request['context']['mode'] not in signature['modes']:
+        raise ValueError('Operation mode is not allowed by the installed signature')
+    if result['usage']['network_attempts']>signature['max_network_attempts']:
+        raise ValueError('Operation reported forbidden network effects')
     if len(request['input_refs'])<signature['min_inputs'] or any(ref_type(r) not in signature['inputs'] for r in request['input_refs']):
         raise ValueError('Operation input schema/version mismatch')
     if request['parameters_ref'] is None or ref_type(request['parameters_ref'])!=signature['parameters']:
@@ -137,7 +157,10 @@ def validate_pair(request: dict[str, Any], result: dict[str, Any]) -> None:
     if any(ref_type(r) not in signature['outputs'] for r in result['output_refs']):raise ValueError('Operation output schema/version mismatch')
     if len({r['record_id'] for r in result['output_refs']})!=len(result['output_refs']):raise ValueError('Duplicate output reference')
     if any(r['record_id'] in allowed for r in result['output_refs']):raise ValueError('Output overwrites an immutable input')
-    if datetime.fromisoformat(result['finished_at'])>datetime.fromisoformat(request['deadline_at']):raise ValueError('Operation finished beyond deadline')
+    if (result['execution_status']=='SUCCEEDED' or result['output_refs']) and datetime.fromisoformat(result['finished_at'])>datetime.fromisoformat(request['deadline_at']):
+        raise ValueError('Operation published success beyond deadline')
+    # Honest failure/cancellation diagnostics can finalize after the deadline;
+    # accepting the record never authorizes late positive outputs or effects.
     context = request["context"]
     if context["as_of"] and context["knowledge_cutoff"]:
         # These timestamps have different meanings: either may be earlier.

@@ -82,5 +82,9 @@ def resolve_claims(observations: Iterable[Observation], matches: Iterable[Match]
         views.append(ClaimView(key,rows[0].predicate,rows[0].target,status,next(iter(values.values())) if len(values)==1 else None,
                                sorted(o.observation_id for o in rows),sorted(all_matches),sorted(eligible),
                                sorted({matchmap[m].rule_id for m in all_matches}),len({o.capture_id for o in usable_rows}),
-                               len({o.source_group for o in usable_rows}),len({matchmap[m].evidence_key for m in eligible})))
+                               len({o.source_group for o in usable_rows}),len({matchmap[m].evidence_key for m in eligible}),
+                               tenant_id=rows[0].tenant_id, subject_id=rows[0].subject_id, scope_id=rows[0].scope_id,
+                               origins=sorted({origin(caps[o.capture_id].url) for o in rows}),
+                               observed_at=max((o.observed_at for o in usable_rows),key=instant,default=None),
+                               expires_at=max((o.expires_at for o in usable_rows),key=instant,default=None)))
     return views

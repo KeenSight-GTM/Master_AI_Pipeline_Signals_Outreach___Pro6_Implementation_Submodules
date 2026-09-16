@@ -115,6 +115,24 @@ class CompletionChecks:
     def available_artifacts(self,run):
         return set(run['input_artifact_ids'])|set(run.get('produced_artifact_ids',[]))
 
+    def assert_artifact_available(self,aid,run,at,*,consumer_id=None):
+        """The shared external-or-produced availability and chronology boundary."""
+        artifact=self.row('artifacts',aid)
+        require(artifact['tenant_id']==run['tenant_id'],'ARTIFACT_CONSUMER_TENANT')
+        if aid in run['input_artifact_ids']:
+            require(instant(artifact['captured_at'])<=instant(run['knowledge_cutoff']),'ARTIFACT_AFTER_CUTOFF')
+        else:
+            require(aid in run['produced_artifact_ids'],'UNPINNED_EXECUTION_ARTIFACT')
+            producers=[ex for ex in self.rows['executions'] if ex['run_id']==run['run_id'] and aid in ex['output_artifact_ids']]
+            require(len(producers)==1,'AMBIGUOUS_ARTIFACT_PRODUCER')
+            producer=producers[0]
+            require(producer['execution_id']!=consumer_id,'SELF_CONSUMED_ARTIFACT')
+            require(producer['tenant_id']==run['tenant_id'] and producer['status']=='COMPLETE'
+                    and instant(producer['finished_at'])<=instant(at),'UNFINISHED_ARTIFACT_PRODUCER')
+            require(instant(producer['started_at'])<=instant(artifact['captured_at'])<=instant(producer['finished_at']),'GENERATED_ARTIFACT_TIME')
+        require(instant(artifact['captured_at'])<=instant(at),'ARTIFACT_AFTER_CONSUMER')
+        return artifact
+
     def current_claim_eligible(self,fid,at,*,purpose='INTERNAL_RESEARCH',allow_absence=False):
         if not self.usable(fid,at,purpose=purpose,allow_absence=allow_absence):return False
         for parent in self.ancestry(fid):
@@ -336,7 +354,11 @@ class CompletionChecks:
     def gate_reasons(self,g,at=None):
         at=at or g['evaluated_at'];p=self.row('packages',g['package']['package_id']);reasons=[]
         try:
+            template=self.reg('templates',p['template_id'])
+            require(template['authority']=='ACTIVE','TEMPLATE_NOT_CURRENTLY_ACTIVE')
+            require(template['renderer'] in {'observed_product_v1','attributed_job_statement_v1','scoped_absence_v1'},'RENDERER_NOT_IMPLEMENTED')
             self.validate_package_dependencies({**p,'approved_at':at})
+            require(self.render({**p,'approved_at':at})==p['rendered_text'],'CURRENT_RENDERER_CONTENT_MISMATCH')
             for cl in p['clauses']:
                 for fid in cl['fact_ids']:
                     require(self.current_claim_eligible(fid,at,purpose='EXPORT',allow_absence=True),'EXPORT_EVIDENCE_INELIGIBLE')
@@ -440,10 +462,7 @@ class CompletionChecks:
             else:require(ex['terminal_reason'] is None,'SUCCESS_WITH_FAILURE_REASON')
             require(not set(ex['input_artifact_ids'])&set(ex['output_artifact_ids']),'SELF_CONSUMED_ARTIFACT')
             for aid in ex['input_artifact_ids']:
-                require(aid in self.available_artifacts(run),'UNPINNED_EXECUTION_ARTIFACT')
-                if aid in run['produced_artifact_ids']:
-                    producer=next(p for p in self.rows['executions'] if p['run_id']==run['run_id'] and aid in p['output_artifact_ids'])
-                    require(producer['status']=='COMPLETE' and instant(producer['finished_at'])<=instant(ex['started_at']),'UNFINISHED_ARTIFACT_PRODUCER')
+                self.assert_artifact_available(aid,run,ex['started_at'],consumer_id=ex['execution_id'])
             allowed_generated=set()
             if ex['model_call_id']:
                 model=self.row('model-calls',ex['model_call_id'])

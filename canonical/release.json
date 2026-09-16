@@ -1,7 +1,7 @@
 {
-  "code_hash": "sha256:2b78bb4c671e60e764592424414c8bff320703929a43f47dc88911082b33b2d4",
+  "code_hash": "sha256:09bcdc2a6d31c55b711164c93c009591a6c7e5a5d4d754e08709d7ca7373a0bf",
   "files": {
-    "examples/bundle.json": "sha256:fb8fd44db232407bc6dba4eb1eb41f51480155e11ed67b2c5cf179a65540a519",
+    "examples/bundle.json": "sha256:2864ae570f9188f046d94872c817e2151313c130a8a3f68ea332c1db17591705",
     "fixtures/art.data.json": "sha256:5762fb94c9e388481aaf43e73957ade64c4ac4f395858607476e7711620b9998",
     "fixtures/art.forum1.json": "sha256:e252197a5e91b0f42b63f536b1e187bf229fb954e2acbefc9820771081913b08",
     "fixtures/art.forum2.json": "sha256:18d2e48e3f8bdd5ad552e82f4813efc5250b0cbe9dcadf2b29ce3610cebc6d6a",

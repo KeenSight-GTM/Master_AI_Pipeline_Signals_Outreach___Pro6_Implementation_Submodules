@@ -1,5 +1,16 @@
 # Workspace changelog
 
+## 2026-09-15-poc-repairs.1
+
+- Repaired all 25 previously failing POC/submodule assertions; original audit tests retained unchanged.
+- Collector 0.3.0 / ScanBundle 1.2 adds deterministic multi-page reports, bounded robots redirects and gzip parsing, explicit retry lineage, consistent candidate views, account-labelled claims and reliable publication/diagnostics.
+- Canonical reference shares binding/availability/corroboration decisions and fixes current export authority, selected-group supersession, cycle rejection and numeric equality.
+- Protocol checker constrains mode/effect declarations and distinguishes late failures from late positive outputs.
+- Added 30 component tests. Normal verify/CI now includes both audits; a separate CI job requires the actual pinned SDK loopback test.
+- Current tracked-source manifest refreshed; original imported-source manifests retained as history.
+- No browser, hosted authentication, canonical admission bridge, campaign, sending, reply or CRM runtime is implied.
+- Made canonical/protocol RFC date-time and URI format checks self-contained so malformed timestamps fail without optional `jsonschema` extras.
+
 ## 2026-09-15-local-assembly.1
 
 - Consolidated the supplied collector 0.2.0, canonical reference 4.2.0, protocol and full product design into one ordinary source repository.

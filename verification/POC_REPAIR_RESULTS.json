@@ -1,0 +1,60 @@
+{
+  "base_commit": "6ec6640293d41597296b7ba61e91f6e0a586e611",
+  "source": "repaired local workspace",
+  "scope": "LOCAL_COMPONENT_AND_AUDIT_REGRESSION",
+  "suites": {
+    "collector": {
+      "tests": 198,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1,
+      "passed": 197
+    },
+    "canonical": {
+      "tests": 620,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 620
+    },
+    "protocol": {
+      "tests": 47,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 47
+    },
+    "workspace": {
+      "tests": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 14
+    },
+    "poc": {
+      "tests": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 14
+    },
+    "iteration2": {
+      "tests": 22,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 22
+    }
+  },
+  "passed": 914,
+  "skipped": 1,
+  "original_audit_tests_unchanged": true,
+  "new_component_tests": 30,
+  "deterministic_clean_generation_files": 116,
+  "journey_subprocesses": 20,
+  "journeys": 8,
+  "journey_success": true,
+  "actual_scrapling_sdk_verified_locally": false,
+  "browser_enabled": false,
+  "production_poc_complete": false
+}

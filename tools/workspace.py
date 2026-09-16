@@ -3,7 +3,7 @@
 
 Existing commands run in separate processes against one authoritative source tree.
 Normal checks do not fetch URLs, invoke providers, or send messages. Dependencies
-must be installed separately. Audit requirements remain genuinely failing tests.
+must be installed separately. Former audit failures are mandatory regression gates.
 """
 from __future__ import annotations
 
@@ -107,7 +107,10 @@ def test_steps(output: Path) -> list[Step]:
                  f"--junitxml={output / (name + '.xml')}"), ROOT / name)
             for name in ("collector", "canonical", "protocol")] + [
         Step("workspace-tests", ("-m", "pytest", "-q", "-p", "no:cacheprovider",
-             "tests/workspace", f"--junitxml={output / 'workspace.xml'}"), ROOT)]
+             "tests/workspace", f"--junitxml={output / 'workspace.xml'}"), ROOT)] + [
+        Step(name + "-requirements", ("-m", "pytest", "-q", "-p", "no:cacheprovider", "tests",
+             f"--junitxml={output / (name + '.xml')}"), ROOT / "audits" / name)
+        for name in ("poc", "iteration2")]
 
 
 def parser() -> argparse.ArgumentParser:
@@ -122,7 +125,7 @@ def parser() -> argparse.ArgumentParser:
         if name == "audit":
             c.add_argument("suite", choices=["poc", "iteration2"])
             c.add_argument("--probes-only", action="store_true",
-                           help="Record observations instead of enforcing failing requirements")
+                           help="Record observations instead of enforcing the audit regression assertions")
     sub.add_parser("status")
     return p
 
@@ -164,7 +167,7 @@ def main(argv: list[str] | None = None) -> int:
             else:
                 steps = [Step("iteration2-probes", (str(audit / name), "--output", str(out / "probe-results.json")), audit)]
         else:
-            print("Known-issue acceptance suite: genuine failures remain; exit 1 is not suppressed.", flush=True)
+            print("Audit regression suite: every requirement must pass; nonzero exits are not suppressed.", flush=True)
             steps = [Step(a.suite + "-requirements", ("-m", "pytest", "-q", "-p", "no:cacheprovider",
                      "tests", "--tb=short", f"--junitxml={out / 'audit.xml'}"), audit)]
     else:  # live-check must not silently pass through a missing-dependency skip

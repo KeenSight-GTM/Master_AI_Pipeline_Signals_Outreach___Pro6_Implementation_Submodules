@@ -53,11 +53,11 @@ def main(argv=None):
     s=sub.add_parser('scan');s.add_argument('url');s.add_argument('--rules',required=True);s.add_argument('--store',required=True)
     for arg in ('tenant','subject','run'):s.add_argument('--'+arg,required=True)
     s.add_argument('--output',required=True);s.add_argument('--max-attempts',type=int,default=8);s.add_argument('--max-pages',type=int,default=5)
-    s.add_argument('--probes',action='store_true')
+    s.add_argument('--probes',action='store_true');s.add_argument('--retry-failed',action='store_true',help='Retry terminal failed GETs once after cooldown, within the original attempt budget')
     r=sub.add_parser('replay');r.add_argument('--store',required=True);r.add_argument('--rules',required=True);r.add_argument('--tenant',required=True)
     r.add_argument('--capture-run',required=True);r.add_argument('--evaluation-run',required=True);r.add_argument('--as-of',required=True);r.add_argument('--output',required=True)
-    q=sub.add_parser('claims');q.add_argument('--store',required=True);q.add_argument('--tenant',required=True);q.add_argument('--as-of',required=True);q.add_argument('--rules',required=True)
-    q=sub.add_parser('candidates');q.add_argument('--store',required=True);q.add_argument('--tenant',required=True);q.add_argument('--min-hosts',type=int,default=3)
+    q=sub.add_parser('claims');q.add_argument('--store',required=True);q.add_argument('--tenant',required=True);q.add_argument('--as-of',required=True);q.add_argument('--rules',required=True);q.add_argument('--subject')
+    q=sub.add_parser('candidates');q.add_argument('--store',required=True);q.add_argument('--tenant',required=True);q.add_argument('--min-hosts',type=int,default=3);q.add_argument('--rules');q.add_argument('--include-resolved',action='store_true');q.add_argument('--as-of')
     i=sub.add_parser('import-donor');i.add_argument('--input',required=True);i.add_argument('--vendor-map',required=True);i.add_argument('--output',required=True);i.add_argument('--report',required=True)
     a=sub.add_parser('analyze-file');a.add_argument('--html',required=True);a.add_argument('--url',required=True);a.add_argument('--observed-at',required=True)
     for arg in ('tenant','subject','run','rules','store','output'):a.add_argument('--'+arg,required=True)
@@ -96,14 +96,14 @@ def main(argv=None):
                     from .extraction import extract
                     pack=RulePack.load(args.rules);url=normalize_url(args.url);body=Path(args.html).read_bytes()
                     if len(body)>2_000_000:raise ContractError('Imported HTML exceeds 2 MB; supply an explicit bounded capture')
-                    store.begin_run(args.tenant,args.run,{'input_mode':'USER_PROVIDED_SNAPSHOT','url':url,'observed_at':args.observed_at,'release_digest':pack.digest})
+                    store.begin_run(args.tenant,args.run,{'input_mode':'USER_PROVIDED_SNAPSHOT','subject_id':args.subject,'url':url,'observed_at':args.observed_at,'release_digest':pack.digest})
                     cap=store.put_capture(tenant_id=args.tenant,subject_id=args.subject,run_id=args.run,url=url,observed_at=args.observed_at,body=body,headers={'content-type':'text/html'},source_id='source:user-provided-snapshot')
                     bundle=Scanner(store,pack,FixtureTransport({}),production=not pack.fixture_only).evaluate([extract(cap,body)],args.run,args.observed_at)
                     write_json(args.output,bundle);result={'bundle':args.output,'claims':len(bundle['claims']),'network_requests':0,'timestamp_is_user_supplied':True}
-                elif args.command=='candidates':result=store.candidates(args.tenant,args.min_hosts)
+                elif args.command=='candidates':result=store.candidates(args.tenant,args.min_hosts,release_digest=RulePack.load(args.rules).digest if args.rules else None,include_resolved=args.include_resolved,as_of=args.as_of)
                 elif args.command=='claims':
                     pack=RulePack.load(args.rules)
-                    result=[asdict(c) for c in store.stored_claims(args.tenant,as_of=args.as_of,allowed_rule_digests={r.digest for r in pack.rules if r.status=='APPROVED'})]
+                    result=[asdict(c) for c in store.stored_claims(args.tenant,as_of=args.as_of,allowed_rule_digests={r.digest for r in pack.rules if r.status in {'APPROVED','CANDIDATE'}},subject_id=args.subject)]
                 elif args.command=='replay':
                     pack=RulePack.load(args.rules)
                     # Replay never invokes this deliberately unusable transport.
@@ -120,7 +120,7 @@ def main(argv=None):
                     if pack.fixture_only:raise ContractError('Fixture-only release cannot be used for a live scan')
                     url=normalize_url(args.url)
                     transport=ScraplingTransport(NetworkPolicy((origin(url),)))
-                    config=ScanConfig(args.tenant,args.subject,args.run,max_attempts=args.max_attempts,max_pages=args.max_pages,probe_paths=args.probes)
+                    config=ScanConfig(args.tenant,args.subject,args.run,max_attempts=args.max_attempts,max_pages=args.max_pages,probe_paths=args.probes,retry_failed=args.retry_failed)
                     bundle=Scanner(store,pack,transport).scan(url,config)
                     write_json(args.output,bundle)
                     result={'bundle':args.output,'claims':len(bundle['claims']),'send_allowed':False}

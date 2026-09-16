@@ -1,30 +1,27 @@
 # Current implementation status
 
-Snapshot: **2026-09-15-local-assembly.1**. Machine-readable counterpart: [STATUS.json](STATUS.json).
+Snapshot: **2026-09-15-poc-repairs.1**. Code base: repository `main` at `6ec6640293d41597296b7ba61e91f6e0a586e611`. Machine-readable counterpart: [STATUS.json](STATUS.json).
 
-## This delivery
+## Implemented repairs
 
-The previous GitHub upload attempt did not establish a verified full-code push. This delivery is the full source workspace **here**, with no remote write required. The repaired collector 0.2.0, canonical reference 4.2.0, and protocol are preserved byte-for-byte. All three later source archives carried the identical repair baseline; no unseen post-audit fix is assumed.
+Collector **0.3.0 / ScanBundle 1.2** fixes deterministic multipage reports, bounded same-origin robots redirects, explicit failed-GET retries, gzip sitemaps, common discovery ranking, candidate/research projections, account identity in claim views, parser-loss reporting, one-payload publication, invocation identity, and no-byte diagnostic persistence.
 
-New work in this assembly consists of a consistent repository layout, local command launcher, source manifests, CI configuration, onboarding, and workspace tests. Audit and walkthrough imports are adjusted to reference the one shared source tree. These path adaptations are recorded in provenance/IMPORTS.json.
+Canonical **4.2.0 reference implementation** now includes binding evidence in eligibility (not corroboration), checks current renderer authority at standalone export, resolves supersession in the selected claim group, shares generated-artifact availability and origin-count logic, rejects cycles cleanly, and compares numeric values semantically without altering original hashes.
 
-## Operational boundaries
+The protocol checker permits truthful late failure diagnostics but rejects late positive publication and modes/effects forbidden by its installed reference signature. It is not yet a runtime sandbox.
 
-- The deterministic collector and its local operations exist, with known defects in multi-page ordering, recovery, discovery, candidate projections and reporting.
-- The actual Scrapling dependency is unavailable in this assembly environment. There is no claim that live SDK acquisition passed. Browser capture is disabled.
-- Canonical admission/resolution/rendering includes runnable **reference validators and fixtures**, but no persistent authenticated canonical service or executable collector bridge.
-- Correction authorization F was tightened in reference code. That is not a hosted identity/role administration system; later binding and current-use gaps remain documented.
-- The broad catalog, 52-idea integration, 38-command inventory and 39-module product architecture are retained. Definitions are not implementations of all connectors, matchers, service endpoints or business rules.
-- No automated sending, contacts/campaign state machines, CRM integration, or generic ModuleRequest execution middleware is delivered as implemented functionality.
-- Eight supplied journeys exercise local commands and synthetic/reference fixtures. They do not demonstrate the complete business lifecycle or production data.
+## Verification
 
-## Known defects are part of the handoff
+**914 tests pass; one optional live SDK test is skipped locally.** Totals include both repaired audits (14 POC + 22 iteration-2 tests), 30 added component regressions, and the existing workspace tests. No original audit assertions were removed or weakened. Eight offline journeys (20 subprocess commands) pass. Canonical generated artifacts remain reproducible.
 
-The latest two acceptance suites remain independent of the original regression tests and currently fail. Do not interpret a green existing-suite workflow as POC readiness. [KNOWN_ISSUES.md](KNOWN_ISSUES.md) identifies the repair priorities and reproducible tests.
+`verify` includes both audit suites. CI also declares a separate mandatory SDK-import/loopback job; a declared CI job is not evidence that it ran. See the published commit's Actions results for remote status.
 
-## Version precedence
+## Explicit boundaries
 
-1. This status document and verification/ASSEMBLY_VALIDATION.md describe this assembled delivery.
-2. audits/poc and audits/iteration2 describe the still-open behavior.
-3. verification/REPAIR_REPORT.md describes the earlier implemented fixes.
-4. Older component narrative and docs/history are retained historical records, not later release claims.
+The broad catalog remains **213 predicates, 89 metrics and 75 canonical schemas**. All 38 collector command IDs remain, but native browser execution is disabled and no full donor/2,500-signature integration is claimed. Collector output is still a pre-admission record family, not an authenticated canonical Fact Service.
+
+The canonical fixture exporter is not hosted review or sending. Contacts, campaigns, enrichment providers, dispatch/reconciliation, replies, CRM and the general module runner remain outside this repair. F16's predicate-specific valid-time semantics remain undecided. See [KNOWN_ISSUES.md](KNOWN_ISSUES.md).
+
+## Document precedence
+
+This file, the root README, [POC_REPAIRS.md](docs/POC_REPAIRS.md), and [POC_REPAIR_VALIDATION.md](verification/POC_REPAIR_VALIDATION.md) describe the current snapshot. Original assembly, repair, and audit reports remain historical evidence; their old failing counts do not supersede these verified repairs.

@@ -102,7 +102,7 @@ def test_candidate_feature_privacy_and_dedup(make_page,store):
     for p in pages:
         store.harvest('t',[p],matched_surface_ids=set())
         store.harvest('t',[p],matched_surface_ids=set())
-    rows=store.candidates('t',2)
+    rows=store.candidates('t',2,as_of='2026-09-14T12:00:00Z')
     assert len(rows)==1 and rows[0]['observed_origin_count']==2 and 'abcd' not in str(rows)
     assert store.candidates('other',1)==[]
 

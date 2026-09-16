@@ -19,6 +19,7 @@
     "IDENTITY.AMBIGUOUS": "Multiple unresolved subject matches remain.",
     "IDENTITY.UNBOUND": "Subject attribution was not established.",
     "MODEL.INVALID_OUTPUT": "Bounded parsing/repair did not produce a valid typed output.",
+    "MODULE.DEADLINE_EXCEEDED": "Operation exceeded its allowed deadline; terminal diagnostics may finalize later without authorizing late outputs or effects.",
     "MODULE.DISABLED": "Capability deliberately disabled.",
     "MODULE.IMPLEMENTATION_MISSING": "Enabled operation has no registered implementation.",
     "MODULE.NOT_APPLICABLE": "Operation not selected for this target/profile.",

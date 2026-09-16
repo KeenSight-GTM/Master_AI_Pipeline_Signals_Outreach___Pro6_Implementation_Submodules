@@ -1,40 +1,23 @@
-# Known issues and POC blockers
+# Remaining implementation limits and resolved audits
 
-**These bugs are not fixed by repackaging.** The root launcher keeps the failing acceptance requirements executable against the delivered code.
+The **nine POC requirements and sixteen previously failing submodule requirements are repaired** in this snapshot. Run `python tools/workspace.py verify` or either audit suite directly. The original audit reports and historical output files remain immutable evidence of the earlier behavior, not statements of present failure.
 
-## Standard usage — latest POC review
+## Not included in this repair
 
-| ID | Issue | Test suite |
-|---|---|---|
-| POC-01 | Multi-page validation depends on capture hash/list ordering | audits/poc/tests/test_poc_requirements.py |
-| POC-02 | Same-origin robots redirect is not followed | Same |
-| POC-03 | Resumed old 429 response misrepresents an expired cooldown and prevents recovery | Same |
-| POC-04 | Compressed sitemap handling missing | Same |
-| POC-05 | Sitemap discoveries bypass useful-page prioritization | Same |
-| POC-06 | Candidate state disagrees between scan and claims query | Same |
-| POC-07 | Resolved fingerprints remain in unknown-feature research view | Same |
-| POC-08 | Multi-account claim report lacks usable account/scope identity | Same |
-| POC-09 | Numerically equal metric values can conflict because byte spelling differs | Same |
+- Native browser/network capture remains disabled.
+- Actual Scrapling 0.4.15 HTTP behavior must pass `live-check` in an environment with the pinned SDK. Local fixture tests are not SDK verification. A separate CI job now requires that gate.
+- There is no persistent authenticated collector-to-canonical admission service, broad live provider implementation, or fully integrated capture-to-reviewed-preview business workflow.
+- The protocol package is a checker for its declared reference operation, not a sandbox or general execution runner. Reported effects are validated; a future runner must enforce actual I/O.
+- Contacts, campaigns, delivery, inbound replies, and CRM remain proposed runtimes. No send path is enabled.
+- Predicate-specific `effective_at`/valid-time policy (iteration-2 F16) remains an explicit design decision. An observed announcement about a future event differs from currently effective licensure; no universal time rule was invented in this patch.
+- Cross-origin/bare-domain/www redirects remain denied without an explicit binding/policy extension. Robots redirects added here stay same-origin and bounded.
+- Conservative footer/template/noscript/inert/aside attribution remains a profile limitation. Collector and narrow canonical matcher now agree on `aside` exclusion.
+- Imported snapshot runs pin one subject, URL, release, and observation time. Use separate runs rather than append unrelated snapshots.
+- This is not a fully bitemporal database: historical claim selection no longer sees later unpinned supersession, while current-use decisions intentionally inspect current restrictions/evidence.
+- Existing v1.1 scan bundles require re-evaluation from their trusted capture store to produce v1.2, not editing or inventing capture identities.
 
-## Submodule safety review
+## Next POC milestone
 
-Open requirements also cover binding-evidence dependency closure; current template authority at export; one authoritative publication payload; historical visibility; generated-artifact availability; parser recovery/completeness; supersession cycles; support-count units; imported run identity; revoked candidate support; command invocation identity; no-byte diagnostic manifests; truthful late failure reports; matcher-region parity; and operation effect/mode restrictions. A separate temporal-policy question concerns predicate-specific effective-time meaning.
+Verify the actual static Scrapling SDK, implement the collector-to-canonical bridge using complete match/support lineage and accepted subject binding, then demonstrate one supported no-send reviewed preview from those actual collector facts. Do not use the separate canonical fixture journey as proof that this bridge exists.
 
-Read the complete [submodule audit](audits/iteration2/AUDIT.md) and [POC audit](audits/poc/REPORT.md). Some failed POC tests specify capabilities rather than regressions. The reports preserve that distinction.
-
-## Invocation
-
-```bash
-python tools/workspace.py audit poc
-python tools/workspace.py audit iteration2
-```
-
-Both commands expose genuine failures and return nonzero until repaired. Do not use xfail or remove them to claim POC completion.
-
-## Minimum next implementation work
-
-1. Repair scan ordering, trustworthy publication, parser completeness, bounded discovery and retrieval recovery.
-2. Verify real Scrapling on controlled HTTP fixtures; retain disabled browser behavior until bounded and tested.
-3. Repair canonical binding/current-use/historical availability inconsistencies and implement actual collector admission.
-4. Demonstrate one capture-to-reviewed, no-send preview using the admitted collector facts, not unrelated synthetic canonical fixtures.
-5. Only then expand the remaining source, contact, campaign, delivery and CRM runtime.
+See [repair mapping and invocation guide](docs/POC_REPAIRS.md), [historical POC audit](audits/poc/REPORT.md), and [historical submodule audit](audits/iteration2/AUDIT.md).

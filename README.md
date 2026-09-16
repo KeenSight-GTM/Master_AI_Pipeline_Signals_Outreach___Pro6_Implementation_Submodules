@@ -1,8 +1,10 @@
 # KeenSight — AI signals and outreach source workspace
 
-**Complete consolidated source and documentation from the latest supplied local implementation.** This is not a claim that the full proposed product is implemented or POC-ready.
+**Current repair: collector 0.3.0, canonical reference 4.2.0, and the protocol checker.** The nine POC failures and 16 iteration-2 submodule failures have been repaired. Both audit suites are now mandatory regression gates in `verify`; none of their assertions was removed or marked xfail.
 
-The authoritative code is **collector 0.2.0 + canonical reference 4.2.0 + the protocol checker**. Later audit archives contained the same application source, not additional repairs. This workspace retains that code without changing application behavior, and includes the known-failing acceptance requirements, feature map, user journeys, and full E2E design.
+This is not a claim that the complete product is implemented or production-ready. Live SDK acquisition requires its separate integration gate, browser capture stays disabled, and the persistent collector-to-canonical bridge and engagement runtimes remain unimplemented.
+
+Start with [POC repairs and invocation changes](docs/POC_REPAIRS.md), [current status](STATUS.md), and [remaining work](KNOWN_ISSUES.md).
 
 ## Start here
 
@@ -33,8 +35,8 @@ Output directories must be outside this source tree. Use a fresh output director
 | `implementation/` | Scrapling-first phases, modules/submodules, 38-command traceability, source reuse plan | Implementation handoff |
 | `docs/` | E2E stage cards, 31 offline diagrams, service extraction, class reference, features/journeys | Architecture and review documents |
 | `walkthroughs/` | Eight executable local fixture journeys | Runs commands in separate subprocesses |
-| `audits/iteration2/` | Submodule safety probes and unresolved requirements | Intentionally failing acceptance tests retained |
-| `audits/poc/` | Standard-usage POC probes and repair checklist | Intentionally failing acceptance tests retained |
+| `audits/iteration2/` | Submodule safety probes and unresolved requirements | Historical reproductions; repaired acceptance tests run as regression gates |
+| `audits/poc/` | Standard-usage POC probes and repair checklist | Historical reproductions; repaired acceptance tests run as regression gates |
 | `sources/` | Original 38-command workbook and 52-idea business ledger | Supplied inputs, not verified provider access or performance claims |
 | `tools/` | Workspace launcher and source-integrity checks | Local development tooling only |
 | `provenance/` | Source archive hashes, byte-identical component inventory, path-adaptation log | Reproducible assembly record |
@@ -42,25 +44,18 @@ Output directories must be outside this source tree. Use a fresh output director
 
 There are **no `.gitmodules` Git submodules**: all delivered component code is included in this one repository.
 
-## The defects are included, not hidden
+## Regression gates, including the repaired defects
 
-Passing the existing regression suite does not mean POC sign-off. These independent suites preserve the additional requirements that the current implementation still fails:
+`python tools/workspace.py verify` now runs all component/workspace tests **and both audit suites**. They can also be invoked separately:
 
 ```bash
 python tools/workspace.py audit poc --output ../keensight-poc-audit
 python tools/workspace.py audit iteration2 --output ../keensight-safety-audit
 ```
 
-Both currently return a nonzero exit code. Their failures are not marked xfail, discarded, or included in the successful regression count. Read [KNOWN_ISSUES.md](KNOWN_ISSUES.md) before using the prototype with real data.
+Both now return zero. The original audit reports and their historical output logs remain unchanged, so old reports still show the original failures. Current results and remaining implementation limits are in [STATUS.md](STATUS.md) and [the repair report](verification/POC_REPAIR_VALIDATION.md).
 
-Run observations without asserting those requirements:
-
-```bash
-python tools/workspace.py audit poc --probes-only --output ../keensight-poc-probes
-python tools/workspace.py audit iteration2 --probes-only --output ../keensight-safety-probes
-```
-
-A successful probe process means the probe executed, **not** that the observed system behavior was correct.
+Probe-only commands remain available. A successful probe process means it ran, not that an observed behavior necessarily met its requirement.
 
 ## Actual SDK verification is a separate gate
 
@@ -92,12 +87,13 @@ This fails explicitly when the pinned Scrapling SDK cannot import; it does not s
 ## Source and packaging integrity
 
 ```bash
-python tools/verify_manifest.py --components
 python tools/verify_manifest.py --strict
 ```
 
-`--components` compares imported implementation files with the supplied repaired source. The default manifest compares this complete distributed snapshot. Once you intentionally edit code, an integrity mismatch is expected; this is not a runtime security or authentication system.
+The default manifest covers the current Git-tracked source snapshot, excluding itself. Runtime databases, caches, environments, and archive outputs are not source files and are not included.
 
-Older component READMEs and `docs/history/` preserve their original version narratives and test counts. **This root README, STATUS.md, and the current assembly validation report determine what is delivered now.** In historical audit commands, `baseline/collector`, `baseline/canonical`, etc. refer to the corresponding root directories in this workspace. Use the root launcher for relocated tests.
+`python tools/verify_manifest.py --components` intentionally compares against the **original pre-repair component import** in `provenance/`. It reports changed files after these repairs; this historical comparison is not the current verification gate. Those original manifests are retained rather than rewritten as proof of unchanged source.
 
-No GitHub push or hosted deployment is performed by these commands. See [repository handoff](docs/REPOSITORY_HANDOFF.md) for the optional local Git-bundle workflow.
+Historical component READMEs, audit reports and `docs/history/` preserve earlier results. **The root README, STATUS.md, docs/POC_REPAIRS.md and verification/POC_REPAIR_VALIDATION.md describe this repair.** In archived examples, `baseline/collector` and `baseline/canonical` refer to the corresponding workspace roots; use the root launcher for relocated tests.
+
+The commands above do not deploy services or authorize provider actions. No sender is enabled.

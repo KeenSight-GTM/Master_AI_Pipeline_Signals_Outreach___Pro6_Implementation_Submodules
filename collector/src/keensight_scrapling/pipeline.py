@@ -9,10 +9,11 @@ from .core import ContractError,DependencyUnavailable,CommandResult,identity,utc
 from .urls import normalize_url,origin,link_url
 from .transport import Transport,FetchResult,ScraplingBrowserTransport
 from .storage import Store
+from . import __version__
 from .rules import RulePack,match_pages,MATCH_COMMAND
 from .extraction import extract
 from .claims import observation_candidates,resolve_claims
-from .discovery import robots_policy,sitemap_urls,template_links,canonical_claims,WELL_KNOWN
+from .discovery import robots_policy,sitemap_urls,template_links,canonical_claims,WELL_KNOWN,template_rank
 from .commands import complete_command_manifest
 
 
@@ -29,6 +30,7 @@ class ScanConfig:
     render_empty_shell: bool=False
     source_ttl_seconds: int=2592000
     min_delay_seconds: float=1.0
+    retry_failed: bool=False
 
     def __post_init__(self):
         if not self.tenant_id or not self.subject_id or not self.run_id:
@@ -50,7 +52,8 @@ class Scanner:
 
     def scan(self,url: str,config: ScanConfig) -> dict:
         seed=normalize_url(url); base=origin(seed)
-        cfg={**asdict(config),'seed':seed,'release_digest':self.pack.digest,'code_version':'0.2.0'}
+        cfg={**asdict(config),'seed':seed,'release_digest':self.pack.digest,'code_version':__version__}
+        cfg.pop('retry_failed')  # invocation policy, not a change to the original input identity
         self.store.begin_run(config.tenant_id,config.run_id,cfg)
         commands=[CommandResult('CATALOG_LOAD','COMPLETE',details={'release_digest':self.pack.digest}),
                   CommandResult('NORM_URL','COMPLETE',details={'seed':seed})]
@@ -68,18 +71,20 @@ class Scanner:
                 commands.append(CommandResult(command,'SKIPPED_POLICY',limitations=['RATE_LIMIT_COOLDOWN']))
                 return None
             key=identity('request',target,mode)
-            attempt=self.store.reserve_attempt(config.tenant_id,config.run_id,key,config.max_attempts,{'url':target,'command_id':command,'started_at':self.clock(),'mode':mode})
+            attempt=self.store.reserve_attempt(config.tenant_id,config.run_id,key,config.max_attempts,{'url':target,'command_id':command,'started_at':self.clock(),'mode':mode},retry_failed=config.retry_failed)
+            key=attempt['request_key']
             if not attempt['new']:
                 if attempt['status']=='COMPLETE' and 'capture_id' in attempt['payload']:
                     cap=next((c for c in self.store.captures(config.tenant_id,config.run_id) if c.capture_id==attempt['payload']['capture_id']),None)
                     if cap:
-                        if cap.status_code==429: denied=True
+                        if cap.status_code==429:
+                            dispositions.append({'url':target,'status':'REUSED_FAILED_RESPONSE','reason':'RETRY_REQUIRES_EXPLICIT_POLICY'})
                         allcaps[cap.capture_id]=cap
                         commands.append(CommandResult(command,'REUSED',[cap.capture_id],details={'url':target}))
                         return cap
                 reason='INTERRUPTED_ATTEMPT_NO_BLIND_RETRY' if attempt['status']=='PENDING' else attempt['status']
                 dispositions.append({'url':target,'status':reason})
-                commands.append(CommandResult(command,reason,details={'url':target}))
+                commands.append(CommandResult(command,reason,details={'url':target,'mode':mode}))
                 return None
             try:
                 if not getattr(self.transport,'is_fixture',False):
@@ -121,17 +126,31 @@ class Scanner:
                 dispositions.append({'url':target,'status':'FAILED','reason':reason})
                 return None
         robots_url=base+'/robots.txt'
-        rc=request(robots_url,'FETCH_ROBOTS')
+        # Robots redirects are policy acquisition, not content crawling. Every hop
+        # is still same-origin, budgeted, recorded, and loop-bounded.
+        robots_seen=set();rc=None;robots_target=robots_url
+        for _ in range(6):
+            if robots_target in robots_seen:
+                dispositions.append({'url':robots_target,'status':'REDIRECT_LOOP'});rc=None;break
+            robots_seen.add(robots_target)
+            rc=request(robots_target,'FETCH_ROBOTS')
+            if rc is None or not 300<=rc.status_code<400:break
+            target=link_url(rc.url,rc.headers.get('location',''))
+            if not target or origin(target)!=base:
+                dispositions.append({'url':rc.url,'status':'REDIRECT_OUT_OF_SCOPE'});rc=None;break
+            robots_target=target
+        else:
+            dispositions.append({'url':robots_target,'status':'REDIRECT_LIMIT'});rc=None
         rp,maps,reason=robots_policy(robots_url,rc.status_code,self.store.body(rc),rc.complete) if rc else (None,[],'ROBOTS_UNAVAILABLE_FAIL_CLOSED')
         if rp is None:
             commands.append(CommandResult('FETCH_STATIC','SKIPPED_POLICY',limitations=[reason]))
-            return self.evaluate([],config.run_id,self.clock(),commands,dispositions,list(allcaps.values()))
+            return self.evaluate([],config.run_id,self.clock(),commands,dispositions,list(allcaps.values()),context=(config.tenant_id,config.subject_id,config.run_id))
         crawl_delay=rp.crawl_delay('KeenSightResearch') or rp.crawl_delay('*') or 0
         request_rate=rp.request_rate('KeenSightResearch') or rp.request_rate('*')
         delay=max(delay,crawl_delay,(request_rate.seconds/request_rate.requests) if request_rate and request_rate.requests else 0)
         if delay>60:
             commands.append(CommandResult('FETCH_STATIC','SKIPPED_POLICY',limitations=['ROBOTS_DELAY_EXCEEDS_BATCH_WAIT_POLICY']))
-            return self.evaluate([],config.run_id,self.clock(),commands,dispositions,list(allcaps.values()))
+            return self.evaluate([],config.run_id,self.clock(),commands,dispositions,list(allcaps.values()),context=(config.tenant_id,config.subject_id,config.run_id))
         queue=deque([(seed,'page',0)])
         for u in [*maps,base+'/sitemap.xml']:
             try:
@@ -143,6 +162,11 @@ class Scanner:
         if config.probe_paths: queue.extend((base+p,'probe',0) for p in WELL_KNOWN)
         seen=set();sitemap_count=0
         while queue:
+            # Apply one template priority to every discovered page, independent
+            # of whether it arrived via sitemap, anchor, or a well-known probe.
+            if seen:
+                queue=deque(sorted(queue,key=lambda x:(
+                    0 if x[1]=='page' else 1 if x[1]=='sitemap' else 2,template_rank(x[0]))))
             target,kind,depth=queue.popleft()
             try: target=normalize_url(target)
             except ValueError: continue
@@ -174,6 +198,8 @@ class Scanner:
                     discovered,truncated=sitemap_urls(body,target)
                     queue.extend((u,t,depth+1 if t=='sitemap' else 0) for t,u in discovered)
                     commands[-1].details['declared_url_count']=len(discovered)
+                    commands[-1].details['decode_policy']='bounded-gzip-or-xml-v1'
+                    commands[-1].details['compressed']=body.startswith(b'\x1f\x8b')
                     if truncated: commands[-1].limitations.append('SITEMAP_ENTRY_LIMIT')
                 except ContractError as exc:
                     commands[-1].status='PARTIAL';commands[-1].limitations.append(str(exc))
@@ -193,9 +219,9 @@ class Scanner:
             discovered=template_links([page],seed)
             commands.append(CommandResult('DISCOVER_TEMPLATES','COMPLETE',[cap.capture_id],details={'urls':discovered}))
             queue.extend((u,'page',0) for u in discovered if u not in seen)
-        return self.evaluate(pages,config.run_id,self.clock(),commands,dispositions,list(allcaps.values()))
+        return self.evaluate(pages,config.run_id,self.clock(),commands,dispositions,list(allcaps.values()),context=(config.tenant_id,config.subject_id,config.run_id))
 
-    def evaluate(self,pages,evaluation_id,as_of,commands=None,dispositions=None,captures=None) -> dict:
+    def evaluate(self,pages,evaluation_id,as_of,commands=None,dispositions=None,captures=None,context=None) -> dict:
         pages=list(pages)
         from .standalone import verify_page
         for page in pages:
@@ -203,6 +229,11 @@ class Scanner:
         commands=list(commands or [])
         for p in pages: commands.extend(p.commands)
         caps=captures if captures is not None else [p.capture for p in pages]
+        identities={(c.tenant_id,c.subject_id,c.run_id) for c in caps}
+        if len(identities)>1:raise ContractError('Evaluation spans multiple capture identities')
+        if context is None and identities:context=next(iter(identities))
+        if context is None:raise ContractError('Zero-capture evaluation requires explicit run identity')
+        if identities and identities!={tuple(context)}:raise ContractError('Evaluation context differs from capture')
         if any(instant(c.observed_at)>instant(as_of) for c in caps):
             raise ContractError('Evaluation cutoff precedes an input capture')
         matches,rule_evaluations=match_pages(self.pack,pages,production=self.production)
@@ -212,7 +243,7 @@ class Scanner:
             mids=[m.match_id for m in matches if next(r for r in self.pack.rules if r.rule_id==m.rule_id).operator==operator]
             reports=[r for r in rule_evaluations if next(x for x in self.pack.rules if x.rule_id==r['rule_id']).operator==operator]
             status='FAILED' if any(r['status']=='ERROR' for r in reports) else 'PARTIAL' if any(r['status']=='PARTIAL' for r in reports) else 'SKIPPED' if not pages else 'COMPLETE'
-            commands.append(CommandResult(MATCH_COMMAND[operator],status,input_ids=[p.capture.capture_id for p in pages],output_ids=mids))
+            commands.append(CommandResult(MATCH_COMMAND[operator],status,input_ids=[p.capture.capture_id for p in pages],output_ids=mids,details={'operator':operator}))
         if any(len(r.patterns)>1 for r in self.pack.rules):
             commands.append(CommandResult('MATCH_OR_GROUP','COMPLETE',details={'semantics':'ANY alternative; all matched branches retained'}))
         commands.extend([
@@ -228,7 +259,7 @@ class Scanner:
         score=min(100,10*len(supported)) if not negatives else 0
         commands.append(CommandResult('SCORE_HOST','COMPLETE',details={'policy':'prototype-unique-supported-presence-v1','score':score,'is_probability':False,'calibrated':False}))
         commands.append(CommandResult('EMIT','COMPLETE',details={'kind':'ScanBundle','canonical_fact_admission':'NOT_PERFORMED'}))
-        data={'schema_version':'1.1','producer':'keensight-scrapling-ingestion/0.2.0','evaluation_id':evaluation_id,'as_of':as_of,
+        data={'schema_version':'1.2','tenant_id':context[0],'subject_id':context[1],'capture_run_id':context[2],'producer':f'keensight-scrapling-ingestion/{__version__}','evaluation_id':evaluation_id,'as_of':as_of,
               'release_digest':self.pack.digest,'rule_pack':self.pack.raw,'fixture_only':self.pack.fixture_only,'send_allowed':False,
               'captures':[asdict(c) for c in sorted(caps,key=lambda x:x.capture_id)],
               'evaluated_capture_ids':sorted(p.capture.capture_id for p in pages),
@@ -241,7 +272,7 @@ class Scanner:
         from .validation import validate_bundle
         data=strict_json(canonical(data))
         validate_bundle(data)
-        self.store.publish_evaluation(data,pages,matches,observations,links)
+        self.store.publish_evaluation(data)
         return data
 
     def replay(self,tenant: str,capture_run_id: str,evaluation_id: str,as_of: str) -> dict:

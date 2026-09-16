@@ -1,3 +1,5 @@
+> **Current collector: 0.3.0; ScanBundle 1.2.** The earlier narrative below is historical. See `../docs/POC_REPAIRS.md` for resolved audits, explicit `scan --retry-failed`, `claims --subject`, release-aware `candidates --rules --as-of --include-resolved`, compatibility, and test scope. Native browser remains disabled; actual SDK verification is a separate gate.
+
 > **Review-and-repair 2026-09-15:** This subpackage is patched. Use the package-root README and `verification/REPAIR_REPORT.md` for current status, compatibility, tests, and remaining work. The historical narrative below is retained for context.
 
 # KeenSight Scrapling Ingestion — 0.1.0

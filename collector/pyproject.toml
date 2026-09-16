@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "keensight-scrapling-ingestion"
-version = "0.2.0"
+version = "0.3.0"
 description = "Evidence-preserving Scrapling collector and fingerprint claim deduplication"
 requires-python = ">=3.11"
 dependencies = ["lxml>=5.3,<7", "regex>=2024.11", "defusedxml==0.7.1", "jsonschema>=4.23,<5"]

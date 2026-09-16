@@ -108,7 +108,7 @@ def test_pending_attempt_does_not_silently_repeat(store,pack):
     from dataclasses import asdict
     from keensight_scrapling.core import identity
     cfg=ScanConfig('t','a','r')
-    store.begin_run('t','r',{**asdict(cfg),'seed':ROOT+'/','release_digest':pack.digest,'code_version':'0.2.0'})
+    store.begin_run('t','r',{**asdict(cfg),'seed':ROOT+'/','release_digest':pack.digest,'code_version':__import__('keensight_scrapling').__version__})
     store.reserve_attempt('t','r',identity('request',ROOT+'/robots.txt','RAW_HTML'),8,{'started_at':WHEN})
     t=transport();data=runner(store,pack,t).scan(ROOT,cfg)
     assert not t.calls and not data['observations']

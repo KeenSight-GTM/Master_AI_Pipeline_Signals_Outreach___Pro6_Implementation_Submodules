@@ -5,13 +5,28 @@ sources and approvals are synthetic, and production remains disabled.
 """
 from __future__ import annotations
 from collections import Counter
-from datetime import timedelta
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlsplit
 from jsonschema import Draft7Validator, FormatChecker
 from referencing import Registry, Resource
 from .engine import *
 from .completion import CompletionChecks
+
+STRICT_FORMATS=FormatChecker()
+
+@STRICT_FORMATS.checks("date-time", raises=(ValueError, TypeError))
+def _strict_datetime(value):
+    if not isinstance(value,str): return True
+    parsed=datetime.fromisoformat(value[:-1]+"+00:00" if value.endswith("Z") else value)
+    return parsed.tzinfo is not None
+
+@STRICT_FORMATS.checks("uri", raises=(ValueError, TypeError))
+def _strict_uri(value):
+    if not isinstance(value,str): return True
+    if any(ch.isspace() for ch in value): return False
+    return bool(urlsplit(value).scheme)
 
 REGISTRY_TYPES={'predicates':'PredicateDefinition','metrics':'MetricDefinition','taxonomy':'TaxonomyTerm','coverage':'CoverageFamilyPlan',
  'sources':'SourceDefinition','policies':'DataAccessPolicy','functions':'FunctionDefinition','profiles':'CapabilityProfile',
@@ -55,7 +70,7 @@ class Bundle(CompletionChecks):
         require(key in self.rindex[kind],'DANGLING_'+kind+':'+str(key));return self.rindex[kind][key]
     def shape(self,value,schema):
         s=self.schemas[schema] if isinstance(schema,str) else schema
-        errors=list(Draft7Validator(s,format_checker=FormatChecker(),registry=self.resolver).iter_errors(value))
+        errors=list(Draft7Validator(s,format_checker=STRICT_FORMATS,registry=self.resolver).iter_errors(value))
         require(not errors,'SCHEMA:'+str(schema if isinstance(schema,str) else 'dispatched-value')+':'+('; '.join(e.message for e in errors[:3])))
         self.counts['schema_instances']+=1
     def artifact_lineage(self,aid,seen=None):
@@ -69,6 +84,12 @@ class Bundle(CompletionChecks):
         require(fid not in seen,'PROVENANCE_CYCLE');seen.add(fid)
         f=self.row('facts',fid);e=self.row('evidence',f['evidence_id'])
         roots=set()
+        if f['binding_id']:
+            binding=self.row('bindings',f['binding_id'])
+            require(binding['tenant_id']==f['tenant_id'] and binding['subject_id']==f['subject_id'],'BINDING_LINEAGE_OWNER')
+            for aid in binding['artifact_ids']:roots |= self.artifact_lineage(aid)
+            for lid in binding['evidence_locator_ids']:
+                roots |= self.artifact_lineage(self.row('locators',lid)['artifact_id'])
         for l in e['locator_ids']:roots |= self.artifact_lineage(self.row('locators',l)['artifact_id'])
         for parent in e['input_fact_ids']:roots |= self.roots(parent,seen)
         # Numerator, denominator, exclusions and retained producer inputs all count.
@@ -120,12 +141,9 @@ class Bundle(CompletionChecks):
         if any(c['kind']=='POLICY_REVOCATION' and c['target_id']==pid and instant(c['effective_at'])<=instant(at) for c in self.authorized_changes(at) if c['tenant_id']==tenant):return False
         return p['review_status']=='APPROVED' and purpose in p['purposes'] and instant(p['reviewed_at'])<=instant(at)<instant(p['valid_until']) and (not production or not p['fixture_only'])
     def usable(self,fid,at,*,purpose='INTERNAL_RESEARCH',production=False,allow_absence=False):
-        """Current-use veto; storage of historical/candidate/expired records is allowed."""
+        """Primitive evidence eligibility. Supersession belongs to resolve_claim over an explicit input group."""
         f=self.row('facts',fid)
         if f['state']=='UNKNOWN' or (f['state']=='NOT_FOUND' and not allow_absence):return False
-        for replacement in self.rows['facts']:
-            if replacement['supersedes_fact_id']==fid and replacement['state']!='UNKNOWN' and instant(replacement['recorded_at'])<=instant(at):
-                if self.usable(replacement['fact_id'],at,purpose=purpose,production=production,allow_absence=True):return False
         for change in self.authorized_changes(at):
             if change['tenant_id']!=f['tenant_id']:continue
             if instant(change['effective_at'])<=instant(at) and change['target_id'] in (fid,f['source_id'],f['binding_id']):return False
@@ -222,6 +240,9 @@ class Bundle(CompletionChecks):
             for item in items:self.shape(item,REGISTRY_TYPES[name])
         for name,items in self.rows.items():
             for item in items:self.shape(item,ROW_TYPES[name])
+        # Validate the global relation before any eligibility traversal.
+        stable_order(self.index['facts'],[(f['supersedes_fact_id'],f['fact_id'])
+            for f in self.rows['facts'] if f['supersedes_fact_id']])
         self.validate_completion()
         for p in self.registry['predicates']:
             for key in ['target_schema','value_schema']:Draft7Validator.check_schema(p[key])
@@ -350,7 +371,7 @@ class Bundle(CompletionChecks):
                 require(fid in run['input_fact_ids'] or (f['run_id']==run['run_id'] and f['execution_id'] is not None),'INPUT_OUTSIDE_RUN')
                 if f['execution_id']:
                     pex=self.row('executions',f['execution_id']);require(instant(pex['finished_at'])<=instant(ex['started_at']),'FORWARD_EXECUTION_DEPENDENCY')
-            for aid in ex['input_artifact_ids']:require(aid in run['input_artifact_ids'],'ARTIFACT_OUTSIDE_RUN')
+            for aid in ex['input_artifact_ids']:self.assert_artifact_available(aid,run,ex['started_at'],consumer_id=ex['execution_id'])
             for fid in ex['output_fact_ids']:
                 f=self.row('facts',fid);require(f['execution_id']==ex['execution_id'] and f['subject_id']==ex['subject_id'],'EXECUTION_OUTPUT_LINK')
                 require(f['predicate_id'] in fn['output_predicates'],'UNDECLARED_FUNCTION_OUTPUT')
@@ -401,10 +422,11 @@ class Bundle(CompletionChecks):
             for cid in s['context_ids']:
                 c=self.row('contexts',cid);require(definition['context_allowed'] and c['account_subject_id']==s['subject_id'],'UNDECLARED_SIGNAL_CONTEXT')
             if s['status']=='RESOLVED':
-                for req in definition['required_facts']:
-                    good=[self.row('facts',fid) for fid in s['input_fact_ids'] if self.row('facts',fid)['predicate_id']==req['predicate_id'] and self.row('facts',fid)['state']==req['state'] and self.row('facts',fid)['nature'] in req['allowed_natures'] and self.decision_eligible(fid,run['as_of'],run_id=run['run_id'],allow_absence=req['state']=='NOT_FOUND')]
-                    origins=distinct_origins(self.row('artifacts',a) for f in good for a in self.corroborating_artifacts(f['fact_id']))
-                    require(len(origins)>=req['minimum'],'SIGNAL_REQUIREMENT_UNSATISFIED')
+                verdict=evaluate_requirements(definition,[self.row('facts',fid) for fid in s['input_fact_ids']],
+                    s['subject_id'],run['as_of'],
+                    lambda fid,at,**kw:self.decision_eligible(fid,at,run_id=run['run_id'],**kw),
+                    substantive_origins=lambda fid:distinct_origins(self.row('artifacts',a) for a in self.corroborating_artifacts(fid)))
+                require(verdict=='RESOLVED','SIGNAL_REQUIREMENT_UNSATISFIED')
         for p in self.rows['packages']:
             self.row('subjects',p['subject_id']);run=self.row('runs',p['run_id']);t=self.reg('templates',p['template_id'])
             require(p['tenant_id']==run['tenant_id'],'PACKAGE_TENANT')

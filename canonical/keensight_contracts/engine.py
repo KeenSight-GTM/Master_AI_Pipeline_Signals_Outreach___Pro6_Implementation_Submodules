@@ -83,6 +83,25 @@ def comparable(before: dict,after: dict) -> bool:
 def distinct_origins(artifacts: Iterable[dict]) -> set[tuple]:
     return {(a['origin_namespace'],a['origin_record_id']) for a in artifacts}
 
+def semantic_value(value):
+    """Exact JSON value equality, separate from evidence serialization/hashing.
+
+    Numbers compare as their exact decimal values; booleans never compare as
+    numbers. Units/dimensions/periods remain in the containing typed record/key.
+    No rounding, tolerance, or lossy conversion is applied to source evidence.
+    """
+    from decimal import Decimal
+    if value is None:return ('null',)
+    if isinstance(value,bool):return ('boolean',value)
+    if isinstance(value,(int,float)):
+        number=Decimal(str(value));require(number.is_finite(),'NONFINITE_VALUE')
+        return ('number',number)
+    if isinstance(value,str):return ('string',value)
+    if isinstance(value,(tuple,list)):return ('array',tuple(semantic_value(x) for x in value))
+    if isinstance(value,dict):return ('object',tuple(sorted((k,semantic_value(v)) for k,v in value.items())))
+    raise ContractError('UNSUPPORTED_JSON_VALUE')
+
+
 def resolve_claim(facts: list[dict],as_of: str,eligible) -> dict:
     """Conservative reference: unknowns do not erase known facts; ties abstain.
 
@@ -91,9 +110,11 @@ def resolve_claim(facts: list[dict],as_of: str,eligible) -> dict:
     """
     require(bool(facts),'EMPTY_CLAIM')
     require(len({claim_key(f) for f in facts})==1,'MIXED_CLAIM_IDENTITIES')
+    ids={f['fact_id'] for f in facts}
+    stable_order(ids,[(f['supersedes_fact_id'],f['fact_id']) for f in facts if f['supersedes_fact_id'] in ids])
     removed={f['supersedes_fact_id'] for f in facts if f['supersedes_fact_id'] and f['state']!='UNKNOWN' and eligible(f,as_of)}
     candidates=[f for f in facts if f['fact_id'] not in removed and f['state']!='UNKNOWN' and eligible(f,as_of)]
-    values={canonical((f['state'],f['object'])) for f in candidates}
+    values={semantic_value((f['state'],f['object'])) for f in candidates}
     return {'status':'UNKNOWN' if not values else ('KNOWN' if len(values)==1 else 'CONFLICT'),
             'accepted_fact_ids':sorted(f['fact_id'] for f in candidates) if len(values)==1 else []}
 
@@ -140,12 +161,22 @@ def matches_fingerprint(definition: dict,html: str) -> bool:
     return bool(fingerprint_hosts(definition,html))
 
 
-def evaluate_requirements(definition: dict,facts: list[dict],subject_id: str,as_of: str,eligible) -> str:
-    """Reference AND rule; unknowns/failed checks yield UNRESOLVED, not absence."""
+def evaluate_requirements(definition: dict,facts: list[dict],subject_id: str,as_of: str,eligible,
+                          *,substantive_origins=None) -> str:
+    """AND requirements count substantive origins, never fact rows or model I/O.
+
+    Supply a trusted resolver returning origin namespace/record-ID pairs per fact.
+    Without it, presence can satisfy minimum=1, but independence cannot be proven
+    for higher minima. Duplicate or rephrased facts never manufacture support.
+    """
     for req in definition['required_facts']:
         matching=[f for f in facts if f['subject_id']==subject_id and f['predicate_id']==req['predicate_id'] and
                   f['state']==req['state'] and f['nature'] in req['allowed_natures'] and eligible(f['fact_id'],as_of,allow_absence=req['state']=='NOT_FOUND')]
-        if len(matching)<req['minimum']:return 'UNRESOLVED'
+        if substantive_origins is None:
+            if not matching or req['minimum']>1:return 'UNRESOLVED'
+        else:
+            origins={origin for f in matching for origin in substantive_origins(f['fact_id'])}
+            if len(origins)<req['minimum']:return 'UNRESOLVED'
     return 'RESOLVED'
 
 

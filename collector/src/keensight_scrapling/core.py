@@ -104,6 +104,14 @@ class CommandResult:
     output_ids: list[str] = field(default_factory=list)
     limitations: list[str] = field(default_factory=list)
     details: dict[str, Any] = field(default_factory=dict)
+    execution_id: str | None = None
+    attempt: int = 1
+
+    def __post_init__(self):
+        if self.execution_id is None:
+            self.execution_id = identity('command', self.command_id, sorted(self.input_ids),
+                self.details.get('operator'), self.details.get('url'),
+                self.details.get('mode'), self.attempt)
 
 
 @dataclass
@@ -170,6 +178,12 @@ class ClaimView:
     capture_count: int
     source_group_count: int
     evidence_count: int
+    tenant_id: str = ''
+    subject_id: str = ''
+    scope_id: str = ''
+    origins: list[str] = field(default_factory=list)
+    observed_at: str | None = None
+    expires_at: str | None = None
     confidence: None = None
     confidence_policy: str = "NOT_COMBINED"
 

@@ -28,6 +28,8 @@ def region(node) -> str:
         return 'INERT_TEMPLATE'
     if 'noscript' in tags:
         return 'NOSCRIPT'
+    if 'aside' in tags:
+        return 'ANCILLARY'
     if 'footer' in tags:
         return 'FOOTER'
     if tags & {'header', 'nav'}:
@@ -64,6 +66,14 @@ def extract(capture: Capture, body: bytes, *, max_items: int = 2000, max_text: i
     for el in root.xpath('//base[@href]')[:1]:
         base = link_url(capture.url, el.get('href')) or capture.url
     results = {c: CommandResult(c, 'COMPLETE', [capture.capture_id]) for c in EXTRACTORS}
+    damaging = [e for e in parser.error_log if e.level_name in {'FATAL','ERROR'}
+                and (e.type_name not in {'HTML_UNKNOWN_TAG'} or 'excessive depth' in e.message.lower())]
+    if damaging:
+        for command, result in results.items():
+            if command not in {'EXTRACT_RAW_HTML','EXTRACT_HEADERS'}:
+                result.status = 'PARTIAL'
+                result.limitations.append('PARSER_RECOVERY_LOSS')
+                result.details['parser_errors'] = sorted({e.type_name for e in damaging})
     counts = {c: 0 for c in EXTRACTORS}
     surfaces: list[Surface] = []
 

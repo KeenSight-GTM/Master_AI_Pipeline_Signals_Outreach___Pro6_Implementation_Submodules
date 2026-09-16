@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
 import regex
-from .core import ContractError, Match, PageEvidence, identity, strict_json
+from .core import canonical, ContractError, Match, PageEvidence, identity, strict_json
 from .urls import host_match
 
 OPERATORS = {'contains', 'equals', 'regex', 'host_suffix', 'host_equals', 'footer_literal', 'image_alt'}
@@ -163,7 +163,7 @@ def match_pages(pack: RulePack, pages: list[PageEvidence], *, production: bool =
             for s in page.surfaces:
                 if s.kind not in rule.kinds or (rule.selector and not s.locator.startswith(rule.selector)):
                     continue
-                if rule.predicate=='vendor.present' and s.context in {'FOOTER','NOSCRIPT','INERT_TEMPLATE','INERT_SCRIPT'}:
+                if rule.predicate=='vendor.present' and s.context in {'FOOTER','NOSCRIPT','INERT_TEMPLATE','INERT_SCRIPT','ANCILLARY'}:
                     continue
                 if rule.predicate=='vendor.present' and s.kind=='link_url' and 'stylesheet' not in s.attributes.get('rel','').split():
                     continue
@@ -188,7 +188,7 @@ def match_pages(pack: RulePack, pages: list[PageEvidence], *, production: bool =
             matches = matches[:start]
             found = []
         evaluations.append({'rule_id':rule.rule_id,'status':'ERROR' if errors else 'NOT_EVALUATED' if not pages else 'PARTIAL' if limited else 'MATCH' if found else 'NO_MATCH',
-                            'match_ids':found,'errors':errors,'incomplete_capture_ids':sorted(set(limited)), 'qualification':qualification,
+                            'match_ids':sorted(set(found)),'errors':sorted(errors,key=canonical),'incomplete_capture_ids':sorted(set(limited)), 'qualification':qualification,
                             'absence_fact_emitted':False})
     # Identical alternate patterns cannot create duplicate link rows.
     unique = {m.match_id:m for m in matches}
