@@ -15,16 +15,16 @@ jobs:
       - name: Install deterministic core and reference test dependencies
         run: python -m pip install -r requirements-dev.txt
       - name: Validate contracts, components, and both audit regression suites
-        run: python tools/workspace.py verify --output ../ci-verification
+        run: python tools/workspace.py verify --output "$RUNNER_TEMP/ci-verification"
       - name: Run eight offline journeys
-        run: python tools/workspace.py journeys --output ../ci-journeys
+        run: python tools/workspace.py journeys --output "$RUNNER_TEMP/ci-journeys"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: local-verification
           path: |
-            ../ci-verification
-            ../ci-journeys
+            /home/runner/work/_temp/ci-verification
+            /home/runner/work/_temp/ci-journeys
 
   sdk-smoke:
     runs-on: ubuntu-latest
@@ -37,9 +37,9 @@ jobs:
       - name: Install pinned Scrapling HTTP SDK
         run: python -m pip install -e './collector[live,test]'
       - name: Require actual SDK and run loopback HTTP fixture
-        run: python tools/workspace.py live-check --output ../ci-sdk
+        run: python tools/workspace.py live-check --output "$RUNNER_TEMP/ci-sdk"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: sdk-verification
-          path: ../ci-sdk
+          path: /home/runner/work/_temp/ci-sdk

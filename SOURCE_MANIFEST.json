@@ -1,6 +1,6 @@
 {
-  "snapshot": "2026-09-15-poc-repairs.1",
-  "file_count": 734,
+  "snapshot": "2026-09-16-poc-repairs.2",
+  "file_count": 732,
   "hash_algorithm": "sha256",
   "manifest_excluded_files": [
     "SOURCE_MANIFEST.json"
@@ -8,8 +8,8 @@
   "files": [
     {
       "path": ".github/workflows/local-checks.yml",
-      "bytes": 1438,
-      "sha256": "52312c05e98bda6d30f98f10084668a4092454d16288be0c1d2c9b67f613e09a"
+      "bytes": 1537,
+      "sha256": "268d7065a43cf1ac9df1e0a9c8be42ca17b4695daf7d6671f3fade1a93664d82"
     },
     {
       "path": ".gitignore",
@@ -167,11 +167,6 @@
       "sha256": "e9770d82a3f75d6286789d6d26eb3e6cb7f2a875f2c35049c46fdd316662928a"
     },
     {
-      "path": "audits/iteration2/reports/journey-smoke/demo-store/scanner.sqlite3",
-      "bytes": 126976,
-      "sha256": "cea5924ac20f91ecf10746484a78be630f285415fa8d8843b6cb887e35508e87"
-    },
-    {
       "path": "audits/iteration2/reports/journey-smoke/import-report.json",
       "bytes": 1466,
       "sha256": "9fad7dab8479c723dd9163ffc133be376e4df841a81f015c8bd08c666cd3dfcb"
@@ -190,11 +185,6 @@
       "path": "audits/iteration2/reports/journey-smoke/imported-store/scan-bundle.json",
       "bytes": 44026,
       "sha256": "86ca8f549a728eeba7a91c1d62571b9fa41ee8a78b124a457857e0d0716a310f"
-    },
-    {
-      "path": "audits/iteration2/reports/journey-smoke/imported-store/scanner.sqlite3",
-      "bytes": 98304,
-      "sha256": "c5151d023f061d81ebb689bfd971e0501782469ccbc061e3c29911858065cf53"
     },
     {
       "path": "audits/iteration2/reports/journey-smoke/invocation-results.json",
